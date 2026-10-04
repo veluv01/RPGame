@@ -1,0 +1,252 @@
+[
+  {
+    "sketch": "RPBackgammon",
+    "board": "pizero",
+    "file": "GAMES/BACKGAM.RPG",
+    "title": "Backgammon",
+    "image_bytes": 135168,
+    "payload_crc": "0x62404914",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPBingo",
+    "board": "pizero",
+    "file": "GAMES/BINGO.RPG",
+    "title": "Bingo",
+    "image_bytes": 122880,
+    "payload_crc": "0x6a8edc78",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPBlackjack",
+    "board": "pizero",
+    "file": "GAMES/BLACKJAK.RPG",
+    "title": "Blackjack",
+    "image_bytes": 135168,
+    "payload_crc": "0xe573bf16",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPBoardwalk",
+    "board": "pizero",
+    "file": "GAMES/BOARDWLK.RPG",
+    "title": "Boardwalk",
+    "image_bytes": 135168,
+    "payload_crc": "0x9a3df6a5",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPCheckers",
+    "board": "pizero",
+    "file": "GAMES/CHECKERS.RPG",
+    "title": "Checkers",
+    "image_bytes": 126976,
+    "payload_crc": "0xa0b7217f",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPChess",
+    "board": "pizero",
+    "file": "GAMES/CHESS.RPG",
+    "title": "Chess",
+    "image_bytes": 135168,
+    "payload_crc": "0xacabfc18",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPCraps",
+    "board": "pizero",
+    "file": "GAMES/CRAPS.RPG",
+    "title": "Craps",
+    "image_bytes": 135168,
+    "payload_crc": "0x6eed09f4",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPCrossword",
+    "board": "pizero",
+    "file": "GAMES/CROSSWRD.RPG",
+    "title": "Crossword",
+    "image_bytes": 143360,
+    "payload_crc": "0xb2fe5d6f",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPDominoes",
+    "board": "pizero",
+    "file": "GAMES/DOMINOES.RPG",
+    "title": "Dominoes",
+    "image_bytes": 131072,
+    "payload_crc": "0xaa899bdd",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPFour",
+    "board": "pizero",
+    "file": "GAMES/FOUR.RPG",
+    "title": "Four",
+    "image_bytes": 122880,
+    "payload_crc": "0xced3ef34",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPMahjong",
+    "board": "pizero",
+    "file": "GAMES/MAHJONG.RPG",
+    "title": "Mahjong",
+    "image_bytes": 135168,
+    "payload_crc": "0xf7b85948",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPPoker",
+    "board": "pizero",
+    "file": "GAMES/POKER.RPG",
+    "title": "Poker",
+    "image_bytes": 135168,
+    "payload_crc": "0xdcd6492d",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPRoulette",
+    "board": "pizero",
+    "file": "GAMES/ROULETTE.RPG",
+    "title": "Roulette",
+    "image_bytes": 139264,
+    "payload_crc": "0xbdf08734",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPSlots",
+    "board": "pizero",
+    "file": "GAMES/SLOTS.RPG",
+    "title": "Slots",
+    "image_bytes": 135168,
+    "payload_crc": "0x9a3c3af0",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPSnakes",
+    "board": "pizero",
+    "file": "GAMES/SNAKES.RPG",
+    "title": "Snakes",
+    "image_bytes": 122880,
+    "payload_crc": "0x26b2b2cd",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPSolitaire",
+    "board": "pizero",
+    "file": "GAMES/SOLITARE.RPG",
+    "title": "Solitaire",
+    "image_bytes": 114688,
+    "payload_crc": "0xb98b6a3b",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPTicTacToe",
+    "board": "pizero",
+    "file": "GAMES/TICTACTO.RPG",
+    "title": "TicTacToe",
+    "image_bytes": 135168,
+    "payload_crc": "0xf15ea879",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPWordWheel",
+    "board": "pizero",
+    "file": "GAMES/WORDWHEL.RPG",
+    "title": "WordWheel",
+    "image_bytes": 143360,
+    "payload_crc": "0xe8310845",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPWords",
+    "board": "pizero",
+    "file": "GAMES/WORDS.RPG",
+    "title": "Words",
+    "image_bytes": 143360,
+    "payload_crc": "0x46ba5348",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPYacht",
+    "board": "pizero",
+    "file": "GAMES/YACHT.RPG",
+    "title": "Yacht",
+    "image_bytes": 131072,
+    "payload_crc": "0xac3cdc7e",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "HardwareCheck",
+    "board": "pizero",
+    "file": "GAMES/HWTEST.RPG",
+    "title": "HardwareCheck",
+    "image_bytes": 102400,
+    "payload_crc": "0xdc774cda",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPMultiSprite",
+    "board": "pizero",
+    "file": "GAMES/SPRITES.RPG",
+    "title": "MultiSprite",
+    "image_bytes": 114688,
+    "payload_crc": "0x56e9d13",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPStlView",
+    "board": "pizero",
+    "file": "GAMES/STLVIEW.RPG",
+    "title": "StlView",
+    "image_bytes": 118784,
+    "payload_crc": "0xac61040c",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPFileBrowser",
+    "board": "pizero",
+    "file": "GAMES/BROWSER.RPG",
+    "title": "FileBrowser",
+    "image_bytes": 106496,
+    "payload_crc": "0x7cfe28ac",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  },
+  {
+    "sketch": "RPSDtoUSB",
+    "board": "pizero",
+    "file": "GAMES/SDUSB.RPG",
+    "title": "SDtoUSB",
+    "image_bytes": 122880,
+    "payload_crc": "0x6f0f8e63",
+    "family": "0xe48bff5a",
+    "flash_offset": "0x80000"
+  }
+]
