@@ -1,0 +1,7 @@
+# Chip top (CHBlackjack's chip, captured): w body, u edge marks, s shade, k ink.
+....kkkkkkk....
+kkkkwwwuwwwkkkk
+kwwuwwwwwwwuwwk
+kkkkwwwuwwwkkkk
+.ssukkkkkkkuss.
+..kkkkkkkkkkk..

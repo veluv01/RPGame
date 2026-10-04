@@ -1,0 +1,6 @@
+# The small chip for the layout: top.
+..kkkkkkk..
+.kwwwuwwwk.
+kwuwwwwwuwk
+kssusssussk
+.kkkkkkkkk.

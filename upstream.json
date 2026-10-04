@@ -1,0 +1,38 @@
+[
+  {
+    "project": "CHGfx",
+    "url": "https://github.com/bateske/CHGfx",
+    "commit": "838bbb05a28b5f550b19d9111a9f0458fb331e0e"
+  },
+  {
+    "project": "CH32SerialBoot",
+    "url": "https://github.com/bateske/CH32SerialBoot",
+    "commit": "7623f819b16e091d1fed595746cf2ca5a11a929d"
+  },
+  {
+    "project": "CHMultiSprite",
+    "url": "https://github.com/bateske/CHMultiSprite",
+    "commit": "3e5dd7452ae57b5b20a2a01e99c8c357e350bd4b"
+  },
+  {
+    "project": "CHStlView",
+    "url": "https://github.com/bateske/CHStlView",
+    "commit": "b3d6430d7d2054fe9ba7897f75710bbcec9f10b4"
+  },
+  {
+    "project": "FileBrowser",
+    "url": "https://github.com/bateske/FileBrowser",
+    "commit": "c37df2ca834ba313e16e4b3b06a17efbf9c07b51"
+  },
+  {
+    "project": "CHSDtoUSB",
+    "url": "https://github.com/bateske/CHSDtoUSB",
+    "commit": "379583ecf9a9687fb672e06c46a5cba9f313f87c"
+  },
+  {
+    "project": "CHGame",
+    "url": "https://github.com/bateske/CHGame",
+    "commit": "e876774c3a079b0362e1f0fc8494ade491bdbe29",
+    "scope": "shared game library, CHSd FAT code, twenty games, updated STL/USB app layers and portable tools"
+  }
+]

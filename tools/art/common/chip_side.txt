@@ -1,0 +1,5 @@
+# Chip seen from the side, under another one in a stack.
+k.............k
+kssusssusssussk
+.ssusssusssuss.
+..kkkkkkkkkkk..
