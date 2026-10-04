@@ -1,0 +1,27 @@
+CHYacht
+Copyright 2026 bateske
+
+Yacht Dice for the CHGame handheld, licensed under the Apache License,
+Version 2.0 (see LICENSE).
+
+It contains art and a font from "Blackjack" for the Arduboy by Press Play On
+Tape - Simon Holmes (filmote), code, and Stephane C (vampirics), art:
+
+    https://github.com/Press-Play-On-Tape/Blackjack   (commit 72a6b1b, 2022)
+
+licensed under the Apache License, Version 2.0, by way of CHBlackjack
+(https://github.com/bateske/CHBlackjack, the same author's colour port):
+
+  * The dealer: PPOT's bust and face expressions, recoloured and retouched
+    (the repository's tools/art/common/dealer.png), plus expressions drawn for CHBlackjack.
+    tools/assets.py builds them into src/assets/Assets.cpp from the
+    original's assets/ PNGs.
+  * The 3x5 font (in the CHGame library,
+    platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Draw.cpp, FONT35), extended with a
+    few symbols.
+
+New for this game: the rules, the house's player, the score card, the tray
+and the presentation. The 3D dice and the dice cam come from CHCraps
+(https://github.com/bateske/CHCraps), grown from two dice to five; the
+input, palette, effects, saving, sound and debug code from CHBlackjack,
+CHChess and CHCraps, all by the same author.

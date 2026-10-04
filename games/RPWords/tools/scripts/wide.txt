@@ -1,0 +1,18 @@
+# The widest letters on the tiles: laid out (grey), then played (ivory, the
+# last play gold).
+say G 1 0 3
+wait 30
+say R WARMMOW
+say W 7 5 H WARM
+wait 12
+snap laid
+tap START
+wait 4
+tap A
+wait 60
+snap played
+waitturn 20
+say R WOWMKNV
+say W 5 8 V MOM
+wait 12
+snap crossing

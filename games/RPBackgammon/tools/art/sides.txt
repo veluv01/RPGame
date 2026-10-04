@@ -1,0 +1,22 @@
+# The palette swaps that dress the one checker and the one set of dice as
+# each side. One line per art colour the swap changes: the art colour, then
+# White's colour, then Red's (names as in the CHGame library's
+# chgame/Palette.h). Colours not listed stay as drawn.
+
+[checker]
+WHITE    WHITE    RED
+SKIN     WHITE    SKIN
+SILVER   SILVER   WINE
+BLUE     BLUE     WHITE
+
+# The dice: ivory with ink pips for White, casino red with white pips for Red.
+[die]
+WHITE    WHITE    RED
+SILVER   SILVER   WINE
+NAVY     INK      WHITE
+
+# A die that has been played: greyed out.
+[used]
+WHITE    SILVER   WINE
+SILVER   NAVY     INK
+NAVY     INK      SILVER

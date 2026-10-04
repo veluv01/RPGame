@@ -1,0 +1,48 @@
+# The showpieces as GIFs, kept as a test (the README's picture comes from
+# gameplay.txt): a triple jump, a crowning, the winning blow, a flying king, the CPU.
+gif title 150 2
+# A triple jump.
+say X w...bw.......b........b........b w 1
+wait 40
+tap A
+wait 6
+rec start 2
+tap A
+wait 190
+rec stop combo
+# A crowning.
+say X w...................bw....b....b w 1
+wait 40
+tap A
+wait 6
+rec start 2
+tap A
+wait 150
+rec stop crown
+# The winning blow.
+say X w........w...b.................. w 1
+wait 40
+tap A
+wait 6
+rec start 2
+tap A
+wait 230
+rec stop sweep
+# A flying king (house rules).
+say X Ww.....b.....b.....b...........b w 3
+wait 40
+rec start 2
+tap A
+wait 20
+goto 45
+wait 10
+tap A
+wait 200
+rec stop flying
+# The CPU's turn.
+say G 0 0 1 4 1
+wait 60
+auto 1
+rec start 2
+waitturn 30
+rec stop cpu

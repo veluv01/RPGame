@@ -1,0 +1,36 @@
+# Double 11 into 21, then next hand hit 16 into a bust.
+say J P
+wait 100
+say D 4,44,31,22,9,34
+tap A
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap A
+wait 150
+snap a_dealt
+tap RIGHT
+tap RIGHT
+snap b_double_sel
+tap A
+wait 30
+snap c_doubled
+wait 90
+snap d_dealer
+wait 120
+snap e_end
+say D 9,21,31,46,11
+tap A
+wait 40
+snap f_rebet
+tap A
+wait 150
+snap g_dealt
+tap UP
+wait 18
+snap h_bust
+wait 10
+snap i_bust2
+wait 60
+snap j_after

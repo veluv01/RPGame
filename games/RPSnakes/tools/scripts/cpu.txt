@@ -1,0 +1,13 @@
+# Whole games with nobody at the buttons: four CPUs at ARCADE, two at CLASSIC.
+say G 3 4 2 3 1 3
+wait 2500
+snap arcade_mid
+wait 7000
+snap arcade_end
+board
+say G 3 3 0 0 0 4
+wait 3000
+snap classic_mid
+wait 12000
+snap classic_end
+board

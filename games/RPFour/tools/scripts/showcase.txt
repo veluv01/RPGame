@@ -1,0 +1,35 @@
+# The title, the opening and both endings as separate clips: a smoke test
+# of each (the README's one GIF is gameplay.txt's).
+wait 20
+gif title 60 3
+tap A
+wait 24
+tap A
+wait 30
+rec start 3
+waitturn 20
+col 4
+waitturn 30
+col 3
+waitturn 30
+col 5
+waitturn 60
+rec stop opening
+say M 0 2 0 112233
+wait 20
+waitturn 10
+rec start 3
+col 4
+wait 420
+rec stop youwin
+say M 0 2 0 717263
+wait 20
+waitturn 10
+rec start 3
+col 7
+wait 520
+rec stop hewins
+say M 0 1 0 4435362
+wait 30
+waitturn 10
+snap board

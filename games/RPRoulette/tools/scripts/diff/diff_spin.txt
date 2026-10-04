@@ -1,0 +1,35 @@
+# Differential run (chgame redraw): every frame of the incremental
+# redraw against a forced full redraw. A spin with a straight-up hit (big
+# win), the whip both ways, the payout, then betting again.
+say R 7
+say J P
+label welcome
+wait 120
+label betting
+say W 83 5
+say W 84 5
+say W 155 10
+say W 151 5
+say W 30 5
+wait 20
+# glove to the top row and back (palm over the rail)
+tap UP
+wait 8
+tap UP
+wait 8
+tap UP
+wait 8
+tap DOWN
+wait 8
+tap DOWN
+wait 8
+tap A
+wait 20
+label spin17
+say F 17
+say G 165
+wait 10
+tap A
+wait 700
+label after
+wait 200

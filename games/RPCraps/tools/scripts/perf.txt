@@ -1,0 +1,28 @@
+# Estimated device render cost (simulator, calibrated): title, idle table,
+# a roll's cam, the show.
+cal
+wait 120
+perf title
+say J P
+say E 0 10
+say E 9 12
+say E 13 5
+say E 16 2
+say C 29
+wait 60
+perf
+wait 120
+perf table idle (cursor bob)
+say F 4 3
+hold A
+wait 40
+perf whip + shake
+release
+wait 80
+perf tumble
+wait 70
+perf result + banner
+wait 120
+perf back to the table + show
+wait 200
+perf after

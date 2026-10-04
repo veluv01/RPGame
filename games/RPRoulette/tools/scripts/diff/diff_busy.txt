@@ -1,0 +1,63 @@
+# Differential run: a crowded layout, CLR (stacks fly home), a zero that
+# sweeps everything, a second spin with winners all over, the rebet.
+say R 11
+say J P
+label welcome
+wait 60
+label bets
+say W 83 5
+say W 84 5
+say W 82 5
+say W 59 5
+say W 107 5
+say W 60 5
+say W 58 25
+say W 155 100
+say W 151 50
+say W 147 25
+say W 157 10
+say W 153 10
+say W 1 5
+say W 3 5
+say W 5 5
+say W 7 5
+say W 9 5
+say W 11 5
+say W 121 5
+say W 123 5
+wait 30
+label clr
+say G 159
+wait 6
+tap A
+wait 4
+tap A
+wait 60
+label rebet_by_hand
+say W 83 5
+say W 84 5
+say W 82 5
+say W 59 5
+say W 107 5
+say W 60 5
+say W 155 100
+say W 151 50
+say W 147 25
+say W 157 10
+say W 1 5
+say W 121 5
+wait 20
+label spin0
+say F 0
+say G 165
+wait 6
+tap A
+wait 900
+label spin17
+say F 17
+say G 165
+wait 6
+tap A
+wait 1000
+label after
+wait 120

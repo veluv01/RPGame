@@ -1,0 +1,24 @@
+# House rules: a flying king takes from afar and picks its landing square;
+# men jumping backwards.
+say X Ww.....b.....b.....b...........b w 3
+wait 40
+snap r0_flying
+tap A
+wait 8
+snap r1_landings
+goto 45
+tap A
+wait 30
+snap r2_flight
+wait 150
+snap r3_after
+board
+say X w............bb...w........b...b w 5
+wait 40
+tap A
+wait 8
+snap r4_backjump
+tap A
+wait 120
+snap r5_after
+board

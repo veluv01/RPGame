@@ -1,0 +1,56 @@
+# Estimated device render times for the heavy moments (simulator: host time
+# scaled by the CHGfx benchmark calibration).
+#   chgame run tools/scripts/perf.txt out/perf
+cal
+say R 7
+say J T
+wait 60
+perf
+wait 120
+perf title (the wheel drifting under the menu)
+say U 1 0
+say J P
+wait 200
+perf
+wait 150
+perf toss-up panels turning
+tap A
+wait 60
+say V 1
+wait 10
+perf
+wait 120
+perf solved: cascade, banner, confetti
+say U 0 0
+wait 250
+say F 4
+hold A
+wait 30
+release
+wait 10
+perf
+wait 100
+perf the wheel at speed (blur)
+wait 200
+perf the wheel creeping to a stop (labels)
+wait 100
+say C N
+wait 5
+perf
+wait 100
+perf three panels lighting, the bubble typing
+say F 22
+hold A
+wait 20
+release
+wait 420
+perf
+wait 100
+perf bankrupt: banner and coins over the wheel
+say G 5
+wait 200
+hold A
+wait 20
+release
+wait 300
+perf the bonus wheel

@@ -1,0 +1,16 @@
+# What a redraw costs, by section (RPROF: table board overlays pieces hud
+# fx, in host time scaled to the board's by cal: an estimate).
+cal
+say G 1 0 0 1 1
+wait 60
+say Y
+perf
+tap SELECT
+wait 20
+say Y
+tap SELECT
+wait 20
+say M 18 27
+wait 10
+say Y
+perf

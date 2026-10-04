@@ -1,0 +1,23 @@
+# The screens, and the table at a few moments of a game.
+wait 30
+snap title
+say J S
+wait 12
+snap setup
+say J O
+wait 12
+snap options
+say G 0 2 11 1 100
+wait 40
+snap deal
+waitturn 20
+snap turn1
+auto 3
+waitturn 10
+snap mid1
+auto 4
+waitturn 10
+snap mid2
+auto 6
+waitturn 10
+snap mid3

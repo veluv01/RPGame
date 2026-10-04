@@ -1,0 +1,42 @@
+# Look-dev: the board at each size and in each treatment.
+say G 1 2 2 2 1 5
+wait 30
+say M 0 23
+say M 1 38
+say M 2 61
+say M 3 88
+say V 45 5
+wait 2
+snap zoom5
+say X 3 2 0
+wait 2
+snap zoom5_plain
+say X 11 10 1
+say V 45 5
+wait 2
+snap navy
+say X 1 5 1
+wait 2
+snap white
+say X 4 3 1
+wait 2
+snap light
+say X 3 2 1
+say V 27 10
+wait 2
+snap close27
+say V 99 10
+wait 2
+snap close99
+say V 4 10
+wait 2
+snap close4
+say V 54 10
+wait 2
+snap close54
+say V 45 7
+wait 2
+snap zoom7
+say V 45 8
+wait 2
+snap zoom8

@@ -1,0 +1,129 @@
+# A clip per feature (a test; the README's GIF is gameplay.txt's).
+#   chgame run tools/scripts/showcase.txt out/showcase
+say R 21
+say M 100
+say J T
+wait 20
+gif title 230 3
+# The tables room: the dealer explains, the player browses.
+say J G 0
+rec start 3
+wait 100
+tap RIGHT
+wait 110
+tap RIGHT
+tap RIGHT
+tap RIGHT
+wait 110
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap RIGHT
+wait 110
+rec stop tables
+# CLASSIC: a win, struck through.
+say J P 0
+rec start 3
+wait 50
+say H 1
+tap A
+wait 110
+say H 2
+tap UP
+wait 6
+tap A
+wait 110
+tap DOWN
+wait 6
+tap DOWN
+wait 6
+tap A
+wait 170
+rec stop classic
+# VANISH: the oldest mark goes.
+say J P 4
+rec start 3
+wait 40
+say H 1
+say C 0
+wait 90
+say H 8
+say C 4
+wait 90
+say H 6
+say C 2
+wait 90
+say H 5
+say C 3
+wait 90
+say C 7
+wait 60
+rec stop vanish
+# COIN FLIP.
+say J P 8
+rec start 3
+wait 110
+tap A
+wait 150
+rec stop coin
+# A held X spinning, over an empty pad and then over the dealer's O.
+say J P 0
+wait 40
+say H 8
+tap A
+wait 90
+rec start 1
+wait 24
+tap DOWN
+wait 30
+rec stop spin
+# ULTIMATE.
+say J P 14
+rec start 3
+wait 40
+tap A
+wait 90
+tap A
+wait 90
+tap RIGHT
+tap A
+wait 90
+tap UP
+tap A
+wait 90
+rec stop ultimate
+# THE 99.
+say J P 15
+rec start 3
+wait 40
+tap A
+wait 80
+tap RIGHT
+tap A
+wait 80
+tap RIGHT
+tap A
+wait 80
+tap RIGHT
+tap A
+wait 80
+rec stop the99
+# A cat's game.
+say J P 0
+wait 50
+say H 4
+say C 0
+wait 100
+say H 1
+say C 2
+wait 100
+say H 5
+say C 7
+wait 100
+say H 6
+say C 3
+wait 100
+rec start 3
+say C 8
+wait 190
+rec stop cat

@@ -1,0 +1,14 @@
+223158 checks, 0 failed
+card: none
+  2 checks, 0 failed
+card: fat16
+  7360 checks, 0 failed (279 card reads for a full walk)
+card: fat16, long names, decoys, files in pieces
+  7414 checks, 0 failed (311 card reads for a full walk)
+card: fat16, no partition table
+  7358 checks, 0 failed (278 card reads for a full walk)
+card: no CHCW folder / no packs in it / exFAT / blank
+  3 checks, 0 failed
+  3 checks, 0 failed
+  3 checks, 0 failed
+  3 checks, 0 failed

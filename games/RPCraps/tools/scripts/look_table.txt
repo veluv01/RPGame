@@ -1,0 +1,42 @@
+# Look-dev: the title, both tables with chips on, the cursor, the puck.
+wait 40
+snap a_title
+say J P
+wait 20
+snap b_empty
+say E 0 10
+say E 5 5
+say E 14 5
+say E 18 1
+say E 17 2
+wait 20
+snap c_comeout_bets
+say X 6
+say E 2 50
+say E 8 12
+say E 9 18
+say E 21 5
+say E 6 10
+say E 13 5
+say E 4 5
+wait 30
+snap d_point6
+say C 2
+wait 8
+snap e_cursor_place6
+say C 16
+wait 8
+snap f_cursor_pass
+say C 29
+wait 8
+snap g_cursor_roll
+say J B
+wait 10
+say E 0 10
+say E 5 5
+say X 8
+say E 2 25
+say E 8 12
+say E 9 6
+wait 30
+snap h_beginner

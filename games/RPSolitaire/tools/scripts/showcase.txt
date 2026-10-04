@@ -1,0 +1,51 @@
+# The title, the deck of card backs and the win, each as a GIF: a test of
+# those screens now (the README's one GIF comes from gameplay.txt).
+#   chgame run tools/scripts/showcase.txt out/showcase
+wait 20
+rec start 4
+wait 420
+rec stop title
+
+# The deck of card backs.
+tap RIGHT
+tap A
+wait 30
+rec start 4
+wait 40
+tap RIGHT 6
+wait 30
+tap RIGHT 6
+wait 60
+tap RIGHT 6
+wait 30
+tap DOWN 6
+wait 50
+tap LEFT 6
+wait 50
+tap LEFT 6
+wait 50
+tap DOWN 6
+wait 30
+tap RIGHT 6
+wait 30
+tap RIGHT 6
+wait 60
+rec stop deck
+tap B
+wait 30
+
+# The end of a game: it plays itself out, and the pack bounces away.
+say O 5 0
+say G 11
+waitstate 1 5
+say W 14
+wait 20
+rec start 4
+tap A 4
+wait 2
+tap A 4
+waitstate 3
+wait 1100
+tap A
+wait 150
+rec stop win

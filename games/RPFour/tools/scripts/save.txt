@@ -1,0 +1,32 @@
+# Save and quit, continue, resign; and a column that is full.
+say M 0 1 0 44444
+wait 20
+waitturn 5
+col 4
+waitturn 10
+snap six_in_column
+col 4
+wait 10
+snap full_denied
+tap START
+wait 4
+tap DOWN
+tap DOWN
+wait 4
+snap pause_save
+tap A
+wait 30
+snap title_continue
+tap A
+wait 40
+waitturn 5
+snap continued
+board
+tap START
+wait 4
+tap DOWN
+tap A
+wait 120
+snap resigned
+waitover 10
+snap resigned_result

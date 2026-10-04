@@ -1,0 +1,22 @@
+HOLD'EM     ROOKIE first street: fold 27% check  8% call 59% raise  2% all-in  2%, pots 14 bb
+HOLD'EM     PRO    first street: fold 66% check  6% call 19% raise  6% all-in  0%, pots 12 bb
+HOLD'EM     SHARK  first street: fold 73% check  5% call 10% raise 10% all-in  0%, pots 6 bb
+5 CARD DRAW ROOKIE first street: fold 31% check  8% call 50% raise  9% all-in  0%, pots 14 bb
+5 CARD DRAW PRO    first street: fold 65% check  4% call 14% raise 15% all-in  0%, pots 12 bb
+5 CARD DRAW SHARK  first street: fold 66% check  3% call  9% raise 20% all-in  0%, pots 6 bb
+OMAHA       ROOKIE first street: fold 32% check  9% call 51% raise  6% all-in  0%, pots 14 bb
+OMAHA       PRO    first street: fold 64% check  7% call 20% raise  6% all-in  0%, pots 12 bb
+OMAHA       SHARK  first street: fold 77% check  5% call  9% raise  7% all-in  0%, pots 6 bb
+7 CARD STUD ROOKIE first street: fold 18% check  1% call 76% raise  3% all-in  0%, pots 14 bb
+7 CARD STUD PRO    first street: fold 63% check  0% call 29% raise  7% all-in  0%, pots 12 bb
+7 CARD STUD SHARK  first street: fold 71% check  0% call 15% raise 12% all-in  0%, pots 6 bb
+fuzz HOLD'EM     hands 5100 showdowns 2793 side-pots 375 splits 84 uncontested 2292 all-ins 2810 your raises 5516 folds 669 draws 0 rebuys 357 leaves 1949
+fuzz 5 CARD DRAW hands 5100 showdowns 3011 side-pots 11 splits 1 uncontested 2089 all-ins 20 your raises 4610 folds 1506 draws 8158 rebuys 10 leaves 1930
+fuzz OMAHA       hands 1800 showdowns 865 side-pots 32 splits 19 uncontested 935 all-ins 212 your raises 2049 folds 174 draws 0 rebuys 32 leaves 517
+fuzz 7 CARD STUD hands 5100 showdowns 2867 side-pots 30 splits 0 uncontested 2233 all-ins 51 your raises 7017 folds 1683 draws 0 rebuys 9 leaves 1939
+equity: AA v1 216, AA v3 163, 72o v1 87, Omaha AAKK 183, draw AAA v3 231 (/256)
+124 checks, 0 failures
+/workspace/scratch/2db830fcf25a/RPGame/games/RPPoker/Table.cpp: In member function ‘void Table::update(uint8_t, uint8_t, bool, bool)’:
+/workspace/scratch/2db830fcf25a/RPGame/games/RPPoker/Table.cpp:721:54: warning: enumerated and non-enumerated type in conditional expression [-Wextra]
+  721 |                 thinkT = (uint8_t)(live(YOU) || demo ? base + rand32() % base : P_FOLDED);
+      |                                    ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

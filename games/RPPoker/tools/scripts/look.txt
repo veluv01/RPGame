@@ -1,0 +1,6 @@
+say G 0 0 200 7
+playto 11 60
+snap table
+say J W
+wait 60
+snap won

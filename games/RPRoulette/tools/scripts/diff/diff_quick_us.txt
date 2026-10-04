@@ -1,0 +1,60 @@
+# Differential run on the American wheel at QUICK pace: bets on the top
+# row (the glove's palm over the rail), 00, a straight-up win, fast-forward.
+say R 5
+say J O
+wait 20
+tap RIGHT
+wait 4
+tap DOWN
+wait 4
+tap DOWN
+wait 4
+tap RIGHT
+wait 4
+say J P
+label welcome
+wait 60
+label bets
+say W 145 5
+say W 146 5
+say W 107 25
+say W 155 50
+say W 152 25
+say W 158 25
+say W 129 10
+say W 131 10
+wait 10
+tap UP
+wait 6
+tap UP
+wait 6
+tap LEFT
+wait 6
+tap LEFT
+wait 6
+tap A
+wait 10
+tap RIGHT
+wait 6
+tap RIGHT
+wait 6
+tap RIGHT
+wait 6
+label spin00
+say F 37
+say G 165
+wait 6
+tap A
+wait 400
+label spin36
+say F 36
+say G 165
+wait 6
+tap A
+wait 20
+hold A
+wait 200
+release
+wait 600
+label after
+wait 100

@@ -1,0 +1,9 @@
+Sketch uses 94080 bytes (2%) of program storage space. Maximum is 4186112 bytes.
+Global variables use 41284 bytes (7%) of dynamic memory, leaving 483004 bytes for local variables. Maximum is 524288 bytes.
+/workspace/scratch/2db830fcf25a/RPGame/apps/RPStlView/Browser.cpp: In function 'void browser::listDraw()':
+/workspace/scratch/2db830fcf25a/RPGame/apps/RPStlView/Browser.cpp:235:84: warning: enumerated mismatch in conditional expression: 'agent::<unnamed enum>' vs '<unnamed enum>' [-Wenum-compare]
+  235 |             chip(2, y, 15, e.isDir ? "DIR" : "STL", hi && (t & 8) ? PALE : e.isDir ? LIVE : WIRE_CHIP);
+      |                                                                            ~~~~~~~~^~~~~~~~~~~~~~~~~~
+/workspace/scratch/2db830fcf25a/RPGame/apps/RPStlView/Browser.cpp:236:57: warning: enumerated mismatch in conditional expression: 'agent::<unnamed enum>' vs '<unnamed enum>' [-Wenum-compare]
+  236 |             gfx_text(20, y, e.name, hi ? PALE : e.isDir ? LIVE : WIRE_TEXT);
+      |                                                 ~~~~~~~~^~~~~~~~~~~~~~~~~~

@@ -1,0 +1,9 @@
+# The same chip from straight above (the map, the HUD's tally).
+# Centre: column 4, row 3.
+..kkkkk..
+.kwuwuwk.
+kuwywywuk
+kwwyyywwk
+kuwwwwwuk
+.kwuwuwk.
+..kkkkk..

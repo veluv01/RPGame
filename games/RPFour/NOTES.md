@@ -1,0 +1,59 @@
+# CHFour — development notes
+
+Agent-facing notes for continuing work here; rules and controls are in README.md (its format: docs/game-readme.md at the repository root), the platform in the repo-root CLAUDE.md and docs/.
+
+## Snapshot
+
+- Imported from https://github.com/bateske/CHFour at commit 6c3fd6a (2026-10-01); develop here now, not in the old repo.
+- Release build (`opt=oslto,rtlib=nano,periph=game,usb=uploadonly`, board package 0.3.0, 2026-10-02): flash 36,488 of 50,944 B (14,456 spare), static RAM 16,348 of 18,416 B (2,068 spare). The image (36,832 B) leaves both A/B save pages free with room to spare.
+- Verification: simulator only. `chgame check` passes: host tests (rules against a second implementation, the CPU takes wins, blocks, and its announced forced wins are real; 400 whole games through the game's own calls; save and reload; every dealer line against the speech bubble), every script twice with identical frames, device compile and size.
+- As of 2026-10-01 it has never been uploaded to the device.
+
+## Design decisions
+
+- Name: FOUR IN A ROW. Never "Connect Four" (a Hasbro trademark), in the game or the docs.
+- Modes: 1P vs the dealer (ROOKIE / SHARK / THE BOSS, W-L-D record saved) and 2P pass-and-play. No betting.
+- Opponent: CHBlackjack's dealer sprite, unchanged and not recoloured (`dealer.png` and `faces.png` in the shared `tools/art/common/`, CHBlackjack's files). Rejected: a new villain character.
+- Persona: courteous to the max, professional, a friendly coach. Commentary stays, but specific to the position in front of the player; he congratulates a win and encourages another try after a loss. No taunting. (The villain voice of the first build was rejected.)
+- Ending: whip-zoom on the winning four, then one quiet full-screen scene for both results - gold banner GOOD GAME when the player wins, TRY AGAIN when the player loses - plus his typed line. Rejected as over the top: sunburst, rainbow, confetti.
+- Table: depth plus one interesting ambient element, without going overboard. Kept: marquee bulbs on the rail; a circular green gradient (all the felt shades in rings from the centre). Rejected: a coffee cup, a gold printed circle, any cigarette (CHBlackjack's about-screen smoke was liked, but not with a cigarette).
+- The side stacks are each side's 21 discs and must visibly run down as discs are played.
+
+## Open items
+
+- First device run. Unmeasured on hardware: the CPU's positions per second (it thinks in 5 ms slices; THE BOSS is capped at 30,000 positions), frame times (simulator estimate for the zoomed title was ~10-12 ms, noisy), and the sound. On a debug build, `say W` reports the last choice's positions, depth, score, time and longest slice; `tools/scripts/perf.txt` gives frame times.
+- Awaiting the owner's review: the 98 revised coach lines in `Taunt.cpp`, and the generated disc art (`tools/art/gen/disc.png`, `disc_big.png`).
+- Fixed 2026-10-01 (with the SD game menu, which makes switching games routine): the save magic in `Save.cpp` was `0x47424843`, CHBackgammon's "CHBG" (only the record versions kept them apart); it is now "CHF4" = `0x34464843`, as its comment always said. A save written by an older build is ignored once.
+
+## Gotchas
+
+- CPU slicing differs by target (`Game.cpp`): on the board it searches until `CHF4_AI_SLICE_US` (5,000 us) has passed each tick; in the simulator and host tests it takes a fixed 150 positions so runs repeat exactly. Device runs therefore drift from the simulator's frame timing around CPU turns: expect `chgame check --compare` to differ there, and use `waitturn` rather than fixed waits in scripts.
+- The search keeps its own stack in an array (no second stack, frames never stop); its inner functions run from SRAM (`RAMFUNC(aienter)`, `RAMFUNC(aistep)` in `Ai.cpp`). Nothing in it calls libgcc (a cell's bit is made with a 32-bit shift): keep it that way.
+- The board is two 64-bit bitboards, seven bits a column, after Pascal Pons's solver (acknowledged in NOTICE; the code is this project's own).
+- The source files sit in the sketch's top folder, so the Arduino IDE shows them as tabs (only `src/assets/`, generated, stays below). The rules are `Rules.*`, not `Board.*`: the sketch folder is on the include path, and on a case-insensitive file system (Windows, macOS) a `Board.h` there was what core 0.2.4's `#include <board.h>` (in `wiring.h`) found. The 0.3.0 core includes its own `"board.h"`, but the name stays.
+- Dealer lines (`Taunt.cpp`, a legacy file name; the persona is a coach): at most three rows of twelve characters, checked by the tests. "I SEE A WIN IN N" claims are tested to come true; keep lines tied to what the search and board analysis report.
+- A still screen is not redrawn: `stage::render(frame, ui)` returns false when nothing changed, and the framebuffer is sent again. Anything new drawn over the play scene must change the `ui` signature (or call `stage::invalidate()`), or it will not appear.
+- Disc art is generated by `tools/assets.py` into `tools/art/gen/`; to hand-edit, copy `disc.png` or `disc_big.png` up into `tools/art/`, where a palette-exact, hand-finished copy takes precedence.
+- `CHF4_LEAN` exists but is off: debug builds carry the whole game (there is room).
+- Debug hooks (above the hook in `Screens.cpp`): `G` start, `M` start from a position (`M 0 2 0 4435`), `D` drop in a column, `A` let the SHARK choose (simulator), `W` the CPU's last search, `E` straight to an ending, `J` jump, `H` state. chdrive extras: `col N`, `waitturn`, `waitover`.
+- `chgame test --story 3` narrates a game against each dealer move by move: handy for reviewing his lines in context.
+- Credits are exactly those in NOTICE (Press Play On Tape's dealer and 3x5 font by way of CHBlackjack, plus the Pascal Pons acknowledgement); add no others.
+- The simulator is the repository's `tools/chsim/chsim.py` (shared), the size report its `tools/check_size.py`; per-game tools stay in `tools/`. For host builds set `CHSIM_CXX` or have zig/clang++/g++ on PATH (see root CLAUDE.md).
+- The board may be in use: announce a debug upload and put the release back afterwards.
+
+## Development
+
+Everything can be checked on a PC (Python 3 with Pillow, and a C++ compiler for the host builds: root CLAUDE.md).
+
+    chgame check               # host tests, every script twice, device compile + size
+    chgame test     # the rules, the CPU, whole games, his lines
+    chgame sim
+    chgame run tools/scripts/endings.txt out/endings
+    chgame gif    # tools/scripts/gameplay.txt -> docs/gameplay.gif (the README's one GIF, <= 1 MB)
+    python tools/assets.py              # art -> src/assets (previews in build/assets)
+    chgame upload       # build and upload the release
+    chgame size --top 20
+
+- Scripts: `say M 0 2 0 4435` sets up a position against THE BOSS, `col 4` walks your disc to a column and drops it, `snap` and `rec` take pictures. The same scripts run on the device with a debug build (`chgame run --device SCRIPT OUTDIR`).
+- Art: `sides.txt` (each side's colours) in `tools/art`; `dealer.png` and `faces.png` (the seven expressions, 24x18 each) and `font.txt` in the shared `tools/art/common/` at the repository root (`tools/artlib.py` resolves them; a copy in `tools/art/` would take precedence).
+- The dealer is CHBlackjack's sprite: the body, a face patch, and each other expression as the pixels that differ.

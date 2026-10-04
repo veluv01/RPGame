@@ -1,0 +1,54 @@
+# Single moments as GIFs: title, toss-up, spin, three N's, bankrupt, the
+# bonus round's end. Kept as a test; the README's GIF is gameplay.txt's.
+#   chgame run tools/scripts/showcase.txt out/showcase
+say R 7
+say J T
+wait 30
+gif title 150 3
+# A toss-up: panels turn until someone buzzes in.
+say U 1 0
+say J P
+wait 150
+gif tossup 150 3
+tap A
+wait 40
+say V 1
+wait 200
+# Round 1: spin, call a letter.
+say U 0 0
+wait 260
+say F 4
+hold A
+wait 34
+release
+gif spin 380 3
+wait 20
+say C N
+gif letters 170 3
+# Bankrupt.
+say F 22
+hold A
+wait 20
+release
+wait 40
+gif bankrupt 300 3
+# The bonus round's end.
+say U 2 2
+say G 5
+wait 200
+hold A
+wait 20
+release
+wait 900
+tap A
+wait 12
+tap A
+wait 12
+tap A
+wait 12
+tap A
+wait 330
+tap A
+wait 30
+say V 1
+gif bonus 200 3

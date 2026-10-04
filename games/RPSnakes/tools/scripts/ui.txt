@@ -1,0 +1,44 @@
+# The screens: title, the table, options, pause, the result.
+wait 40
+snap title
+wait 200
+snap title2
+wait 300
+snap title3
+tap DOWN
+tap A
+wait 30
+snap setup
+tap UP
+tap RIGHT
+wait 4
+snap setup_classic
+tap RIGHT
+tap UP
+tap UP
+tap UP
+tap RIGHT
+tap RIGHT
+wait 4
+snap setup_seat
+say J 2
+wait 20
+snap options
+say G 1 3 3 0 1 9
+wait 100
+tap START
+wait 6
+snap pause
+tap START
+say M 0 95
+say M 1 60
+say M 2 44
+wait 30
+say D 5 5
+tap A
+wait 150
+snap win
+wait 200
+snap result
+wait 80
+snap result2

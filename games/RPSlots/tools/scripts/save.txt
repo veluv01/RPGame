@@ -1,0 +1,34 @@
+# Save and continue: the purse, the machine, the bet and the meters come back
+# after a reboot (V); the demo borrows the purse and hands it back.
+say R 3
+say J F
+wait 20
+say M 777
+tap UP
+wait 5
+tap A
+idle 5
+tap A
+idle 5
+say H
+tap START
+wait 5
+tap DOWN
+tap DOWN
+tap DOWN
+snap pause
+tap A
+wait 40
+say V
+wait 30
+snap continue
+say H
+wait 950
+snap demo
+say H
+wait 300
+snap demo2
+tap A
+wait 40
+say H
+snap back

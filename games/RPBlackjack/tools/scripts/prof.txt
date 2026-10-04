@@ -1,0 +1,4 @@
+wait 30
+perf
+wait 60
+prof

@@ -1,0 +1,33 @@
+# On the board: what a frame costs to draw (debug build).
+say G 0 12345
+wait 150
+say Y
+perf (deal in)
+hold RIGHT
+wait 120
+release
+perf turtle: cursor moving
+auto 6
+perf turtle: six pairs taken
+snap turtle
+say G 3 5
+wait 150
+say Y
+hold RIGHT
+wait 120
+release
+perf twins: cursor moving
+say J T
+wait 60
+perf (to the title)
+wait 120
+perf title
+snap title
+# Free-running for a few seconds: frames that came late.
+say G 0 12345
+free 4
+perf turtle idle, free-running
+hold RIGHT
+free 3
+release
+perf turtle cursor moving, free-running

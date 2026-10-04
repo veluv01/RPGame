@@ -1,0 +1,36 @@
+# Saving: play six hands, leave, "power cycle", and the purse and stats are back.
+say $ 500
+say G 0 0 200 31
+playto 13 5
+tap A
+playto 13 5
+tap A
+playto 13 5
+tap A
+playto 13 5
+tap A
+playto 13 5
+tap A
+playto 13 5
+table
+tap START
+wait 5
+tap DOWN
+tap DOWN
+tap DOWN
+tap A
+wait 30
+snap lobby_after
+say Z
+wait 30
+snap title_after_boot
+tap DOWN
+tap DOWN
+tap A
+wait 30
+snap stats_after_boot
+tap B
+wait 20
+tap A
+wait 30
+snap lobby_after_boot

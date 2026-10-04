@@ -1,0 +1,9 @@
+rules: 2000 random boards agree with the grid reference
+cpu: 900 searches; positions visited, mean / most: ROOKIE 13 / 56, SHARK 342 / 3059, BOSS 9340 / 30000
+cpu: 8 forced wins checked against a plain search
+cpu: SHARK v ROOKIE over 40 games: 37 won, 3 lost, 0 drawn
+cpu: BOSS v SHARK over 40 games: 37 won, 0 lost, 3 drawn
+lines: 98, all fit the bubble
+games: 60 played out (RED 12, GOLD 48, drawn 0)
+lines said by kind: 40 24 6 12 22 51 3 38 4 4 13 12 12 12 3 1 59 0 0 6 42 0 12 1 2 26 3 12 12
+all tests passed

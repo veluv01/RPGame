@@ -1,0 +1,9 @@
+# The palette swaps that dress the one disc as each side's. One line per art
+# colour the swap changes: the art colour, then RED's colour, then GOLD's
+# (names as in src/gfx/Palette.h). Colours not listed stay as drawn.
+
+[disc]
+WHITE    RED      GOLD
+SKIN     SKIN     WHITE
+SILVER   WINE     WOOD
+BLUE     WHITE    WHITE

@@ -1,0 +1,22 @@
+# Card back: the robot. 15x21 (the card inside its edge).
+nnnnnnnnnnnnnnn
+nnnnnnnynnnnnnn
+nnnnnnnsnnnnnnn
+nnnnsssssssnnnn
+nnnnswwwwwsnnnn
+nnnnswrwrwsnnnn
+nnnnswwwwwsnnnn
+nnnnswkkkwsnnnn
+nnnnsssssssnnnn
+nnnnnnsssnnnnnn
+nnsssssssssssnn
+nnssscccccsssnn
+nnsnscycrcsnsnn
+nnsnscccccsnsnn
+nnsnsssssssnsnn
+nnynsssssssnynn
+nnnnssnnnssnnnn
+nnnnssnnnssnnnn
+nnnnssnnnssnnnn
+nnnsssnnnsssnnn
+nnnnnnnnnnnnnnn

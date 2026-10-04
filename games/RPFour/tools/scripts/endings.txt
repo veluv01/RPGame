@@ -1,0 +1,46 @@
+# The endings: you win (the close-up, the four lighting up, his congratulations),
+# he wins (he warns you first, then a kind word), and a two-player win.
+say M 0 2 0 112233
+wait 30
+waitturn 5
+col 4
+wait 30
+snap win_hold
+wait 14
+snap win_zoom
+wait 30
+snap win_lit
+wait 60
+snap goodgame1
+wait 40
+snap goodgame2
+wait 60
+snap goodgame3
+waitover 20
+snap win_result
+tap A
+wait 40
+say M 0 2 0 717263
+wait 20
+waitturn 5
+col 7
+wait 50
+snap lose_says
+wait 80
+snap lose_zoom
+wait 70
+snap tryagain1
+wait 50
+snap tryagain2
+waitover 20
+snap lose_result
+tap B
+wait 30
+say M 1 0 0 112233
+wait 20
+waitturn 5
+col 4
+wait 120
+snap p2_lit
+waitover 30
+snap p2_result

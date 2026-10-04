@@ -1,0 +1,57 @@
+# Jail, then a debt that ends the game, and the standings.
+say G 1 3 0 0 30 11
+waitturn 4
+# Three doubles running: off to jail.
+say T 0 18 0
+say D 1 1
+tap A
+waitturn 6
+say T 0 18 0
+say D 1 1
+tap A
+waitturn 6
+snap doubles_again
+say D 3 3
+rec start 3
+tap A
+wait 90
+snap go_to_jail
+waitturn 8
+snap in_jail
+tap RIGHT
+wait 4
+snap jail_bar
+tap A
+wait 30
+rec stop jail
+waitturn 6
+snap paid_out
+# A hotel on Boardwalk, and not enough to cover it.
+say E 37 1 5
+say E 39 1 5
+say E 6 0 2
+say E 8 0 2
+say E 9 0 2
+say E 5 0 0
+say $ 0 60
+say T 0 36 0
+say D 1 2
+board
+rec start 4
+tap A
+wait 150
+snap rent_due
+wait 150
+snap selling
+wait 300
+snap auctioning
+wait 1500
+snap bankrupt
+wait 500
+snap winner
+wait 300
+rec stop bankrupt
+snap result
+tap B
+wait 40
+snap title_again

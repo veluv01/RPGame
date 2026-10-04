@@ -1,0 +1,64 @@
+# The dealer's turn, a party game, and a whole solo game played out by the house.
+say R 777
+say J C
+wait 30
+snap vs_start
+hold A
+wait 30
+release
+idle 10
+snap vs_my_dice
+say G 12
+wait 60
+snap vs_dealer_banner
+wait 60
+snap vs_dealer_shake
+wait 150
+snap vs_dealer_cam
+wait 120
+snap vs_dealer_holds
+idle 20
+snap vs_after_dealer
+say J 4
+wait 30
+say A 1
+idle 0
+wait 40
+snap party_mid
+say A 0
+say J P
+say A 1
+wait 600
+snap solo_mid
+idle 0
+idle 0
+idle 0
+wait 30
+snap solo_done
+wait 100
+snap result_solo
+say A 0
+say J C
+say A 1
+idle 0
+idle 0
+idle 0
+idle 0
+idle 0
+wait 140
+snap result_vs
+say A 0
+say J 3
+say A 1
+idle 0
+idle 0
+idle 0
+idle 0
+idle 0
+idle 0
+idle 0
+wait 140
+snap result_party
+say J L
+wait 90
+snap broke

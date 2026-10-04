@@ -1,0 +1,5007 @@
+# Random presses everywhere, for crashes and simulator BUG reports.
+wait 30
+tap SELECT 3
+wait 23
+tap DOWN 6
+wait 30
+tap RIGHT 6
+wait 29
+tap START 1
+wait 26
+tap RIGHT 2
+wait 20
+tap A 2
+wait 3
+tap DOWN 4
+wait 27
+tap B 4
+wait 17
+tap A 5
+wait 7
+tap A 6
+wait 6
+tap LEFT 3
+wait 5
+tap LEFT 4
+wait 5
+tap LEFT 1
+wait 4
+tap SELECT 5
+wait 14
+tap A 2
+wait 0
+tap A 2
+wait 24
+tap B 2
+wait 27
+tap A 3
+wait 10
+tap B 5
+wait 28
+tap A 6
+wait 6
+tap A 6
+wait 6
+tap LEFT 3
+wait 0
+tap DOWN 4
+wait 5
+tap A 3
+wait 2
+tap DOWN 3
+wait 26
+tap SELECT 5
+wait 0
+tap SELECT 6
+wait 22
+tap DOWN 1
+wait 9
+tap DOWN 3
+wait 15
+tap RIGHT 3
+wait 5
+tap RIGHT 4
+wait 22
+tap A 1
+wait 8
+tap A 6
+wait 11
+tap LEFT 1
+wait 17
+tap LEFT 4
+wait 11
+tap LEFT 5
+wait 26
+tap A 4
+wait 1
+tap RIGHT 2
+wait 19
+tap B 1
+wait 24
+tap B 4
+wait 11
+tap START 3
+wait 28
+tap START 3
+wait 24
+tap RIGHT 1
+wait 18
+tap RIGHT 3
+wait 27
+tap UP 1
+wait 13
+tap A 2
+wait 10
+tap START 5
+wait 11
+tap A 3
+wait 8
+tap RIGHT 5
+wait 2
+tap UP 6
+wait 10
+tap UP 2
+wait 25
+tap A 6
+wait 4
+tap RIGHT 6
+wait 9
+tap RIGHT 2
+wait 23
+tap A 1
+wait 19
+tap START 4
+wait 1
+tap B 6
+wait 19
+tap DOWN 3
+wait 14
+tap A 4
+wait 4
+tap A 6
+wait 1
+tap LEFT 4
+wait 10
+tap B 2
+wait 23
+tap SELECT 2
+wait 20
+tap LEFT 4
+wait 3
+tap A 4
+wait 11
+tap A 1
+wait 27
+tap LEFT 3
+wait 4
+tap RIGHT 5
+wait 27
+tap A 5
+wait 14
+tap RIGHT 6
+wait 23
+tap DOWN 4
+wait 8
+tap UP 4
+wait 12
+tap A 1
+wait 12
+tap START 2
+wait 20
+tap RIGHT 3
+wait 5
+tap A 4
+wait 8
+tap START 5
+wait 27
+tap START 3
+wait 2
+tap LEFT 3
+wait 22
+tap SELECT 6
+wait 1
+tap LEFT 3
+wait 11
+tap START 6
+wait 21
+tap UP 4
+wait 8
+tap LEFT 6
+wait 22
+tap UP 3
+wait 20
+tap A 5
+wait 27
+tap A 4
+wait 17
+tap LEFT 3
+wait 10
+tap A 3
+wait 14
+tap UP 5
+wait 20
+tap A 3
+wait 11
+tap UP 6
+wait 11
+tap RIGHT 4
+wait 11
+tap A 6
+wait 14
+tap DOWN 3
+wait 16
+tap A 5
+wait 5
+tap B 3
+wait 29
+tap RIGHT 3
+wait 22
+tap A 6
+wait 21
+tap RIGHT 4
+wait 5
+tap SELECT 5
+wait 16
+tap A 4
+wait 9
+tap SELECT 5
+wait 24
+tap A 3
+wait 23
+tap A 2
+wait 5
+tap SELECT 4
+wait 19
+tap A 2
+wait 7
+tap LEFT 6
+wait 5
+tap A 6
+wait 1
+tap RIGHT 2
+wait 5
+tap A 2
+wait 3
+tap DOWN 2
+wait 15
+tap B 5
+wait 1
+tap LEFT 4
+wait 11
+tap LEFT 6
+wait 19
+tap A 5
+wait 6
+tap B 6
+wait 28
+tap DOWN 1
+wait 11
+tap LEFT 3
+wait 27
+tap LEFT 1
+wait 22
+tap START 3
+wait 30
+tap A 5
+wait 19
+tap UP 1
+wait 9
+tap START 5
+wait 10
+tap SELECT 3
+wait 30
+tap DOWN 2
+wait 13
+tap LEFT 5
+wait 20
+tap START 3
+wait 14
+tap A 2
+wait 19
+tap LEFT 5
+wait 15
+tap B 2
+wait 19
+tap A 3
+wait 26
+tap A 1
+wait 12
+tap A 3
+wait 18
+tap SELECT 5
+wait 4
+tap DOWN 6
+wait 28
+tap SELECT 4
+wait 13
+tap LEFT 2
+wait 15
+tap UP 4
+wait 22
+tap LEFT 4
+wait 30
+tap A 5
+wait 19
+tap UP 6
+wait 9
+tap RIGHT 3
+wait 13
+tap A 3
+wait 30
+tap UP 4
+wait 29
+tap UP 2
+wait 15
+tap A 1
+wait 21
+tap SELECT 4
+wait 7
+tap UP 1
+wait 25
+tap A 4
+wait 0
+tap RIGHT 5
+wait 17
+tap UP 2
+wait 29
+tap RIGHT 1
+wait 7
+tap RIGHT 3
+wait 27
+tap A 6
+wait 9
+tap UP 4
+wait 19
+tap RIGHT 5
+wait 20
+tap SELECT 6
+wait 28
+tap A 1
+wait 24
+tap A 3
+wait 9
+tap START 6
+wait 10
+tap SELECT 3
+wait 23
+tap START 1
+wait 14
+tap DOWN 3
+wait 21
+tap RIGHT 5
+wait 4
+tap A 1
+wait 8
+tap START 4
+wait 21
+tap A 6
+wait 17
+tap B 1
+wait 13
+tap LEFT 4
+wait 19
+tap SELECT 6
+wait 22
+tap A 6
+wait 15
+tap LEFT 4
+wait 12
+tap A 6
+wait 6
+tap UP 4
+wait 26
+tap LEFT 1
+wait 9
+tap A 6
+wait 24
+tap LEFT 5
+wait 9
+tap A 4
+wait 29
+tap UP 2
+wait 5
+tap RIGHT 6
+wait 17
+tap RIGHT 3
+wait 17
+tap A 4
+wait 18
+tap START 1
+wait 2
+tap RIGHT 2
+wait 8
+tap A 1
+wait 21
+tap A 3
+wait 23
+tap LEFT 1
+wait 12
+tap RIGHT 4
+wait 1
+tap A 1
+wait 7
+tap SELECT 6
+wait 26
+tap A 6
+wait 28
+tap A 3
+wait 22
+tap RIGHT 2
+wait 5
+tap SELECT 2
+wait 13
+tap LEFT 2
+wait 2
+tap SELECT 2
+wait 1
+tap START 1
+wait 21
+tap LEFT 6
+wait 2
+tap UP 1
+wait 18
+tap SELECT 1
+wait 23
+tap LEFT 5
+wait 4
+tap A 4
+wait 2
+tap DOWN 6
+wait 19
+tap RIGHT 4
+wait 11
+tap A 3
+wait 29
+tap A 2
+wait 22
+tap UP 2
+wait 18
+tap A 6
+wait 16
+tap UP 5
+wait 17
+tap SELECT 2
+wait 8
+tap A 5
+wait 7
+tap UP 3
+wait 16
+tap A 2
+wait 27
+tap DOWN 4
+wait 23
+tap LEFT 2
+wait 4
+tap RIGHT 1
+wait 20
+tap DOWN 1
+wait 18
+tap A 1
+wait 2
+tap A 5
+wait 19
+tap RIGHT 2
+wait 12
+tap RIGHT 4
+wait 30
+tap DOWN 1
+wait 25
+tap START 1
+wait 17
+tap RIGHT 4
+wait 1
+tap A 4
+wait 21
+tap LEFT 2
+wait 23
+tap A 1
+wait 29
+tap A 4
+wait 26
+tap B 2
+wait 22
+tap SELECT 4
+wait 11
+tap B 3
+wait 10
+tap SELECT 6
+wait 11
+tap LEFT 4
+wait 12
+tap A 6
+wait 26
+tap DOWN 6
+wait 9
+tap LEFT 6
+wait 13
+tap DOWN 5
+wait 1
+tap SELECT 5
+wait 6
+tap RIGHT 2
+wait 12
+tap A 1
+wait 1
+tap A 2
+wait 6
+tap B 1
+wait 15
+tap RIGHT 6
+wait 24
+tap DOWN 1
+wait 13
+tap RIGHT 3
+wait 28
+tap SELECT 4
+wait 10
+tap RIGHT 4
+wait 3
+tap B 2
+wait 20
+tap A 1
+wait 11
+tap LEFT 4
+wait 4
+snap m250
+tap START 3
+wait 3
+tap UP 2
+wait 24
+tap UP 6
+wait 7
+tap A 4
+wait 28
+tap A 3
+wait 29
+tap LEFT 3
+wait 10
+tap A 6
+wait 0
+tap A 4
+wait 15
+tap A 1
+wait 25
+tap A 3
+wait 9
+tap RIGHT 6
+wait 7
+tap RIGHT 2
+wait 1
+tap B 6
+wait 0
+tap SELECT 2
+wait 21
+tap A 5
+wait 12
+tap RIGHT 3
+wait 21
+tap UP 2
+wait 14
+tap DOWN 3
+wait 2
+tap RIGHT 6
+wait 14
+tap A 2
+wait 5
+tap A 2
+wait 30
+tap A 6
+wait 19
+tap LEFT 6
+wait 8
+tap A 4
+wait 1
+tap RIGHT 6
+wait 13
+tap A 1
+wait 1
+tap START 5
+wait 18
+tap DOWN 1
+wait 22
+tap A 2
+wait 28
+tap LEFT 4
+wait 2
+tap RIGHT 1
+wait 21
+tap B 6
+wait 1
+tap RIGHT 4
+wait 25
+tap A 1
+wait 8
+tap LEFT 4
+wait 9
+tap A 1
+wait 28
+tap A 2
+wait 5
+tap RIGHT 5
+wait 20
+tap LEFT 2
+wait 17
+tap B 1
+wait 29
+tap DOWN 1
+wait 2
+tap START 2
+wait 19
+tap A 6
+wait 6
+tap SELECT 1
+wait 14
+tap START 3
+wait 15
+tap LEFT 5
+wait 24
+tap LEFT 5
+wait 20
+tap A 6
+wait 0
+tap LEFT 3
+wait 22
+tap RIGHT 2
+wait 17
+tap A 2
+wait 9
+tap RIGHT 1
+wait 24
+tap LEFT 3
+wait 26
+tap LEFT 3
+wait 4
+tap A 5
+wait 2
+tap RIGHT 2
+wait 22
+tap A 4
+wait 30
+tap SELECT 6
+wait 7
+tap UP 1
+wait 15
+tap RIGHT 2
+wait 1
+tap RIGHT 2
+wait 25
+tap UP 3
+wait 28
+tap A 1
+wait 13
+tap LEFT 3
+wait 12
+tap LEFT 5
+wait 0
+tap UP 6
+wait 30
+tap LEFT 2
+wait 18
+tap A 4
+wait 4
+tap RIGHT 6
+wait 25
+tap A 6
+wait 1
+tap RIGHT 4
+wait 8
+tap A 4
+wait 17
+tap A 3
+wait 2
+tap UP 2
+wait 4
+tap UP 4
+wait 21
+tap DOWN 3
+wait 1
+tap A 5
+wait 24
+tap RIGHT 5
+wait 0
+tap A 1
+wait 1
+tap A 3
+wait 13
+tap UP 5
+wait 0
+tap B 5
+wait 13
+tap A 3
+wait 6
+tap DOWN 3
+wait 0
+tap A 5
+wait 19
+tap A 6
+wait 3
+tap UP 5
+wait 19
+tap A 6
+wait 22
+tap A 4
+wait 24
+tap LEFT 4
+wait 3
+tap DOWN 3
+wait 14
+tap B 4
+wait 19
+tap LEFT 2
+wait 14
+tap A 6
+wait 29
+tap A 5
+wait 15
+tap RIGHT 5
+wait 0
+tap A 2
+wait 26
+tap LEFT 6
+wait 1
+tap B 1
+wait 1
+tap SELECT 2
+wait 15
+tap RIGHT 3
+wait 12
+tap RIGHT 2
+wait 6
+tap UP 2
+wait 9
+tap START 5
+wait 11
+tap LEFT 2
+wait 11
+tap DOWN 2
+wait 26
+tap A 1
+wait 19
+tap RIGHT 4
+wait 11
+tap A 2
+wait 26
+tap B 4
+wait 12
+tap A 1
+wait 5
+tap LEFT 1
+wait 24
+tap RIGHT 3
+wait 28
+tap B 3
+wait 15
+tap A 4
+wait 27
+tap START 5
+wait 2
+tap LEFT 2
+wait 12
+tap RIGHT 1
+wait 3
+tap START 5
+wait 18
+tap SELECT 2
+wait 26
+tap LEFT 1
+wait 10
+tap A 1
+wait 19
+tap UP 5
+wait 12
+tap START 4
+wait 17
+tap RIGHT 6
+wait 12
+tap RIGHT 5
+wait 29
+tap RIGHT 5
+wait 21
+tap A 5
+wait 4
+tap LEFT 4
+wait 11
+tap SELECT 1
+wait 21
+tap LEFT 5
+wait 6
+tap UP 3
+wait 2
+tap A 1
+wait 24
+tap DOWN 5
+wait 18
+tap LEFT 6
+wait 13
+tap UP 1
+wait 8
+tap RIGHT 2
+wait 2
+tap A 1
+wait 21
+tap UP 3
+wait 22
+tap LEFT 6
+wait 19
+tap SELECT 5
+wait 6
+tap RIGHT 5
+wait 2
+tap A 2
+wait 10
+tap LEFT 5
+wait 13
+tap LEFT 1
+wait 21
+tap LEFT 4
+wait 5
+tap LEFT 6
+wait 16
+tap B 6
+wait 19
+tap DOWN 4
+wait 10
+tap A 6
+wait 28
+tap START 6
+wait 22
+tap DOWN 2
+wait 28
+tap A 2
+wait 9
+tap UP 3
+wait 25
+tap SELECT 1
+wait 28
+tap A 1
+wait 20
+tap LEFT 2
+wait 7
+tap A 1
+wait 18
+tap SELECT 6
+wait 26
+tap A 5
+wait 23
+tap LEFT 4
+wait 7
+tap LEFT 4
+wait 16
+tap SELECT 2
+wait 9
+tap LEFT 3
+wait 2
+tap SELECT 3
+wait 5
+tap LEFT 1
+wait 4
+tap A 3
+wait 18
+tap START 5
+wait 18
+tap A 4
+wait 6
+tap DOWN 5
+wait 3
+tap A 6
+wait 10
+tap RIGHT 1
+wait 1
+tap RIGHT 2
+wait 26
+tap START 1
+wait 10
+tap B 4
+wait 20
+tap LEFT 2
+wait 28
+tap RIGHT 5
+wait 26
+tap LEFT 4
+wait 26
+tap A 1
+wait 6
+tap A 2
+wait 3
+tap A 3
+wait 4
+tap DOWN 5
+wait 24
+tap A 5
+wait 24
+tap RIGHT 6
+wait 10
+tap LEFT 2
+wait 22
+tap START 5
+wait 20
+tap A 3
+wait 3
+tap A 2
+wait 6
+tap DOWN 3
+wait 5
+tap RIGHT 6
+wait 23
+tap LEFT 1
+wait 7
+tap LEFT 5
+wait 14
+tap LEFT 1
+wait 3
+tap SELECT 3
+wait 4
+tap A 1
+wait 15
+tap LEFT 3
+wait 30
+tap RIGHT 1
+wait 15
+tap LEFT 6
+wait 22
+tap UP 1
+wait 3
+tap LEFT 4
+wait 11
+tap LEFT 6
+wait 6
+tap DOWN 4
+wait 4
+tap UP 4
+wait 20
+tap RIGHT 1
+wait 18
+tap A 3
+wait 13
+tap DOWN 1
+wait 16
+tap LEFT 1
+wait 7
+tap LEFT 2
+wait 8
+tap A 6
+wait 2
+tap A 3
+wait 30
+tap A 5
+wait 15
+tap LEFT 2
+wait 17
+tap LEFT 2
+wait 2
+tap RIGHT 3
+wait 4
+tap LEFT 1
+wait 0
+tap LEFT 2
+wait 11
+tap LEFT 1
+wait 0
+tap UP 5
+wait 14
+tap LEFT 5
+wait 2
+tap A 2
+wait 6
+tap LEFT 4
+wait 0
+tap RIGHT 5
+wait 2
+tap UP 5
+wait 30
+tap A 4
+wait 16
+tap A 1
+wait 5
+tap LEFT 5
+wait 13
+tap SELECT 6
+wait 20
+tap SELECT 6
+wait 18
+tap A 2
+wait 0
+tap LEFT 6
+wait 13
+tap LEFT 4
+wait 29
+tap LEFT 1
+wait 26
+tap LEFT 2
+wait 28
+tap DOWN 2
+wait 9
+tap LEFT 2
+wait 13
+tap A 3
+wait 6
+tap LEFT 4
+wait 6
+tap UP 2
+wait 15
+tap DOWN 3
+wait 0
+tap A 6
+wait 3
+tap LEFT 2
+wait 24
+tap RIGHT 1
+wait 2
+tap A 4
+wait 1
+tap LEFT 2
+wait 6
+tap A 1
+wait 23
+tap RIGHT 3
+wait 19
+tap RIGHT 2
+wait 14
+tap B 1
+wait 29
+tap DOWN 5
+wait 0
+tap A 2
+wait 25
+tap LEFT 1
+wait 8
+tap A 6
+wait 11
+tap DOWN 2
+wait 4
+tap UP 5
+wait 28
+tap RIGHT 5
+wait 2
+tap UP 1
+wait 3
+tap A 4
+wait 11
+tap UP 3
+wait 29
+tap RIGHT 5
+wait 18
+tap RIGHT 2
+wait 30
+tap SELECT 2
+wait 8
+tap A 5
+wait 0
+tap RIGHT 4
+wait 4
+tap B 4
+wait 21
+tap RIGHT 1
+wait 0
+tap A 2
+wait 13
+tap B 5
+wait 22
+tap SELECT 2
+wait 25
+tap UP 1
+wait 25
+tap START 2
+wait 1
+tap RIGHT 4
+wait 28
+tap DOWN 1
+wait 17
+tap UP 4
+wait 14
+tap A 6
+wait 3
+tap DOWN 5
+wait 16
+tap UP 6
+wait 18
+tap SELECT 4
+wait 12
+tap UP 2
+wait 18
+tap A 1
+wait 20
+tap RIGHT 1
+wait 23
+tap B 5
+wait 19
+tap LEFT 1
+wait 29
+tap START 3
+wait 26
+tap START 3
+wait 26
+tap LEFT 2
+wait 14
+tap DOWN 1
+wait 15
+tap A 5
+wait 18
+tap B 5
+wait 14
+tap A 1
+wait 23
+tap A 1
+wait 10
+tap A 3
+wait 30
+tap DOWN 3
+wait 26
+tap UP 4
+wait 25
+tap A 6
+wait 3
+tap UP 3
+wait 26
+tap A 6
+wait 8
+tap LEFT 2
+wait 20
+tap LEFT 2
+wait 22
+tap UP 5
+wait 28
+tap RIGHT 2
+wait 19
+tap A 5
+wait 1
+tap RIGHT 3
+wait 17
+tap A 1
+wait 14
+tap A 6
+wait 26
+tap SELECT 4
+wait 21
+tap A 1
+wait 0
+tap SELECT 4
+wait 3
+tap LEFT 6
+wait 16
+tap SELECT 4
+wait 19
+tap SELECT 2
+wait 17
+tap RIGHT 1
+wait 22
+tap A 6
+wait 21
+tap SELECT 1
+wait 1
+tap A 6
+wait 14
+tap UP 6
+wait 16
+tap START 6
+wait 26
+tap A 6
+wait 21
+tap UP 1
+wait 12
+tap LEFT 3
+wait 8
+tap RIGHT 3
+wait 9
+tap A 3
+wait 16
+tap A 4
+wait 14
+tap LEFT 2
+wait 20
+tap B 3
+wait 10
+tap SELECT 2
+wait 14
+tap A 2
+wait 11
+tap A 6
+wait 13
+tap RIGHT 5
+wait 16
+tap A 4
+wait 5
+tap B 2
+wait 29
+tap RIGHT 2
+wait 21
+tap START 4
+wait 29
+tap SELECT 3
+wait 29
+tap A 2
+wait 13
+tap UP 5
+wait 15
+tap START 5
+wait 30
+tap B 5
+wait 7
+tap A 2
+wait 13
+tap START 3
+wait 26
+tap DOWN 3
+wait 19
+tap A 2
+wait 8
+tap LEFT 3
+wait 27
+tap START 3
+wait 15
+tap A 6
+wait 20
+tap A 1
+wait 22
+tap LEFT 1
+wait 10
+tap A 1
+wait 27
+tap A 3
+wait 27
+tap LEFT 5
+wait 5
+tap A 5
+wait 12
+tap A 6
+wait 10
+tap RIGHT 3
+wait 3
+tap LEFT 3
+wait 28
+tap A 3
+wait 2
+tap UP 6
+wait 10
+tap LEFT 4
+wait 2
+tap A 3
+wait 2
+tap A 1
+wait 30
+tap A 6
+wait 28
+tap START 4
+wait 3
+tap RIGHT 4
+wait 2
+tap B 4
+wait 0
+tap SELECT 5
+wait 9
+tap A 1
+wait 21
+tap START 3
+wait 29
+tap DOWN 1
+wait 14
+tap LEFT 1
+wait 5
+tap LEFT 2
+wait 3
+tap SELECT 5
+wait 3
+tap A 6
+wait 21
+tap START 4
+wait 13
+tap A 3
+wait 9
+tap START 4
+wait 26
+tap LEFT 1
+wait 6
+tap START 2
+wait 12
+tap A 6
+wait 5
+tap B 3
+wait 28
+tap LEFT 6
+wait 16
+tap A 2
+wait 9
+tap A 6
+wait 14
+tap UP 4
+wait 17
+tap LEFT 5
+wait 20
+tap START 3
+wait 9
+tap A 6
+wait 20
+tap UP 4
+wait 15
+tap LEFT 6
+wait 19
+tap A 2
+wait 19
+tap B 4
+wait 22
+tap RIGHT 1
+wait 14
+tap B 2
+wait 7
+tap A 6
+wait 2
+tap RIGHT 4
+wait 8
+tap SELECT 4
+wait 27
+tap A 2
+wait 25
+tap RIGHT 4
+wait 3
+tap UP 5
+wait 28
+tap UP 6
+wait 11
+tap RIGHT 1
+wait 17
+tap RIGHT 5
+wait 3
+tap B 1
+wait 10
+tap SELECT 5
+wait 15
+tap A 4
+wait 27
+tap START 5
+wait 9
+tap SELECT 3
+wait 1
+tap UP 2
+wait 16
+tap LEFT 3
+wait 13
+tap DOWN 2
+wait 9
+tap A 2
+wait 24
+tap RIGHT 1
+wait 0
+tap RIGHT 2
+wait 9
+tap LEFT 6
+wait 9
+tap LEFT 5
+wait 21
+tap RIGHT 3
+wait 29
+tap RIGHT 5
+wait 16
+tap DOWN 6
+wait 22
+tap SELECT 1
+wait 5
+tap SELECT 4
+wait 20
+tap A 5
+wait 25
+tap RIGHT 4
+wait 26
+tap DOWN 1
+wait 7
+tap START 1
+wait 15
+tap A 6
+wait 6
+tap A 2
+wait 27
+tap START 2
+wait 21
+tap LEFT 6
+wait 3
+tap LEFT 4
+wait 20
+tap B 6
+wait 8
+tap A 2
+wait 21
+tap B 5
+wait 2
+tap RIGHT 5
+wait 11
+tap LEFT 5
+wait 9
+tap B 6
+wait 3
+tap DOWN 5
+wait 19
+tap START 4
+wait 25
+tap A 6
+wait 1
+tap UP 5
+wait 26
+tap A 2
+wait 13
+tap A 4
+wait 0
+tap B 2
+wait 3
+tap A 4
+wait 28
+tap RIGHT 4
+wait 15
+tap UP 5
+wait 2
+tap A 6
+wait 24
+tap SELECT 5
+wait 14
+tap SELECT 5
+wait 19
+tap RIGHT 5
+wait 6
+tap A 6
+wait 28
+tap RIGHT 5
+wait 6
+tap A 6
+wait 10
+tap B 1
+wait 17
+tap DOWN 1
+wait 5
+tap B 4
+wait 0
+tap A 4
+wait 1
+tap UP 2
+wait 23
+tap LEFT 4
+wait 5
+tap LEFT 1
+wait 28
+tap LEFT 6
+wait 6
+tap B 2
+wait 12
+tap RIGHT 2
+wait 13
+tap A 3
+wait 14
+tap START 2
+wait 22
+tap RIGHT 6
+wait 8
+tap LEFT 1
+wait 27
+tap B 4
+wait 25
+tap LEFT 6
+wait 28
+tap A 5
+wait 28
+tap RIGHT 6
+wait 14
+tap RIGHT 2
+wait 6
+tap DOWN 5
+wait 8
+tap RIGHT 6
+wait 27
+tap LEFT 1
+wait 6
+tap START 2
+wait 11
+tap A 1
+wait 22
+tap SELECT 4
+wait 11
+tap A 6
+wait 9
+tap A 1
+wait 17
+tap A 6
+wait 13
+tap A 6
+wait 0
+tap RIGHT 5
+wait 14
+tap DOWN 6
+wait 29
+tap A 4
+wait 4
+tap DOWN 1
+wait 1
+tap RIGHT 5
+wait 11
+tap LEFT 4
+wait 8
+tap LEFT 5
+wait 14
+tap DOWN 5
+wait 17
+tap LEFT 2
+wait 12
+tap LEFT 5
+wait 14
+tap A 2
+wait 15
+tap UP 1
+wait 26
+tap START 1
+wait 24
+tap START 4
+wait 7
+tap A 6
+wait 20
+tap SELECT 3
+wait 3
+tap A 6
+wait 10
+tap LEFT 2
+wait 10
+tap DOWN 1
+wait 9
+tap A 6
+wait 24
+tap A 5
+wait 28
+tap A 6
+wait 27
+snap m750
+tap A 6
+wait 2
+tap A 4
+wait 16
+tap RIGHT 2
+wait 14
+tap UP 2
+wait 13
+tap UP 5
+wait 14
+tap SELECT 1
+wait 21
+tap START 2
+wait 28
+tap UP 1
+wait 18
+tap UP 1
+wait 29
+tap LEFT 3
+wait 13
+tap A 2
+wait 11
+tap A 4
+wait 2
+tap DOWN 2
+wait 11
+tap A 1
+wait 14
+tap DOWN 1
+wait 26
+tap RIGHT 3
+wait 1
+tap A 4
+wait 22
+tap A 5
+wait 7
+tap UP 3
+wait 8
+tap RIGHT 5
+wait 16
+tap DOWN 5
+wait 16
+tap A 5
+wait 18
+tap RIGHT 4
+wait 21
+tap B 5
+wait 23
+tap LEFT 4
+wait 3
+tap A 1
+wait 14
+tap DOWN 1
+wait 9
+tap LEFT 3
+wait 13
+tap SELECT 5
+wait 3
+tap A 1
+wait 14
+tap A 6
+wait 9
+tap A 5
+wait 3
+tap SELECT 6
+wait 28
+tap A 1
+wait 29
+tap A 3
+wait 20
+tap UP 3
+wait 13
+tap A 2
+wait 1
+tap LEFT 4
+wait 9
+tap A 6
+wait 10
+tap START 6
+wait 16
+tap SELECT 4
+wait 26
+tap RIGHT 5
+wait 14
+tap A 2
+wait 11
+tap RIGHT 3
+wait 27
+tap SELECT 1
+wait 3
+tap RIGHT 3
+wait 11
+tap LEFT 3
+wait 30
+tap A 1
+wait 12
+tap LEFT 4
+wait 8
+tap A 2
+wait 23
+tap LEFT 6
+wait 17
+tap RIGHT 3
+wait 8
+tap A 2
+wait 13
+tap A 6
+wait 12
+tap DOWN 3
+wait 6
+tap SELECT 2
+wait 13
+tap SELECT 5
+wait 14
+tap A 3
+wait 12
+tap A 2
+wait 26
+tap B 6
+wait 12
+tap B 6
+wait 15
+tap SELECT 6
+wait 16
+tap A 1
+wait 24
+tap START 3
+wait 3
+tap DOWN 3
+wait 19
+tap DOWN 2
+wait 27
+tap A 1
+wait 6
+tap RIGHT 1
+wait 8
+tap RIGHT 5
+wait 6
+tap A 2
+wait 10
+tap LEFT 3
+wait 7
+tap DOWN 4
+wait 0
+tap A 6
+wait 3
+tap LEFT 2
+wait 3
+tap RIGHT 3
+wait 3
+tap B 1
+wait 20
+tap A 6
+wait 18
+tap DOWN 3
+wait 8
+tap LEFT 2
+wait 24
+tap UP 3
+wait 2
+tap LEFT 2
+wait 7
+tap RIGHT 4
+wait 26
+tap A 3
+wait 15
+tap B 1
+wait 23
+tap RIGHT 6
+wait 24
+tap START 2
+wait 12
+tap A 5
+wait 3
+tap UP 4
+wait 1
+tap RIGHT 3
+wait 0
+tap RIGHT 2
+wait 3
+tap RIGHT 1
+wait 29
+tap B 3
+wait 11
+tap B 5
+wait 15
+tap A 6
+wait 23
+tap A 5
+wait 30
+tap DOWN 5
+wait 12
+tap DOWN 3
+wait 8
+tap A 2
+wait 27
+tap LEFT 5
+wait 9
+tap RIGHT 2
+wait 21
+tap A 5
+wait 18
+tap B 2
+wait 29
+tap A 5
+wait 9
+tap A 2
+wait 7
+tap B 4
+wait 21
+tap A 5
+wait 6
+tap UP 6
+wait 4
+tap B 2
+wait 3
+tap SELECT 5
+wait 19
+tap RIGHT 6
+wait 19
+tap RIGHT 2
+wait 27
+tap RIGHT 6
+wait 9
+tap RIGHT 3
+wait 2
+tap SELECT 2
+wait 18
+tap RIGHT 5
+wait 20
+tap A 6
+wait 23
+tap A 3
+wait 18
+tap RIGHT 5
+wait 26
+tap A 3
+wait 0
+tap START 2
+wait 19
+tap A 6
+wait 25
+tap UP 4
+wait 8
+tap RIGHT 5
+wait 19
+tap A 3
+wait 4
+tap B 4
+wait 17
+tap START 6
+wait 6
+tap RIGHT 1
+wait 19
+tap A 4
+wait 5
+tap UP 5
+wait 0
+tap B 3
+wait 22
+tap A 3
+wait 12
+tap UP 1
+wait 20
+tap DOWN 3
+wait 22
+tap A 5
+wait 7
+tap A 5
+wait 7
+tap UP 4
+wait 14
+tap LEFT 3
+wait 2
+tap RIGHT 4
+wait 15
+tap A 4
+wait 21
+tap RIGHT 4
+wait 30
+tap START 1
+wait 24
+tap LEFT 5
+wait 19
+tap A 2
+wait 16
+tap LEFT 6
+wait 8
+tap DOWN 5
+wait 21
+tap A 3
+wait 13
+tap SELECT 5
+wait 21
+tap A 2
+wait 29
+tap LEFT 6
+wait 26
+tap RIGHT 6
+wait 29
+tap B 5
+wait 19
+tap LEFT 5
+wait 21
+tap A 3
+wait 24
+tap B 4
+wait 15
+tap RIGHT 5
+wait 27
+tap RIGHT 2
+wait 24
+tap LEFT 4
+wait 15
+tap RIGHT 4
+wait 20
+tap SELECT 2
+wait 7
+tap DOWN 6
+wait 22
+tap B 2
+wait 2
+tap A 4
+wait 20
+tap RIGHT 5
+wait 20
+tap LEFT 1
+wait 27
+tap A 2
+wait 0
+tap RIGHT 6
+wait 19
+tap A 6
+wait 4
+tap A 1
+wait 26
+tap LEFT 1
+wait 26
+tap LEFT 4
+wait 29
+tap A 1
+wait 24
+tap A 3
+wait 25
+tap LEFT 4
+wait 17
+tap A 5
+wait 20
+tap LEFT 3
+wait 22
+tap B 2
+wait 15
+tap START 4
+wait 27
+tap A 5
+wait 10
+tap A 5
+wait 10
+tap A 4
+wait 1
+tap B 2
+wait 17
+tap UP 3
+wait 9
+tap B 6
+wait 7
+tap RIGHT 6
+wait 2
+tap SELECT 4
+wait 28
+tap RIGHT 2
+wait 10
+tap LEFT 3
+wait 6
+tap DOWN 4
+wait 0
+tap DOWN 1
+wait 25
+tap A 2
+wait 10
+tap UP 2
+wait 30
+tap DOWN 2
+wait 9
+tap A 6
+wait 17
+tap RIGHT 3
+wait 3
+tap START 5
+wait 20
+tap UP 1
+wait 4
+tap A 1
+wait 3
+tap RIGHT 3
+wait 24
+tap A 5
+wait 29
+tap B 3
+wait 10
+tap A 1
+wait 13
+tap A 4
+wait 12
+tap A 1
+wait 8
+tap START 6
+wait 12
+tap RIGHT 1
+wait 25
+tap A 1
+wait 10
+tap UP 5
+wait 14
+tap A 6
+wait 29
+tap A 2
+wait 11
+tap START 3
+wait 8
+tap A 4
+wait 13
+tap START 1
+wait 14
+tap RIGHT 3
+wait 23
+tap RIGHT 1
+wait 9
+tap START 1
+wait 7
+tap LEFT 1
+wait 3
+tap SELECT 2
+wait 20
+tap START 5
+wait 12
+tap START 2
+wait 21
+tap A 6
+wait 15
+tap START 5
+wait 11
+tap B 2
+wait 22
+tap A 1
+wait 3
+tap SELECT 4
+wait 13
+tap A 6
+wait 14
+tap DOWN 5
+wait 7
+tap DOWN 4
+wait 8
+tap B 2
+wait 27
+tap RIGHT 4
+wait 8
+tap A 3
+wait 2
+tap SELECT 5
+wait 17
+tap UP 6
+wait 13
+tap A 6
+wait 28
+tap RIGHT 1
+wait 21
+tap A 1
+wait 7
+tap LEFT 5
+wait 26
+tap SELECT 2
+wait 6
+tap DOWN 2
+wait 21
+tap A 5
+wait 13
+tap A 2
+wait 14
+tap A 4
+wait 18
+tap LEFT 2
+wait 14
+tap A 3
+wait 15
+tap A 4
+wait 9
+tap A 4
+wait 10
+tap A 3
+wait 26
+tap SELECT 6
+wait 7
+tap A 5
+wait 8
+tap A 6
+wait 11
+tap UP 6
+wait 16
+tap A 6
+wait 11
+tap DOWN 3
+wait 25
+tap A 2
+wait 12
+tap START 4
+wait 11
+tap SELECT 3
+wait 13
+tap LEFT 2
+wait 19
+tap A 6
+wait 29
+tap A 3
+wait 28
+tap A 1
+wait 24
+tap B 6
+wait 13
+tap LEFT 5
+wait 19
+tap RIGHT 6
+wait 23
+tap A 4
+wait 6
+tap DOWN 2
+wait 12
+tap A 5
+wait 1
+tap LEFT 3
+wait 30
+tap B 3
+wait 5
+tap LEFT 3
+wait 8
+tap LEFT 3
+wait 15
+tap DOWN 2
+wait 7
+tap A 4
+wait 10
+tap B 1
+wait 20
+tap RIGHT 3
+wait 30
+tap UP 1
+wait 9
+tap A 5
+wait 10
+tap START 6
+wait 15
+tap LEFT 6
+wait 5
+tap RIGHT 2
+wait 30
+tap LEFT 4
+wait 25
+tap UP 6
+wait 19
+tap SELECT 1
+wait 25
+tap LEFT 6
+wait 19
+tap B 1
+wait 13
+tap LEFT 2
+wait 16
+tap A 6
+wait 21
+tap SELECT 3
+wait 22
+tap UP 1
+wait 27
+tap A 6
+wait 17
+tap DOWN 4
+wait 21
+tap A 1
+wait 22
+tap START 2
+wait 21
+tap LEFT 2
+wait 22
+tap SELECT 6
+wait 10
+tap UP 6
+wait 28
+tap B 5
+wait 12
+tap RIGHT 2
+wait 4
+tap SELECT 4
+wait 9
+tap SELECT 4
+wait 23
+tap RIGHT 3
+wait 22
+tap UP 3
+wait 10
+tap A 3
+wait 21
+tap LEFT 4
+wait 19
+tap START 6
+wait 7
+tap UP 1
+wait 25
+tap A 1
+wait 18
+tap A 5
+wait 13
+tap A 5
+wait 3
+tap DOWN 2
+wait 15
+tap LEFT 1
+wait 15
+tap SELECT 3
+wait 10
+tap LEFT 6
+wait 18
+tap UP 1
+wait 27
+tap START 6
+wait 20
+tap START 2
+wait 18
+tap SELECT 6
+wait 3
+tap RIGHT 2
+wait 28
+tap RIGHT 1
+wait 11
+tap UP 2
+wait 20
+tap SELECT 6
+wait 7
+tap LEFT 1
+wait 12
+tap A 2
+wait 14
+tap LEFT 1
+wait 6
+tap A 4
+wait 22
+tap A 3
+wait 23
+tap A 1
+wait 18
+tap START 2
+wait 18
+tap SELECT 6
+wait 7
+tap SELECT 6
+wait 28
+tap LEFT 5
+wait 18
+tap RIGHT 3
+wait 3
+tap B 2
+wait 17
+tap RIGHT 5
+wait 11
+tap A 5
+wait 27
+tap RIGHT 1
+wait 20
+tap A 6
+wait 27
+tap LEFT 6
+wait 8
+tap A 6
+wait 1
+tap LEFT 1
+wait 13
+tap A 3
+wait 18
+tap A 4
+wait 20
+tap RIGHT 4
+wait 13
+tap B 3
+wait 26
+tap DOWN 4
+wait 24
+tap A 4
+wait 3
+tap RIGHT 1
+wait 30
+tap START 6
+wait 27
+tap RIGHT 1
+wait 6
+tap A 6
+wait 17
+tap RIGHT 2
+wait 10
+tap DOWN 6
+wait 28
+tap A 4
+wait 2
+tap DOWN 3
+wait 12
+tap A 1
+wait 2
+tap A 1
+wait 2
+tap A 5
+wait 4
+tap A 2
+wait 28
+tap RIGHT 4
+wait 24
+tap DOWN 4
+wait 7
+tap SELECT 3
+wait 6
+tap B 1
+wait 28
+tap A 6
+wait 9
+tap UP 1
+wait 23
+tap LEFT 5
+wait 12
+tap B 5
+wait 10
+tap A 5
+wait 19
+tap A 1
+wait 6
+tap RIGHT 6
+wait 6
+tap A 1
+wait 21
+tap DOWN 3
+wait 15
+tap RIGHT 4
+wait 2
+tap RIGHT 5
+wait 2
+tap A 3
+wait 5
+tap SELECT 5
+wait 1
+tap LEFT 5
+wait 2
+tap A 1
+wait 18
+tap DOWN 1
+wait 26
+tap A 4
+wait 27
+tap A 5
+wait 28
+tap B 5
+wait 14
+tap A 6
+wait 7
+tap LEFT 3
+wait 3
+tap A 1
+wait 22
+tap B 4
+wait 10
+tap UP 2
+wait 11
+tap SELECT 4
+wait 18
+tap B 2
+wait 6
+tap A 2
+wait 3
+tap RIGHT 5
+wait 12
+tap A 4
+wait 0
+tap A 3
+wait 29
+tap SELECT 4
+wait 6
+tap A 2
+wait 0
+tap START 6
+wait 13
+tap A 2
+wait 12
+tap UP 2
+wait 10
+tap START 1
+wait 22
+tap DOWN 3
+wait 6
+tap DOWN 6
+wait 26
+tap START 6
+wait 22
+tap DOWN 2
+wait 24
+tap LEFT 6
+wait 5
+tap RIGHT 2
+wait 25
+tap DOWN 1
+wait 5
+tap A 5
+wait 17
+tap UP 3
+wait 25
+tap A 1
+wait 29
+tap RIGHT 1
+wait 3
+tap START 2
+wait 8
+tap RIGHT 3
+wait 8
+tap A 4
+wait 30
+tap B 6
+wait 29
+tap RIGHT 2
+wait 14
+tap A 5
+wait 5
+tap UP 6
+wait 11
+tap A 2
+wait 22
+tap A 4
+wait 30
+tap A 1
+wait 8
+tap DOWN 4
+wait 7
+tap DOWN 1
+wait 18
+tap A 6
+wait 14
+tap RIGHT 5
+wait 30
+tap DOWN 6
+wait 16
+tap A 5
+wait 3
+tap DOWN 4
+wait 22
+tap RIGHT 4
+wait 30
+tap LEFT 5
+wait 2
+tap SELECT 6
+wait 9
+tap A 5
+wait 15
+tap B 4
+wait 8
+tap A 1
+wait 11
+tap DOWN 4
+wait 26
+tap DOWN 5
+wait 8
+tap B 1
+wait 30
+tap UP 2
+wait 8
+tap A 6
+wait 2
+tap B 1
+wait 5
+tap DOWN 5
+wait 2
+tap A 5
+wait 20
+tap SELECT 3
+wait 23
+tap SELECT 6
+wait 26
+tap UP 6
+wait 13
+tap A 4
+wait 9
+tap LEFT 4
+wait 13
+tap B 6
+wait 29
+tap A 2
+wait 6
+tap SELECT 3
+wait 25
+tap B 5
+wait 7
+tap UP 4
+wait 5
+tap RIGHT 3
+wait 13
+tap LEFT 5
+wait 4
+tap UP 6
+wait 11
+tap A 5
+wait 10
+tap A 6
+wait 12
+tap A 6
+wait 21
+tap A 5
+wait 28
+tap SELECT 5
+wait 12
+tap A 5
+wait 28
+tap START 3
+wait 5
+tap A 5
+wait 20
+tap RIGHT 5
+wait 6
+tap A 4
+wait 15
+tap A 6
+wait 10
+tap DOWN 2
+wait 7
+tap A 4
+wait 17
+tap A 3
+wait 5
+tap RIGHT 1
+wait 13
+tap LEFT 6
+wait 11
+tap SELECT 3
+wait 28
+tap START 2
+wait 17
+tap A 3
+wait 7
+tap A 2
+wait 5
+tap A 6
+wait 21
+tap A 3
+wait 13
+tap RIGHT 6
+wait 14
+tap RIGHT 2
+wait 5
+tap LEFT 5
+wait 1
+tap A 2
+wait 23
+tap LEFT 3
+wait 18
+tap B 1
+wait 24
+tap UP 2
+wait 27
+tap RIGHT 4
+wait 19
+tap SELECT 5
+wait 28
+tap LEFT 6
+wait 0
+tap A 6
+wait 14
+tap UP 6
+wait 26
+tap A 1
+wait 22
+tap RIGHT 3
+wait 20
+tap A 1
+wait 17
+tap RIGHT 2
+wait 25
+tap RIGHT 4
+wait 6
+tap A 6
+wait 29
+tap DOWN 4
+wait 14
+tap A 5
+wait 4
+tap RIGHT 3
+wait 22
+tap A 2
+wait 2
+tap A 1
+wait 21
+tap UP 4
+wait 27
+tap RIGHT 2
+wait 7
+tap LEFT 6
+wait 23
+tap RIGHT 4
+wait 26
+snap m1250
+tap RIGHT 1
+wait 12
+tap RIGHT 3
+wait 10
+tap B 4
+wait 0
+tap LEFT 2
+wait 0
+tap A 3
+wait 11
+tap SELECT 5
+wait 2
+tap RIGHT 6
+wait 17
+tap LEFT 2
+wait 14
+tap A 5
+wait 17
+tap SELECT 6
+wait 26
+tap RIGHT 2
+wait 10
+tap LEFT 4
+wait 12
+tap B 2
+wait 11
+tap LEFT 3
+wait 18
+tap B 2
+wait 15
+tap START 6
+wait 2
+tap DOWN 6
+wait 17
+tap LEFT 5
+wait 26
+tap UP 2
+wait 17
+tap UP 6
+wait 22
+tap DOWN 3
+wait 11
+tap A 5
+wait 18
+tap DOWN 2
+wait 21
+tap A 4
+wait 4
+tap LEFT 6
+wait 12
+tap SELECT 3
+wait 28
+tap A 1
+wait 10
+tap DOWN 2
+wait 4
+tap DOWN 4
+wait 24
+tap B 3
+wait 28
+tap LEFT 2
+wait 7
+tap SELECT 3
+wait 30
+tap RIGHT 2
+wait 16
+tap B 6
+wait 12
+tap A 1
+wait 25
+tap A 6
+wait 19
+tap START 3
+wait 13
+tap A 1
+wait 21
+tap A 3
+wait 26
+tap LEFT 5
+wait 10
+tap A 4
+wait 6
+tap RIGHT 1
+wait 22
+tap RIGHT 3
+wait 26
+tap A 5
+wait 11
+tap LEFT 1
+wait 5
+tap UP 3
+wait 28
+tap RIGHT 1
+wait 27
+tap A 2
+wait 18
+tap A 1
+wait 0
+tap A 3
+wait 19
+tap RIGHT 4
+wait 14
+tap START 6
+wait 8
+tap START 5
+wait 11
+tap LEFT 4
+wait 29
+tap A 3
+wait 23
+tap A 2
+wait 6
+tap LEFT 5
+wait 11
+tap RIGHT 1
+wait 24
+tap B 2
+wait 18
+tap A 2
+wait 8
+tap A 6
+wait 24
+tap START 3
+wait 27
+tap LEFT 6
+wait 30
+tap UP 1
+wait 14
+tap A 2
+wait 9
+tap A 3
+wait 7
+tap SELECT 2
+wait 23
+tap RIGHT 6
+wait 5
+tap B 6
+wait 18
+tap SELECT 5
+wait 15
+tap LEFT 4
+wait 16
+tap RIGHT 2
+wait 7
+tap B 5
+wait 25
+tap LEFT 2
+wait 23
+tap LEFT 5
+wait 26
+tap LEFT 3
+wait 17
+tap START 2
+wait 28
+tap DOWN 5
+wait 29
+tap LEFT 5
+wait 5
+tap A 6
+wait 5
+tap SELECT 6
+wait 9
+tap RIGHT 4
+wait 1
+tap A 3
+wait 19
+tap UP 4
+wait 9
+tap A 1
+wait 25
+tap A 6
+wait 2
+tap RIGHT 2
+wait 6
+tap B 4
+wait 28
+tap UP 2
+wait 5
+tap LEFT 2
+wait 6
+tap DOWN 2
+wait 12
+tap RIGHT 1
+wait 11
+tap A 1
+wait 20
+tap A 6
+wait 20
+tap DOWN 6
+wait 19
+tap LEFT 2
+wait 13
+tap A 2
+wait 25
+tap A 5
+wait 16
+tap SELECT 1
+wait 14
+tap UP 2
+wait 13
+tap RIGHT 1
+wait 24
+tap A 2
+wait 30
+tap SELECT 6
+wait 22
+tap START 2
+wait 22
+tap A 6
+wait 30
+tap LEFT 2
+wait 12
+tap LEFT 4
+wait 4
+tap A 4
+wait 20
+tap SELECT 3
+wait 0
+tap RIGHT 3
+wait 8
+tap RIGHT 6
+wait 9
+tap START 4
+wait 18
+tap A 1
+wait 17
+tap LEFT 5
+wait 24
+tap DOWN 3
+wait 10
+tap RIGHT 1
+wait 3
+tap A 5
+wait 30
+tap DOWN 4
+wait 29
+tap UP 2
+wait 2
+tap A 4
+wait 6
+tap B 5
+wait 5
+tap DOWN 1
+wait 0
+tap A 1
+wait 22
+tap A 3
+wait 28
+tap UP 4
+wait 9
+tap A 1
+wait 13
+tap SELECT 5
+wait 10
+tap A 5
+wait 17
+tap A 1
+wait 0
+tap UP 3
+wait 22
+tap RIGHT 2
+wait 29
+tap LEFT 3
+wait 30
+tap SELECT 3
+wait 11
+tap A 5
+wait 7
+tap LEFT 3
+wait 5
+tap A 4
+wait 30
+tap B 5
+wait 27
+tap B 5
+wait 15
+tap UP 3
+wait 14
+tap RIGHT 5
+wait 19
+tap LEFT 3
+wait 22
+tap UP 5
+wait 9
+tap LEFT 3
+wait 16
+tap SELECT 2
+wait 24
+tap A 3
+wait 30
+tap B 4
+wait 6
+tap RIGHT 6
+wait 1
+tap UP 3
+wait 28
+tap SELECT 5
+wait 15
+tap DOWN 6
+wait 14
+tap SELECT 6
+wait 29
+tap START 4
+wait 25
+tap SELECT 6
+wait 8
+tap START 6
+wait 16
+tap LEFT 5
+wait 22
+tap UP 3
+wait 28
+tap A 2
+wait 22
+tap RIGHT 6
+wait 15
+tap DOWN 1
+wait 1
+tap A 3
+wait 14
+tap A 4
+wait 27
+tap A 5
+wait 30
+tap UP 2
+wait 3
+tap A 2
+wait 13
+tap LEFT 6
+wait 6
+tap DOWN 3
+wait 23
+tap A 4
+wait 29
+tap LEFT 2
+wait 21
+tap B 3
+wait 19
+tap A 6
+wait 26
+tap A 5
+wait 18
+tap A 5
+wait 21
+tap START 5
+wait 16
+tap RIGHT 6
+wait 26
+tap LEFT 4
+wait 10
+tap A 5
+wait 15
+tap A 2
+wait 20
+tap RIGHT 1
+wait 23
+tap A 6
+wait 23
+tap DOWN 6
+wait 23
+tap DOWN 6
+wait 26
+tap A 2
+wait 3
+tap START 4
+wait 5
+tap START 2
+wait 16
+tap A 4
+wait 20
+tap RIGHT 1
+wait 26
+tap START 5
+wait 23
+tap RIGHT 5
+wait 7
+tap DOWN 1
+wait 1
+tap B 1
+wait 5
+tap RIGHT 1
+wait 12
+tap RIGHT 1
+wait 10
+tap SELECT 2
+wait 21
+tap LEFT 2
+wait 18
+tap UP 2
+wait 6
+tap B 4
+wait 19
+tap START 4
+wait 30
+tap A 4
+wait 12
+tap LEFT 5
+wait 6
+tap A 6
+wait 27
+tap A 6
+wait 13
+tap A 5
+wait 19
+tap A 6
+wait 12
+tap LEFT 1
+wait 6
+tap RIGHT 6
+wait 19
+tap UP 4
+wait 8
+tap START 3
+wait 10
+tap A 6
+wait 20
+tap A 5
+wait 18
+tap RIGHT 4
+wait 24
+tap A 2
+wait 3
+tap SELECT 5
+wait 19
+tap DOWN 1
+wait 4
+tap SELECT 1
+wait 19
+tap A 5
+wait 23
+tap A 4
+wait 24
+tap A 6
+wait 9
+tap A 3
+wait 18
+tap UP 1
+wait 27
+tap UP 3
+wait 23
+tap RIGHT 3
+wait 16
+tap RIGHT 4
+wait 3
+tap A 5
+wait 28
+tap UP 3
+wait 24
+tap START 4
+wait 9
+tap RIGHT 1
+wait 29
+tap A 5
+wait 15
+tap A 3
+wait 5
+tap RIGHT 3
+wait 18
+tap UP 3
+wait 24
+tap LEFT 1
+wait 17
+tap LEFT 2
+wait 12
+tap A 4
+wait 22
+tap A 6
+wait 1
+tap LEFT 4
+wait 28
+tap LEFT 1
+wait 9
+tap DOWN 1
+wait 26
+tap A 1
+wait 23
+tap A 3
+wait 11
+tap DOWN 5
+wait 16
+tap LEFT 1
+wait 4
+tap B 3
+wait 11
+tap SELECT 2
+wait 29
+tap A 6
+wait 18
+tap LEFT 2
+wait 2
+tap LEFT 3
+wait 30
+tap DOWN 1
+wait 1
+tap DOWN 1
+wait 3
+tap A 3
+wait 4
+tap A 2
+wait 25
+tap A 6
+wait 9
+tap RIGHT 2
+wait 26
+tap B 1
+wait 0
+tap LEFT 4
+wait 8
+tap LEFT 1
+wait 23
+tap RIGHT 5
+wait 4
+tap SELECT 5
+wait 28
+tap A 5
+wait 5
+tap A 6
+wait 27
+tap A 6
+wait 24
+tap A 3
+wait 29
+tap LEFT 3
+wait 28
+tap RIGHT 2
+wait 15
+tap RIGHT 2
+wait 5
+tap RIGHT 4
+wait 8
+tap A 5
+wait 12
+tap START 4
+wait 22
+tap START 3
+wait 27
+tap SELECT 6
+wait 6
+tap A 5
+wait 1
+tap B 6
+wait 6
+tap START 3
+wait 16
+tap A 1
+wait 9
+tap A 5
+wait 19
+tap B 5
+wait 3
+tap LEFT 1
+wait 9
+tap A 2
+wait 0
+tap LEFT 6
+wait 2
+tap LEFT 5
+wait 30
+tap DOWN 5
+wait 16
+tap A 1
+wait 30
+tap A 4
+wait 26
+tap RIGHT 5
+wait 20
+tap A 5
+wait 9
+tap START 5
+wait 22
+tap A 6
+wait 29
+tap RIGHT 5
+wait 22
+tap A 2
+wait 27
+tap SELECT 3
+wait 6
+tap RIGHT 6
+wait 30
+tap SELECT 3
+wait 28
+tap RIGHT 3
+wait 22
+tap UP 5
+wait 17
+tap B 4
+wait 22
+tap B 4
+wait 7
+tap B 3
+wait 3
+tap A 5
+wait 8
+tap A 1
+wait 27
+tap RIGHT 5
+wait 11
+tap LEFT 4
+wait 10
+tap A 3
+wait 5
+tap RIGHT 3
+wait 10
+tap SELECT 2
+wait 18
+tap LEFT 1
+wait 9
+tap SELECT 1
+wait 13
+tap A 1
+wait 9
+tap LEFT 6
+wait 29
+tap LEFT 4
+wait 14
+tap LEFT 5
+wait 4
+tap RIGHT 2
+wait 4
+tap A 2
+wait 28
+tap LEFT 2
+wait 28
+tap START 5
+wait 15
+tap UP 1
+wait 9
+tap A 4
+wait 21
+tap A 1
+wait 30
+tap RIGHT 2
+wait 7
+tap A 3
+wait 0
+tap A 3
+wait 21
+tap A 5
+wait 4
+tap RIGHT 3
+wait 8
+tap A 6
+wait 1
+tap B 5
+wait 0
+tap UP 1
+wait 3
+tap A 5
+wait 14
+tap DOWN 2
+wait 10
+tap A 6
+wait 10
+tap DOWN 5
+wait 5
+tap LEFT 6
+wait 21
+tap DOWN 1
+wait 17
+tap RIGHT 2
+wait 5
+tap START 6
+wait 1
+tap A 6
+wait 18
+tap A 4
+wait 9
+tap LEFT 5
+wait 23
+tap SELECT 5
+wait 22
+tap LEFT 4
+wait 12
+tap LEFT 3
+wait 23
+tap A 5
+wait 10
+tap B 2
+wait 14
+tap B 4
+wait 9
+tap A 6
+wait 19
+tap A 5
+wait 29
+tap A 4
+wait 22
+tap RIGHT 5
+wait 3
+tap SELECT 3
+wait 2
+tap RIGHT 4
+wait 20
+tap LEFT 1
+wait 2
+tap A 3
+wait 9
+tap RIGHT 3
+wait 0
+tap A 4
+wait 27
+tap A 1
+wait 14
+tap RIGHT 5
+wait 26
+tap B 2
+wait 6
+tap RIGHT 6
+wait 29
+tap A 5
+wait 16
+tap DOWN 4
+wait 17
+tap DOWN 2
+wait 16
+tap A 6
+wait 27
+tap UP 5
+wait 8
+tap A 6
+wait 19
+tap A 2
+wait 20
+tap DOWN 1
+wait 18
+tap LEFT 5
+wait 24
+tap A 3
+wait 29
+tap SELECT 3
+wait 18
+tap DOWN 3
+wait 24
+tap DOWN 4
+wait 16
+tap LEFT 2
+wait 26
+tap LEFT 3
+wait 23
+tap SELECT 5
+wait 30
+tap RIGHT 1
+wait 12
+tap A 6
+wait 27
+tap A 5
+wait 17
+tap LEFT 1
+wait 14
+tap A 2
+wait 3
+tap DOWN 4
+wait 24
+tap A 2
+wait 15
+tap A 6
+wait 1
+tap A 5
+wait 8
+tap RIGHT 1
+wait 30
+tap DOWN 6
+wait 25
+tap LEFT 5
+wait 23
+tap A 5
+wait 12
+tap LEFT 1
+wait 17
+tap A 5
+wait 27
+tap UP 6
+wait 24
+tap START 1
+wait 26
+tap A 6
+wait 14
+tap A 4
+wait 27
+tap RIGHT 2
+wait 0
+tap RIGHT 2
+wait 8
+tap SELECT 4
+wait 3
+tap SELECT 1
+wait 6
+tap A 5
+wait 22
+tap UP 2
+wait 19
+tap B 6
+wait 6
+tap LEFT 1
+wait 15
+tap A 3
+wait 30
+tap LEFT 1
+wait 1
+tap SELECT 6
+wait 6
+tap A 1
+wait 15
+tap A 6
+wait 13
+tap RIGHT 6
+wait 7
+tap A 2
+wait 30
+tap A 5
+wait 9
+tap A 5
+wait 19
+tap RIGHT 4
+wait 1
+tap RIGHT 6
+wait 13
+tap LEFT 1
+wait 18
+tap A 3
+wait 27
+tap RIGHT 2
+wait 23
+tap A 5
+wait 28
+tap RIGHT 1
+wait 18
+tap DOWN 2
+wait 0
+tap LEFT 5
+wait 21
+tap LEFT 6
+wait 23
+tap A 1
+wait 7
+tap DOWN 6
+wait 8
+tap A 4
+wait 0
+tap A 5
+wait 25
+tap RIGHT 4
+wait 19
+tap SELECT 4
+wait 27
+tap RIGHT 3
+wait 14
+tap START 1
+wait 1
+tap SELECT 3
+wait 2
+tap DOWN 5
+wait 16
+tap SELECT 3
+wait 5
+tap DOWN 3
+wait 23
+tap A 4
+wait 16
+tap LEFT 6
+wait 29
+tap RIGHT 3
+wait 0
+tap SELECT 3
+wait 22
+tap START 2
+wait 5
+tap DOWN 5
+wait 10
+tap DOWN 4
+wait 29
+tap RIGHT 4
+wait 17
+tap RIGHT 1
+wait 29
+tap A 5
+wait 10
+tap LEFT 3
+wait 3
+tap A 1
+wait 9
+tap A 6
+wait 8
+tap A 5
+wait 26
+tap A 6
+wait 11
+tap RIGHT 2
+wait 10
+tap START 1
+wait 15
+tap RIGHT 2
+wait 25
+tap DOWN 6
+wait 16
+tap A 5
+wait 22
+tap SELECT 3
+wait 30
+tap B 3
+wait 28
+tap A 1
+wait 3
+tap LEFT 1
+wait 4
+tap RIGHT 3
+wait 2
+tap UP 5
+wait 11
+tap A 5
+wait 30
+tap UP 2
+wait 23
+tap A 5
+wait 21
+tap START 1
+wait 30
+tap B 1
+wait 22
+tap A 4
+wait 4
+tap RIGHT 4
+wait 27
+tap B 4
+wait 0
+tap RIGHT 6
+wait 26
+tap A 2
+wait 29
+tap SELECT 5
+wait 14
+tap LEFT 5
+wait 1
+tap A 4
+wait 6
+tap LEFT 2
+wait 1
+tap LEFT 1
+wait 12
+tap SELECT 5
+wait 7
+tap RIGHT 1
+wait 17
+tap UP 3
+wait 21
+tap SELECT 1
+wait 8
+tap A 5
+wait 14
+tap RIGHT 6
+wait 6
+tap SELECT 1
+wait 19
+tap LEFT 2
+wait 1
+tap LEFT 3
+wait 9
+tap A 6
+wait 9
+tap A 5
+wait 17
+tap LEFT 5
+wait 18
+tap A 2
+wait 5
+tap LEFT 5
+wait 8
+tap SELECT 4
+wait 22
+tap A 5
+wait 13
+tap A 6
+wait 25
+tap UP 1
+wait 25
+tap SELECT 1
+wait 23
+tap A 2
+wait 19
+tap A 3
+wait 22
+tap A 3
+wait 8
+tap A 6
+wait 17
+tap A 4
+wait 5
+tap B 5
+wait 7
+tap UP 5
+wait 1
+tap UP 2
+wait 22
+tap A 1
+wait 5
+tap RIGHT 1
+wait 21
+tap DOWN 6
+wait 24
+snap m1750
+tap SELECT 4
+wait 2
+tap START 2
+wait 8
+tap UP 2
+wait 12
+tap DOWN 4
+wait 27
+tap LEFT 1
+wait 26
+tap A 6
+wait 18
+tap SELECT 5
+wait 20
+tap RIGHT 5
+wait 0
+tap LEFT 2
+wait 8
+tap START 6
+wait 26
+tap A 5
+wait 28
+tap LEFT 1
+wait 3
+tap RIGHT 3
+wait 7
+tap A 6
+wait 28
+tap LEFT 3
+wait 4
+tap DOWN 5
+wait 12
+tap DOWN 3
+wait 7
+tap RIGHT 1
+wait 12
+tap A 1
+wait 13
+tap SELECT 1
+wait 27
+tap B 3
+wait 10
+tap DOWN 2
+wait 14
+tap B 2
+wait 8
+tap SELECT 4
+wait 13
+tap A 5
+wait 11
+tap START 3
+wait 30
+tap A 5
+wait 23
+tap SELECT 6
+wait 10
+tap B 5
+wait 16
+tap DOWN 4
+wait 29
+tap RIGHT 3
+wait 28
+tap A 2
+wait 19
+tap DOWN 6
+wait 20
+tap SELECT 2
+wait 6
+tap A 4
+wait 28
+tap A 2
+wait 12
+tap START 6
+wait 15
+tap A 4
+wait 14
+tap A 5
+wait 21
+tap LEFT 5
+wait 22
+tap SELECT 4
+wait 16
+tap A 5
+wait 11
+tap START 2
+wait 27
+tap SELECT 5
+wait 18
+tap A 6
+wait 29
+tap A 6
+wait 13
+tap RIGHT 3
+wait 3
+tap LEFT 6
+wait 18
+tap A 5
+wait 29
+tap A 3
+wait 0
+tap A 1
+wait 17
+tap DOWN 4
+wait 24
+tap SELECT 4
+wait 20
+tap SELECT 6
+wait 2
+tap DOWN 5
+wait 20
+tap A 2
+wait 23
+tap LEFT 2
+wait 8
+tap LEFT 5
+wait 0
+tap A 6
+wait 11
+tap B 6
+wait 0
+tap UP 2
+wait 3
+tap LEFT 2
+wait 28
+tap START 1
+wait 21
+tap A 6
+wait 19
+tap A 3
+wait 17
+tap DOWN 6
+wait 20
+tap A 3
+wait 30
+tap START 4
+wait 0
+tap LEFT 6
+wait 12
+tap A 1
+wait 29
+tap A 1
+wait 11
+tap LEFT 1
+wait 25
+tap DOWN 2
+wait 21
+tap DOWN 6
+wait 13
+tap LEFT 4
+wait 3
+tap A 6
+wait 19
+tap B 4
+wait 28
+tap A 3
+wait 21
+tap START 6
+wait 0
+tap B 2
+wait 8
+tap B 6
+wait 5
+tap A 2
+wait 3
+tap B 5
+wait 2
+tap RIGHT 1
+wait 17
+tap A 3
+wait 0
+tap A 6
+wait 20
+tap LEFT 3
+wait 0
+tap A 1
+wait 1
+tap A 6
+wait 8
+tap A 3
+wait 14
+tap A 5
+wait 21
+tap DOWN 4
+wait 9
+tap RIGHT 4
+wait 30
+tap B 6
+wait 17
+tap A 6
+wait 5
+tap B 5
+wait 4
+tap B 2
+wait 4
+tap A 4
+wait 21
+tap SELECT 4
+wait 6
+tap START 1
+wait 23
+tap DOWN 1
+wait 14
+tap DOWN 4
+wait 28
+tap A 1
+wait 8
+tap A 3
+wait 8
+tap SELECT 5
+wait 15
+tap B 1
+wait 17
+tap UP 6
+wait 25
+tap DOWN 2
+wait 15
+tap LEFT 2
+wait 6
+tap B 1
+wait 1
+tap RIGHT 5
+wait 28
+tap DOWN 6
+wait 29
+tap UP 1
+wait 16
+tap DOWN 6
+wait 27
+tap UP 2
+wait 19
+tap A 6
+wait 4
+tap START 3
+wait 29
+tap DOWN 6
+wait 17
+tap START 4
+wait 19
+tap A 5
+wait 26
+tap START 6
+wait 16
+tap A 6
+wait 5
+tap START 1
+wait 10
+tap START 2
+wait 20
+tap B 6
+wait 18
+tap B 5
+wait 27
+tap A 2
+wait 15
+tap SELECT 1
+wait 3
+tap A 6
+wait 23
+tap A 5
+wait 25
+tap RIGHT 5
+wait 0
+tap B 2
+wait 24
+tap B 3
+wait 14
+tap LEFT 5
+wait 12
+tap SELECT 1
+wait 5
+tap START 4
+wait 6
+tap B 3
+wait 2
+tap A 3
+wait 24
+tap LEFT 5
+wait 21
+tap A 1
+wait 27
+tap SELECT 1
+wait 21
+tap A 2
+wait 7
+tap A 6
+wait 10
+tap LEFT 3
+wait 28
+tap RIGHT 5
+wait 30
+tap A 4
+wait 13
+tap A 3
+wait 29
+tap A 4
+wait 30
+tap RIGHT 2
+wait 16
+tap LEFT 1
+wait 13
+tap A 6
+wait 22
+tap A 4
+wait 3
+tap SELECT 1
+wait 29
+tap RIGHT 5
+wait 13
+tap RIGHT 2
+wait 28
+tap UP 6
+wait 23
+tap RIGHT 5
+wait 30
+tap A 6
+wait 2
+tap A 2
+wait 0
+tap A 4
+wait 24
+tap A 3
+wait 29
+tap UP 6
+wait 5
+tap A 1
+wait 5
+tap A 1
+wait 5
+tap LEFT 2
+wait 17
+tap A 3
+wait 13
+tap RIGHT 5
+wait 5
+tap RIGHT 5
+wait 3
+tap B 5
+wait 8
+tap A 6
+wait 8
+tap LEFT 6
+wait 25
+tap A 3
+wait 27
+tap A 6
+wait 0
+tap START 2
+wait 24
+tap A 2
+wait 29
+tap START 3
+wait 12
+tap RIGHT 4
+wait 25
+tap A 1
+wait 22
+tap A 1
+wait 16
+tap SELECT 2
+wait 6
+tap LEFT 1
+wait 13
+tap RIGHT 5
+wait 20
+tap DOWN 3
+wait 1
+tap B 4
+wait 2
+tap A 5
+wait 6
+tap RIGHT 6
+wait 20
+tap B 1
+wait 20
+tap A 1
+wait 20
+tap LEFT 5
+wait 20
+tap RIGHT 2
+wait 22
+tap A 4
+wait 25
+tap A 2
+wait 3
+tap A 6
+wait 12
+tap LEFT 1
+wait 9
+tap SELECT 5
+wait 17
+tap DOWN 2
+wait 22
+tap SELECT 4
+wait 2
+tap RIGHT 5
+wait 25
+tap LEFT 5
+wait 21
+tap A 5
+wait 9
+tap A 4
+wait 6
+tap A 3
+wait 16
+tap START 6
+wait 8
+tap A 1
+wait 9
+tap UP 3
+wait 13
+tap RIGHT 2
+wait 7
+tap LEFT 6
+wait 16
+tap UP 5
+wait 29
+tap A 1
+wait 23
+tap B 4
+wait 11
+tap A 5
+wait 15
+tap A 5
+wait 13
+tap LEFT 4
+wait 26
+tap B 3
+wait 30
+tap LEFT 5
+wait 1
+tap UP 6
+wait 15
+tap SELECT 5
+wait 27
+tap DOWN 1
+wait 14
+tap START 2
+wait 14
+tap A 2
+wait 20
+tap LEFT 4
+wait 25
+tap A 2
+wait 9
+tap RIGHT 2
+wait 2
+tap RIGHT 6
+wait 27
+tap A 1
+wait 28
+tap A 1
+wait 19
+tap UP 5
+wait 15
+tap A 4
+wait 26
+tap B 5
+wait 19
+tap A 2
+wait 17
+tap A 2
+wait 28
+tap LEFT 5
+wait 29
+tap A 5
+wait 16
+tap SELECT 4
+wait 30
+tap A 4
+wait 13
+tap DOWN 4
+wait 1
+tap A 6
+wait 27
+tap A 2
+wait 6
+tap A 2
+wait 13
+tap A 1
+wait 26
+tap DOWN 1
+wait 9
+tap A 5
+wait 1
+tap A 3
+wait 2
+tap START 1
+wait 20
+tap RIGHT 2
+wait 8
+tap RIGHT 4
+wait 17
+tap RIGHT 6
+wait 13
+tap RIGHT 6
+wait 20
+tap A 6
+wait 28
+tap RIGHT 5
+wait 1
+tap A 6
+wait 24
+tap A 6
+wait 3
+tap UP 5
+wait 14
+tap RIGHT 2
+wait 24
+tap A 6
+wait 14
+tap DOWN 6
+wait 2
+tap RIGHT 3
+wait 29
+tap RIGHT 6
+wait 7
+tap B 1
+wait 24
+tap START 6
+wait 27
+tap A 3
+wait 0
+tap A 5
+wait 5
+tap START 1
+wait 13
+tap RIGHT 5
+wait 3
+tap A 5
+wait 2
+tap A 2
+wait 19
+tap RIGHT 3
+wait 17
+tap B 1
+wait 19
+tap LEFT 1
+wait 8
+tap A 2
+wait 26
+tap DOWN 2
+wait 10
+tap SELECT 3
+wait 11
+tap A 5
+wait 18
+tap RIGHT 5
+wait 17
+tap UP 5
+wait 16
+tap A 2
+wait 23
+tap LEFT 6
+wait 14
+tap LEFT 4
+wait 21
+tap DOWN 5
+wait 20
+tap DOWN 3
+wait 4
+tap UP 4
+wait 0
+tap DOWN 6
+wait 5
+tap DOWN 6
+wait 16
+tap RIGHT 6
+wait 8
+tap A 5
+wait 20
+tap B 4
+wait 19
+tap B 5
+wait 11
+tap A 4
+wait 21
+tap UP 6
+wait 7
+tap A 6
+wait 0
+tap UP 6
+wait 28
+tap SELECT 1
+wait 16
+tap UP 6
+wait 13
+tap DOWN 2
+wait 7
+tap DOWN 2
+wait 18
+tap DOWN 4
+wait 18
+tap UP 4
+wait 2
+tap A 3
+wait 20
+tap LEFT 6
+wait 4
+tap A 4
+wait 24
+tap A 1
+wait 2
+tap START 2
+wait 14
+tap RIGHT 2
+wait 2
+tap A 2
+wait 10
+tap START 2
+wait 29
+tap LEFT 3
+wait 12
+tap RIGHT 5
+wait 22
+tap B 3
+wait 26
+tap START 2
+wait 10
+tap UP 4
+wait 6
+tap A 6
+wait 25
+tap RIGHT 4
+wait 14
+tap DOWN 5
+wait 29
+tap A 2
+wait 24
+tap DOWN 3
+wait 29
+tap SELECT 3
+wait 22
+tap RIGHT 3
+wait 10
+tap START 2
+wait 21
+tap A 1
+wait 21
+tap SELECT 6
+wait 9
+tap RIGHT 6
+wait 14
+tap A 4
+wait 22
+tap A 3
+wait 22
+tap SELECT 3
+wait 23
+tap A 2
+wait 29
+tap DOWN 3
+wait 22
+tap A 6
+wait 1
+tap START 1
+wait 5
+tap LEFT 3
+wait 13
+tap RIGHT 3
+wait 13
+tap A 1
+wait 14
+tap LEFT 3
+wait 1
+tap A 6
+wait 0
+tap A 4
+wait 4
+tap RIGHT 3
+wait 30
+tap RIGHT 2
+wait 7
+tap DOWN 3
+wait 23
+tap LEFT 6
+wait 25
+tap LEFT 2
+wait 4
+tap START 2
+wait 8
+tap LEFT 3
+wait 27
+tap SELECT 5
+wait 13
+tap START 6
+wait 9
+tap A 6
+wait 25
+tap START 3
+wait 22
+tap RIGHT 3
+wait 16
+tap RIGHT 1
+wait 6
+tap RIGHT 5
+wait 18
+tap A 1
+wait 22
+tap DOWN 2
+wait 28
+tap RIGHT 5
+wait 29
+tap A 6
+wait 19
+tap A 2
+wait 17
+tap A 1
+wait 16
+tap LEFT 6
+wait 14
+tap A 5
+wait 28
+tap LEFT 6
+wait 10
+tap B 4
+wait 10
+tap A 6
+wait 5
+tap SELECT 5
+wait 18
+tap A 3
+wait 7
+tap B 5
+wait 27
+tap A 4
+wait 27
+tap B 5
+wait 16
+tap LEFT 4
+wait 22
+tap A 1
+wait 22
+tap UP 5
+wait 2
+tap A 1
+wait 14
+tap UP 2
+wait 17
+tap RIGHT 6
+wait 11
+tap SELECT 4
+wait 7
+tap DOWN 3
+wait 10
+tap A 2
+wait 29
+tap LEFT 6
+wait 18
+tap START 4
+wait 28
+tap LEFT 4
+wait 5
+tap LEFT 1
+wait 23
+tap B 4
+wait 3
+tap A 3
+wait 30
+tap B 1
+wait 25
+tap LEFT 5
+wait 25
+tap RIGHT 6
+wait 17
+tap LEFT 4
+wait 15
+tap RIGHT 2
+wait 2
+tap SELECT 6
+wait 6
+tap B 5
+wait 23
+tap START 3
+wait 10
+tap A 4
+wait 8
+tap B 6
+wait 16
+tap A 4
+wait 13
+tap SELECT 2
+wait 0
+tap DOWN 2
+wait 19
+tap LEFT 6
+wait 2
+tap RIGHT 4
+wait 18
+tap UP 1
+wait 19
+tap START 6
+wait 26
+tap B 2
+wait 4
+tap A 6
+wait 10
+tap UP 2
+wait 24
+tap RIGHT 5
+wait 3
+tap A 3
+wait 22
+tap DOWN 5
+wait 20
+tap A 6
+wait 20
+tap LEFT 2
+wait 27
+tap RIGHT 4
+wait 17
+tap SELECT 3
+wait 14
+tap RIGHT 6
+wait 26
+tap A 6
+wait 21
+tap B 6
+wait 28
+tap A 3
+wait 23
+tap UP 1
+wait 11
+tap A 1
+wait 28
+tap A 6
+wait 24
+tap UP 3
+wait 19
+tap RIGHT 4
+wait 25
+tap LEFT 5
+wait 29
+tap LEFT 3
+wait 22
+tap RIGHT 6
+wait 13
+tap DOWN 1
+wait 21
+tap A 5
+wait 28
+tap A 3
+wait 8
+tap B 2
+wait 9
+tap START 1
+wait 3
+tap LEFT 5
+wait 19
+tap A 5
+wait 22
+tap A 6
+wait 1
+tap UP 6
+wait 7
+tap RIGHT 3
+wait 28
+tap LEFT 5
+wait 29
+tap LEFT 5
+wait 5
+tap B 6
+wait 3
+tap RIGHT 4
+wait 23
+tap RIGHT 4
+wait 14
+tap B 5
+wait 12
+tap A 5
+wait 21
+tap SELECT 6
+wait 4
+tap SELECT 3
+wait 11
+tap SELECT 6
+wait 25
+tap LEFT 6
+wait 23
+tap A 4
+wait 9
+tap UP 6
+wait 10
+tap RIGHT 6
+wait 15
+tap LEFT 6
+wait 6
+tap SELECT 3
+wait 18
+tap START 4
+wait 30
+tap A 5
+wait 2
+tap RIGHT 1
+wait 0
+tap A 1
+wait 29
+tap SELECT 4
+wait 23
+tap A 5
+wait 10
+tap UP 5
+wait 19
+tap A 2
+wait 11
+tap A 2
+wait 22
+tap START 4
+wait 28
+tap A 5
+wait 20
+tap LEFT 6
+wait 26
+tap A 1
+wait 6
+tap A 4
+wait 26
+tap LEFT 4
+wait 5
+tap LEFT 6
+wait 8
+tap A 4
+wait 14
+tap LEFT 6
+wait 22
+tap LEFT 1
+wait 23
+tap UP 3
+wait 19
+tap A 4
+wait 17
+tap RIGHT 5
+wait 7
+tap UP 3
+wait 19
+tap B 4
+wait 0
+tap A 6
+wait 23
+tap START 3
+wait 28
+tap DOWN 4
+wait 0
+tap A 6
+wait 30
+tap START 6
+wait 26
+tap UP 3
+wait 10
+tap A 2
+wait 4
+tap LEFT 1
+wait 3
+tap RIGHT 3
+wait 25
+tap DOWN 4
+wait 7
+tap B 3
+wait 26
+tap START 2
+wait 25
+tap A 4
+wait 25
+tap START 4
+wait 16
+tap A 1
+wait 11
+tap RIGHT 1
+wait 14
+tap SELECT 6
+wait 14
+tap LEFT 4
+wait 13
+tap A 5
+wait 25
+tap UP 3
+wait 29
+tap START 6
+wait 1
+tap A 5
+wait 23
+tap A 2
+wait 20
+tap A 4
+wait 3
+tap LEFT 5
+wait 6
+tap A 3
+wait 24
+tap START 4
+wait 17
+tap START 3
+wait 23
+tap SELECT 4
+wait 11
+tap START 1
+wait 22
+tap UP 1
+wait 2
+tap A 4
+wait 15
+snap m2250
+tap DOWN 2
+wait 9
+tap DOWN 1
+wait 3
+tap START 3
+wait 21
+tap RIGHT 4
+wait 16
+tap RIGHT 3
+wait 13
+tap RIGHT 2
+wait 26
+tap A 3
+wait 14
+tap A 1
+wait 6
+tap LEFT 2
+wait 29
+tap A 6
+wait 5
+tap LEFT 6
+wait 5
+tap A 5
+wait 4
+tap A 6
+wait 26
+tap A 1
+wait 18
+tap RIGHT 1
+wait 14
+tap A 3
+wait 15
+tap UP 6
+wait 6
+tap LEFT 2
+wait 5
+tap UP 1
+wait 5
+tap A 4
+wait 16
+tap RIGHT 1
+wait 18
+tap SELECT 4
+wait 28
+tap UP 5
+wait 28
+tap START 6
+wait 26
+tap A 1
+wait 5
+tap START 4
+wait 1
+tap RIGHT 1
+wait 15
+tap UP 5
+wait 25
+tap SELECT 3
+wait 10
+tap DOWN 2
+wait 29
+tap LEFT 5
+wait 8
+tap RIGHT 6
+wait 25
+tap RIGHT 3
+wait 11
+tap UP 4
+wait 6
+tap SELECT 1
+wait 25
+tap B 1
+wait 29
+tap START 1
+wait 20
+tap A 4
+wait 1
+tap A 5
+wait 0
+tap RIGHT 3
+wait 9
+tap A 2
+wait 19
+tap LEFT 2
+wait 2
+tap SELECT 5
+wait 27
+tap A 3
+wait 6
+tap A 1
+wait 20
+tap A 3
+wait 22
+tap A 4
+wait 4
+tap DOWN 1
+wait 28
+tap SELECT 6
+wait 24
+tap UP 1
+wait 20
+tap B 2
+wait 26
+tap B 3
+wait 18
+tap UP 2
+wait 3
+tap A 5
+wait 16
+tap A 2
+wait 10
+tap B 6
+wait 1
+tap B 2
+wait 3
+tap LEFT 5
+wait 0
+tap A 3
+wait 3
+tap LEFT 3
+wait 26
+tap RIGHT 3
+wait 12
+tap A 6
+wait 2
+tap LEFT 5
+wait 7
+tap START 6
+wait 17
+tap LEFT 6
+wait 27
+tap A 2
+wait 24
+tap SELECT 4
+wait 1
+tap RIGHT 1
+wait 0
+tap A 5
+wait 1
+tap SELECT 5
+wait 3
+tap SELECT 1
+wait 13
+tap A 5
+wait 10
+tap UP 2
+wait 25
+tap B 4
+wait 25
+tap START 1
+wait 1
+tap B 6
+wait 4
+tap RIGHT 6
+wait 17
+tap A 3
+wait 13
+tap A 2
+wait 0
+tap RIGHT 4
+wait 19
+tap SELECT 1
+wait 14
+tap A 2
+wait 26
+tap DOWN 2
+wait 4
+tap A 2
+wait 16
+tap RIGHT 4
+wait 13
+tap A 5
+wait 15
+tap B 6
+wait 29
+tap RIGHT 6
+wait 9
+tap A 4
+wait 24
+tap RIGHT 3
+wait 6
+tap START 2
+wait 23
+tap A 4
+wait 8
+tap DOWN 3
+wait 24
+tap RIGHT 4
+wait 2
+tap LEFT 1
+wait 9
+tap START 3
+wait 8
+tap A 6
+wait 21
+tap UP 2
+wait 26
+tap START 5
+wait 6
+tap A 6
+wait 23
+tap START 6
+wait 14
+tap B 5
+wait 27
+tap RIGHT 6
+wait 2
+tap LEFT 2
+wait 23
+tap B 2
+wait 29
+tap LEFT 6
+wait 29
+tap A 3
+wait 7
+tap UP 4
+wait 30
+tap RIGHT 3
+wait 4
+tap UP 1
+wait 17
+tap A 1
+wait 3
+tap DOWN 2
+wait 18
+tap UP 3
+wait 22
+tap A 5
+wait 6
+tap START 5
+wait 6
+tap LEFT 3
+wait 26
+tap A 4
+wait 7
+tap LEFT 1
+wait 18
+tap RIGHT 1
+wait 12
+tap A 6
+wait 3
+tap RIGHT 5
+wait 21
+tap START 4
+wait 14
+tap B 2
+wait 28
+tap DOWN 6
+wait 15
+tap A 6
+wait 9
+tap B 5
+wait 0
+tap RIGHT 2
+wait 24
+tap SELECT 6
+wait 25
+tap RIGHT 2
+wait 16
+tap A 6
+wait 9
+tap START 3
+wait 17
+tap DOWN 3
+wait 23
+tap LEFT 3
+wait 21
+tap RIGHT 6
+wait 19
+tap A 5
+wait 17
+tap DOWN 1
+wait 17
+tap A 2
+wait 6
+tap A 3
+wait 22
+tap START 3
+wait 14
+tap RIGHT 3
+wait 24
+tap DOWN 4
+wait 18
+tap A 4
+wait 16
+tap LEFT 6
+wait 4
+tap DOWN 4
+wait 18
+tap A 4
+wait 7
+tap RIGHT 2
+wait 20
+tap LEFT 3
+wait 7
+tap LEFT 1
+wait 1
+tap UP 4
+wait 10
+tap UP 5
+wait 20
+tap A 1
+wait 14
+tap UP 5
+wait 12
+tap START 5
+wait 3
+tap A 1
+wait 8
+tap LEFT 4
+wait 30
+tap A 5
+wait 2
+tap A 3
+wait 12
+tap LEFT 4
+wait 30
+tap START 5
+wait 1
+tap LEFT 1
+wait 1
+tap A 1
+wait 26
+tap RIGHT 4
+wait 3
+tap UP 3
+wait 0
+tap SELECT 2
+wait 4
+tap RIGHT 2
+wait 23
+tap RIGHT 5
+wait 22
+tap SELECT 2
+wait 19
+tap UP 2
+wait 11
+tap LEFT 5
+wait 9
+tap B 6
+wait 25
+tap RIGHT 4
+wait 20
+tap LEFT 2
+wait 30
+tap UP 5
+wait 18
+tap B 4
+wait 12
+tap A 1
+wait 11
+tap LEFT 4
+wait 11
+tap A 5
+wait 7
+tap LEFT 6
+wait 11
+tap RIGHT 6
+wait 7
+tap SELECT 5
+wait 0
+tap RIGHT 5
+wait 17
+tap START 3
+wait 8
+tap A 3
+wait 2
+tap DOWN 2
+wait 16
+tap A 4
+wait 8
+tap B 1
+wait 19
+tap LEFT 3
+wait 18
+tap A 2
+wait 5
+tap RIGHT 2
+wait 6
+tap A 2
+wait 22
+tap SELECT 6
+wait 18
+tap A 4
+wait 16
+tap LEFT 6
+wait 28
+tap RIGHT 2
+wait 21
+tap LEFT 1
+wait 2
+tap DOWN 2
+wait 11
+tap RIGHT 5
+wait 14
+tap A 6
+wait 1
+tap RIGHT 2
+wait 24
+tap RIGHT 6
+wait 3
+tap LEFT 4
+wait 28
+tap LEFT 6
+wait 10
+tap RIGHT 2
+wait 10
+tap A 3
+wait 18
+tap SELECT 2
+wait 20
+tap UP 6
+wait 3
+tap UP 6
+wait 1
+tap RIGHT 2
+wait 15
+tap DOWN 3
+wait 19
+tap DOWN 5
+wait 18
+tap LEFT 2
+wait 7
+tap RIGHT 5
+wait 4
+tap A 5
+wait 8
+tap RIGHT 6
+wait 13
+tap DOWN 3
+wait 25
+tap RIGHT 2
+wait 16
+tap LEFT 3
+wait 16
+tap LEFT 6
+wait 11
+tap RIGHT 5
+wait 24
+tap A 1
+wait 7
+tap B 5
+wait 23
+tap RIGHT 2
+wait 14
+tap RIGHT 6
+wait 18
+tap B 1
+wait 8
+tap A 2
+wait 22
+tap LEFT 5
+wait 10
+tap LEFT 3
+wait 1
+tap RIGHT 5
+wait 28
+tap DOWN 2
+wait 3
+tap SELECT 6
+wait 2
+tap SELECT 1
+wait 18
+tap B 1
+wait 12
+tap SELECT 1
+wait 25
+tap A 5
+wait 6
+tap A 6
+wait 11
+tap B 4
+wait 8
+tap UP 1
+wait 24
+tap RIGHT 6
+wait 26
+tap START 4
+wait 16
+tap A 3
+wait 20
+tap RIGHT 1
+wait 18
+tap RIGHT 3
+wait 0
+tap LEFT 5
+wait 2
+tap RIGHT 2
+wait 3
+tap RIGHT 4
+wait 27
+tap START 1
+wait 24
+tap DOWN 2
+wait 22
+tap LEFT 2
+wait 24
+tap A 3
+wait 22

@@ -1,0 +1,110 @@
+# The tile faces, 7 x 11 each, in the order the game numbers them (0-41, then
+# the back). A letter is a palette colour, a dot is the tile's own face:
+#   k ink  r red  u blue  g green (FELT_LT)  y gold  b wood  n navy  c cyan
+# A face may use two colours at most. Faces on a row are a space apart;
+# python tools/assets.py turns this into src/assets/Assets.cpp.
+# (python tools/sheet.py export / import: the same faces as a picture.)
+
+# dots
+...u... ..uuu.. ..uuu.. ....u.. .uuuuu. ..uuu.. .uuuuu. ..uuu.. ..uuu..
+..uu... .u...u. .u...u. ...uu.. .u..... .u..... .....u. .u...u. .u...u.
+...u... .....u. .....u. ..u.u.. .uuuu.. .u..... ....u.. .u...u. .u...u.
+...u... ....u.. ...uu.. .u..u.. .....u. .uuuu.. ...u... ..uuu.. ..uuuu.
+...u... ...u... .....u. .uuuuu. .....u. .u...u. ...u... .u...u. .....u.
+...u... ..u.... .u...u. ....u.. .u...u. .u...u. ..u.... .u...u. .....u.
+..uuu.. .uuuuu. ..uuu.. ....u.. ..uuu.. ..uuu.. ..u.... ..uuu.. ..uuu..
+....... ....... ....... ....... ....... ....... ....... ....... .......
+..uuu.. ..uuu.. ..uuu.. ..uuu.. ..uuu.. ..uuu.. ..uuu.. ..uuu.. ..uuu..
+.uuruu. .uuruu. .uuruu. .uuruu. .uuruu. .uuruu. .uuruu. .uuruu. .uuruu.
+..uuu.. ..uuu.. ..uuu.. ..uuu.. ..uuu.. ..uuu.. ..uuu.. ..uuu.. ..uuu..
+
+# bamboo
+...g... ..ggg.. ..ggg.. ....g.. .ggggg. ..ggg.. .ggggg. ..ggg.. ..ggg..
+..gg... .g...g. .g...g. ...gg.. .g..... .g..... .....g. .g...g. .g...g.
+...g... .....g. .....g. ..g.g.. .gggg.. .g..... ....g.. .g...g. .g...g.
+...g... ....g.. ...gg.. .g..g.. .....g. .gggg.. ...g... ..ggg.. ..gggg.
+...g... ...g... .....g. .ggggg. .....g. .g...g. ...g... .g...g. .....g.
+...g... ..g.... .g...g. ....g.. .g...g. .g...g. ..g.... .g...g. .....g.
+..ggg.. .ggggg. ..ggg.. ....g.. ..ggg.. ..ggg.. ..g.... ..ggg.. ..ggg..
+....... ....... ....... ....... ....... ....... ....... ....... .......
+.g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g.
+.g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g.
+.g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g. .g.r.g.
+
+# chars
+...k... ..kkk.. ..kkk.. ....k.. .kkkkk. ..kkk.. .kkkkk. ..kkk.. ..kkk..
+..kk... .k...k. .k...k. ...kk.. .k..... .k..... .....k. .k...k. .k...k.
+...k... .....k. .....k. ..k.k.. .kkkk.. .k..... ....k.. .k...k. .k...k.
+...k... ....k.. ...kk.. .k..k.. .....k. .kkkk.. ...k... ..kkk.. ..kkkk.
+...k... ...k... .....k. .kkkkk. .....k. .k...k. ...k... .k...k. .....k.
+...k... ..k.... .k...k. ....k.. .k...k. .k...k. ..k.... .k...k. .....k.
+..kkk.. .kkkkk. ..kkk.. ....k.. ..kkk.. ..kkk.. ..k.... ..kkk.. ..kkk..
+....... ....... ....... ....... ....... ....... ....... ....... .......
+.rrrrr. .rrrrr. .rrrrr. .rrrrr. .rrrrr. .rrrrr. .rrrrr. .rrrrr. .rrrrr.
+..r.r.. ..r.r.. ..r.r.. ..r.r.. ..r.r.. ..r.r.. ..r.r.. ..r.r.. ..r.r..
+.rr.rr. .rr.rr. .rr.rr. .rr.rr. .rr.rr. .rr.rr. .rr.rr. .rr.rr. .rr.rr.
+
+# winds: east south west north
+.kkkkk. ..kkkk. .k...k. .k...k.
+.k..... .k..... .k...k. .kk..k.
+.k..... .k..... .k...k. .kk..k.
+.kkkk.. ..kkk.. .k.k.k. .k.k.k.
+.k..... .....k. .k.k.k. .k..kk.
+.k..... .....k. .kk.kk. .k..kk.
+.kkkkk. .kkkk.. .k...k. .k...k.
+....... ....... ....... .......
+....... ....... ....... .......
+.u.u.u. .u.u.u. .u.u.u. .u.u.u.
+u.u.u.u u.u.u.u u.u.u.u u.u.u.u
+
+# dragons: red green white
+....... ....... .......
+...r... .g.g.g. .uuuuu.
+...r... .ggggg. .u...u.
+.rrrrr. ...g... .u...u.
+.r.r.r. .ggggg. .u...u.
+.r.r.r. .g...g. .u...u.
+.rrrrr. .ggggg. .u...u.
+...r... ..g.g.. .u...u.
+...r... .g...g. .u...u.
+...r... g.....g .uuuuu.
+....... ....... .......
+
+# flowers (any two match)
+...r... .r...r. ..r.r.. ..rrr..
+..rrr.. ..r.r.. .rrrrr. .r.r.r.
+.rr.rr. .rr.rr. ..r.r.. .rrrrr.
+..rrr.. ..r.r.. .rrrrr. .r.r.r.
+...r... .r.g.r. ..r.r.. ..rrr..
+...g... ...g... ...g... ...g...
+.g.g... ...g.g. .g.g... ...g.g.
+..gg.g. .g.gg.. ..gg.g. .g.gg..
+...gg.. ..gg... ...gg.. ..gg...
+...g... ...g... ...g... ...g...
+...g... ...g... ...g... ...g...
+
+# seasons (any two match)
+....... ....... ....... .......
+...u... u..u..u ...u... ...u...
+..uuu.. .u.u.u. ..uyu.. .u.u.u.
+.uuyuu. ..yyy.. .uyyyu. ..uuu..
+..uuu.. uuyyyuu .uyuyu. uuuyuuu
+...u... ..yyy.. .uyyyu. ..uuu..
+.u.u... .u.u.u. ..uyu.. .u.u.u.
+..uu.u. u..u..u ...u... ...u...
+...uu.. ....... ...u... .......
+...u... ....... ..u.... .......
+...u... ....... ....... .......
+
+# the back of a tile
+ggggggg
+gyggygg
+ggyggyg
+gggyggy
+yggyggg
+gyggygg
+ggyggyg
+gggyggy
+yggyggg
+gyggygg
+ggggggg

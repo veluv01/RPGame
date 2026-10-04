@@ -1,0 +1,22 @@
+# Player blackjack vs dealer 9 up (casino: paid 3:2 at once).
+say J P
+wait 100
+say D 26,8,25,46
+tap A
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap A
+wait 60
+snap a_dealt
+wait 12
+snap b_banner
+wait 12
+snap c_banner2
+wait 40
+snap d_settle
+wait 30
+snap e_pay
+wait 60
+snap f_end

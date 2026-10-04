@@ -1,0 +1,43 @@
+# Three CPUs play a whole episode on their own: nothing may hang or draw into a frame in flight.
+#   chgame run tools/scripts/soak_cpu.txt out/soak
+say W 1 2 3
+say R 5
+say J P
+say W 1 2 3
+wait 600
+snap 01
+say H
+wait 1500
+snap 02
+say H
+wait 1500
+snap 03
+say H
+wait 1500
+snap 04
+say H
+wait 1500
+snap 05
+say H
+wait 1500
+snap 06
+say H
+wait 1500
+snap 07
+say H
+wait 1500
+snap 08
+say H
+wait 1500
+snap 09
+say H
+wait 1500
+snap 10
+say H
+wait 1500
+snap 11
+say H
+wait 1500
+snap 12
+say H
+perf

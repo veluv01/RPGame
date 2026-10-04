@@ -1,0 +1,31 @@
+# Estimated device render cost (simulator host time, calibrated against the
+# CHGfx benchmark's primitives): the title, the whole board, close up, a
+# hop, a slide down the longest snake.
+cal
+wait 200
+perf title
+say G 1 3 0 0 0 5
+wait 60
+say O 1
+wait 120
+perf overview
+say O 0
+wait 120
+perf close up
+say M 0 40
+wait 60
+say D 6 0
+tap A
+wait 70
+perf hop close up
+say M 0 93
+wait 60
+say D 3 0
+tap A
+wait 60
+perf alert
+wait 150
+perf slide
+say G 3 4 2 3 1 3
+wait 1500
+perf cpu game

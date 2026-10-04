@@ -1,0 +1,3 @@
+SD transport: SPI0, pins 2/3/4 CS8, LCD register restoration, init/DMA/CRC/write/abort/fallback: PASS
+SD transport: SPI1, pins 30/31/40 CS43, LCD SPI untouched, init/DMA/CRC/write/abort/fallback: PASS
+Pin guards: A/B package, control collisions, shared-pin mismatch and invalid SD RX: PASS

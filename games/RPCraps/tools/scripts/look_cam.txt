@@ -1,0 +1,33 @@
+# Look-dev: the dice cam - whip in, shake, throw, tumble, result, back.
+say J P
+wait 20
+say E 0 10
+say E 5 5
+say C 29
+wait 20
+say R 7
+say F 3 4
+hold A
+wait 4
+snap a_whip
+wait 26
+snap b_shake
+rec start 2
+wait 24
+release
+wait 150
+snap c_rest
+wait 80
+rec stop throw_natural
+snap d_back
+wait 120
+snap e_settled
+# A point: 6, the hard way
+say F 3 3
+hold A
+wait 30
+release
+rec start 3
+wait 300
+rec stop throw_point
+snap f_point_table

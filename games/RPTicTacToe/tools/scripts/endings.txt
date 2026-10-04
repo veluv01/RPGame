@@ -1,0 +1,83 @@
+# How games end: a win with its strike, a loss, a cat's game, a mine, a blitz.
+#   chgame run tools/scripts/endings.txt out/endings
+say R 3
+say M 110
+say J P 0
+wait 60
+say H 1
+say C 4
+wait 110
+say H 2
+say C 0
+wait 110
+say C 8
+wait 24
+snap 01_win
+wait 40
+snap 02_win
+wait 100
+snap 03_win
+tap A
+wait 60
+snap 04_again
+# A loss.
+say H 4
+say C 0
+wait 110
+say H 2
+say C 1
+wait 110
+say H 6
+say C 8
+wait 150
+snap 05_loss
+tap A
+wait 60
+# A cat's game: X 0 2 3 7 8, O 4 1 5 6.
+say H 4
+say C 0
+wait 110
+say H 1
+say C 2
+wait 110
+say H 5
+say C 7
+wait 110
+say H 6
+say C 3
+wait 110
+say C 8
+wait 60
+snap 06_cat
+wait 50
+snap 07_cat
+# MINES: walk until one goes off.
+say J P 12
+wait 60
+say C 0
+wait 100
+say C 6
+wait 100
+say C 12
+wait 100
+say C 18
+wait 100
+say C 24
+wait 30
+snap 08_mines
+# BLITZ running out.
+say J P 1
+wait 60
+say V 150
+tap A
+wait 40
+tap RIGHT
+tap A
+wait 150
+snap 09_blitz_over
+# Broke.
+wait 60
+say M 0
+tap B
+wait 120
+snap 10_broke

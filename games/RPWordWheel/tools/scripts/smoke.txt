@@ -1,0 +1,51 @@
+# Every screen once and the start of an episode: a contact sheet for a quick look.
+#   chgame run tools/scripts/smoke.txt out/smoke
+wait 30
+snap 01_title
+say J O
+wait 30
+snap 02_options
+say J S
+wait 30
+snap 03_stats
+say J U
+wait 30
+snap 04_setup
+# An episode: you, Dot and Ace. The toss-up first.
+say R 7
+say U 1 0
+say J P
+wait 140
+snap 05_tossup_intro
+wait 200
+snap 06_tossup
+tap A
+wait 30
+snap 07_buzzed
+say V 1
+wait 150
+snap 08_toss_won
+say U 0 0
+wait 260
+snap 09_round1
+# Spin: the $600 wedge.
+say F 4
+tap A
+wait 20
+snap 10_charging
+hold A
+wait 20
+snap 11_charge_bar
+release
+wait 30
+snap 12_spinning
+wait 300
+snap 13_landed
+wait 80
+snap 14_picker
+say C N
+wait 60
+snap 15_lighting
+wait 120
+snap 16_after_hit
+perf

@@ -1,0 +1,1047 @@
+#pragma GCC optimize("Os")   // cold code: size over speed (hot pixel loops live in Draw/Iso)
+// The play screen's presentation (Stage.h): match events become motion,
+// and render() skips frames where nothing changed.
+#include <string.h>
+#include <RPGame.h>
+#include <Arduino.h>
+#include "config.h"
+#include "Stage.h"
+#include "Match.h"
+#include "Engine.h"
+#include "Iso.h"
+#include "Fx.h"
+#include "Sounds.h"
+#include "src/assets/Assets.h"
+
+namespace stage {
+
+using namespace iso;
+
+// ---------------------------------------------------------------------------
+// Colour remaps for the art (its neutral tones -> a side, and effects)
+// ---------------------------------------------------------------------------
+// Each side's colours come from tools/art/sides.txt (SIDE_REMAP, and
+// KING_REMAP for the crowned chip on top of a king). Effects:
+static const uint8_t RM_ID[16] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+static const uint8_t RM_CPU[16] = {0, 1, 2, 3, 4, 5, 6, 7, RED, WINE, 10, 11, 12, 13, 14, 15};   // the CPU's red glove
+static const uint8_t RM_HIT[16] = {INK, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE,
+                                   WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE};   // struck: a white flash
+static const uint8_t RM_PREY[16] = {INK, RED, RED, RED, RED, RED, RED, RED,
+                                    RED, RED, RED, RED, RED, RED, RED, RED};         // about to be: a red one
+static const uint8_t RM_ALERT[16] = {0, RED, 2, 3, 4, WINE, 6, 7, RED, WINE, 10, 11, 12, 13, 14, 15};   // your glove, denied
+
+static inline uint8_t sideOf(uint8_t p) { return (p & eng::BLACK) ? 1 : 0; }
+static inline bool isKing(uint8_t p) { return (p & eng::TYPE) == eng::KING; }
+
+// ---------------------------------------------------------------------------
+// State
+// ---------------------------------------------------------------------------
+static uint8_t shown[64];            // pieces standing still
+static uint8_t cur = 18, curW = 18, curB = 45;
+static uint8_t sel = 0xFF, nTgt, tgt[16], tgtCap[16];
+static uint8_t tgtPrey[16];          // the piece each jump takes, 0xFF: none
+static uint8_t intent = 0xFF;        // the CPU's chosen destination, shown while it moves
+static uint8_t viewMode;
+static bool fast;
+static bool humanTurn, thinking;
+static bool moverHuman;              // the hop being shown is a player's (a multiple jump hands the glove back)
+static uint8_t jumper[12], nJump;    // your pieces that must jump
+
+// The piece on its way: t counts ticks to T; hitT is the tick it passes
+// over the piece it takes.
+struct Mover { uint8_t piece, from, to, t, T, arc, on, hitT; };
+static Mover mv;
+
+// A captured chip, knocked spinning up and over to its place on the tray.
+struct Flyer { uint8_t piece, sq, on, slot, t, T; int8_t dir; };
+static Flyer fl[3];
+static uint8_t tray[2];              // chips lying on the trays, by their colour
+static uint8_t trayAir[2];           // ... and on their way there
+static uint8_t tallyT[2];            // the HUD's count pops as one lands
+
+// A new king: the crowned chip drops onto the man.
+static uint8_t crownSq = 0xFF, crownT;
+static const uint8_t CROWN_FALL = 18, CROWN_END = 44;
+
+// The CPU's pointing finger and the player's; one shows at a time.
+static int32_t fx16, fy16;           // finger tip, world, Q4
+static uint8_t fingerSq = 0xFF;
+static uint8_t pickT, pickTo, tapT;
+static bool picking, pickQuick, pickCap;
+
+static uint8_t holdT;                // frames the stage keeps the game waiting
+static uint8_t freezeT;              // the winning blow: everything stops for a moment
+static bool waitPress;               // the last banner stays up until a button
+// 2P hand-over: the camera whips to the board's centre, the view turns
+// round behind a quick dip to dark, then it swoops onto the new side.
+static uint8_t handT;
+static bool handBlack;
+static uint8_t dipT;                 // palette dip (view changes)
+static bool turnBlack;               // whose turn the HUD shows
+static uint8_t overT;
+static bool over, overDone;
+static uint8_t waveSide = 0xFF;      // the winner's chips dance (0 white, 1 black)
+const char *opponentName = "CPU";
+
+// The title's board.
+static bool demoOn;
+static uint8_t introT = 255;
+static int16_t driftX, driftY;
+
+// Camera: eased (world, Q4) towards its aim.
+static int32_t cx16, cy16;
+static int16_t aimX, aimY;
+static uint8_t aimShift = 2;
+// Inspection (B held on the iso board): zoomed right in, the D-pad pushing
+// the view to the board's edge or corner that way.
+static bool inspecting;
+static int8_t insDX, insDY;
+
+// The whip zoom: iso::tileH steps towards zoomTo, one step each frame drawn
+// (a slow frame never bunches two), and after a landing the camera holds
+// (outWait) until its dust has cleared, then pulls back.
+static uint8_t zoomTo = 5;
+static bool outWait, zoomDrawn = true;
+// The last jump of a combo plays out slower (slowF), the winning one slower
+// still, to sell it.
+static uint8_t slowF = 1;
+static uint8_t blocked;              // why the piece under the glove cannot be played (Why)
+static uint8_t denyT, denyWhy;       // ... and A was pressed on it: the reason and the glove flash red
+
+// The last move in words where the hover plate goes, popping up word by
+// word: "MAN TO F4", "KING TAKES MAN ON E5", "MAN TAKES 3 ON G7 = KING".
+static const char *annW[7];
+static uint8_t annC[7], annN, annT;
+static char annSq[3], annNum[3];
+
+// ---------------------------------------------------------------------------
+// Geometry and the camera
+// ---------------------------------------------------------------------------
+static int depthOf(uint8_t sq) {
+    int u, v;
+    toView(sq, cam.flip, u, v);
+    return flat ? v : u + v;
+}
+
+// Frame a world point: halfway between it and the board's centre (less so
+// zoomed in: right on it at the closest), then as little further as keeps it
+// well on screen, then never past the table's edges (no empty carpet for
+// nothing). The view is 128 x 118 below the HUD.
+static void aimAt(int fx, int fy, uint8_t shift) {
+    int cx = 0, cy = 8 * hh(), lean = 10 - tileH;
+    int x = fx + (cx - fx) * lean / 10, y = fy + (cy - fy) * lean / 10;
+    int mx = 44, my = 30;
+    if (x < fx - mx) x = fx - mx;
+    if (x > fx + mx) x = fx + mx;
+    if (y < fy - my) y = fy - my;
+    if (y > fy + my) y = fy + my;
+    // Content bounds: the board and its slab, and the trays beyond the far
+    // edges.
+    int x0 = -8 * hw() - 6, x1 = 8 * hw() + 6;
+    int y0 = -zoomed(24), y1 = 16 * hh() + slab() + 10;
+    if (x1 - x0 <= 128) x = (x0 + x1) / 2;
+    else { if (x < x0 + 64) x = x0 + 64; if (x > x1 - 64) x = x1 - 64; }
+    if (y1 - y0 <= 118) y = (y0 + y1) / 2;
+    else { if (y < y0 + 59) y = y0 + 59; if (y > y1 - 59) y = y1 - 59; }
+    aimX = (int16_t)x; aimY = (int16_t)y; aimShift = shift;
+}
+
+static void aimSq(uint8_t sq, uint8_t shift) {
+    int x, y;
+    worldOf(sq, x, y);
+    aimAt(x, y - zoomed(6), shift);
+}
+
+// A glove is out: yours, or the CPU's while it thinks and plays.
+static bool gloveOn() { return !demoOn && (humanTurn || thinking || picking); }
+
+static void snapCamera() {
+    cx16 = aimX << 4; cy16 = aimY << 4;
+}
+
+static void stepCamera() {
+    int32_t dx = (aimX << 4) - cx16, dy = (aimY << 4) - cy16;
+    cx16 += dx >> aimShift; cy16 += dy >> aimShift;
+    if (dx > -16 && dx < 16) cx16 = aimX << 4;
+    if (dy > -16 && dy < 16) cy16 = aimY << 4;
+    cam.x = (int)(cx16 >> 4);
+    cam.y = (int)(cy16 >> 4);
+}
+
+// How far a king's upper chip sits above the lower.
+static int rise() { return flat ? 2 : sized(3); }
+
+// Height of the piece on a square (finger tip rests just above it).
+static int topOf(uint8_t sq) {
+    uint8_t p = shown[sq];
+    if (!p) return 2;
+    return (flat ? 5 : sized(CHIP_AY + 1)) + (isKing(p) ? rise() : 0);
+}
+
+static void fingerTo(uint8_t sq) {
+    int x, y;
+    worldOf(sq, x, y);
+    fx16 = (int32_t)x << 4;
+    fy16 = (int32_t)(y - topOf(sq)) << 4;
+}
+
+// Where a captured chip of that colour goes: the tray on the left holds
+// what the side you view from has taken.
+static void trayOf(uint8_t colour, uint8_t slot, int &x, int &y) {
+    trayPos((colour != 0) != cam.flip, slot, x, y);
+}
+
+// ---------------------------------------------------------------------------
+// Public controls
+// ---------------------------------------------------------------------------
+uint8_t cursor() { return cur; }
+bool flipped() { return cam.flip; }
+uint8_t view() { return viewMode; }
+
+// Everything held in world space keeps its place on the board.
+void setZoom(uint8_t h) {
+    uint8_t o = tileH;
+    if (h == o) return;
+    tileH = h;
+    cx16 = cx16 * h / o; cy16 = cy16 * h / o;
+    aimX = (int16_t)(aimX * h / o); aimY = (int16_t)(aimY * h / o);
+    fx16 = fx16 * h / o; fy16 = fy16 * h / o;
+}
+void setFast(bool on) { fast = on; }
+uint8_t selected() { return humanTurn ? sel : 0xFF; }     // the player's
+void setBlocked(uint8_t why) { blocked = why; }
+void deny(uint8_t why) {
+    denyT = 24;
+    denyWhy = why;
+    audio::sfx(Sfx::Deny);
+}
+
+void setView(uint8_t v) {
+    viewMode = v;
+    iso::setView(v == MAP);
+    setZoom(zoomTo = 5);
+    outWait = false;
+    inspecting = false;
+    aimSq(cur, 2);
+    snapCamera();
+    cam.x = aimX; cam.y = aimY;
+    if (fingerSq != 0xFF) fingerTo(fingerSq);
+    dipT = 6;
+}
+
+void inspect(bool on, int dx, int dy) {
+    on = on && !flat;
+    if (on) zoomTo = 10;
+    else if (inspecting && !mv.on && !outWait && !over && match::chainSq() == 0xFF) zoomTo = 5;
+    inspecting = on;
+    insDX = (int8_t)dx; insDY = (int8_t)dy;
+}
+
+void thinkPick() {
+    uint8_t r = eng::rootFrom();
+    if (thinking && r != eng::NONE) fingerSq = r;
+}
+
+void setCursor(uint8_t sq) {
+    cur = sq;
+    aimSq(sq, 2);
+}
+
+// The piece a jump from a to b goes over.
+static uint8_t preyBetween(uint8_t a, uint8_t b) {
+    int step = ((b & 7) > (a & 7) ? 1 : -1) + ((b >> 3) > (a >> 3) ? 8 : -8);
+    for (uint8_t s = (uint8_t)(a + step); s != b && s < 64; s = (uint8_t)(s + step))
+        if (shown[s]) return s;
+    return 0xFF;
+}
+
+static void pickUp(uint8_t sq, const uint8_t *to, const uint8_t *cap, uint8_t n) {
+    sel = sq;
+    nTgt = n;
+    for (uint8_t i = 0; i < n; i++) {
+        tgt[i] = to[i];
+        tgtCap[i] = cap[i];
+        tgtPrey[i] = cap[i] ? preyBetween(sq, to[i]) : 0xFF;
+    }
+}
+
+void select(uint8_t sq, const uint8_t *to, const uint8_t *cap, uint8_t n) {
+    pickUp(sq, to, cap, n);
+    audio::sfx(Sfx::Select);
+}
+
+void deselect() {
+    sel = 0xFF;
+    nTgt = 0;
+}
+
+void demo(bool on) {
+    demoOn = on;
+    introT = on ? 0 : 255;
+    if (on) { setZoom(zoomTo = 10); outWait = false; }
+}
+void drift(int x, int y) { driftX = (int16_t)x; driftY = (int16_t)y; }
+bool introDone() { return introT == 255; }
+
+bool moving() { return mv.on || holdT || picking || (crownT && crownT < CROWN_END) || freezeT; }
+bool busy() {
+    return moving() || fl[0].on || fl[1].on || fl[2].on || handT || outWait || waitPress || fx::particles() ||
+           (tileH != zoomTo && !flat);
+}
+bool overShown() { return overDone; }
+
+// ---------------------------------------------------------------------------
+// Events
+// ---------------------------------------------------------------------------
+static void resetFromBoard() {
+    memcpy(shown, match::board, 64);
+    holdT = 0; picking = false; thinking = false; tapT = 0; waitPress = false;
+    freezeT = 0;
+    fx::clear();
+    mv.on = 0;
+    fl[0].on = fl[1].on = fl[2].on = 0;
+    crownT = 0; crownSq = 0xFF;
+    over = overDone = false;
+    overT = 0;
+    waveSide = 0xFF;
+    intent = 0xFF;
+    nJump = 0;
+    deselect();
+    // The trays hold whatever is missing from the board.
+    for (uint8_t c = 0; c < 2; c++) {
+        uint8_t n = eng::count(c != 0);
+        tray[c] = (uint8_t)(n < 12 ? 12 - n : 0);
+        trayAir[c] = 0;
+    }
+}
+
+static void onStart() {
+    resetFromBoard();
+    if (!demoOn) setZoom(zoomTo = 5);
+    outWait = false;
+    annT = 0;
+    handT = 0;
+    turnBlack = match::blackToMove();
+    bool black = match::setup.mode == match::VS_CPU ? match::setup.humanBlack : match::blackToMove();
+    cam.flip = black && !demoOn;
+    curW = 18; curB = 45;                     // c3 / f6
+    cur = black ? curB : curW;
+    if (demoOn) { aimX = driftX; aimY = driftY; }
+    else aimSq(cur, 2);
+    snapCamera();
+    fingerTo(cur);
+}
+
+static void onTurn(bool black, bool human, bool mustJump) {
+    humanTurn = human;
+    turnBlack = black;
+    intent = 0xFF;
+    nJump = 0;
+    if (demoOn) return;
+    if (!human) {
+        // The CPU's glove goes over to one of its pieces (the one it last
+        // moved, if it still stands), the camera after it, before it starts
+        // thinking (the game waits for holdT).
+        thinking = true;
+        holdT = 24;
+        uint8_t mine = black ? eng::BLACK : 0;
+        if (fingerSq == 0xFF || !shown[fingerSq] || (shown[fingerSq] & eng::BLACK) != mine)
+            for (uint8_t s = 0; s < 64; s++) if (shown[s] && (shown[s] & eng::BLACK) == mine) fingerSq = s;
+        return;
+    }
+    if (match::setup.mode == match::TWO_PLAYER) {
+        // Hand the board to the other player.
+        if (cam.flip) curB = cur; else curW = cur;
+        cur = black ? curB : curW;
+        if (cam.flip != black) {
+            handT = 1;
+            handBlack = black;
+            humanTurn = false;               // no finger until the camera arrives
+            aimAt(0, 8 * hh(), 1);           // the board's centre, fast
+            audio::sfx(Sfx::Whoosh);
+        }
+    } else {
+        audio::sfx(Sfx::Turn);
+    }
+    if (mustJump) {
+        // The pieces that have to take are marked, and the glove starts on
+        // the nearest of them.
+        uint8_t to[16], cap[16], best = 0xFF;
+        int bestD = 99;
+        for (uint8_t s = 0; s < 64 && nJump < 12; s++) {
+            if (!match::board[s] || !match::movesFrom(s, to, cap)) continue;
+            jumper[nJump++] = s;
+            int df = (s & 7) - (cur & 7), dr = (s >> 3) - (cur >> 3);
+            int d = (df < 0 ? -df : df) + (dr < 0 ? -dr : dr);
+            if (d < bestD) { bestD = d; best = s; }
+        }
+        if (best != 0xFF) cur = best;
+    }
+    fingerSq = cur;
+}
+
+static void onPick(uint8_t from, uint8_t to, bool carryOn, bool cap) {
+    thinking = false;
+    picking = true;
+    pickQuick = carryOn;
+    pickCap = cap;
+    pickT = 0;
+    tapT = 0;
+    fingerSq = from;
+    pickTo = to;
+}
+
+static match::Event pending;          // the hop being shown
+
+static void onHop(const match::Event &e) {
+    pending = e;
+    moverHuman = humanTurn;
+    if (humanTurn) cur = e.b;            // your cursor goes with the piece
+    humanTurn = false;
+    thinking = false;
+    nJump = 0;
+    deselect();
+    // The whip (not on the map, nor at QUICK pace): the camera dives in as
+    // the piece lifts, and stays in through a multiple jump.
+    bool whip = !flat && !fast && !demoOn;
+    slowF = 1;
+    if (whip && e.captured) {
+        if (e.flags & match::H_FINAL) slowF = 3;
+        else if ((e.flags & match::H_LAST) && e.hop >= 2) slowF = 2;
+    }
+    if (whip && zoomTo != 10) { zoomTo = 10; audio::sfx(Sfx::Whoosh); }
+    shown[e.a] = 0;
+    int d = (e.a >> 3) - (e.b >> 3);
+    if (d < 0) d = -d;
+    mv.piece = e.piece; mv.from = e.a; mv.to = e.b; mv.t = 0;
+    mv.T = (uint8_t)((fast ? 8 + d * 2 : 12 + d * 3) * slowF);
+    mv.arc = e.captured ? 12 : 3;
+    mv.on = 1;
+    mv.hitT = 0xFF;
+    if (e.captured) {
+        int dc = (e.a >> 3) - (e.capSq >> 3);
+        if (dc < 0) dc = -dc;
+        mv.hitT = (uint8_t)(mv.T * dc / d);
+        // Each jump of a combo hops a tone higher.
+        audio::sfx(Sfx::Hop, (uint8_t)((e.hop - 1) * 2));
+    }
+}
+
+static const char *const NAMES[3] = {"", "MAN", "KING"};
+
+static void addWord(const char *w, uint8_t c) { if (annN < 7) { annW[annN] = w; annC[annN++] = c; } }
+
+static void announce(const match::Event &e) {
+    annN = 0;
+    annT = 1;
+    annSq[0] = (char)('A' + (e.b & 7)); annSq[1] = (char)('1' + (e.b >> 3)); annSq[2] = 0;
+    addWord(NAMES[e.piece & eng::TYPE], WHITE);
+    if (e.hop > 1) {
+        fmtInt(annNum, e.hop);
+        addWord(" TAKES ", RED);
+        addWord(annNum, WHITE);
+        addWord(" ON ", SILVER);
+    } else if (e.captured) {
+        addWord(" TAKES ", RED);
+        addWord(NAMES[e.captured & eng::TYPE], WHITE);
+        addWord(" ON ", SILVER);
+    } else {
+        addWord(" TO ", SILVER);
+    }
+    addWord(annSq, GOLD);
+    if (e.flags & match::H_CROWN) { addWord(" = ", SILVER); addWord(NAMES[eng::KING], FX_B); }
+}
+
+static const uint8_t ANN_FRAMES = 120;
+
+// A puff off the square a piece lands on: its own surface kicked up, in
+// its own colour (it blends in by design).
+static void dust(int x, int y, uint8_t n, int speed) {
+    fx::burst(fx::DUST, x, y, n, zoomed(speed), darkSq);
+}
+
+// The mover passes over its prey: off it goes to the tray.
+static void knock() {
+    const match::Event &e = pending;
+    uint8_t c = sideOf(e.captured), hop = e.hop;
+    int x, y;
+    screenOf(e.capSq, x, y);
+    shown[e.capSq] = 0;
+    uint8_t k = 0;
+    while (k < 3 && fl[k].on) k++;
+    if (k == 3) {
+        tray[c]++;                          // (never: three in the air at once)
+    } else {
+        int ax, ay, bx, by;
+        worldOf(e.a, ax, ay); worldOf(e.capSq, bx, by);
+        Flyer &f = fl[k];
+        f.piece = e.captured; f.sq = e.capSq;
+        f.slot = (uint8_t)(tray[c] + trayAir[c]++);
+        f.dir = (int8_t)(bx > ax ? 1 : -1);
+        f.t = 0; f.T = (uint8_t)(slowF > 1 ? 68 : 34);
+        f.on = 1;
+    }
+    y -= sized(4);
+    fx::burst(fx::SPARK, x, y, (uint8_t)(8 + 4 * hop), 36, GOLD);
+    fx::burst(fx::STAR, x, y, (uint8_t)(2 + 2 * hop), 24, WHITE);
+    fx::shake((uint8_t)(6 + 2 * hop), (uint8_t)(hop < 4 ? 1 + hop : 5));
+    audio::sfx(Sfx::Capture, (uint8_t)((hop - 1) * 2));
+    if (e.flags & match::H_FINAL) freezeT = 8;
+}
+
+static const char *const COMBO[4] = {"DOUBLE!", "TRIPLE!", "QUAD!", "RAMPAGE!"};
+static const fx::BannerStyle COMBO_STYLE[4] = {fx::B_GOLD, fx::B_CYAN, fx::B_RAINBOW, fx::B_RAINBOW};
+
+static void land() {
+    const match::Event &e = pending;
+    bool last = e.flags & match::H_LAST, crown = e.flags & match::H_CROWN;
+    mv.on = 0;
+    int x, y;
+    screenOf(e.b, x, y);
+    dust(x, y, 16, 30);
+    shown[e.b] = crown ? (uint8_t)(eng::KING | (e.piece & eng::BLACK)) : e.piece;
+    if (!e.captured) {
+        fx::shake(4, 1);
+        audio::sfx(Sfx::Land);
+    } else if (e.hop >= 2) {
+        uint8_t k = (uint8_t)(e.hop < 5 ? e.hop - 2 : 3);
+        fx::banner(COMBO[k], COMBO_STYLE[k], 34, 44);
+        audio::led(e.hop == 2 ? audio::LED_BLINK : audio::LED_TRIPLE);
+    }
+    intent = 0xFF;
+    holdT = last ? 12 : 5;
+    if (crown) {
+        // KING ME: the crowned chip drops onto the man (at QUICK pace and on
+        // the map it is simply there).
+        crownSq = e.b;
+        crownT = (fast || flat || demoOn) ? CROWN_FALL : 1;
+        holdT = 60;
+    }
+    if (!last) {
+        // More to take: the glove is back on the piece at once.
+        if (moverHuman && !demoOn) { humanTurn = true; fingerSq = cur; }
+        return;
+    }
+    announce(e);
+    // Take in the landing, then pull back - unless it won the game: stay on it.
+    outWait = zoomTo > 5 && !(e.flags & match::H_FINAL) && !demoOn;
+}
+
+bool waiting() { return waitPress; }
+void acknowledge() {
+    waitPress = false;
+    fx::holdBanner(false);
+}
+
+static void onOver(uint8_t result, uint8_t reason) {
+    over = true;
+    overT = 0;
+    humanTurn = thinking = false;
+    bool humanWon = match::setup.mode == match::TWO_PLAYER ||
+                    (result == match::WHITE_WINS) == (match::setup.humanBlack == 0);
+    bool decisive = result == match::WHITE_WINS || result == match::BLACK_WINS;
+    if (decisive && reason != match::BY_RESIGNATION) {
+        if (!flat) zoomTo = 10;
+        if (reason == match::BY_CAPTURE) fx::banner("SWEEP!", fx::B_RAINBOW, 34, 170);
+        else fx::banner("NO MOVES!", fx::B_RED, 34, 170);
+        fx::holdBanner(waitPress = true);
+        holdT = 80;                                  // PRESS A once it has sunk in
+        waveSide = result == match::BLACK_WINS;
+    } else if (decisive) {
+        fx::banner(result == match::WHITE_WINS ? "BLACK RESIGNS" : "WHITE RESIGNS", fx::B_WHITE, 36, 150);
+    } else {
+        fx::banner("DRAW", fx::B_CYAN, 36, 150);
+    }
+    if (decisive && humanWon) {
+        audio::sfx(reason == match::BY_RESIGNATION ? Sfx::Win : Sfx::Sweep);
+        audio::led(audio::LED_PARTY);
+        fx::fountain(40, 90, 20);
+        fx::fountain(88, 90, 20);
+    } else {
+        audio::sfx(decisive ? Sfx::Lose : Sfx::Draw);
+    }
+}
+
+void begin() {}
+
+// ---------------------------------------------------------------------------
+// Per tick
+// ---------------------------------------------------------------------------
+// A flying chip on screen, and its spin: from the square it was taken on, up
+// and over to its place on the tray.
+static void flyAt(const Flyer &f, int &sx, int &sy, uint8_t &ang) {
+    int ax, ay, bx, by;
+    worldOf(f.sq, ax, ay);
+    trayOf(sideOf(f.piece), f.slot, bx, by);
+    int p = f.t * 256 / f.T;
+    int z = ((flat ? 14 : zoomed(34)) * fx::isin(p / 2)) >> 8;
+    sx = toScreenX(ax + (((bx - ax) * p) >> 8));
+    sy = toScreenY(ay + (((by - ay) * p) >> 8)) - z;
+    ang = (uint8_t)(f.dir * 9 * f.t / (f.T / 34));       // (as many turns, however slow)
+}
+
+static void moverPos(const Mover &m, int &x, int &y, int &z) {
+    int ax, ay, bx, by;
+    worldOf(m.from, ax, ay);
+    worldOf(m.to, bx, by);
+    int e = fx::ease(fx::IN_OUT, m.t, m.T);
+    x = ax + (((bx - ax) * e) >> 8);
+    y = ay + (((by - ay) * e) >> 8);
+    // Lift, glide, drop: a sine arc for jumps, a flat top for slides.
+    int arc = zoomed(m.arc);
+    if (m.arc > 5) z = (arc * fx::isin((m.t * 128) / m.T)) >> 8;
+    else z = m.t < 4 ? m.t * arc / 4 : (m.T - m.t < 4 ? (m.T - m.t) * arc / 4 : arc);
+}
+
+void update() {
+    match::Event e;
+    // A new position (new game, undo, a restored game) cuts in on anything
+    // still showing; the next hop of a multiple jump, and the banner for the
+    // winning blow, only wait for the last hop to land (its sparks and the
+    // flying chip carry on); everything else waits its turn.
+    bool chain = pending.type == match::EV_HOP && (pending.flags & (match::H_LAST | match::H_FINAL)) != match::H_LAST;
+    while (match::peekEvent(e) && (e.type == match::EV_START || !(chain ? moving() : busy()))) {
+        match::popEvent(e);
+        switch (e.type) {
+            case match::EV_START: onStart(); pending.type = match::EV_START; break;
+            case match::EV_TURN:  onTurn(e.a != 0, e.b != 0, e.c != 0); break;
+            case match::EV_PICK:  onPick(e.a, e.b, e.c != 0, e.captured != 0); break;
+            case match::EV_HOP:   onHop(e); break;
+            case match::EV_OVER:  onOver(e.a, e.b); break;
+        }
+        chain = pending.type == match::EV_HOP && (pending.flags & (match::H_LAST | match::H_FINAL)) != match::H_LAST;
+    }
+
+    if (holdT) holdT--;
+    if (denyT) denyT--;
+    if (tallyT[0]) tallyT[0]--;
+    if (tallyT[1]) tallyT[1]--;
+    if (outWait && !fx::particles()) { outWait = false; zoomTo = inspecting ? 10 : 5; }
+    // Going out, the camera jumps with each step to the move's new framing
+    // rather than drifting between them: clean steps, no wobble.
+    bool stepOut = false;
+    if (tileH != zoomTo && !flat && zoomDrawn) {
+        stepOut = tileH > zoomTo;
+        setZoom((uint8_t)(tileH < zoomTo ? tileH + 1 : tileH - 1));
+        zoomDrawn = false;
+    }
+    // The glove's piece: its outline fades black/white (HOVER); holding one,
+    // the squares shimmer (TARGETS).
+    pal::setMode(demoOn ? pal::CASINO : sel != 0xFF ? pal::TARGETS : gloveOn() ? pal::HOVER : pal::CASINO);
+    if (annT && (!waitPress || annT < 40) && ++annT > ANN_FRAMES) annT = 0;
+
+    if (freezeT) {
+        freezeT--;
+    } else {
+        if (mv.on) {
+            if (mv.t == mv.hitT) knock();
+            if (++mv.t >= mv.T) land();
+        }
+        for (Flyer &f : fl) {
+            if (!f.on || ++f.t < f.T) continue;
+            // Down on the tray with a clink.
+            uint8_t c = sideOf(f.piece);
+            int x, y;
+            trayOf(c, f.slot, x, y);
+            f.on = 0;
+            trayAir[c]--;
+            tray[c]++;
+            tallyT[c] = 10;
+            audio::sfx(Sfx::Chip);
+            fx::burst(fx::DUST, toScreenX(x), toScreenY(y), 6, zoomed(16), GOLD);
+        }
+    }
+
+    if (crownT) {
+        if (crownT == CROWN_FALL) {
+            int x, y;
+            screenOf(crownSq, x, y);
+            y -= sized(CHIP_AY);
+            fx::burst(fx::STAR, x, y, 16, 40, GOLD);
+            fx::burst(fx::SPARK, x, y, 12, 30, WHITE);
+            dust(x, y + sized(CHIP_AY), 12, 30);
+            fx::shake(12, 3);
+            fx::banner("KING ME!", fx::B_GOLD, 36, 70);
+            audio::sfx(Sfx::Crown);
+            audio::led(audio::LED_TRIPLE);
+        }
+        if (++crownT >= CROWN_END) { crownT = 0; crownSq = 0xFF; }
+    }
+    if (introT < 255) {
+        // The title: the chips come down one after another with a clatter.
+        if (introT >= 20 && introT < 20 + 24 * 3 && introT % 3 == 2) audio::sfx(Sfx::Land);
+        if (++introT > 20 + 24 * 3 + 14) introT = 255;
+    }
+
+    // What the camera frames: the move in flight, the CPU's finger, the
+    // winning blow, or your cursor.
+    if (mv.on) {
+        int x, y, z;
+        moverPos(mv, x, y, z);
+        aimAt(x, y - zoomed(6), 2);
+    } else if (demoOn) {
+        aimX = driftX; aimY = driftY; aimShift = 3;
+    } else if (inspecting) {
+        // On the glove; pushed that way, to the board's corner (a straight
+        // push) or the middle of its edge (a diagonal one).
+        int x, y;
+        worldOf(cur, x, y);
+        if (insDX || insDY) {
+            x = insDX * (insDY ? 4 : 8) * hw();
+            y = 8 * hh() + insDY * (insDX ? 4 : 8) * hh();
+        }
+        aimAt(x, y, 3);
+    } else if (over && waveSide != 0xFF) {
+        int x, y;
+        worldOf(pending.b, x, y);
+        aimAt(x, y + zoomed(8), 3);          // the last landing above the result panel
+    } else if (tileH > zoomTo && !flat) {
+        aimSq(pending.b, 2);                 // pulling back from the move
+    } else if (thinking || picking) {
+        aimSq(fingerSq, 3);
+    } else if (humanTurn) {
+        aimSq(cur, 2);
+    }
+    if (picking) {
+        // As a player would: the glove rests on the piece and taps it (up it
+        // comes, its square lit), goes to the square, rests there, and taps
+        // again - the move. Carrying on a multiple jump, it wastes no time.
+        uint8_t rest = pickQuick ? 4 : fast ? 8 : 24, stay = pickQuick ? 10 : fast ? 16 : 60;
+        pickT++;
+        if (pickT == rest || pickT == rest + 12 + stay) { tapT = 1; audio::sfx(Sfx::Select); }
+        if (pickT == rest + 12) {
+            uint8_t cap = pickCap;
+            pickUp(fingerSq, &pickTo, &cap, 1);
+            intent = fingerSq = pickTo;
+        }
+        if (pickT == rest + 24 + stay) picking = false;
+    }
+    if (tapT && ++tapT > 12) tapT = 0;
+    if (handT) {
+        handT++;
+        if (handT < 12) aimAt(0, 8 * hh(), 1);
+        if (handT == 12) {
+            // Over the centre (the same world point from either side, and the
+            // squares keep their colours): turn round behind the dip.
+            cam.flip = handBlack;
+            dipT = 8;
+            fx::banner(handBlack ? "BLACK TO MOVE" : "WHITE TO MOVE", fx::B_GOLD, 40, 60);
+        }
+        if (handT > 12) aimSq(cur, 3);
+        if (handT > 40) { handT = 0; humanTurn = true; fingerTo(cur); }
+    }
+    if (dipT) {
+        dipT--;
+        pal::setFade((uint8_t)(dipT > 4 ? 16 - (8 - dipT) * 3 : 16 - dipT * 3));
+    }
+    if (humanTurn) fingerSq = cur;
+    if (stepOut) snapCamera();
+    stepCamera();
+
+    // The finger glides to its square.
+    if (fingerSq != 0xFF) {
+        int x, y;
+        worldOf(fingerSq, x, y);
+        y -= topOf(fingerSq);
+        fx16 += ((x << 4) - fx16) >> 1;
+        fy16 += ((y << 4) - fy16) >> 1;
+    }
+
+    if (over && overT < 255) overT++;
+    if (overT > 150 && !waitPress) overDone = true;
+}
+
+// ---------------------------------------------------------------------------
+// Drawing
+// ---------------------------------------------------------------------------
+static bool isTarget(uint8_t sq, bool &cap) {
+    for (uint8_t i = 0; i < nTgt; i++) if (tgt[i] == sq) { cap = tgtCap[i]; return true; }
+    return false;
+}
+
+static void drawOverlays(uint32_t frame) {
+    uint8_t ph = (uint8_t)(frame >> 3);
+    uint8_t in = (uint8_t)((tileH + 2) / 5);        // borders sit this far in
+    // The other side's last move, while it is your turn to answer it.
+    if (match::lastFrom != 0xFF && humanTurn && match::chainSq() == 0xFF) {
+        tileTint(match::lastFrom, in, GOLD);
+        tileBorder(match::lastTo, in, GOLD, GOLD, 0);
+    }
+    if (intent != 0xFF) {
+        bool cap = nTgt && tgtCap[0];
+        tileTint(intent, in, cap ? RED : CYAN);
+        tileBorder(intent, 0, cap ? RED : CYAN, WHITE, ph);
+    }
+    // The pieces that must jump.
+    if (humanTurn && sel == 0xFF)
+        for (uint8_t i = 0; i < nJump; i++) tileBorder(jumper[i], in, FX_B, RED, ph);
+    if (sel != 0xFF) {
+        for (uint8_t i = 0; i < nTgt; i++) {
+            if (tgtCap[i]) { tileTint(tgt[i], in, RED); tileBorder(tgt[i], 0, FX_B, RED, ph); }
+            else           { tileTint(tgt[i], in, CYAN); tileBorder(tgt[i], 0, FX_A, CYAN, ph); }
+        }
+    }
+    // Holding a piece, the square the glove is on blinks between dithered and
+    // solid: cyan to move there, red to jump there.
+    bool cap = false;
+    if (humanTurn && sel != 0xFF && isTarget(cur, cap)) tileTint(cur, in, cap ? RED : CYAN, (frame >> 4) & 1);
+    if (humanTurn) {
+        if (sel != 0xFF) tileBorder(sel, 0, WHITE, WHITE, 0);
+        tileBorder(cur, 0, sel != 0xFF ? WHITE : FX_B, GOLD, ph);
+    }
+}
+
+// A chip, its base centre at (x, y): flash, if given, replaces the side's
+// colours; edge (not 0xFF) the outline's. crowned: the chip on top of a king.
+static void drawChip(uint8_t p, int x, int y, const uint8_t *flash, uint8_t edge, bool crowned) {
+    const uint8_t *rm = flash ? flash : (crowned ? KING_REMAP : SIDE_REMAP)[sideOf(p)];
+    uint8_t hl[16];
+    if (edge != 0xFF) {
+        memcpy(hl, rm, 16);
+        hl[INK] = edge;
+        rm = hl;
+    }
+    int s = ascale();
+    if (flat) sprite4(CHIP_TOP, x - 4, y - 6, rm, 256);
+    else sprite4(CHIP, x - ((CHIP_AX * s) >> 8), y - ((CHIP_AY * s) >> 8), rm, s);
+}
+
+// A man is one chip, a king two; drop: how far above its place the upper
+// one is still falling.
+static void drawPiece(uint8_t p, int x, int y, const uint8_t *flash, uint8_t edge, int drop) {
+    bool king = isKing(p);
+    drawChip(p, x, y, flash, edge, false);
+    if (king) drawChip(p, x, y - rise() - drop, flash, edge, true);
+}
+
+static void shadow(int x, int y) {
+    gfx_fillEllipse(x, y, flat ? 3 : sized(5), flat ? 2 : sized(2), INK);
+}
+
+static void drawMover() {
+    int x, y, z;
+    moverPos(mv, x, y, z);
+    int sx = toScreenX(x), sy = toScreenY(y);
+    shadow(sx, sy);                                  // its shadow stays on the board
+    drawPiece(mv.piece, sx, sy - z, nullptr, 0xFF, 0);
+}
+
+static void drawPieces(uint32_t frame) {
+    // The trays first: they lie beyond the board's far edges.
+    for (uint8_t c = 0; c < 2; c++)
+        for (uint8_t i = 0; i < tray[c]; i++) {
+            int x, y;
+            trayOf(c, i, x, y);
+            x = toScreenX(x); y = toScreenY(y);
+            if (x < -14 || x > 142 || y < 4 || y > 140) continue;
+            drawChip(c ? eng::BLACK : 0, x, y, nullptr, 0xFF, false);
+        }
+    // The mover goes in at its current depth, between the rows.
+    int md = 99;
+    if (mv.on) {
+        int da = depthOf(mv.from), db = depthOf(mv.to);
+        int e = fx::ease(fx::IN_OUT, mv.t, mv.T);
+        md = da + (((db - da) * e + (db > da ? 255 : 0)) >> 8);
+    }
+    int last = flat ? 7 : 14, nth = 0;
+    for (int d = 0; d <= last; d++) {
+        for (int u = 0; u < 8; u++) {
+            int v = flat ? d : d - u;
+            if (v < 0 || v > 7) continue;
+            uint8_t sq = fromView(u, v, cam.flip);
+            uint8_t p = shown[sq];
+            if (!p) continue;
+            int x, y, drop = 0;
+            screenOf(sq, x, y);
+            if (introT < 255) {
+                // The title: each chip drops in, in turn, and bounces.
+                int t = introT - 20 - 3 * nth++;
+                if (t < 0) continue;
+                if (t < 14) y -= ((256 - fx::ease(fx::OUT_BOUNCE, t, 14)) * 70) >> 8;
+            }
+            if (x < -28 || x > 156 || y < -8 || y > 150) continue;
+            if (sq == crownSq && crownT) {
+                // The crown coming down, faster and faster, then a bounce.
+                int t = crownT;
+                if (t < CROWN_FALL) drop = sized(44) * (CROWN_FALL * CROWN_FALL - t * t) / (CROWN_FALL * CROWN_FALL);
+                else if (t < CROWN_FALL + 8) drop = (sized(2) * fx::isin((t - CROWN_FALL) * 16)) >> 8;
+            }
+            if (sideOf(p) == waveSide && over) {
+                // The winner's chips dance.
+                int h = fx::isin((int)frame * 6 + d * 24);
+                if (h > 0) y -= (sized(4) * h) >> 8;
+            }
+            // Outlines: picked up, the rainbow; under the glove, fading black to
+            // white (FX_A in the palette's HOVER mode). The piece a jump would
+            // take flashes: red if the glove is on that jump, else white.
+            const uint8_t *rm = nullptr;
+            uint8_t edge = 0xFF;
+            if (sq == sel) edge = fx::RAIN[(frame >> 3) % 5];
+            else if (sq == fingerSq && gloveOn()) edge = FX_A;
+            if (sel != 0xFF && (frame & 8))
+                for (uint8_t i = 0; i < nTgt; i++)
+                    if (tgtPrey[i] == sq) rm = tgt[i] == fingerSq ? RM_PREY : rm ? rm : RM_HIT;
+            if (sq == sel) {
+                shadow(x, y);
+                y -= sized(3) + ((sized(2) * fx::isin((int)(frame >> 3) * 48)) >> 8);
+            }
+            drawPiece(p, x, y, rm, edge, drop);
+        }
+        if (md == d) drawMover();
+    }
+    for (const Flyer &f : fl) {
+        if (!f.on) continue;
+        int sx, sy;
+        uint8_t ang;
+        flyAt(f, sx, sy, ang);
+        const uint8_t *art = flat ? CHIP_TOP : CHIP;
+        spriteRot(art, art[0] / 2, art[1] / 2, sx, sy - (flat ? 3 : sized(3)), ang, ascale(),
+                  f.t < 4 ? RM_HIT : SIDE_REMAP[sideOf(f.piece)]);
+    }
+}
+
+static void drawFinger(uint32_t frame) {
+    if (fingerSq == 0xFF || !gloveOn()) return;
+    int x = toScreenX((int)(fx16 >> 4)), y = toScreenY((int)(fy16 >> 4));
+    int bob = (fx::isin((int)(frame >> 3) * 40) * 2) >> 8;
+    if (tapT) bob = (tapT < 6 ? tapT : 12 - tapT) / 2;
+    bob = sized(bob);
+    sprite4(HAND, x - sized(HAND_TIP), y - sized(HAND[1]) + bob - 1,
+            !humanTurn ? RM_CPU : denyT & 4 ? RM_ALERT : RM_ID, ascale());
+}
+
+// ---------------------------------------------------------------------------
+// HUD: whose turn and what each side has lost; and a plate at the foot of
+// the screen naming what the finger is on, or the last move.
+// ---------------------------------------------------------------------------
+
+// Words in their colours on a rounded plate centred at y: grow (Q8) is the
+// plate's width so far, and word k shows from frame 6 + 3k, dropping in.
+static void plate(const char *const *w, const uint8_t *c, uint8_t n, int y, int grow, int t) {
+    int tw = 0;
+    for (uint8_t i = 0; i < n; i++) tw += text35Width(w[i]);
+    int pw = ((tw + 8) * grow) >> 8;
+    if (pw < 6) return;
+    fillRound(64 - pw / 2, y, pw, 11, 2, NAVY);
+    roundRect(64 - pw / 2, y, pw, 11, 2, GOLD);
+    int x = 64 - tw / 2;
+    for (uint8_t i = 0; i < n; i++) {
+        int d = t - 6 - 3 * i;
+        if (d >= 0) text35(x, y + 3 - (d < 3 ? 3 - d : 0), w[i], c[i]);
+        x += text35Width(w[i]);
+    }
+}
+
+static void drawHud(uint32_t frame) {
+    bool black = turnBlack;
+    gfx_fillRect(0, 0, 128, 9, INK);
+    gfx_hline(0, 9, 128, GOLD);
+    char who[16];
+    if (over) fmtStr(who, "GAME OVER");
+    else if (match::setup.mode == match::TWO_PLAYER) fmtStr(who, black ? "BLACK" : "WHITE");
+    else if (black == (match::setup.humanBlack != 0)) fmtStr(who, "YOUR MOVE");
+    else {
+        // The CPU by name, with dots while it thinks.
+        char *p = fmtStr(who, opponentName);
+        if (thinking) for (uint32_t k = 0; k < ((frame >> 4) & 3); k++) *p++ = '.', *p = 0;
+    }
+    text35(3, 2, who, thinking ? FX_B : WHITE);
+    // The tally: what the side you view from has taken, then what it has lost.
+    for (uint8_t k = 0; k < 2; k++) {
+        uint8_t c = (uint8_t)((k == 0) != cam.flip);
+        char num[4];
+        fmtInt(num, tray[c]);
+        int x = 88 + k * 20;
+        sprite4(CHIP_TOP, x, 1, SIDE_REMAP[c], 256);
+        text35(x + 10, tallyT[c] > 5 ? 1 : 2, num, tallyT[c] ? FX_B : WHITE);
+    }
+    int py = 116;
+    if (annT) {
+        // The last move: the plate springs open, then the words drop in.
+        int t = annT, grow = t < 8 ? fx::ease(fx::OUT_BACK, t, 8) : t > ANN_FRAMES - 8 ? (ANN_FRAMES - t) * 32 : 256;
+        plate(annW, annC, annN, py, grow, t);
+    } else if (humanTurn && (shown[cur] || sel != 0xFF)) {
+        // What the finger is on: a piece (and why it cannot go), or where the
+        // picked-up one would go.
+        static const char *const WHY[4] = {"", " NO MOVES", " MUST JUMP", " KEEP JUMPING"};
+        char sq[3] = {(char)('A' + (cur & 7)), (char)('1' + (cur >> 3)), 0};
+        const char *w[4] = {NAMES[shown[sel != 0xFF ? sel : cur] & eng::TYPE], " ", sq, WHY[denyT ? denyWhy : blocked]};
+        uint8_t c[4] = {WHITE, WHITE, GOLD, (uint8_t)(denyT & 4 ? RED : SILVER)};
+        bool cap = false;
+        if (sel != 0xFF && cur != sel && isTarget(cur, cap)) {
+            w[1] = cap ? " JUMPS TO " : " TO ";
+            c[1] = cap ? RED : SILVER;
+        }
+        plate(w, c, 4, py, 256, 99);
+    }
+    if (waitPress && holdT < 20 && (frame & 32)) {           // blinking
+        static const char *const PRESS[1] = {"PRESS A"};
+        static const uint8_t WHITE1[1] = {WHITE};
+        plate(PRESS, WHITE1, 1, 100, 256, 99);
+    }
+}
+
+void renderScene(uint32_t frame) {
+    drawTable();
+    drawBoard();
+    drawPieces(frame);
+    fx::drawParticles((uint8_t)((2 * tileH + 2) / 5));
+}
+
+// A still scene is not redrawn: the frame is flushed again, so palette
+// effects keep moving at 60 Hz, and the bob and the marching borders step at
+// 7.5 Hz, so an idle board costs an eighth of the frames.
+static uint32_t lastSig;
+
+static uint32_t signature(uint32_t frame, uint32_t ui) {
+    int lo, hi;
+    if (fx::activeRows(lo, hi) || mv.on || fl[0].on || fl[1].on || fl[2].on || crownT || (over && waveSide != 0xFF))
+        return frame;
+    if (cx16 != (int32_t)aimX << 4 || cy16 != (int32_t)aimY << 4) return frame;
+    uint32_t h = 2166136261u;
+    uint32_t v[] = {
+        (uint32_t)cam.x, (uint32_t)cam.y, cam.flip, cur, sel, viewMode, tileH, intent, humanTurn, thinking,
+        picking, fingerSq, (uint32_t)(fx16 >> 4), (uint32_t)(fy16 >> 4), frame >> 3, match::lastTo,
+        nTgt, over, tapT, annT, ui, waitPress, denyT, nJump, blocked, tray[0], tray[1], tallyT[0], tallyT[1],
+    };
+    for (uint32_t x : v) h = (h ^ x) * 16777619u;
+    return h;
+}
+
+void invalidate() { lastSig = 0; }
+
+bool render(uint32_t frame, uint32_t ui) {
+    zoomDrawn = true;                            // the zoom may take its next step
+    uint32_t sig = signature(frame, ui);
+    if (sig == lastSig) return false;
+    lastSig = sig;
+    drawTable();
+    drawBoard();
+    drawOverlays(frame);
+    drawPieces(frame);
+    drawFinger(frame);
+    drawHud(frame);
+    fx::drawParticles((uint8_t)((2 * tileH + 2) / 5));
+    fx::drawBanner();
+    fx::applyShake(10, 127);
+    return true;
+}
+
+#if CHGAME_DEBUG
+// Device render profile (debug Y command): microseconds per section,
+// averaged over 8 draws of the current scene.
+static void profTable(uint32_t) { drawTable(); }
+static void profBoard(uint32_t) { drawBoard(); }
+static void profFx(uint32_t) { fx::drawParticles(2); fx::drawBanner(); }
+void profile(uint32_t *us) {
+    static void (*const PART[6])(uint32_t) = {profTable, profBoard, drawOverlays, drawPieces, drawHud, profFx};
+    for (int k = 0; k < 6; k++) {
+        uint32_t t = micros();
+        for (int i = 0; i < 8; i++) PART[k](0);
+        us[k] = (micros() - t) / 8;
+    }
+    invalidate();
+}
+#endif
+
+}  // namespace stage

@@ -1,0 +1,4 @@
+# Words and names that must never appear in a puzzle (one per line).
+# Kept in ROT13 (build_bank.py decodes it), so that the names it keeps out
+# of the puzzles are not spelled out in the repository either.
+JURRY BS SBEGHAR

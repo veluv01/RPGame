@@ -1,0 +1,42 @@
+# Save and quit mid-game, then continue: the same table, chips and clock.
+say G 0 12345
+wait 150
+solve 6
+wait 400
+snap before
+state
+tap START
+wait 4
+tap DOWN
+tap DOWN
+tap DOWN
+tap A
+wait 40
+snap title
+tap A
+wait 40
+snap after
+state
+solve 2
+wait 30
+snap on
+tap B
+wait 40
+snap undo
+state
+# QUICK pace: no deal animation.
+say J O
+wait 10
+tap DOWN
+tap DOWN
+tap DOWN
+tap A
+wait 4
+snap quick
+tap B
+wait 30
+say G 1 99
+wait 8
+snap quick_deal
+solve 2
+state

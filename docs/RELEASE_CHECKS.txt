@@ -1,0 +1,3 @@
+PASS: 58 UF2s, region bounds and ROM IMAGE_DEF loops; 25 CRC-checked RPG packages.
+PASS: 25 staged card packages match their board builds; card catalog and every asset checksum verified.
+PASS: wrong-family, truncated, duplicate and damaged files rejected.

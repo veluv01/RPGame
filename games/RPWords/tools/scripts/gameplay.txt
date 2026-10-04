@@ -1,0 +1,67 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of a
+# game against the HIGH ROLLER, played with the D-pad as a player would, and
+# the end of a game. Each clip is its own recording, named in the order it
+# is shown; ../../../../../../../../../tools/readme_gif.py runs this script and joins them:
+#   chgame gif
+# Only the first rack is set.
+rec start 3
+wait 120
+rec stop 01_title
+# The camera whips in; PLAYERS is laid out tile by tile across the centre
+# and played for a bingo.
+say G 0 2 11
+say R PLAYERS
+rec start 3
+wait 24
+tap LEFT
+wait 6
+tap LEFT
+wait 6
+tap LEFT
+wait 8
+tap A
+wait 10
+tap A
+wait 8
+tap A
+wait 8
+tap A
+wait 8
+tap A
+wait 8
+tap A
+wait 8
+tap A
+wait 8
+tap A
+wait 18
+tap START
+wait 16
+tap A
+wait 150
+rec stop 02_bingo
+# The CPU thinks over the whole board and drops its word in close up.
+rec start 3
+waitturn 20
+rec stop 03_cpu
+# A hint is laid out and played; then a look at the whole board (B held).
+rec start 3
+tap SELECT
+wait 40
+waitturn 24
+tap START
+wait 14
+tap A
+waitturn 12
+hold B
+wait 40
+release
+wait 16
+rec stop 04_hint
+# The end of a game against the TOURIST.
+say G 0 0 8
+wait 20
+auto
+rec start 3
+wait 300
+rec stop 05_win

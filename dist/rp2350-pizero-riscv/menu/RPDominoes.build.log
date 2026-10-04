@@ -1,0 +1,14 @@
+Sketch uses 103152 bytes (2%) of program storage space. Maximum is 4186112 bytes.
+Global variables use 45500 bytes (8%) of dynamic memory, leaving 478788 bytes for local variables. Maximum is 524288 bytes.
+/workspace/scratch/2db830fcf25a/RPGame/games/RPDominoes/Table.cpp: In function 'uint8_t table::tilePx(int, int, bool, int, uint16_t, uint16_t, uint8_t, uint8_t, bool)':
+/workspace/scratch/2db830fcf25a/RPGame/games/RPDominoes/Table.cpp:118:39: warning: enumerated mismatch in conditional expression: '<unnamed enum>' vs '<unnamed enum>' [-Wenum-compare]
+  118 |     if (sx < 2 && sy < 2) return dark ? WHITE : SLATE;
+      |                                  ~~~~~^~~~~~~~~~~~~~~
+/workspace/scratch/2db830fcf25a/RPGame/games/RPDominoes/Table.cpp: In function 'void table::drawTile(int, int, uint8_t, uint8_t, bool, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t)':
+/workspace/scratch/2db830fcf25a/RPGame/games/RPDominoes/Table.cpp:180:53: warning: enumerated mismatch in conditional expression: '<unnamed enum>' vs '<unnamed enum>' [-Wenum-compare]
+  180 |     uint8_t lo = dark ? darkLo : SILVER, pip = dark ? WHITE : SLATE;
+      |                                                ~~~~~^~~~~~~~~~~~~~~
+/workspace/scratch/2db830fcf25a/RPGame/games/RPDominoes/Table.cpp: In function 'void table::drawBack(int, int, int, int)':
+/workspace/scratch/2db830fcf25a/RPGame/games/RPDominoes/Table.cpp:208:44: warning: enumerated mismatch in conditional expression: '<unnamed enum>' vs '<unnamed enum>' [-Wenum-compare]
+  208 |     gfx_hline(x + 1, y + 1, w - 2, setDark ? BONE : SILVER);    // lit along its top
+      |                                    ~~~~~~~~^~~~~~~~~~~~~~~

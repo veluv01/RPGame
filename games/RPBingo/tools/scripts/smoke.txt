@@ -1,0 +1,90 @@
+# Every screen once, and a round end to end: a contact sheet for a quick look.
+#   chgame run tools/scripts/smoke.txt out/smoke
+wait 30
+snap 01_title
+say J O
+wait 30
+snap 02_options
+say J S
+wait 30
+snap 03_stats
+say J L
+wait 90
+snap 04_broke
+# A new game: the buy-in.
+say R 7
+say J P
+wait 60
+snap 05_buy_in
+tap RIGHT
+tap RIGHT
+tap RIGHT
+wait 10
+snap 06_buy_six
+tap A
+wait 60
+snap 07_eyes_down
+wait 60
+snap 08_first_call
+wait 120
+snap 09_second_call
+# Swipe to a card with a number waiting and daub it.
+tap RIGHT
+wait 2
+snap 10_sliding
+wait 20
+snap 11_next_card
+say D
+wait 4
+snap 12_daubed
+wait 240
+tap LEFT
+wait 20
+snap 13_more_calls
+# A power-up, used.
+say X 1
+wait 5
+snap 14_power_held
+tap B
+wait 6
+snap 15_wild
+# The win.
+say I 2
+say W
+wait 20
+snap 16_bingo
+wait 60
+snap 17_bingo_later
+wait 200
+snap 18_next_buy_in
+# Pause, the called board.
+tap A
+wait 300
+tap START
+wait 5
+snap 19_paused
+tap DOWN
+tap A
+wait 5
+snap 20_called_board
+tap A
+tap START
+# The rare one (past the jackpot's ten calls).
+wait 1000
+say I 1
+say W
+wait 30
+snap 21_its_a_bingo
+wait 150
+snap 22_you_just_say_bingo
+wait 260
+snap 23_buy_again
+# A rival gets there first.
+tap A
+wait 150
+say H 1
+wait 130
+snap 24_rival
+wait 80
+snap 25_too_slow
+perf

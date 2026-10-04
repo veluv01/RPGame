@@ -1,0 +1,27 @@
+CHRoulette
+Copyright 2026 bateske
+
+From CHBlackjack (https://github.com/bateske/CHBlackjack, Apache-2.0): the
+input and frame pacing (now in the CHGame library,
+platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Input.*), palette, drawing, outlined
+lettering, effects, sound sequencer, flash saving, debug protocol, the PC
+simulator and tools, the table's wall and rail, the chips, the croupier
+(the dealer from CHBlackjack's tables, with his expressions) and the
+end-screen lettering, adapted here. Two tunes (VICTORY and BROKE) are
+CHBlackjack's.
+
+CHBlackjack is a derivative of "Blackjack" for the Arduboy by Press Play On
+Tape - Simon Holmes (filmote), code, and Stephane C (vampirics), art
+(https://github.com/Press-Play-On-Tape/Blackjack, Apache-2.0). The croupier
+is Press Play On Tape's dealer, recoloured and retouched by hand; the "YOU
+WON THE BANK" and "YOU ARE BROKE" lettering and the 3x5 pixel font in the
+CHGame library (platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Draw.cpp) are Press
+Play On Tape's.
+
+From CHChess (https://github.com/bateske/CHChess, Apache-2.0): the pointing
+glove, the nearest-in-direction navigation, the word plate, the soft clock
+ticks and the shake routine.
+
+Everything else - the betting layout, the wheel and its renderer, the ball
+and its landing solver, the rules, the "Roulette" lettering, the title tune
+and the presentation - is new, under the Apache License 2.0 (LICENSE).

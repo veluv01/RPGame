@@ -1,0 +1,43 @@
+# SAVE + QUIT, then CONTINUE: the game comes back as its turn began, and the
+# save is used up. Options keep the saved game.
+say G 1 3 3 0 1 77
+waitturn 4
+tap A
+waitturn 6
+tap A
+waitturn 6
+snap before_save
+board
+tap START
+wait 6
+tap DOWN
+tap DOWN
+wait 4
+snap pause_quit
+tap A
+wait 40
+snap title_continue
+# Into the options and back: the save must survive.
+tap DOWN
+tap DOWN
+tap DOWN
+tap A
+wait 30
+snap options
+tap DOWN
+tap DOWN
+tap A
+wait 40
+snap title_still_continue
+tap A
+wait 120
+waitturn 6
+snap continued
+board
+tap START
+wait 6
+tap DOWN
+tap DOWN
+tap A
+wait 40
+snap title_saved_again

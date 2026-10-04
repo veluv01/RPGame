@@ -1,0 +1,36 @@
+# QUICK pace: no close-ups, shorter pauses. A hit and a few turns each.
+say U 1
+say J O
+wait 20
+tap DOWN
+tap DOWN
+tap A
+wait 4
+snap quick_option
+tap B
+wait 30
+say V 0 1 w 24:2 13:5 8:3 6:5 r 24:2 13:4 8:3 6:5 20:1
+say D 31
+wait 30
+waitturn 0
+rec start 2
+tap A
+waitturn 2
+move 8 5
+waitturn 2
+move 6 5
+waitturn 2
+tap A
+waitturn 4
+rec stop quick
+auto 4
+snap quick_later
+board
+# Back to FUN for whatever runs next.
+say J O
+wait 20
+tap DOWN
+tap DOWN
+tap A
+tap B
+wait 30

@@ -1,0 +1,27 @@
+CHPoker
+Copyright 2026 bateske
+
+From CHBlackjack (https://github.com/bateske/CHBlackjack, Apache-2.0): the
+card rendering (CardArt.cpp's big card, the card ranks, pips and
+court portraits in the repository's tools/art/common/), the chips, the
+action bar, the palette, the sound sequencer, flash saving and the PC
+simulator. CHBlackjack is a
+derivative of "Blackjack" for the Arduboy by Press Play On Tape - Simon
+Holmes (filmote), code, and Stephane C (vampirics), art - Apache-2.0
+(https://github.com/Press-Play-On-Tape/Blackjack, commit 72a6b1b). From it
+come the card drawing (PlayGameState_Render.cpp drawCard()), the 5x6 suit
+glyphs (tools/art/common/suits.txt), the 3x5 pixel font in the CHGame library
+(platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Draw.cpp), and the lettering of the
+title (tools/art/logo.txt: "Poker" drawn in the letters of PPOT's
+"BlackJack" logo).
+
+From CHChess (https://github.com/bateske/CHChess, Apache-2.0): the input and
+frame pacing (now in the CHGame library,
+platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Input.*), drawing primitives, outlined
+lettering, effects, the pointing glove (tools/art/common/hand.*), the word-drop
+plate, the setup-screen choices, the debug protocol and the simulator's
+script driver.
+
+Everything else - the four games' rules, the hand evaluator, the CPU
+players, the table and its presentation, the mini cards and the screens -
+is new, under the Apache License 2.0 (LICENSE).

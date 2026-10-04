@@ -1,0 +1,17 @@
+   ok   no card: 2 checks, 0 failed
+   ok   pretend card (VCard): 16934 checks, 0 failed (vcard)
+   ok   fat16: 902 checks, 0 failed
+   ok   fat16, no partition table: 896 checks, 0 failed
+   ok   fat16, long names, decoys, files in pieces: 988 checks, 0 failed
+   ok   fat16, 8-sector clusters, one FAT: 902 checks, 0 failed
+   ok   fat16, partition in slot 3: 902 checks, 0 failed
+   ok   fat32: 905 checks, 0 failed
+   ok   fat32, long names, decoys, files and root in pieces: 1057 checks, 0 failed
+   ok   FAT loop: 28 checks, 0 failed
+   ok   chain cut short: 28 checks, 0 failed
+   ok   chain runs on: 28 checks, 0 failed
+   ok   exFAT: 4 checks, 0 failed
+   ok   exFAT, no partition table: 4 checks, 0 failed
+   ok   blank card: 4 checks, 0 failed
+   ok   FAT12-sized volume: 4 checks, 0 failed
+ALL OK

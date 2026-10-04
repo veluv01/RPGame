@@ -1,0 +1,16 @@
+testPuzzle
+testWedges
+testSpin
+testRoundByHand
+testSolveEntry
+testMysteryFlip
+testFinalSpin
+testTossUp
+testBonus
+testCpuEpisodes
+cpu episodes: 2000, longest 6717 ticks (1.9 min); rounds solved ACE 2365 DOT 1953 BUZZ 682; wrong solves 82/121/118; episodes won 1267/551/182; final spins 719; bonus wins 1145; toss-ups nobody got 7
+testDeterminism
+testLines
+50553 checks, 0 failures
+bank episodes: 600, 1800 rounds, final spin in 31% of episodes, mean 5035 ticks (no presentation)
+bank: 111 puzzles (50 round, 34 toss-up, 27 bonus); 4394 checks, 0 failures

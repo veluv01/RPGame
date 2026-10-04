@@ -1,0 +1,44 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of
+# play. Each clip is its own recording, named in the order it is shown;
+# ../../../../../../../../../tools/readme_gif.py runs this script and joins them:
+#   chgame gif
+rec start 4
+wait 150
+rec stop 01_title
+# The first move of a game against the TOURIST, played with the pad (the
+# move is the game's own choice: chdrive's auto).
+tap A
+wait 30
+tap A
+wait 20
+rec start 4
+auto 1
+waitturn 20
+rec stop 02_opening
+# A triple jump.
+say X w...bw.......b........b........b w 1
+wait 40
+tap A
+wait 6
+rec start 4
+tap A
+wait 190
+rec stop 03_triple
+# A crowning.
+say X w...................bw....b....b w 1
+wait 40
+tap A
+wait 6
+rec start 4
+tap A
+wait 150
+rec stop 04_crown
+# The winning blow.
+say X w........w...b.................. w 1
+wait 40
+tap A
+wait 6
+rec start 4
+tap A
+wait 230
+rec stop 05_sweep

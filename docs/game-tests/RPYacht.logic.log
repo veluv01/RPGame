@@ -1,0 +1,14 @@
+== test_yacht
+house, solo: mean 237.7, median 230, 10% 179, 90% 300, max 747; yacht 33.9%, upper bonus 42.0%
+  260+ pays  1x: reached 25.5%
+  300+ pays  2x: reached 10.0%
+  350+ pays  3x: reached 5.5%
+  400+ pays  5x: reached 2.4%
+  500+ pays 10x: reached 0.5%
+  instant bonuses: 0.502 antes a game
+  return on the ante: 98.4%
+house vs house: first seat 1937, second 2033, ties 30
+492895 checks, 0 failed
+== test_dice
+dice: 6696 throws, slowest 212 ticks (3.5 s), average 1.5 s; rest z 4..122 (avg 85), |x| <= 67
+1754294 checks, 0 failed

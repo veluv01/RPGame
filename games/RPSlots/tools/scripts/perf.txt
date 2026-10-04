@@ -1,0 +1,42 @@
+# Estimated device render cost (simulator, calibrated).
+cal
+wait 120
+perf title
+say R 9
+say J C
+wait 60
+perf
+tap A
+wait 30
+perf classic reels spinning
+wait 60
+perf classic landing
+say G 5
+tap A
+wait 150
+perf
+wait 180
+perf bonus wheel turning
+wait 200
+perf
+say J F
+wait 60
+perf
+tap A
+wait 30
+perf fortune reels spinning
+wait 60
+perf fortune landing
+say G 4
+tap A
+wait 70
+perf
+wait 70
+perf big win: banner, coins, shake
+wait 200
+say G 2
+tap A
+wait 120
+perf
+wait 150
+perf hold and spin

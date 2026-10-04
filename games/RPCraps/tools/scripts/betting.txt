@@ -1,0 +1,44 @@
+# Betting up close: the plaque names each spot, what it pays and what's on
+# it; the stickman explains a refused bet; chips go down with A, come back
+# with B (hold B: the whole bet), and the rack's chips are picked with A.
+#   chgame run tools/scripts/betting.txt out/betting
+say J P
+wait 40
+rec start 2
+wait 20
+goto 13 16
+wait 24
+goto 18 16
+wait 24
+goto 21 16
+wait 24
+goto 2 16
+wait 30
+# The Come is closed until there's a point.
+goto 12 16
+tap A
+wait 80
+# $15 on the pass line, a chip back, then hold B to take it all down.
+goto 16 16
+tap A
+wait 12
+tap A
+wait 12
+tap A
+wait 24
+tap B
+wait 30
+hold B
+wait 44
+release
+wait 30
+# The $25 chip from the rack, onto the line.
+goto 27 16
+tap A
+wait 16
+goto 16 16
+tap A
+wait 30
+goto 29 16
+wait 50
+rec stop betting

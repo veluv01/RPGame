@@ -1,0 +1,7 @@
+Building HardwareCheck (pico2, rp2350-riscv, standalone) ...
+Sketch uses 80120 bytes (1%) of program storage space. Maximum is 4186112 bytes.
+Global variables use 35892 bytes (6%) of dynamic memory, leaving 488396 bytes for local variables. Maximum is 524288 bytes.
+
+Building RPFileBrowser (pico2, rp2350-riscv, standalone) ...
+Sketch uses 85180 bytes (2%) of program storage space. Maximum is 4186112 bytes.
+Global variables use 40340 bytes (7%) of dynamic memory, leaving 483948 bytes for local variables. Maximum is 524288 bytes.

@@ -1,0 +1,8 @@
+reference generator: 2761 positions agree
+draws: 225 by forty moves, 61 by repetition
+match fuzz: 2000 games, 243470 hops (6359 in multiple jumps, 9583 crownings, 1801 winning), 10546 undos, 10707 loads
+  ends: white 882, black 919, forty moves 83, repetition 116
+long games: up to 446 hops, 633 saves past the history's length
+random vs TOURIST: tourist (Black) won 8 of 8, lost 0
+6000 nodes vs TOURIST: 5-0, 1 drawn (2561 nodes a think on average)
+861513 checks, 0 failed

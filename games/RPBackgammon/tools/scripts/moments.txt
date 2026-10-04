@@ -1,0 +1,57 @@
+# The moments: a double, no move, a take-back, a combined move, bearing off to a gammon.
+say U 1
+
+# A double: four dice.
+say X 0 w 24:2 13:5 8:3 6:5 r 24:2 13:5 8:3 6:5
+say D 55
+wait 30
+waitturn 0
+tap A
+wait 44
+snap double_air
+wait 40
+snap double_banner
+waitturn 6
+snap double_ready
+move 13 3
+waitturn 6
+snap double_combined
+board
+
+# Take it back.
+tap B
+waitturn 6
+snap takeback
+board
+
+# No move: on the bar against a closed board.
+say X 0 w 25:1 13:4 8:4 6:6 r 1:2 2:2 3:2 4:2 5:2 6:5
+say D 63
+wait 30
+waitturn 0
+tap A
+wait 70
+snap nomove
+waitturn 10
+snap nomove_after
+board
+
+# Bearing off the last two: a gammon.
+say V 0 1 w 2:1 1:1 r 6:5 5:5 4:5
+say D 21
+wait 30
+waitturn 0
+tap A
+waitturn 6
+move 2 0
+waitturn 6
+snap off1
+rec start 2
+move 1 0
+wait 100
+rec stop win
+snap win_banner
+tap A
+wait 80
+snap result
+board

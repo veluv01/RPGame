@@ -1,0 +1,54 @@
+# Every screen once, and one spin end to end: a contact sheet for a quick look.
+#   chgame run tools/scripts/smoke.txt out/smoke
+wait 30
+snap 01_title
+say J O
+wait 30
+snap 02_options
+say J S
+wait 30
+snap 03_stats
+say J C
+wait 120
+snap 04_credits
+say J W
+wait 70
+snap 05_win
+say J L
+wait 90
+snap 06_lose
+# A fresh table: the croupier welcomes you, then bets.
+say R 7
+say J P
+wait 120
+snap 07_table
+# $5 on 17 (the glove starts there), RED, a split.
+tap A
+wait 10
+say G 155
+wait 10
+tap A
+wait 12
+snap 08_red
+say G 84
+wait 10
+tap A
+wait 12
+snap 09_split
+# Spin: 17 comes up.
+say F 17
+say G 165
+wait 10
+snap 10_spin_button
+tap A
+wait 60
+snap 11_whip
+wait 120
+snap 12_spinning
+wait 180
+snap 13_landed
+wait 120
+snap 14_payout
+wait 240
+snap 15_next
+perf

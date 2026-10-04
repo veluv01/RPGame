@@ -1,0 +1,37 @@
+# Split 8s vs 10, double the first (8+3+K=21), stand the second (8+K=18).
+say J P
+wait 100
+say D 7,35,20,45,28,12,25
+tap A
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap A
+wait 200
+snap a_dealt
+tap RIGHT
+tap RIGHT
+tap RIGHT
+snap b_split_sel
+tap A
+wait 20
+snap c_splitting
+wait 50
+snap d_split
+tap RIGHT
+tap RIGHT
+tap A
+wait 40
+snap e_doubled
+wait 30
+snap f_second
+tap DOWN
+wait 60
+snap g_dealer
+wait 60
+snap h_settle1
+wait 60
+snap i_settle2
+wait 90
+snap j_end

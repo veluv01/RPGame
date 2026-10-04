@@ -1,0 +1,22 @@
+CHDominoes
+Copyright 2026 bateske
+
+From CHBlackjack (https://github.com/bateske/CHBlackjack, Apache-2.0), by way
+of CHChess and CHBackgammon: the input and frame pacing (the CHGame
+library's chgame/Input.*), palette, drawing, outlined lettering, effects,
+sound sequencer, flash saving, debug protocol and the PC simulator and
+tools, adapted here; CHChess's pointing glove (tools/art/common/hand.png); and
+CHCrossword's anti-aliased lettering (tools/aafont.py, after
+../CHCrossword/tools/tilefont.py). CHBlackjack is a derivative of "Blackjack" for the
+Arduboy by Press Play On Tape (Apache-2.0); the 3x5 pixel font in the CHGame
+library (platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Draw.cpp) is Press Play On
+Tape's.
+
+The serif lettering (tools/art/aafont.txt) is rasterized from DejaVu Serif
+Bold by tools/aafont.py. DejaVu is freely redistributable: Bitstream Vera
+Fonts Copyright (c) 2003 Bitstream, Inc.; DejaVu changes are in the public
+domain (https://dejavu-fonts.github.io/License.html).
+
+Everything else - the rules, the CPU, the table's layout, the tiles, the
+game flow and the presentation - is new, under the Apache License 2.0
+(LICENSE).

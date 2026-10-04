@@ -1,0 +1,8 @@
+wait 640
+snap demo_start
+wait 200
+snap demo_bets
+gif demo 300 4
+wait 900
+snap demo_later
+perf

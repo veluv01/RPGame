@@ -1,0 +1,4 @@
+wait 5
+tap A
+wait 60
+snap d_title_after_upload

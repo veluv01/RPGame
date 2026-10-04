@@ -1,0 +1,67 @@
+# The screens: title, setup, options and its felts, pause, two players, save and continue.
+say U 1
+wait 40
+snap title
+tap A
+wait 30
+snap setup
+tap UP
+tap UP
+tap RIGHT
+wait 6
+snap setup_expert
+tap B
+wait 30
+tap DOWN
+tap DOWN
+wait 4
+tap A
+wait 30
+snap options
+tap DOWN
+tap A
+wait 6
+snap felt_blue
+tap A
+wait 6
+snap felt_red
+tap A
+wait 6
+snap felt_purple
+tap A
+wait 6
+tap B
+wait 30
+
+# Two players: Red's glove comes up from below on its home board.
+say X 1 w 24:2 13:5 8:3 6:5 r 24:2 13:5 8:3 6:5
+say D 61
+wait 30
+waitturn 0
+snap red_roll
+tap A
+waitturn 6
+snap red_move
+goto 24
+wait 8
+snap red_far
+tap A
+wait 10
+snap red_held
+tap B
+wait 6
+tap START
+wait 6
+snap pause
+tap DOWN
+tap DOWN
+wait 4
+snap pause_quit
+tap A
+wait 40
+snap title_continue
+tap A
+wait 60
+waitturn 10
+snap continued
+board

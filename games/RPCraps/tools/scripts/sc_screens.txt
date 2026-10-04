@@ -1,0 +1,23 @@
+# The other screens: options, stats, pause, the two endings.
+say J O
+wait 12
+snap a_options
+tap DOWN
+tap RIGHT
+wait 4
+snap b_options_odds
+say J S
+wait 12
+snap c_stats
+say J P
+wait 30
+tap START
+wait 6
+snap d_pause
+tap B
+say J W
+wait 90
+snap e_win
+say J L
+wait 90
+snap f_lose

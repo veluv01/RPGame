@@ -1,0 +1,40 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of
+# play. Each clip is its own recording, named in the order it is shown;
+# ../../../../../../../../../tools/readme_gif.py runs this script and joins them:
+#   chgame gif
+rec start 3
+wait 150
+rec stop 01_title
+# The turtle dealt, and a streak of pairs.
+say G 0 2026
+wait 20
+rec start 3
+wait 130
+solve 4 5
+wait 15
+rec stop 02_pairs
+# The close-up: hold B and keep playing.
+rec start 4
+hold B
+wait 24
+solve 2 4
+release
+wait 20
+rec stop 03_closeup
+# No moves: the banner, the panel, a shuffle.
+say G 0 4
+wait 150
+auto 72
+rec start 3
+wait 100
+tap A
+wait 100
+rec stop 04_shuffle
+# The last pairs of a table: MAHJONG!, and the sparrow's visit.
+say G 3 777
+wait 150
+solve 69 2
+rec start 3
+solve 3 6
+wait 300
+rec stop 05_mahjong

@@ -1,0 +1,69 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of
+# play. Each clip is its own recording, named in the order it is shown;
+# ../../../../../../../../../tools/readme_gif.py runs this script and joins them:
+#   chgame gif
+# Each hand starts from a fresh table (J P) with a stacked deck (D), so the
+# clips don't depend on what came before.
+say J T
+wait 30
+rec start 3
+wait 160
+rec stop 01_title
+# A blackjack: A-heart and K-club to the player, paid 3:2 at once.
+say J P
+wait 100
+say D 26,8,25,46
+tap A
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+rec start 3
+tap A
+wait 230
+rec stop 02_blackjack
+# 8s against a 10: split, double the first hand into 21, stand the second.
+say J P
+wait 100
+say D 7,35,20,45,28,12,25
+tap A
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+rec start 3
+tap A
+wait 200
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap A
+wait 70
+tap RIGHT
+tap RIGHT
+tap A
+wait 70
+tap DOWN
+wait 270
+rec stop 03_split
+# Hit a 16 into a bust: the shake and the banner.
+say J P
+wait 100
+say D 9,21,31,46,11
+tap A
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+rec start 3
+tap A
+wait 150
+tap UP
+wait 130
+rec stop 04_bust
+# The goal reached: you broke the bank.
+say J W
+wait 20
+rec start 3
+wait 180
+rec stop 05_win

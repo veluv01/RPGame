@@ -1,0 +1,74 @@
+# Round 3's final spin, then the bonus round played with the buttons.
+#   chgame run tools/scripts/final_bonus.txt out/final
+say R 9
+say J P
+wait 30
+say U 0 0
+say G 4
+wait 200
+# Six spins that all lose a turn (you, Dot, Ace, twice), then the bell.
+say F 49,49,49,49,49,49,4
+hold A
+wait 10
+release
+wait 1300
+snap 01_back_to_you
+hold A
+wait 10
+release
+wait 1100
+snap 02_before_bell
+wait 200
+snap 03_bell
+wait 200
+snap 04_host_spins
+wait 400
+snap 05_final_value
+wait 150
+snap 06_final_turn
+# Any letter: N (three, at the final value), then PASS.
+say C N
+wait 200
+snap 07_final_menu
+tap RIGHT
+tap A
+wait 200
+snap 08_cpu_final
+wait 900
+snap 09_later
+# The bonus round.
+say U 2 2
+say G 5
+wait 200
+snap 10_bonus_intro
+hold A
+wait 30
+snap 11_bonus_wheel
+release
+wait 500
+snap 12_envelope
+wait 420
+snap 13_given
+wait 120
+snap 14_pick
+tap A
+wait 20
+tap A
+wait 20
+tap A
+wait 20
+snap 15_pick_vowel
+tap A
+wait 300
+snap 16_think
+tap A
+wait 20
+snap 17_entry
+say V 1
+wait 100
+snap 18_bonus_won
+wait 300
+snap 19_card
+tap A
+wait 200
+snap 20_end

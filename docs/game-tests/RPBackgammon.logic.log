@@ -1,0 +1,10 @@
+dice: chi2 faces 2.5 (< 20.5), pairs 38.5, successive 41.2 (< 66.6); doubles 16.75% (16.67%)
+cross-check: 126000 rolls, 2201581 plays (17.5 a roll, most 749), 0 repeats
+random games: 200, 97 turns on average (longest 270), 4.8% passes; single 71 gammon 71 backgammon 58
+net: the opening position is worth -707 to the side that just moved (chance 0.457)
+net: 55303 incremental evaluations, all equal to fresh ones
+matches: 48, 73 games, 20583 events, 7931 steps, 1056 take-backs; 125 doubles, 94 taken, 31 passed; most events in a tick 4
+beavers: 17 beavers, 9 raccoons; auto play: 87 forced turns played for the human
+crawford: 6 Crawford games, 18 doubles after them
+notation: BAR/22* 6/OFF
+all tests passed

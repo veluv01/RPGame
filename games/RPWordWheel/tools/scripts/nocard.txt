@@ -1,0 +1,7 @@
+# No card in the slot (CHSD_CARD unset): the built-in bank, and it says so.
+wait 40
+snap 01_title_builtin
+say H
+say J S
+wait 30
+snap 02_stats

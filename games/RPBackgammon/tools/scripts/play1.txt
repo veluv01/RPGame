@@ -1,0 +1,21 @@
+# Opening roll, a move with each die, picking up the dice, and the CPU's reply.
+say U 1
+say G 0 1 5
+say D 6243
+wait 30
+rec start 2
+tap A
+waitturn 10
+snap rolled
+board
+move 24 18
+waitturn 6
+snap moved1
+move 13 11
+waitturn 6
+snap confirm
+tap A
+waitturn 20
+rec stop turn
+snap cpu_done
+board

@@ -1,0 +1,97 @@
+# A tour as a test: the title, a turn, an auction, building, jail, bankrupt.
+# (The README's picture is gameplay.txt's; run this one into out/.)
+gif title 100 2
+# A turn: the dice, the hop round to an unowned street, the deed, BUY.
+say G 1 3 4 0 30 42
+wait 200
+waitturn 4
+say E 9 7 0
+say D 4 5
+rec start 2
+wait 20
+tap A
+waitturn 30
+tap A
+wait 80
+rec stop turn
+# The others play; then a lot goes to auction and you tap against them.
+waitturn 4
+say E 39 7 0
+say T 0 36 0
+say D 1 2
+tap A
+waitturn 10
+tap RIGHT
+rec start 2
+tap A
+wait 60
+tap A 2
+wait 24
+tap A 2
+wait 30
+tap A 2
+wait 26
+tap A 2
+wait 40
+tap A 2
+wait 30
+tap A 2
+wait 320
+rec stop auction
+# Your deeds: houses on a set.
+waitturn 4
+say E 6 0 0
+say E 8 0 0
+say E 9 0 0
+say $ 0 1500
+tap RIGHT
+tap RIGHT
+tap RIGHT
+rec start 2
+tap A
+wait 30
+tap UP
+wait 34
+tap RIGHT
+wait 14
+tap UP
+wait 34
+tap RIGHT
+wait 14
+tap UP
+wait 34
+tap UP
+wait 40
+tap SELECT
+wait 50
+tap SELECT
+wait 10
+rec stop build
+tap B
+wait 10
+# A card, and the long way round to jail.
+say A 0 10
+say T 0 5 0
+say D 1 1
+rec start 2
+tap A
+wait 150
+tap A
+wait 160
+rec stop jail
+# A hotel on Boardwalk and not enough to cover it: bankrupt.
+waitturn 4
+say E 37 1 5
+say E 39 1 5
+say E 6 0 0
+say E 8 7 0
+say E 9 7 0
+say $ 0 300
+say T 0 36 0
+say D 1 2
+tap A
+wait 60
+rec start 3
+wait 900
+rec stop bankrupt
+snap result

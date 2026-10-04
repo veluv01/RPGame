@@ -1,0 +1,11 @@
+# The grandmaster's turn: its glove over the plays it weighs, then the move.
+say U 1
+say V 1 2 w 24:2 13:5 8:3 6:5 r 24:2 13:5 8:3 6:5
+say D 31
+wait 30
+rec start 3
+waitturn 4
+rec stop cpu
+say W
+snap cpu_done
+board

@@ -1,0 +1,78 @@
+# The show moments, one recording each: a test of the whole presentation.
+# (The README picture is gameplay.txt.)
+#   chgame run tools/scripts/showcase.txt out/showcase
+say R 21
+say J T
+wait 4
+rec start 2
+wait 150
+rec stop title
+# Betting: the glove steps half a cell a tap (lines, corners), runs while held.
+say J P
+wait 110
+rec start 2
+tap RIGHT
+wait 10
+tap A
+wait 12
+tap UP
+wait 10
+tap A
+wait 12
+tap SELECT
+wait 10
+hold RIGHT
+wait 34
+release
+wait 8
+tap A
+wait 12
+hold DOWN
+wait 30
+release
+wait 10
+tap A
+wait 14
+tap UP
+wait 10
+tap UP
+wait 10
+tap UP
+wait 10
+tap UP
+wait 30
+rec stop betting
+# The spin: no more bets, the whip, the ball, the landing.
+say W 83 5
+say W 151 5
+say F 23
+say G 165
+wait 20
+rec start 2
+tap A
+wait 330
+rec stop spin
+# The payout: back to the layout, the dolly, the sweep, the winnings.
+rec start 2
+wait 230
+rec stop payout
+# A straight-up hit: 35 to 1.
+say W 87 10
+say F 23
+say G 165
+wait 40
+tap A
+wait 330
+rec start 2
+wait 190
+rec stop bigwin
+# The end screens.
+say M 1185
+say J W
+rec start 3
+wait 150
+rec stop broke_the_bank
+say J L
+rec start 3
+wait 150
+rec stop broke

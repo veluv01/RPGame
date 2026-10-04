@@ -1,0 +1,27 @@
+# Render cost estimates (simulator, calibrated against the board's CHGfx benchmark).
+cal
+say G 7
+perf reset
+waitstate 1 60
+perf the deal
+say W 52
+perf reset
+wait 120
+perf 52 cards face up
+say X
+perf reset
+wait 120
+perf the tallest column
+say W 12
+tap A
+tap A
+perf reset
+waitstate 3
+perf playing itself out
+perf reset
+wait 300
+perf the cascade
+say J T
+perf reset
+wait 300
+perf title

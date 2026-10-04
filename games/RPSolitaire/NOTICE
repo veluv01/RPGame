@@ -1,0 +1,29 @@
+CHSolitaire
+Copyright 2026 bateske
+
+From CHPoker and CHBlackjack (https://github.com/bateske/CHPoker,
+https://github.com/bateske/CHBlackjack, Apache-2.0): the card face (the
+ranks, pips and court portraits in the repository's tools/art/common/), the
+palette, the sound sequencer, flash saving and the PC simulator. CHBlackjack
+is a derivative of
+"Blackjack" for the Arduboy by Press Play On Tape - Simon Holmes (filmote),
+code, and Stephane C (vampirics), art - Apache-2.0
+(https://github.com/Press-Play-On-Tape/Blackjack, commit 72a6b1b). From it
+come the card drawing (PlayGameState_Render.cpp drawCard()), the 5x6 suit
+glyphs (tools/art/common/suits.txt) and the 3x5 pixel font in the CHGame library
+(platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Draw.cpp).
+
+From CHChess (https://github.com/bateske/CHChess, Apache-2.0): the input and
+frame pacing (now in the CHGame library,
+platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Input.*), drawing primitives, outlined
+lettering, effects, the pointing glove (tools/art/common/hand.*), the setup-screen
+choices, the debug protocol and the simulator's script driver.
+
+The game itself follows the rules, the scoring and the manners of the
+Solitaire that came with Microsoft Windows; no code or art of it is used.
+The card backs (tools/art/backs/) and the title lettering (tools/art/logo.txt,
+first rendered from the Georgia typeface by tools/make_logo.py) were drawn
+for this game.
+
+Everything else - the rules, the table and its presentation, the cascade and
+the screens - is new, under the Apache License 2.0 (LICENSE).

@@ -1,0 +1,23 @@
+# A jump is on: the jumper is marked, the others say MUST JUMP and buzz.
+say X w.ww.....w...b.............b..bb w 1
+wait 40
+snap m0_marked
+tap LEFT
+wait 6
+snap m1_other
+tap A
+wait 6
+snap m2_denied
+wait 30
+# The same position with jumps optional: it may slide instead.
+say X w.ww.....w...b.............b..bb w 0
+wait 40
+tap LEFT
+wait 6
+tap A
+wait 6
+snap m3_free
+tap A
+wait 100
+snap m4_slid
+board

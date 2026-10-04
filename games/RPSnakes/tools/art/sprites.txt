@@ -1,0 +1,169 @@
+# SNAKES & LADDERS' sprites as palette letters, one row per line. '@NAME' starts a
+# sprite; '.' is transparent. A tools/art/<name>.png (lower case), if there
+# is one, replaces the sprite here: tools/sheet.py writes those from an
+# edited sheet.
+#
+#   k INK    w WHITE   d FELT_DK  f FELT   g FELT_LT  s SILVER  r RED   m WINE
+#   y GOLD   b WOOD    u BLUE     n NAVY   p SKIN     c CYAN
+#
+# Drawn at the board's plain size (11 x 11 squares); the camera doubles them
+# close up.
+
+# --- The four tokens, a fruit for each seat. They stand on their bottom row.
+@TOKEN_CHERRIES
+.....ggg...
+.....gg....
+....g.g....
+...g...g...
+..kk...kk..
+.krrk.krrk.
+krwrrkrwrrk
+krrrrkrrrrk
+krrrrkrrrrk
+.krrk.krrk.
+..kk...kk..
+
+@TOKEN_BANANA
+.......kk.
+......kbbk
+......kyyk
+.....kyyyk
+.....kyyyk
+....kyywyk
+...kyywyk.
+.kkyyyyk..
+kyyyyykk..
+kbyykk....
+.kkk......
+
+@TOKEN_APPLE
+.....kb....
+....kbkgk..
+..kkkbkkk..
+.kggkkgggk.
+kgwggggggfk
+kgwgggggffk
+kggggggfffk
+kgggggffffk
+.kggggfffk.
+..kgfkffk..
+...kk.kk...
+
+@TOKEN_STRAWBERRY
+...kgkgk...
+..kgggggk..
+.kkrgggrkk.
+krrrrgrrrrk
+krprrrrrprk
+krrrrprrrrk
+.krrprrrrk.
+.krrrrrprk.
+..krrprrk..
+...krrrk...
+....kkk....
+
+# --- A die with no pips (they are drawn on top, turning with it).
+@DIE
+.kkkkkkkkkkk.
+kwwwwwwwwwwsk
+kwwwwwwwwwwsk
+kwwwwwwwwwwsk
+kwwwwwwwwwwsk
+kwwwwwwwwwwsk
+kwwwwwwwwwwsk
+kwwwwwwwwwwsk
+kwwwwwwwwwwsk
+kwwwwwwwwwwsk
+kwwwwwwwwwwsk
+ksssssssssssk
+.kkkkkkkkkkk.
+
+# --- A snake's head from above, looking up the screen (the game turns it the
+# way the neck runs). FELT_LT and FELT are remapped to the snake's two colours.
+@SNAKE_HEAD
+...kkk...
+..kgggk..
+.kgggggk.
+.kwkgkwk.
+kgwkgkwgk
+kgggggggk
+kgfgggfgk
+.kgfffgk.
+..kgggk..
+
+# --- ... and with its jaws open.
+@SNAKE_HEAD_OPEN
+.kk...kk.
+kwrk.krwk
+kwrrkrrwk
+krrrrrrrk
+krrmmmrrk
+kgrrrrrgk
+kgwkgkwgk
+.kgggggk.
+..kgggk..
+
+# --- The crown on square 100.
+@CROWN
+y...y...y
+yy.yyy.yy
+yyyyyyyyy
+yryyuyyry
+yyyyyyyyy
+bbbbbbbbb
+
+# --- The title's own lettering, after CHBlackjack's (one colour: stored a
+# bit a pixel, and the game gives it its gold, its outline and its shadow).
+# LOGO_SNAKES is drawn here at half its size: tools/assets.py doubles it.
+@LOGO_SNAKES
+...................................yy.........................
+..yyyyy.y........................yyyy.........................
+.yyyyyyyy........................yyyy.........................
+yyy...yyy.........................yyy.........................
+yyy....yy.........................yyy.........................
+yyy.......yyyy.yyyy.....yyyyyy....yyy.yyyyy...yyyyy....yyyyyy.
+yyyyy.....yyyyyyyyyy..yyyyyyyyy...yyy.yyyyy..yyyyyyy..yyyyyyyy
+.yyyyyyy...yyyy..yyyy.yy....yyy...yyy..yyy..yyy...yyy.yyy..yyy
+...yyyyyy..yyy....yyy....yyyyyy...yyy.yy....yyyyyyyyy.yyyy....
+.....yyyy..yyy....yyy..yyyyyyyy...yyyyyyy...yyyyyyyyy..yyyyyy.
+yy....yyy..yyy....yyy.yyyy..yyy...yyyyyyyy..yyy...........yyyy
+yyy..yyyy..yyy....yyy.yyy...yyy...yyy..yyy..yyyy..yyy.yyy..yyy
+yyyyyyyy..yyyy...yyyy.yyyyyyyyyy.yyyy..yyyy..yyyyyyy..yyyyyyyy
+y.yyyyy...yyyy...yyyy..yyyy..yyy.yyyy..yyyy...yyyyy....yyyyyy.
+
+@LOGO_LADDERS
+...........................................yyyyy......yyyyy..............................
+..yyyyy.........yyyyyyy....................yyyyy......yyyyy..............................
+.yyyyyyy........yyyyyyy......................yyy........yyy..............................
+.yyy.yyy..........yyy........................yyy........yyy..............................
+.yyy.yyy..........yyy........................yyy........yyy..............................
+.yyyyyyy..........yyy.........yyyyyy.....yyyyyyy....yyyyyyy....yyyyy...yyyy..yyy..yyyyyy.
+..yyyyy...........yyy.......yyyyyyyyy...yyyyyyyy...yyyyyyyy...yyyyyyy..yyyyyyyyy.yyyyyyyy
+.yyyyy..yyy.......yyy.......yy....yyy..yyyy..yyy..yyyy..yyy..yyy...yyy..yyyyy.yy.yyy..yyy
+yyyy.yy.yyy.......yyy..........yyyyyy..yyy...yyy..yyy...yyy..yyyyyyyyy..yyy......yyyy....
+yyy..yyyyy........yyy....yy..yyyyyyyy..yyy...yyy..yyy...yyy..yyyyyyyyy..yyy.......yyyyyy.
+yyy...yyyy........yyy...yyy.yyyy..yyy..yyy...yyy..yyy...yyy..yyy........yyy..........yyyy
+yyyy..yyyy........yyy...yyy.yyy...yyy..yyyy..yyy..yyyy..yyy..yyyy..yyy..yyy......yyy..yyy
+.yyyyyyyyy......yyyyyyyyyyy.yyyyyyyyyy..yyyyyyyyy..yyyyyyyyy..yyyyyyy..yyyyyy....yyyyyyyy
+..yyyy.yyyy.....yyyyyyyyyyy..yyyy..yyy...yyyy.yyy...yyyy.yyy...yyyyy...yyyyyy.....yyyyyy.
+
+# --- The pointing glove, CHChess's (a CPU's is remapped: cuff GOLD -> RED,
+# WOOD -> WINE): thumb on the left, the index finger pointing down.
+# Fingertip: bottom row, centre column.
+@HAND
+...kkkkkkkkk.
+..kyyyyyyyyyk
+..kbyyyyyyybk
+..kkkkkkkkkk.
+.kwwwwwwwwwsk
+.kwwwwkwkwwsk
+kwwswwkwkwwsk
+kwwswwswswwsk
+.kskwwwwwwwsk
+.kskwwswswssk
+..kkwwsssssk.
+...kwwskkkk..
+...kwwsk.....
+...kwwsk.....
+...kwwsk.....
+....kkk......

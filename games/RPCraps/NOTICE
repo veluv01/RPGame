@@ -1,0 +1,27 @@
+CHCraps
+Copyright 2026 bateske
+
+Casino craps for the CHGame handheld, licensed under the Apache License,
+Version 2.0 (see LICENSE).
+
+It contains art and a font from "Blackjack" for the Arduboy by Press Play On
+Tape - Simon Holmes (filmote), code, and Stephane C (vampirics), art:
+
+    https://github.com/Press-Play-On-Tape/Blackjack   (commit 72a6b1b, 2022)
+
+licensed under the Apache License, Version 2.0, by way of CHBlackjack
+(https://github.com/bateske/CHBlackjack, the same author's colour port):
+
+  * The dealer, here the stickman: PPOT's bust and face expressions,
+    recoloured and retouched (tools/art/common/dealer.png), plus expressions drawn
+    for CHBlackjack. tools/assets.py builds them into src/assets/Assets.cpp
+    from the original's assets/ PNGs.
+  * The 3x5 font (the CHGame library's
+    platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Draw.cpp, FONT35), extended with
+    a few symbols.
+
+New for this game: the rules, the dice cam and its 3D dice, the craps
+layout, the "Craps" title lettering, the chips' and puck's sprites (drawn
+from CHBlackjack's chip), the sound effects and the presentation. The
+input, palette, effects, saving, sound and debug code comes from
+CHBlackjack and CHChess by the same author.

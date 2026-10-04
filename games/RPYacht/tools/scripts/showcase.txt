@@ -1,0 +1,33 @@
+# A test: a turn with a hold and a reroll, recorded (turn.gif).
+# The README's GIF comes from gameplay.txt.
+say R 2026
+say J P
+wait 40
+say F 5 5 2 3 5
+rec start 2
+hold A
+wait 45
+release
+idle 0
+wait 50
+tap A
+tap RIGHT
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap A
+wait 10
+tap DOWN
+say F 1 1 2 2 1
+hold A
+wait 35
+release
+idle 0
+wait 40
+tap UP
+wait 30
+tap A
+idle 0
+wait 30
+rec stop turn

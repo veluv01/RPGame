@@ -1,0 +1,22 @@
+# Save and quit in the middle of a round; CONTINUE picks it up as it was.
+say G 0 2 21 1 150
+waitturn 10
+auto 3
+waitturn 10
+board
+snap before
+tap START
+wait 6
+tap DOWN
+wait 6
+snap pause
+tap A
+wait 40
+snap title
+tap A
+wait 40
+board
+snap after
+auto 2
+waitturn 10
+snap on

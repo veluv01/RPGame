@@ -1,0 +1,14 @@
+# The palette swap that dresses the one chip as each side. The art
+# (tools/art/chip.txt, chiptop.txt, or the .png beside them) is drawn in its
+# own tones - the MASTER row of tools/sheet.py's sheet - with an INK outline.
+# One line per art colour the swap changes: the art colour, then White's
+# colour, then Black's (names as in the CHGame library's chgame/Palette.h).
+# Colours not listed stay as drawn. GOLD is the crown: it takes the face's
+# colour here, and stays gold on the chip that tops a king.
+#
+# tools/sheet.py import rewrites this from an edited sheet.
+WHITE    WHITE    SILVER
+SILVER   SILVER   BLUE
+BLUE     BLUE     NAVY
+CYAN     WHITE    WHITE
+GOLD     WHITE    SILVER

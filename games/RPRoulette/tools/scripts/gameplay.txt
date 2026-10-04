@@ -1,0 +1,68 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of
+# betting, a spin, a straight-up hit paid 35 to 1 and the bank breaking.
+# Each clip is its own recording, named in the order it is shown;
+# ../../../../../../../../../tools/readme_gif.py runs this script and joins them:
+#   chgame gif
+say R 21
+say J T
+wait 4
+rec start 3
+wait 150
+rec stop 01_title
+# Betting: the glove steps half a cell a tap (lines, corners), runs while held.
+say J P
+wait 110
+rec start 3
+tap RIGHT
+wait 10
+tap A
+wait 12
+tap UP
+wait 10
+tap A
+wait 12
+tap SELECT
+wait 10
+hold RIGHT
+wait 34
+release
+wait 8
+tap A
+wait 12
+hold DOWN
+wait 30
+release
+wait 10
+tap A
+wait 14
+tap UP
+wait 10
+tap UP
+wait 10
+tap UP
+wait 10
+tap UP
+wait 30
+rec stop 02_betting
+# The spin: no more bets, the whip, the ball, the landing on 23, where $10
+# sits straight up.
+say W 87 10
+say W 83 5
+say W 151 5
+say F 23
+say G 165
+wait 20
+rec start 3
+tap A
+wait 330
+rec stop 03_spin
+# The payout: back to the layout, the dolly, the sweep, 35 to 1.
+rec start 3
+wait 230
+rec stop 04_payout
+# The goal reached.
+say M 1185
+say J W
+rec start 3
+wait 150
+rec stop 05_bank

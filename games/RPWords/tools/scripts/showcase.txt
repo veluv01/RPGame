@@ -1,0 +1,67 @@
+# The big moments, a recording of each, kept as a test (the README's one GIF
+# is gameplay.txt's): the title, a bingo, the CPU's reply, a hint and a word
+# the list has not got, the end of a game.
+#   chgame run tools/scripts/showcase.txt out/showcase
+wait 20
+rec start 3
+wait 150
+rec stop title
+
+# Laying a word out and playing it.
+say G 0 2 21
+wait 30
+say R PLAYERS
+rec start 2
+wait 20
+tap LEFT
+wait 4
+tap LEFT
+wait 4
+tap LEFT
+wait 4
+tap A
+wait 10
+tap A
+wait 8
+tap A
+wait 8
+tap A
+wait 8
+tap A
+wait 8
+tap A
+wait 8
+tap A
+wait 8
+tap A
+wait 20
+tap START
+wait 20
+tap A
+wait 260
+rec stop bingo
+
+# The CPU's reply.
+rec start 2
+waitturn 40
+rec stop cpu
+
+# A hint, and a word the list has not got.
+say R QUARTZY
+rec start 2
+tap SELECT
+wait 150
+tap START
+wait 20
+tap A
+wait 150
+rec stop hint
+
+# The end of a game.
+say G 0 0 8
+wait 20
+auto
+rec start 3
+wait 330
+rec stop win
+snap result

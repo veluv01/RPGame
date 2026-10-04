@@ -1,0 +1,33 @@
+# For the board (chgame run --device tools/scripts/device_think.txt out/dev_think):
+# how long the CPU thinks. W prints the positions it weighed, the time its
+# turn's thinking took (the stage's minimum included) and the longest slice
+# of a tick it used: that slice should stay under ~8 ms (QUANTUM in
+# Match.cpp). perf says whether frames were late meanwhile.
+say U 1
+
+# The grandmaster's reply to an opening.
+say V 1 2 w 24:2 13:5 8:3 6:5 r 24:2 13:5 8:3 6:5
+say D 31
+wait 30
+perf
+waitturn 0
+say W
+perf grandmaster 3-1
+
+# A middle game with a double to play: many plays to weigh.
+say V 1 2 w 24:1 20:1 13:3 8:3 7:2 6:3 5:2 r 24:1 21:1 13:4 8:2 7:1 6:4 4:2
+say D 44
+wait 30
+perf
+waitturn 0
+say W
+perf grandmaster 4-4
+
+# The expert, the same.
+say V 1 1 w 24:1 20:1 13:3 8:3 7:2 6:3 5:2 r 24:1 21:1 13:4 8:2 7:1 6:4 4:2
+say D 44
+wait 30
+perf
+waitturn 0
+say W
+perf expert 4-4

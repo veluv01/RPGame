@@ -1,0 +1,72 @@
+# The screens around the table: title menu, options, stats, and what the
+# options do to the table (draw one, Vegas, untimed, the four-colour deck).
+wait 240
+snap title
+tap RIGHT
+tap RIGHT
+wait 12
+snap title_options
+tap A
+wait 30
+snap options
+tap A
+tap DOWN
+tap A
+tap DOWN
+tap A
+tap DOWN
+tap DOWN
+tap A
+wait 3
+snap options_set
+tap B
+wait 30
+tap A
+waitstate 1 5
+expect score=-52 stock=24
+tap B
+wait 12
+expect waste=1 stock=23
+snap vegas_one
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+wait 12
+expect waste=24 stock=0
+# Vegas, draw one: once through the stock and no more.
+tap B
+wait 12
+expect waste=24 stock=0
+snap no_more
+tap START
+wait 5
+tap DOWN
+tap DOWN
+tap DOWN
+tap DOWN
+tap A
+wait 30
+tap LEFT
+tap A
+wait 30
+snap stats

@@ -1,0 +1,28 @@
+# Render cost of the heavy moments: a slide across nine cards, a daub with
+# sparks, the win.
+#   chgame run tools/scripts/perf.txt out/perf
+cal
+say J T
+wait 30
+perf
+step 120
+perf title
+say R 21
+say J P
+wait 60
+say C 9
+say H 75
+wait 110
+perf
+hold RIGHT
+step 60
+release
+perf sliding
+say D
+step 20
+perf daub
+wait 1200
+say I 1
+say W
+step 120
+perf win

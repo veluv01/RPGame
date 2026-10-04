@@ -1,0 +1,68 @@
+# The player's moves on a known deal: double-tap, carry and drop, a card
+# turning up, a refused drop, undo, the stock, and turning the waste over.
+say G 7
+waitstate 1 5
+expect stock=24 waste=0 up=0 cols=1/2/3/4/5/6/7 cur=6
+snap dealt
+# The ace of spades: A twice sends it up.
+tap A
+expect held=1
+tap A
+wait 30
+expect up=1 score=10 held=0 cols=0/2/3/4/5/6/7
+snap ace
+# 9 of clubs onto the 10 of hearts: the card under it turns up.
+tap RIGHT
+tap RIGHT
+tap RIGHT
+expect cur=9
+tap A
+tap LEFT
+wait 8
+snap carry
+tap A
+wait 4
+snap turning
+wait 20
+expect score=15 cols=0/2/4/3/5/6/7 moves=2
+snap turned
+# A drop that does not fit is refused; B puts the cards back.
+tap A
+tap LEFT
+tap A
+wait 3
+snap refused
+expect held=1 moves=2
+tap B
+wait 10
+expect held=0
+# Undo takes the last move back, score and all.
+tap SELECT
+wait 10
+expect score=10 cols=0/2/3/4/5/6/7 moves=1
+snap undone
+# The stock: B deals three; at the end it turns the waste over.
+tap B
+wait 12
+expect stock=21 waste=3
+snap three
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+tap B 2
+wait 12
+expect stock=0 waste=24
+snap empty
+tap B
+wait 12
+expect stock=24 waste=0
+snap again
+# Pause saves; the menu draws over the table.
+tap START
+wait 5
+snap pause
+tap START
+wait 5

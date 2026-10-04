@@ -1,0 +1,60 @@
+CHWords
+Copyright 2026 bateske
+
+From CHBlackjack (https://github.com/bateske/CHBlackjack, Apache-2.0), by way
+of CHChess and CHBackgammon: the input and frame pacing (the CHGame
+library's chgame/Input.*), palette, drawing, outlined lettering, effects,
+sound sequencer, flash saving, debug protocol and the PC simulator and tools,
+adapted here; CHBackgammon's display font (tools/art/common/font.txt, its capitals);
+and CHChess's pointing glove (tools/art/common/hand.png). CHBlackjack is a
+derivative of "Blackjack" for the Arduboy by Press Play On Tape (Apache-2.0);
+the 3x5 pixel font in the CHGame library
+(platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Draw.cpp) is Press Play On Tape's.
+
+The tiles' letters (tools/art/tilefont.txt, by tools/tilefont.py, from
+CHCrossword's) are rasterized from DejaVu Serif Bold and Serif Condensed
+Bold. DejaVu is freely redistributable: Bitstream Vera
+Fonts Copyright (c) 2003 Bitstream, Inc.; DejaVu changes are in the public
+domain (https://dejavu-fonts.github.io/License.html).
+
+The SD card reader (the CHSd library in the CHGame board package, with the
+simulator's card in its host/ folder) is CHSd, the library this game shares with
+CHCrossword and CHWordWheel: HypeRunner's clean-room SPI-mode driver and FAT
+reader, cut down to read-only single-block reads:
+
+    MIT License. Copyright (c) 2026 bateske
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The words (src/dict/DictData.cpp, tools/dict/core.txt, and the WORDS.DIC that
+tools/dict/build_sd.py writes) are from the ENABLE word list (Enhanced North
+American Benchmark Lexicon) by Alan Beale and M. Cooper, which its authors
+placed in the public domain.
+
+Which of those words are in the built-in list was decided by how often each
+appears in print, from Peter Norvig's list of common words
+(norvig.com/google-books-common-words.txt), compiled from the Google Books
+Ngrams data (Google, Creative Commons Attribution 3.0 Unported). The counts
+are used when the list is built and are not part of this repository or the
+game.
+
+Everything else - the rules, the dictionary formats and their tools, the
+CPU, the game flow and the presentation - is new, under the Apache License
+2.0 (LICENSE).

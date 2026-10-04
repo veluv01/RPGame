@@ -1,0 +1,53 @@
+// The sound effects, in Sfx order (Sounds.h). AUDIO_STEP(Hz, the Hz it
+// sweeps to or 0, ms), AUDIO_REST(ms); AUDIO_EFFECT's number is the
+// priority: an effect is refused while a higher one sounds.
+#include "Sounds.h"
+
+AUDIO_STEPS(CURSOR)  = { AUDIO_STEP(2100, 0, 10) };
+AUDIO_STEPS(SELECT)  = { AUDIO_STEP(1700, 0, 18), AUDIO_STEP(2600, 0, 30) };
+AUDIO_STEPS(DENY)    = { AUDIO_STEP(900, 650, 70) };
+// Dice in the hand: a rattle slowing down.
+AUDIO_STEPS(DICE)    = {
+    AUDIO_STEP(2600, 0, 6), AUDIO_REST(14), AUDIO_STEP(3100, 0, 6), AUDIO_REST(18), AUDIO_STEP(2400, 0, 6), AUDIO_REST(24), AUDIO_STEP(2900, 0, 6), AUDIO_REST(32),
+    AUDIO_STEP(2500, 0, 6) };
+// Something set down on the board: a knock and a higher tick.
+AUDIO_STEPS(LAND)    = { AUDIO_STEP(2400, 1100, 14), AUDIO_REST(8), AUDIO_STEP(3300, 0, 16) };
+AUDIO_STEPS(COIN)    = { AUDIO_STEP(2800, 0, 10), AUDIO_STEP(3700, 0, 28) };
+// The foot of a ladder: a quick run up.
+AUDIO_STEPS(LADDER)  = { AUDIO_STEP(1568, 0, 30), AUDIO_STEP(2093, 0, 30), AUDIO_STEP(2637, 0, 30), AUDIO_STEP(3136, 0, 60) };
+// ... and its top: a chime. (45 ms notes before 2 ms steps: 46 and 44 keep the beat.)
+AUDIO_STEPS(CLIMB)   = { AUDIO_STEP(2637, 0, 46), AUDIO_STEP(3520, 0, 44), AUDIO_STEP(4186, 0, 130) };
+// A snake has seen you: high and low, fast (the nearest a piezo gets to a hiss).
+// (9 ms each before 2 ms steps: 10 and 8 keep the trill's 90 ms.)
+AUDIO_STEPS(HISS)    = {
+    AUDIO_STEP(3900, 0, 10), AUDIO_STEP(3100, 0, 8), AUDIO_STEP(3900, 0, 10), AUDIO_STEP(3100, 0, 8), AUDIO_STEP(3900, 0, 10), AUDIO_STEP(3100, 0, 8),
+    AUDIO_STEP(3900, 0, 10), AUDIO_STEP(3100, 0, 8), AUDIO_STEP(3900, 0, 10), AUDIO_STEP(3100, 0, 8), AUDIO_STEP(3900, 3000, 80) };
+// The jaws: a snap, and a low gulp.
+AUDIO_STEPS(CHOMP)   = { AUDIO_STEP(2400, 900, 30), AUDIO_REST(30), AUDIO_STEP(700, 350, 120) };
+// Out at the tail: a pop and a rising whistle.
+AUDIO_STEPS(SPIT)    = { AUDIO_STEP(900, 0, 14), AUDIO_REST(10), AUDIO_STEP(1400, 3200, 110) };
+AUDIO_STEPS(BUMP)    = { AUDIO_STEP(1500, 500, 40), AUDIO_REST(20), AUDIO_STEP(2200, 900, 150) };
+AUDIO_STEPS(DOUBLES) = { AUDIO_STEP(2637, 0, 46), AUDIO_STEP(3136, 0, 44), AUDIO_STEP(2637, 0, 46), AUDIO_STEP(3136, 0, 44), AUDIO_STEP(4186, 0, 110) };
+AUDIO_STEPS(WHOOSH)  = { AUDIO_STEP(1200, 3800, 90) };
+// CHBlackjack's BLACKJACK fanfare: the signature win.
+AUDIO_STEPS(WIN)     = {
+    AUDIO_STEP(1568, 0, 50), AUDIO_STEP(2093, 0, 50), AUDIO_STEP(2637, 0, 50), AUDIO_STEP(3136, 0, 90),
+    AUDIO_STEP(2093, 0, 40), AUDIO_STEP(2637, 0, 40), AUDIO_STEP(2093, 0, 40), AUDIO_STEP(2637, 0, 40),
+    AUDIO_STEP(3136, 0, 40), AUDIO_STEP(4186, 0, 40), AUDIO_STEP(3136, 0, 40), AUDIO_STEP(4186, 0, 40),
+    AUDIO_STEP(2000, 4200, 220) };
+AUDIO_STEPS(LOSE)    = { AUDIO_STEP(1568, 1480, 260), AUDIO_STEP(1480, 1397, 260), AUDIO_STEP(1397, 1319, 260), AUDIO_STEP(1319, 1209, 350), AUDIO_STEP(1209, 1100, 350) };
+AUDIO_STEPS(TURN)    = { AUDIO_STEP(2637, 0, 40), AUDIO_STEP(3520, 0, 90) };
+AUDIO_STEPS(TITLE)   = {
+    AUDIO_STEP(1568, 0, 90), AUDIO_STEP(2093, 0, 90), AUDIO_STEP(2637, 0, 90), AUDIO_STEP(3136, 0, 180), AUDIO_REST(40),
+    AUDIO_STEP(2637, 0, 90), AUDIO_STEP(3136, 0, 360) };
+// A heartbeat, a roll from home: the faintest clicks (played soft).
+AUDIO_STEPS(TICK)    = { AUDIO_STEP(1100, 0, 3) };
+AUDIO_STEPS(TOCK)    = { AUDIO_STEP(850, 0, 3) };
+
+const audio::Effect SOUNDS[(int)Sfx::COUNT] = {
+    AUDIO_EFFECT(CURSOR, 0), AUDIO_EFFECT(SELECT, 1), AUDIO_EFFECT(DENY, 1), AUDIO_EFFECT(DICE, 1),
+    AUDIO_EFFECT(LAND, 1), AUDIO_EFFECT(COIN, 1), AUDIO_EFFECT(LADDER, 2), AUDIO_EFFECT(CLIMB, 2),
+    AUDIO_EFFECT(HISS, 2), AUDIO_EFFECT(CHOMP, 3), AUDIO_EFFECT(SPIT, 2), AUDIO_EFFECT(BUMP, 3),
+    AUDIO_EFFECT(DOUBLES, 2), AUDIO_EFFECT(WHOOSH, 1), AUDIO_EFFECT(WIN, 4), AUDIO_EFFECT(LOSE, 4),
+    AUDIO_EFFECT(TURN, 1), AUDIO_EFFECT(TITLE, 2), AUDIO_EFFECT(TICK, audio::SOFT), AUDIO_EFFECT(TOCK, audio::SOFT),
+};

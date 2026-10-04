@@ -1,0 +1,21 @@
+# One whole roll for review: bets down, shake, throw, the cam, the call, the payout.
+say J P
+wait 20
+say R 3
+say E 0 10
+say X 8
+say E 2 50
+say E 8 12
+say E 14 5
+say E 5 5
+say E 9 12
+say C 29
+wait 60
+rec start 2
+wait 20
+say F 4 4
+hold A
+wait 50
+release
+wait 420
+rec stop roll_hard8

@@ -1,0 +1,16 @@
+# Render cost estimates (simulator, calibrated against the board's CHGfx benchmark).
+cal
+say G 0 2 2000 7
+perf reset
+playto 11 0
+perf holdem to showdown
+playto 13 0
+perf showdown
+say G 2 2 2000 5
+perf reset
+playto 13 0
+perf omaha hand
+say G 3 2 2000 3
+perf reset
+playto 13 0
+perf stud hand

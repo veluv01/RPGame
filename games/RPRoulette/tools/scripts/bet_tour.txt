@@ -1,0 +1,52 @@
+# The glove with the D-pad: taps step half a cell (lines, corners), holds run
+# whole cells; chips go down with A, come back with B; SELECT changes chip.
+#   chgame run tools/scripts/bet_tour.txt out/bet_tour
+say R 5
+say J P
+wait 100
+rec start 2
+tap RIGHT
+wait 8
+tap A
+wait 10
+tap UP
+wait 8
+tap A
+wait 10
+tap RIGHT
+wait 8
+tap SELECT
+wait 6
+tap A
+wait 10
+tap DOWN
+wait 8
+tap DOWN
+wait 8
+tap DOWN
+wait 8
+tap A
+wait 10
+hold RIGHT
+wait 40
+release
+wait 10
+tap A
+tap A
+wait 10
+tap B
+wait 10
+hold DOWN
+wait 30
+release
+wait 10
+tap DOWN
+wait 10
+tap LEFT
+wait 10
+tap A
+wait 10
+tap A
+wait 30
+rec stop tour
+snap end

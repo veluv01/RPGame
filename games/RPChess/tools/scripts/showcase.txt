@@ -1,0 +1,41 @@
+# The screens and the big moments as GIFs, a test (write to out/; the
+# README's GIF is gameplay.txt). Squares: a1 = 0 .. h8 = 63.
+gif title 90 2
+# A game against the CPU: step to the d-pawn, pick it up, on to d4, and
+# the camera whips in on the move; then the CPU answers.
+say G 0 0 2 7
+wait 30
+tap LEFT
+wait 8
+tap A
+wait 8
+tap UP
+gif select 24 2
+tap A
+gif cpu 150 2
+# The map and back, and B held to inspect the board.
+tap SELECT
+gif views 40 2
+tap SELECT
+wait 20
+hold B+RIGHT
+gif inspect 50 2
+release
+wait 30
+# A capture, knocked off the board.
+say X rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -
+wait 12
+say M 28 35
+gif capture 60 2
+# Promotion, then scholar's mate.
+say X 8/P7/8/8/8/8/k6K/8 w - -
+wait 12
+say M 48 56 5
+gif promote 50 2
+say X r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq -
+wait 12
+say M 39 53
+gif mate 110 2
+tap A
+wait 20
+snap result

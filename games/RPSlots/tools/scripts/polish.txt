@@ -1,0 +1,28 @@
+# The last round of polish: the welcome banner, big figures on a big win, the paytable scrolling.
+say R 7
+say J M
+wait 10
+tap DOWN
+wait 5
+tap DOWN
+wait 5
+tap A
+wait 26
+snap welcome
+wait 60
+say G 4
+tap A
+wait 150
+snap bigfigures
+idle 10
+tap B
+wait 120
+snap pays1
+tap DOWN 20
+snap pays2
+tap A
+wait 5
+snap pays3
+tap START
+wait 5
+snap closed

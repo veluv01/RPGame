@@ -1,0 +1,81 @@
+# The big moments: a set made, BUILD, a hotel, payday, the jackpot on show,
+# a CPU paying you a hotel's rent, and the result's graph.
+#
+# CAN BUILD: P1 holds Oriental and buys Vermont.
+say G 1 3 0 0 20 4
+waitturn 4
+say E 6 0 0
+say E 8 7 0
+say E 9 7 0
+say T 0 5 0
+say D 1 2
+tap A
+waitturn 2
+rec start 3
+tap A
+wait 160
+rec stop setcall
+waitturn 4
+snap build_bar
+# BUILD opens on a street you can build on; UP builds, and moves along the set.
+tap RIGHT
+tap A
+wait 20
+snap build_view
+tap UP
+wait 30
+tap UP
+wait 30
+tap UP
+wait 30
+snap built
+tap B
+wait 10
+# A hotel: brown at four houses each (and the light blues back to the bank).
+say E 6 7 0
+say E 8 7 0
+say E 1 0 4
+say E 3 0 4
+waitturn 2
+tap RIGHT
+tap A
+wait 20
+rec start 2
+tap UP
+wait 60
+rec stop hotel
+snap hotel_built
+tap B
+wait 10
+# Payday: onto GO with the dice.
+say T 0 36 0
+say D 1 3
+rec start 3
+tap A
+wait 150
+rec stop payday
+waitturn 4
+# Income Tax goes into the jackpot, shown over Free Parking.
+say T 0 1 0
+say D 1 2
+tap A
+wait 120
+waitturn 4
+say V 20 5
+wait 4
+snap pot
+say V 0 5
+# A CPU on your hotel: your rent, in gold, and it hits like a hotel.
+say E 39 0 5
+say E 37 0 5
+say T 0 15 0
+say D 2 3
+tap A
+wait 60
+say T 1 36 0
+say $ 1 2600
+say D 1 2
+rec start 4
+wait 800
+rec stop bigrent
+snap rent_in

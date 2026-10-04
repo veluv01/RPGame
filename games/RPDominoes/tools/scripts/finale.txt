@@ -1,0 +1,12 @@
+# The round's end: the line goes off like a string of firecrackers.
+say G 0 2 5 1 100
+waitturn 10
+auto 6
+waitturn 10
+board
+snap before
+say W 0
+rec start 2
+wait 400
+rec stop finale
+snap result

@@ -1,0 +1,12 @@
+# The dolly: the marker the croupier stands on the winning number.
+# Palette letters (tools/assets.py LETTER); '.' is transparent. Its foot is
+# the bottom row, centred on column 2.
+..k..
+.kyk.
+kyyyk
+kwwsk
+kwwsk
+kwwsk
+kwwsk
+kswsk
+.kkk.

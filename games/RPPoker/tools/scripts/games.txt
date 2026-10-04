@@ -1,0 +1,39 @@
+# The other three games: the draw with the glove, Omaha, Stud.
+say G 1 0 200 11
+waitturn 10
+snap draw_bet
+tap A
+playto 9 20
+snap draw_pick
+tap UP
+tap RIGHT
+wait 6
+tap UP
+tap RIGHT
+wait 8
+snap draw_marked
+tap RIGHT
+tap RIGHT
+tap RIGHT
+wait 10
+snap draw_button
+tap A
+wait 80
+snap draw_after
+playto 11 160
+snap draw_sd
+say G 2 1 1000 5
+waitturn 10
+snap omaha_pre
+playto 11 200
+snap omaha_sd
+say G 3 0 200 3
+waitturn 10
+snap stud_3rd
+tap A
+waitturn 10
+snap stud_4th
+playto 11 30
+snap stud_sd
+wait 200
+snap stud_sd2

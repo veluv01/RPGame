@@ -1,0 +1,87 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of an
+# episode - a toss-up buzzed in and solved, a spin and a consonant, a vowel
+# bought and a BANKRUPT, and the bonus round won. Each clip is its own
+# recording, named in the order it is shown; ../../../../../../../../../tools/readme_gif.py runs
+# this script and joins them:
+#   chgame gif
+say R 7
+say J T
+wait 30
+rec start 3
+wait 135
+rec stop 01_title
+# The toss-up: panels turn until you buzz in, then you type the answer.
+say U 1 0
+say J P
+wait 220
+rec start 3
+wait 50
+tap A
+wait 70
+tap A
+tap RIGHT
+tap A
+wait 5
+say V 1
+wait 170
+rec stop 02_tossup
+# Round 1: charge the spin, let go, and pick N when it lands.
+say U 0 0
+wait 280
+say F 4
+rec start 3
+hold A
+wait 40
+release
+wait 395
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap RIGHT
+wait 3
+tap A
+wait 80
+rec stop 03_spin
+# Buy a vowel, spin again, and land on BANKRUPT.
+tap RIGHT
+wait 3
+tap A
+wait 10
+tap A
+wait 150
+say F 22
+hold A
+wait 30
+release
+wait 70
+rec start 3
+wait 262
+rec stop 04_bankrupt
+# The bonus round: three consonants and a vowel, and the answer in time.
+say U 2 2
+say G 5
+wait 200
+hold A
+wait 20
+release
+wait 900
+tap A
+wait 12
+tap A
+wait 12
+tap A
+wait 12
+tap A
+wait 330
+tap A
+wait 30
+say V 1
+rec start 3
+wait 170
+rec stop 05_bonus

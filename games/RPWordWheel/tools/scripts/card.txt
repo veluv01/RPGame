@@ -1,0 +1,27 @@
+# The SD bank: run with CHSD_CARD pointing at sdcard/PHRASES.BNK.
+#   set CHSD_CARD=sdcard/PHRASES.BNK
+#   chgame run tools/scripts/card.txt out/card
+wait 40
+snap 01_title_card
+say H
+say R 3
+say J P
+wait 420
+snap 02_toss_from_card
+say H
+# The card is pulled out mid-episode: the next puzzle comes from the built-in bank.
+say X 0
+say G 1
+wait 60
+snap 03_card_lost_toast
+wait 200
+snap 04_round_from_flash
+say H
+say J T
+wait 40
+snap 05_title_builtin
+say X 1
+say J T
+wait 40
+snap 06_title_card_again
+say H

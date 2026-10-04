@@ -1,0 +1,28 @@
+
+All-CPU games (levels mixed), 100 per row
+seats cap | bust%  rounds(avg)  groups  houses | auctions  free%  sold/list%  bids/auction
+  2   10  |    4       9.9      3.3   13.6  |    3.8     25       38         3.6
+  2   20  |   15      18.9      4.8   16.5  |    8.7     24       37         2.6
+  2   30  |   40      26.5      5.5   19.1  |   12.5     20       39         2.3
+  2   40  |   70      28.7      5.6   22.4  |   16.2     14       42         2.0
+  3   10  |    9       9.9      2.9   11.8  |    3.4      2       70         5.4
+  3   20  |   31      18.5      4.8   19.5  |    9.2      3       64         3.9
+  3   30  |   67      22.8      5.3   23.3  |   13.5      2       63         3.5
+  3   40  |   84      26.3      5.5   25.8  |   14.5      2       64         3.3
+  4   10  |    6       9.9      2.6   13.7  |    2.9      0       89         6.8
+  4   20  |   56      16.4      4.7   23.4  |    8.4      0       87         5.5
+  4   30  |   76      21.1      5.4   27.5  |   11.5      0       84         5.0
+  4   40  |   92      21.7      5.5   30.9  |   12.4      0       88         5.1
+
+all tests passed
+/workspace/scratch/2db830fcf25a/RPGame/games/RPBoardwalk/tools/tests/test_rules.cpp: In function ‘void fresh(uint8_t, uint8_t, uint8_t)’:
+/workspace/scratch/2db830fcf25a/RPGame/games/RPBoardwalk/tools/tests/test_rules.cpp:69:51: warning: enumerated and non-enumerated type in conditional expression [-Wextra]
+   69 |     Setup s = {{kind, kind, (uint8_t)(players > 2 ? kind : OFF), (uint8_t)(players > 3 ? kind : OFF)}, cap, 12345, 0};
+      |                                       ~~~~~~~~~~~~^~~~~~~~~~~~
+/workspace/scratch/2db830fcf25a/RPGame/games/RPBoardwalk/tools/tests/test_rules.cpp:69:88: warning: enumerated and non-enumerated type in conditional expression [-Wextra]
+   69 |     Setup s = {{kind, kind, (uint8_t)(players > 2 ? kind : OFF), (uint8_t)(players > 3 ? kind : OFF)}, cap, 12345, 0};
+      |                                                                            ~~~~~~~~~~~~^~~~~~~~~~~~
+/workspace/scratch/2db830fcf25a/RPGame/games/RPBoardwalk/tools/tests/test_rules.cpp: In function ‘void testFuzz(int)’:
+/workspace/scratch/2db830fcf25a/RPGame/games/RPBoardwalk/tools/tests/test_rules.cpp:636:56: warning: enumerated and non-enumerated type in conditional expression [-Wextra]
+  636 |             s.kind[k] = k < n ? (uint8_t)((frnd() % 3) ? CPU + frnd() % LEVELS : HUMAN) : (uint8_t)OFF;
+      |                                           ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,0 +1,75 @@
+# A tour of LUCKY 7 and DRAGON FORTUNE, every feature forced once. (The README's GIF is gameplay.txt.)
+#   chgame run tools/scripts/showcase.txt out/showcase
+say R 2026
+say J T
+rec start 3
+wait 320
+rec stop title
+snap title
+# --- LUCKY 7
+say J C
+wait 20
+rec start 3
+hold A
+wait 14
+release
+wait 3
+idle 30
+say F 0 12 4
+hold A
+wait 14
+release
+wait 3
+idle 40
+say F 6 6 4
+tap A
+idle 40
+rec stop lucky7
+snap lucky7
+tap B
+wait 30
+snap pays7
+tap START
+wait 5
+rec start 3
+say G 5
+hold A
+wait 14
+release
+wait 3
+idle 50
+rec stop wheel
+say F 4 2 8
+rec start 3
+tap A
+idle 40
+rec stop jackpot
+# --- DRAGON FORTUNE
+say J F
+wait 20
+snap fortune
+rec start 3
+tap A
+idle 30
+say G 4
+tap A
+idle 50
+say G 3
+tap A
+idle 60
+rec stop fortune
+tap B
+wait 30
+snap paysfortune
+tap START
+wait 5
+say G 2
+rec start 3
+tap A
+idle 40
+rec stop holdspin
+say G 1
+rec start 4
+tap A
+wait 700
+rec stop freegames

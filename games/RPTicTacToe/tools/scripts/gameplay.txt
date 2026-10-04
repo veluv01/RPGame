@@ -1,0 +1,84 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of
+# play at four tables. Each clip is its own recording, named in the order
+# it is shown; ../../../../../../../../../tools/readme_gif.py runs this script and joins them:
+#   chgame gif
+say R 21
+say D 0
+say M 100
+say J T
+wait 20
+rec start 3
+wait 150
+rec stop 01_title
+# CLASSIC in iso: a win, struck through.
+say J P 0
+wait 50
+rec start 3
+say H 1
+tap A
+wait 110
+say H 2
+tap UP
+wait 6
+tap A
+wait 110
+tap DOWN
+wait 6
+tap DOWN
+wait 6
+tap A
+wait 170
+rec stop 02_classic
+# VANISH: the oldest mark goes.
+say J P 4
+wait 40
+rec start 3
+say H 1
+say C 0
+wait 90
+say H 8
+say C 4
+wait 90
+say H 6
+say C 2
+wait 90
+say H 5
+say C 3
+wait 90
+say C 7
+wait 60
+rec stop 03_vanish
+# ULTIMATE: nine boards on the flat felt.
+say J P 14
+wait 40
+rec start 3
+tap A
+wait 90
+tap A
+wait 90
+tap RIGHT
+tap A
+wait 90
+tap UP
+tap A
+wait 90
+rec stop 04_ultimate
+# A cat's game: X 0 2 3 7 8, O 4 1 5 6, and the cat walks.
+say J P 0
+wait 50
+say H 4
+say C 0
+wait 100
+say H 1
+say C 2
+wait 100
+say H 5
+say C 7
+wait 100
+say H 6
+say C 3
+wait 100
+rec start 3
+say C 8
+wait 190
+rec stop 05_cat

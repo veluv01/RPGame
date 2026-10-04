@@ -1,0 +1,56 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of
+# ALL FIVES - the deal and a FIFTEEN, a tile that fits two ends, the
+# boneyard, and the firecrackers. Each clip is its own recording, named in
+# the order it is shown; ../../../../../../../../../tools/readme_gif.py runs this script and
+# joins them:
+#   chgame gif
+wait 8
+rec start 3
+wait 150
+rec stop 01_title
+# The deal, the highest double set, and a FIFTEEN: 6-3 on the double six.
+say D 63 55 50 51 32 11 42  66 64 61 54 43 22 10
+say G 0 2 5 1 100
+rec start 3
+waitturn 40
+tap A
+wait 130
+rec stop 02_fifteen
+# A tile that fits two ends: the hint, then the glove goes between them.
+waitturn 10
+rec start 3
+tap SELECT
+wait 40
+tap A
+wait 24
+tap RIGHT
+wait 24
+tap LEFT
+wait 24
+tap A
+waitturn 20
+rec stop 03_choose
+# Nothing fits: draw from the boneyard until something does.
+say D 00 01 02 03 04 11 12  66 65 64 63 55 54 53  22 13 61
+say G 0 1 3 1 100
+waitturn 100
+rec start 3
+wait 20
+tap A
+wait 26
+tap A
+wait 26
+tap A
+wait 40
+tap A
+waitturn 20
+rec stop 04_boneyard
+# DOMINO! The line goes off like a string of firecrackers.
+say G 0 2 5 1 100
+waitturn 10
+auto 6
+waitturn 10
+say W 0
+rec start 3
+wait 330
+rec stop 05_firecrackers

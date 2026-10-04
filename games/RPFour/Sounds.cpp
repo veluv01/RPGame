@@ -1,0 +1,30 @@
+// The sound effects' step lists (see Sounds.h): AUDIO_STEP(Hz, the Hz it
+// sweeps to or 0, ms), AUDIO_REST(ms).
+#include "Sounds.h"
+
+AUDIO_STEPS(CURSOR)  = { AUDIO_STEP(2100, 0, 10) };
+AUDIO_STEPS(SELECT)  = { AUDIO_STEP(1700, 0, 18), AUDIO_STEP(2600, 0, 30) };
+AUDIO_STEPS(DENY)    = { AUDIO_STEP(900, 650, 70) };
+// A disc comes to rest: a knock, and the smaller ones of its bounces.
+AUDIO_STEPS(DROP)    = { AUDIO_STEP(2400, 1100, 14), AUDIO_REST(60), AUDIO_STEP(2000, 1000, 10), AUDIO_REST(40), AUDIO_STEP(1800, 0, 6) };
+AUDIO_STEPS(COIN)    = { AUDIO_STEP(2800, 0, 10), AUDIO_STEP(3700, 0, 28) };
+AUDIO_STEPS(WHOOSH)  = { AUDIO_STEP(1200, 3800, 90) };
+// Victory: a short tune (was a Playtune score in CHBlackjack).
+AUDIO_STEPS(WIN)     = {
+    AUDIO_STEP(2093, 0, 110), AUDIO_STEP(2637, 0, 110), AUDIO_STEP(3136, 0, 110), AUDIO_STEP(4186, 0, 220), AUDIO_REST(60),
+    AUDIO_STEP(3520, 0, 110), AUDIO_STEP(4186, 0, 330) };
+// You lost: not a dirge - a few notes down and a hopeful one up.
+AUDIO_STEPS(LOSE)    = { AUDIO_STEP(2093, 0, 160), AUDIO_STEP(1760, 0, 160), AUDIO_STEP(1568, 0, 260), AUDIO_REST(80), AUDIO_STEP(1760, 0, 120), AUDIO_STEP(2093, 0, 300) };
+AUDIO_STEPS(DRAW)    = { AUDIO_STEP(2637, 0, 70), AUDIO_STEP(1976, 0, 70), AUDIO_STEP(1568, 0, 70), AUDIO_STEP(1175, 0, 160) };
+AUDIO_STEPS(TITLE)   = {
+    AUDIO_STEP(1568, 0, 90), AUDIO_STEP(2093, 0, 90), AUDIO_STEP(2637, 0, 90), AUDIO_STEP(3136, 0, 180), AUDIO_REST(40),
+    AUDIO_STEP(2637, 0, 90), AUDIO_STEP(3136, 0, 360) };
+// The CPU's clock while it thinks: the faintest clicks (played soft).
+AUDIO_STEPS(TICK)    = { AUDIO_STEP(1100, 0, 3) };
+AUDIO_STEPS(TOCK)    = { AUDIO_STEP(850, 0, 3) };
+
+const audio::Effect SOUNDS[(int)Sfx::COUNT] = {
+    AUDIO_EFFECT(CURSOR, 0), AUDIO_EFFECT(SELECT, 1), AUDIO_EFFECT(DENY, 1), AUDIO_EFFECT(DROP, 2),
+    AUDIO_EFFECT(COIN, 1), AUDIO_EFFECT(WHOOSH, 2), AUDIO_EFFECT(WIN, 4), AUDIO_EFFECT(LOSE, 4),
+    AUDIO_EFFECT(DRAW, 3), AUDIO_EFFECT(TITLE, 2), AUDIO_EFFECT(TICK, audio::SOFT), AUDIO_EFFECT(TOCK, audio::SOFT),
+};

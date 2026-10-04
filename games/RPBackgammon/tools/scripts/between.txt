@@ -1,0 +1,24 @@
+# Between the games of a match: you win a gammon in a match to 5, the
+# result panel, the next game (and the score in the HUD).
+say U 1
+say V 0 1 w 2:1 1:1 r 6:5 5:5 4:5
+say C 7 1 0 0 2 0
+say D 21
+wait 30
+waitturn 0
+tap A
+waitturn 6
+move 2 0
+waitturn 4
+rec start 3
+move 1 0
+wait 200
+rec stop gammon
+snap won_game
+tap A
+wait 90
+snap between
+tap A
+wait 60
+snap next_game
+board

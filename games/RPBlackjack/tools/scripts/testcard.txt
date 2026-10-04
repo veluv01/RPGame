@@ -1,0 +1,5 @@
+wait 5
+snap test0
+wait 60
+snap test1
+perf

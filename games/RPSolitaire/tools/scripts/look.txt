@@ -1,0 +1,47 @@
+# A first look at every screen.
+wait 30
+snap title0
+wait 200
+snap title1
+say G 7
+wait 60
+snap dealing
+wait 120
+snap table
+tap B
+wait 20
+snap draw3
+tap B
+wait 20
+tap DOWN
+wait 10
+snap glove
+tap A
+wait 10
+tap RIGHT
+wait 10
+snap held
+tap B
+wait 10
+say W 6
+wait 5
+snap nearwin
+tap A
+wait 2
+tap A
+wait 200
+snap cascade1
+wait 600
+snap cascade2
+tap B
+wait 30
+snap win
+say J D
+wait 20
+snap deck
+say J O
+wait 20
+snap options
+say J S
+wait 20
+snap stats

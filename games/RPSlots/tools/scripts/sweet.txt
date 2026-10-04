@@ -1,0 +1,34 @@
+# SWEET: the floor, the machine, a few spins, the paytable.
+say R 11
+say J M
+wait 20
+snap floor
+tap RIGHT
+wait 12
+snap floor2
+tap A
+wait 30
+snap sweet
+tap B
+wait 30
+snap pays
+tap START
+wait 5
+say F 0 0 0
+tap A
+idle 5
+snap s1
+tap A
+idle 5
+snap s2
+tap A
+idle 5
+snap s3
+tap A
+idle 5
+snap s4
+tap A
+wait 30
+snap spin
+idle 5
+snap s5

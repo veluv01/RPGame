@@ -1,0 +1,37 @@
+# What the table tells you: the round with four seated (it floats up as each
+# round begins; the pause panel has it too), what a deed charges as you land
+# on it, and in the manage view what the others pay there now.
+say G 1 2 3 4 20 8
+waitturn 0
+rec start 2
+wait 40
+rec stop round
+waitturn 4
+tap START
+wait 6
+snap pause
+tap START
+wait 6
+# A set of light blues with a house each; P2's railroad.
+say E 6 0 1
+say E 8 0 1
+say E 9 0 1
+say E 15 1 0
+say E 5 1 0
+waitturn 2
+tap RIGHT
+tap A
+wait 20
+snap they_pay
+tap UP
+wait 30
+snap they_pay_more
+tap B
+wait 10
+# Onto P2's railroad (it holds two): the plate names the owner and the rent.
+say T 0 10 0
+say D 2 3
+rec start 3
+tap A
+wait 140
+rec stop land_owned

@@ -1,0 +1,68 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of
+# play, each move made with the buttons (goto walks the glove to a square
+# with D-pad presses; the simulator plans the route). Each clip is its own
+# recording, named in the order it is shown; ../../../../../../../../../tools/readme_gif.py runs
+# this script and joins them:
+#   chgame gif
+# Squares: a1 = 0 .. h8 = 63.
+rec start 4
+wait 120
+rec stop 01_title
+# The opening against BEGINNER: 1.e4, and the CPU's red glove answers.
+say G 0 0 0 1
+wait 60
+rec start 4
+goto 12 10
+wait 10
+tap A
+wait 25
+goto 28 10
+wait 10
+tap A
+waitturn 30
+rec stop 02_opening
+# A capture, e4xd5: slow motion, the pawn knocked off the board.
+say V rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -
+wait 40
+rec start 4
+goto 28 10
+wait 10
+tap A
+wait 25
+goto 35 10
+wait 15
+tap A
+wait 130
+rec stop 03_capture
+waitturn 10
+# Promotion: a7-a8, and the queen picked from the panel.
+say V 8/P7/8/8/8/8/k6K/8 w - -
+wait 40
+rec start 3
+goto 48 10
+wait 10
+tap A
+wait 25
+goto 56 10
+wait 10
+tap A
+wait 45
+tap A
+wait 90
+rec stop 04_promote
+waitturn 10
+# Scholar's mate, Qxf7#: CHECKMATE! waits for a press, then the result.
+say V r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq -
+wait 40
+rec start 4
+goto 39 10
+wait 10
+tap A
+wait 25
+goto 53 10
+wait 15
+tap A
+wait 200
+tap A
+wait 80
+rec stop 05_mate

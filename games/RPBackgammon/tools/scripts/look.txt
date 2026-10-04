@@ -1,0 +1,27 @@
+# Looks: tall stacks, both bars, full trays; the title's close-up at a few moments.
+say U 1
+wait 20
+snap title0
+wait 120
+snap title1
+wait 160
+snap title2
+wait 200
+snap title3
+say X 0 w 6:8 5:3 4:2 25:2 r 6:7 13:6 25:2
+wait 40
+snap stacks
+say X 0 w 6:2 5:2 3:1 r 6:1 2:1
+wait 40
+snap trays
+say X 0 w 24:2 13:5 8:3 6:5 r 24:2 13:5 8:3 6:5
+say D 66
+wait 30
+waitturn 0
+tap A
+wait 34
+snap roll_close
+wait 12
+snap roll_land
+wait 30
+snap roll_double

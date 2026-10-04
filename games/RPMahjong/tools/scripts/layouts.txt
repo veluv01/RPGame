@@ -1,0 +1,19 @@
+# The title, then each layout dealt (seed 12345).
+wait 40
+snap title
+say G 0 12345
+wait 10
+snap shuffling
+wait 60
+snap dealing
+wait 80
+snap turtle
+say G 1 12345
+wait 150
+snap arena
+say G 2 12345
+wait 150
+snap bridge
+say G 3 12345
+wait 150
+snap twins

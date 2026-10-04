@@ -1,0 +1,23 @@
+# A whole game against the high roller, the human's moves played for them.
+say G 0 2 5
+wait 20
+auto 1
+wait 12
+snap sweep
+wait 30
+snap float
+waitturn
+snap cpu1
+auto 3
+waitturn
+snap mid
+say C
+auto 6
+waitturn
+snap later
+auto
+wait 100
+snap over
+wait 120
+snap result
+board

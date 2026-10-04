@@ -1,0 +1,79 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of a
+# round: the buy-in, swiping and daubing, a bingo, the one word too many,
+# and a rival getting there first. Each clip is its own recording, named in
+# the order it is shown; ../../../../../../../../../tools/readme_gif.py runs this script and
+# joins them:
+#   chgame gif
+rec start 3
+wait 150
+rec stop 01_title
+# The buy-in: six cards, eyes down, the first call.
+say R 21
+say J P
+wait 70
+rec start 3
+tap UP
+wait 8
+tap UP
+wait 8
+tap UP
+wait 20
+tap A
+wait 150
+rec stop 02_buyin
+# Swiping through the cards, daubing where the frame is rainbow.
+say H 75
+rec start 3
+wait 60
+tap RIGHT
+wait 12
+tap A
+wait 20
+tap RIGHT
+wait 10
+tap RIGHT
+wait 12
+tap A
+wait 50
+tap RIGHT
+wait 10
+tap RIGHT
+wait 12
+tap A
+wait 40
+tap LEFT
+wait 10
+tap A
+wait 60
+rec stop 03_swipe
+say D
+wait 1100
+say D
+# The win.
+say I 2
+rec start 3
+wait 20
+say W
+wait 260
+rec stop 04_bingo
+# ...and the one word too many.
+wait 100
+tap A
+wait 150
+say H 75
+wait 1250
+say D
+say I 1
+rec start 3
+wait 20
+say W
+wait 420
+rec stop 05_itsabingo
+# A rival gets there first.
+wait 100
+tap A
+wait 400
+rec start 3
+say H 1
+wait 320
+rec stop 06_rival

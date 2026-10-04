@@ -1,0 +1,27 @@
+# The iso table up close: the board landing, pieces falling, a win, the map.
+#   chgame run tools/scripts/iso.txt out/iso
+say R 3
+say D 0
+say J P 0
+rec start 1
+wait 40
+say H 1
+tap A
+wait 70
+say H 2
+tap LEFT
+tap A
+wait 70
+tap RIGHT
+tap DOWN
+tap A
+wait 90
+rec stop win
+snap 01_win
+wait 60
+tap SELECT
+wait 10
+snap 02_map
+tap SELECT
+wait 10
+snap 03_back

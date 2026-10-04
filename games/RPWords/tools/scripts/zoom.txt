@@ -1,0 +1,36 @@
+# The camera: in at the start, the whole board while B is held and while
+# the CPU thinks, in again on the CPU's word as its tiles drop.
+say G 0 2 5
+wait 2
+snap far
+wait 3
+snap whip
+wait 20
+snap near
+auto 1
+wait 6
+snap sweep
+wait 14
+snap pay
+wait 40
+hold B
+wait 20
+snap peek
+release
+wait 20
+snap back
+waitturn
+wait 1
+auto 1
+wait 70
+snap thinking
+wait 60
+snap drop
+wait 30
+snap cpuword
+auto 4
+waitturn
+hold B
+wait 20
+snap peek2
+release

@@ -1,0 +1,46 @@
+# Saving: pausing saves the game on the table; after a "power cycle" PLAY
+# picks it up where it was, options, deck and stats with it.
+say O 5 3
+say G 21
+waitstate 1 5
+tap B
+tap B
+wait 12
+tap START
+wait 5
+expect stock=18 waste=6 moves=2 live=1
+snap paused
+tap START
+wait 5
+# Two more draws that are never saved.
+tap B
+tap B
+wait 12
+expect stock=12
+say Z
+wait 30
+snap title_after_boot
+tap A
+wait 40
+expect state=1 stock=18 waste=6 moves=2 live=1
+snap resumed
+# A new deal from the pause menu walks away from this one: the streak ends.
+tap START
+wait 5
+tap DOWN
+tap A
+waitstate 1 5
+expect stock=24 moves=0
+snap newdeal
+tap START
+wait 5
+tap DOWN
+tap DOWN
+tap DOWN
+tap DOWN
+tap A
+wait 40
+tap LEFT
+tap A
+wait 30
+snap stats

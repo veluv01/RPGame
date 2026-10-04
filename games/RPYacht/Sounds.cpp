@@ -1,0 +1,39 @@
+// The effects' notes. AUDIO_STEP(Hz, Hz it sweeps to or 0, ms); the number
+// in AUDIO_EFFECT is the priority: a higher one is not cut off by a lower.
+#include "Sounds.h"
+
+static const audio::Step CURSOR[]    = { AUDIO_STEP(2100, 0, 10) };
+static const audio::Step SELECT[]    = { AUDIO_STEP(1700, 0, 18), AUDIO_STEP(2600, 0, 30) };
+static const audio::Step DENY[]      = { AUDIO_STEP(900, 650, 70) };
+static const audio::Step CHIP[]      = { AUDIO_STEP(3100, 0, 12), AUDIO_REST(9), AUDIO_STEP(3700, 0, 26) };
+static const audio::Step CHIPTAKE[]  = { AUDIO_STEP(3700, 0, 10), AUDIO_REST(8), AUDIO_STEP(2900, 0, 20) };
+static const audio::Step THROW[]     = { AUDIO_STEP(1100, 3300, 90) };
+static const audio::Step BOUNCE[]    = { AUDIO_STEP(2700, 0, 6), AUDIO_REST(5), AUDIO_STEP(2000, 0, 5) };
+static const audio::Step WALL[]      = { AUDIO_STEP(1900, 0, 7), AUDIO_REST(4), AUDIO_STEP(2600, 0, 7), AUDIO_REST(5), AUDIO_STEP(1500, 0, 7),
+                                         AUDIO_REST(6), AUDIO_STEP(2300, 0, 10) };
+static const audio::Step CLACK[]     = { AUDIO_STEP(3300, 0, 6), AUDIO_REST(3), AUDIO_STEP(2800, 0, 7) };
+static const audio::Step POINT[]     = { AUDIO_STEP(1400, 0, 30), AUDIO_REST(30), AUDIO_STEP(2093, 0, 50), AUDIO_STEP(2637, 0, 110) };
+static const audio::Step WIN[]       = { AUDIO_STEP(2093, 0, 60), AUDIO_STEP(2637, 0, 60), AUDIO_STEP(3136, 0, 60), AUDIO_STEP(4186, 0, 170) };
+static const audio::Step BIGWIN[]    = {
+    AUDIO_STEP(1568, 0, 50), AUDIO_STEP(2093, 0, 50), AUDIO_STEP(2637, 0, 50), AUDIO_STEP(3136, 0, 90),
+    AUDIO_STEP(2093, 0, 40), AUDIO_STEP(2637, 0, 40), AUDIO_STEP(2093, 0, 40), AUDIO_STEP(2637, 0, 40),
+    AUDIO_STEP(3136, 0, 40), AUDIO_STEP(4186, 0, 40), AUDIO_STEP(3136, 0, 40), AUDIO_STEP(4186, 0, 40),
+    AUDIO_STEP(2000, 4200, 220) };
+static const audio::Step SEVENOUT[]  = { AUDIO_STEP(1600, 950, 110), AUDIO_STEP(950, 560, 130), AUDIO_STEP(560, 330, 260) };
+static const audio::Step CRAPS[]     = { AUDIO_STEP(800, 620, 90), AUDIO_REST(30), AUDIO_STEP(700, 450, 150) };
+static const audio::Step COIN[]      = { AUDIO_STEP(2800, 0, 10), AUDIO_STEP(3700, 0, 28) };
+static const audio::Step SWEEP[]     = { AUDIO_STEP(2600, 900, 110) };
+static const audio::Step HOT[]       = { AUDIO_STEP(1568, 0, 40), AUDIO_STEP(2093, 0, 40), AUDIO_STEP(2637, 0, 40), AUDIO_STEP(3136, 0, 40),
+                                         AUDIO_STEP(4186, 0, 60), AUDIO_REST(30), AUDIO_STEP(3136, 4186, 160) };
+static const audio::Step WHOOSH[]    = { AUDIO_STEP(1200, 3800, 90) };
+static const audio::Step LOSE[]      = { AUDIO_STEP(1300, 950, 140), AUDIO_STEP(950, 700, 220) };
+// BROKE's last 800 ms sweep is two steps (a step lasts at most 510 ms).
+static const audio::Step BROKE[]     = { AUDIO_STEP(1568, 1480, 300), AUDIO_STEP(1480, 1397, 300), AUDIO_STEP(1397, 1319, 300), AUDIO_STEP(1319, 1249, 400), AUDIO_STEP(1249, 1180, 400) };
+
+const audio::Effect SOUNDS[(int)Sfx::COUNT] = {
+    AUDIO_EFFECT(CURSOR, 0), AUDIO_EFFECT(SELECT, 1), AUDIO_EFFECT(DENY, 1), AUDIO_EFFECT(CHIP, 1),
+    AUDIO_EFFECT(CHIPTAKE, 1), AUDIO_EFFECT(THROW, 2), AUDIO_EFFECT(BOUNCE, 1), AUDIO_EFFECT(WALL, 2),
+    AUDIO_EFFECT(CLACK, 1), AUDIO_EFFECT(POINT, 3), AUDIO_EFFECT(WIN, 3), AUDIO_EFFECT(BIGWIN, 4),
+    AUDIO_EFFECT(SEVENOUT, 4), AUDIO_EFFECT(CRAPS, 3), AUDIO_EFFECT(COIN, 1), AUDIO_EFFECT(SWEEP, 1),
+    AUDIO_EFFECT(HOT, 4), AUDIO_EFFECT(WHOOSH, 1), AUDIO_EFFECT(LOSE, 3), AUDIO_EFFECT(BROKE, 4),
+};

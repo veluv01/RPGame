@@ -1,0 +1,16 @@
+# Going all in until busted: BUSTED!, the rebuy.
+say $ 140
+say G 0 0 40 78
+waitturn 5
+tap RIGHT
+tap RIGHT
+wait 3
+snap allin_sel
+tap A
+wait 12
+snap allin
+playto 13 0
+wait 30
+snap result
+wait 100
+snap after1

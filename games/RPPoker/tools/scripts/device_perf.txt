@@ -1,0 +1,21 @@
+# On the board, free-running: frame times and CPU think times at each game.
+say G 0 2 2000 7
+perf reset
+free 12
+perf holdem SHARK
+say W
+say G 2 2 2000 5
+perf reset
+free 14
+perf omaha SHARK
+say W
+say G 3 2 2000 3
+perf reset
+free 12
+perf stud SHARK
+say W
+say G 1 2 2000 4
+perf reset
+free 10
+perf draw SHARK
+say W

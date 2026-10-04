@@ -1,0 +1,39 @@
+# Every screen once.
+wait 40
+tap DOWN
+tap A
+wait 30
+snap options
+tap B
+wait 20
+tap DOWN
+tap DOWN
+tap A
+wait 30
+snap stats
+tap B
+wait 30
+say G 0 1 1000 9
+waitturn 4
+tap START
+wait 10
+snap pause
+tap DOWN
+tap DOWN
+tap A
+wait 10
+snap ranks
+tap A
+wait 5
+say J W
+wait 90
+snap won
+say J B
+wait 100
+snap broke
+say J T
+wait 940
+wait 60
+snap demo
+wait 200
+snap demo2

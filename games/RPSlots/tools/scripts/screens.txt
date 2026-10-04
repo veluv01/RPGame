@@ -1,0 +1,63 @@
+# Every screen once, for a look over the whole UI.
+say R 7
+say J T
+wait 200
+snap title
+tap A
+wait 30
+snap machines
+tap DOWN
+wait 10
+snap machines2
+say J C
+wait 30
+snap lucky7
+tap B
+wait 20
+snap pays_a
+wait 200
+snap pays_b
+tap A
+wait 5
+snap pays_c
+tap START
+wait 5
+say J Y
+wait 30
+snap sweet
+tap B
+wait 10
+snap pays_sweet
+tap A
+tap A
+wait 5
+snap pays_sweet2
+tap START
+say J F
+wait 30
+snap fortune
+tap B
+wait 10
+snap pays_fortune
+tap A
+tap A
+wait 5
+snap pays_fortune2
+tap START
+wait 5
+tap START
+wait 10
+snap pause
+tap START
+say J O
+wait 10
+snap options
+say J S
+wait 10
+snap stats
+say J L
+wait 90
+snap broke
+say J W
+wait 90
+snap won

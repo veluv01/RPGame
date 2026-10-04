@@ -1,0 +1,29 @@
+# The American wheel: the 00 on the layout, a top line, and 00 coming up.
+#   chgame run tools/scripts/american.txt out/american
+say R 11
+say J O
+wait 20
+tap A
+wait 10
+snap 1_options
+tap B
+wait 40
+say J P
+wait 110
+say W 145 5
+say W 0 5
+say W 146 5
+say W 155 10
+say G 0
+wait 20
+snap 2_us_layout
+say F 37
+say G 165
+wait 10
+tap A
+wait 330
+snap 3_landed_00
+wait 120
+snap 4_payout
+wait 200
+snap 5_next

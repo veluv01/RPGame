@@ -1,0 +1,21 @@
+# The map, the inspection zoom, Black's side, QUICK pace.
+say G 0 1 0 3 1
+waitturn 20
+snap v0_black
+tap SELECT
+wait 20
+snap v1_map
+auto 2
+waitturn 10
+snap v2_map_later
+tap SELECT
+wait 20
+hold B
+wait 20
+snap v3_inspect
+hold B+LEFT
+wait 30
+snap v4_inspect_left
+release
+wait 30
+snap v5_back

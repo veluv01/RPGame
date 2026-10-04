@@ -1,0 +1,20 @@
+# A whole game against each opponent, the human's side played by the A
+# command (the EXPERT's choices through the same calls the buttons make):
+# every turn is rolled, played, shown and picked up, to the result panel.
+say U 1
+say G 0 0 11
+wait 30
+auto
+wait 200
+snap beginner_end
+board
+tap A
+wait 60
+
+say G 0 2 12
+wait 30
+auto 6
+snap grandmaster_mid
+say W
+board
+perf

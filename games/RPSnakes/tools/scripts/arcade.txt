@@ -1,0 +1,33 @@
+# ARCADE: two dice, pick one; a bump; doubles.
+say G 1 3 0 0 1 5
+wait 80
+say M 0 18
+say M 1 24
+wait 40
+say D 3 6
+tap A
+wait 30
+snap rolling
+waitturn 4
+snap pick0
+tap RIGHT
+wait 12
+snap pick1
+tap SELECT
+wait 20
+snap overview
+tap SELECT
+wait 20
+tap A
+wait 40
+snap bump
+wait 30
+snap bumped
+waitturn 4
+snap cpu_done
+say D 2 2
+tap A
+wait 60
+snap doubles
+waitturn 4
+snap again

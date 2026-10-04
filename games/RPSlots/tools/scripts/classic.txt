@@ -1,0 +1,22 @@
+# LUCKY 7: a few pulls, to see the symbols on the reels.
+say R 5
+say J C
+wait 20
+snap c0
+hold A
+wait 10
+release
+idle 20
+snap c1
+tap A
+idle 20
+snap c2
+tap A
+idle 20
+snap c3
+say J F
+wait 10
+say G 2
+tap A
+wait 200
+snap hold

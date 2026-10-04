@@ -1,0 +1,13 @@
+# The way the word runs: a gold arrow pointing right, lit from above (white
+# highlight, wood shadow), with an ink outline. tools/assets.py turns it on
+# its side for the down arrow.
+# k ink, w white, y gold, b wood.
+....k....
+....kk...
+kkkkkyk..
+kwwwwyyk.
+kyyyyyyyk
+kbbbbbbk.
+kkkkkbk..
+....kk...
+....k....

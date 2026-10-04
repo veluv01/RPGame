@@ -1,0 +1,21 @@
+# Up a ladder, and a big one.
+say G 1 3 0 0 0 5
+wait 60
+say M 0 19
+wait 40
+say D 2 0
+rec start 2
+tap A
+wait 70
+snap foot
+wait 30
+snap out
+wait 20
+snap climb1
+wait 20
+snap climb2
+wait 30
+snap top
+wait 30
+snap after
+rec stop ladder

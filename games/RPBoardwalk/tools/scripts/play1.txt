@@ -1,0 +1,34 @@
+# A first game: the title, 1 PLAYER, the table, then you against the CPU.
+wait 40
+snap title
+tap A
+wait 30
+snap table
+say G 1 3 0 0 20 42
+wait 4
+snap deal_start
+wait 60
+snap dealing
+rec start 3
+waitturn 6
+snap your_turn
+tap A
+wait 20
+snap dice
+wait 40
+snap hopping
+waitturn 6
+snap landed
+tap A
+waitturn 6
+snap second
+tap A
+waitturn 6
+snap third
+tap A
+waitturn 6
+snap fourth
+tap A
+waitturn 6
+snap fifth
+rec stop play1

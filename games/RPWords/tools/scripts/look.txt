@@ -1,0 +1,31 @@
+# The screens, one shot each.
+wait 30
+snap title
+tap DOWN
+wait 4
+tap A
+wait 30
+snap setup
+tap A
+wait 40
+snap start
+say G 0 2 7
+wait 20
+say R CASINO?
+wait 2
+snap rack
+tap A
+wait 4
+snap rackmode
+tap A
+wait 4
+tap A
+wait 4
+tap A
+wait 4
+snap laid
+tap B
+wait 3
+tap START
+wait 5
+snap menu

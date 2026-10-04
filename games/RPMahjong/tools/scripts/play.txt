@@ -1,0 +1,18 @@
+# A few pairs taken as a player would, with a GIF of it.
+say G 0 12345
+wait 150
+snap dealt
+rec start 2
+solve 1
+wait 30
+snap one
+tap A
+wait 30
+snap picked
+tap B
+wait 80
+snap rest
+solve 3
+rec stop play
+state
+snap four

@@ -1,0 +1,26 @@
+# The title, a snake's meal and a ladder, each as a recording: a test of the
+# set pieces. (The README's GIF is gameplay.txt's, by ../../../../../../../../../tools/readme_gif.py.)
+wait 30
+rec start 3
+wait 420
+rec stop title
+# A snake's meal.
+say G 1 3 0 0 0 5
+wait 60
+say M 0 91
+wait 50
+say D 5 0
+rec start 2
+tap A
+wait 330
+rec stop snake
+# A ladder.
+say G 1 3 0 0 0 5
+wait 60
+say M 0 19
+wait 50
+say D 2 0
+rec start 2
+tap A
+wait 230
+rec stop ladder

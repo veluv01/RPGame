@@ -1,0 +1,65 @@
+# Render cost screen by screen (host time, scaled by cal to device ms).
+#   chgame run tools/scripts/perf.txt out/perf
+cal
+say R 7
+say J T
+wait 100
+perf
+say J G 0
+wait 100
+perf
+# CLASSIC in iso: idle, then moving the glove every few frames (full redraws).
+say J P 0
+wait 60
+perf
+tap RIGHT
+wait 3
+tap DOWN
+wait 3
+tap LEFT
+wait 3
+tap UP
+wait 3
+tap RIGHT
+wait 3
+tap DOWN
+wait 3
+perf
+tap A
+wait 100
+perf
+# BIG 5 in iso, glove moving.
+say J P 10
+wait 60
+tap RIGHT
+wait 3
+tap DOWN
+wait 3
+tap LEFT
+wait 3
+tap UP
+wait 3
+perf
+# GOBBLE (most art on screen).
+say J P 5
+wait 60
+tap A
+wait 100
+tap RIGHT
+wait 3
+tap DOWN
+wait 3
+perf
+say J P 15
+wait 40
+tap A
+wait 100
+perf
+say J P 14
+wait 40
+tap A
+wait 100
+perf
+say J W
+wait 100
+perf

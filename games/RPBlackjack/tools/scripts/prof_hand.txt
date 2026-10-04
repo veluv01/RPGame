@@ -1,0 +1,25 @@
+wait 5
+tap A
+wait 40
+say R 7
+tap A
+wait 120
+prof
+wait 60
+prof
+tap A
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+prof
+tap A
+wait 70
+prof
+wait 60
+prof
+tap DOWN
+wait 120
+prof
+wait 120
+prof

@@ -1,0 +1,120 @@
+# A tour of the game as GIFs, kept as a test (the README's one GIF comes from
+# gameplay.txt):
+#   chgame run tools/scripts/showcase.txt out/showcase
+# Cards: rank*4 + suit (ranks 2..A = 0..12, suits c d h s = 0..3).
+#
+# The title.
+say J T
+rec start 3
+wait 150
+rec stop title
+#
+# The lobby: the four games, the three tables, the buy-in, and sitting down.
+rec start 3
+tap A
+wait 30
+tap RIGHT
+wait 24
+tap RIGHT
+wait 24
+tap RIGHT
+wait 24
+tap RIGHT
+wait 24
+tap DOWN
+wait 10
+tap RIGHT
+wait 30
+tap RIGHT
+wait 40
+tap RIGHT
+wait 24
+tap DOWN
+wait 10
+tap RIGHT
+wait 8
+tap RIGHT
+wait 16
+tap DOWN
+wait 16
+tap A
+wait 200
+rec stop lobby
+#
+# Hold'em: A-K of spades, a royal flush on the river, all in.
+# Seed 7 puts the button on seat 3, so you are dealt cards 0 and 4.
+say $ 1000
+say G 0 0 200 7
+say D 51,42,28,14,47,41,29,18,0,43,39,1,4,20,8,35
+rec start 3
+waitturn 6
+tap A
+waitturn 6
+tap A
+waitturn 6
+tap A
+waitturn 6
+tap RIGHT
+tap RIGHT
+wait 8
+tap A
+playto 13 150
+rec stop royal
+#
+# Five Card Draw: three sevens; the glove throws the king and the deuce, and
+# the fourth seven comes. Seed 11: the button on seat 3, you deal first.
+say G 1 0 200 11
+say D 22,51,5,46,21,50,19,45,20,12,30,8,47,25,40,33,1,36,10,0,2,23,28
+rec start 3
+playto 9 20
+tap RIGHT
+wait 4
+tap RIGHT
+wait 4
+tap RIGHT
+wait 6
+tap UP
+wait 6
+tap RIGHT
+wait 6
+tap UP
+wait 10
+tap RIGHT
+wait 12
+tap A
+playto 13 150
+rec stop draw
+#
+# Seven Card Stud at the ROOKIE table, to the showdown.
+say G 3 0 200 3
+rec start 4
+playto 13 150
+rec stop stud
+#
+# Pot-limit Omaha at the PRO table.
+say G 2 1 1000 5
+rec start 4
+playto 13 150
+rec stop omaha
+#
+# All in with $40, a loss, BUSTED! - and buying back in.
+say $ 140
+say G 0 0 40 78
+rec start 3
+waitturn 6
+tap RIGHT
+wait 6
+tap RIGHT
+wait 10
+tap A
+playto 13 140
+tap A
+wait 90
+rec stop allin
+#
+# Breaking the bank.
+say $ 12500
+say J W
+rec start 3
+wait 180
+rec stop won

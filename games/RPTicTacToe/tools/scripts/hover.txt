@@ -1,0 +1,41 @@
+# A held piece over a taken pad rises clear of the piece there.
+#   chgame run tools/scripts/hover.txt out/hover
+say R 5
+say D 0
+say J P 0
+wait 40
+say H 8
+tap A
+wait 100
+snap 01_over_own
+tap DOWN
+wait 20
+snap 02_over_his
+tap UP
+tap UP
+wait 20
+snap 03_empty
+say J P 5
+wait 40
+say H 0
+tap A
+wait 100
+tap UP
+wait 20
+snap 04_gobble_over
+tap B
+tap B
+wait 20
+snap 05_gobble_big
+rec start
+tap A
+wait 40
+rec stop cover
+say J P 10
+wait 40
+say H 13
+tap A
+wait 100
+tap RIGHT
+wait 20
+snap 06_big5_over

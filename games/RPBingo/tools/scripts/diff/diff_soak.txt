@@ -1,0 +1,88 @@
+# Differential run (chgame redraw): every frame of the incremental
+# redraw against a forced full redraw, through a buy-in, a round played with
+# the buttons, power-ups, a win with both banners, and a rival's win.
+say R 7
+say J P
+label buy
+wait 90
+tap RIGHT
+tap RIGHT
+tap LEFT
+tap UP
+wait 10
+tap A
+label calls
+wait 360
+tap RIGHT
+wait 3
+tap A
+tap RIGHT
+tap A
+wait 20
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap A
+wait 100
+tap LEFT
+tap A
+tap LEFT
+tap LEFT
+tap A
+wait 130
+say D
+wait 60
+label powers
+say X 1
+wait 20
+tap B
+wait 40
+say X 2
+wait 5
+tap B
+wait 200
+say X 3
+tap RIGHT
+tap B
+wait 60
+tap B
+wait 30
+label pause
+tap START
+wait 10
+tap DOWN
+tap A
+wait 10
+tap A
+tap START
+wait 20
+label win
+wait 900
+say I 1
+say W
+wait 500
+label rival
+tap A
+wait 200
+say H 1
+wait 400
+label options
+say J O
+wait 20
+tap DOWN
+tap DOWN
+tap DOWN
+tap DOWN
+tap DOWN
+tap RIGHT
+wait 20
+tap B
+wait 30
+label title
+wait 200
+tap DOWN
+wait 30
+label buy again
+tap LEFT
+tap LEFT
+wait 30

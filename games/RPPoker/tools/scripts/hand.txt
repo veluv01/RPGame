@@ -1,0 +1,21 @@
+# A Hold'em hand to the showdown: always check or call.
+say G 0 0 200 7
+playto 11
+snap sd0
+wait 30
+snap sd1
+wait 30
+snap sd2
+wait 30
+snap sd3
+wait 30
+snap sd4
+wait 30
+snap sd5
+wait 40
+snap sd6
+playto 13 60
+snap over
+tap A
+wait 30
+snap next

@@ -1,0 +1,42 @@
+# The hint (SELECT) and the mirrored board (HOME LEFT). (The coach that
+# judged each play was cut for room; the file keeps its name.)
+say U 1
+say G 0 1 5
+say D 3143
+wait 30
+tap A
+waitturn 6
+tap SELECT
+wait 30
+snap hint
+# The board mirrored.
+say J O
+wait 20
+tap DOWN
+tap DOWN
+tap A
+tap B
+wait 30
+say X 0 w 24:2 13:5 8:3 6:5 r 24:2 13:5 8:3 6:5
+say D 6431
+wait 30
+waitturn 0
+tap A
+waitturn 6
+snap mirror_roll
+move 24 18
+waitturn 4
+move 13 9
+waitturn 6
+snap mirror_moved
+tap A
+waitturn 10
+snap mirror_cpu
+# Back to HOME RIGHT for whatever runs next.
+say J O
+wait 20
+tap DOWN
+tap DOWN
+tap A
+tap B
+wait 30

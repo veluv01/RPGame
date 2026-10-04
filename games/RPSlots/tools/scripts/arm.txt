@@ -1,0 +1,12 @@
+# The arm: a held pull, then a tap.
+say R 5
+say J C
+wait 20
+rec start 1
+hold A
+wait 22
+release
+wait 60
+tap A 2
+wait 50
+rec stop arm

@@ -1,0 +1,23 @@
+# The longest columns: thirteen cards face up, and the same over six face down.
+say G 3
+waitstate 1 5
+say W 52
+wait 5
+snap thirteen
+tap UP
+tap UP
+tap UP
+tap UP
+wait 8
+snap run5
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap RIGHT
+wait 8
+snap carry5
+tap B
+say X
+wait 5
+snap nineteen

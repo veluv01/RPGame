@@ -1,0 +1,23 @@
+CHMahjong
+Copyright 2026 bateske
+
+From CHChess (https://github.com/bateske/CHChess) and CHBlackjack
+(https://github.com/bateske/CHBlackjack), both Apache-2.0: the input and
+frame pacing (now in the CHGame library,
+platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Input.*), palette, drawing, outlined
+lettering, effects, sound sequencer, flash saving, debug protocol, the
+pointing glove's art and the PC simulator and tools, adapted here.
+CHBlackjack is a derivative of "Blackjack" for the Arduboy by Press Play
+On Tape (Apache-2.0); the 3x5 pixel font in the CHGame library
+(platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Draw.cpp) is Press Play On Tape's,
+and the title's lettering (tools/art/logo.txt) is drawn in the face of
+their Blackjack logo, with its a taken as it is and the other letters made
+to match it.
+
+The sparrow's animations (tools/art/bird.txt, cut from its animation sheet
+by tools/bird.py) are from a sparrow pixel-art animation pack by an
+uncredited artist.
+
+Everything else - the board logic and its deals, the layouts, the tile art,
+the game flow and the presentation - is new, under the Apache License 2.0
+(LICENSE).

@@ -1,0 +1,33 @@
+# Title -> bet $10 -> deal -> stand -> settle.
+wait 5
+tap A
+wait 40
+snap 01_title
+say R 7
+tap A
+wait 120
+snap 02_bet
+tap A
+tap A
+wait 20
+snap 03_chips
+tap RIGHT
+tap RIGHT
+tap RIGHT
+snap 04_deal_sel
+tap A
+wait 12
+snap 05_dealing
+wait 70
+snap 06_dealt
+perf
+tap DOWN
+wait 25
+snap 07_reveal
+wait 60
+snap 08_dealer
+wait 60
+snap 09_settle
+perf
+wait 90
+snap 10_end

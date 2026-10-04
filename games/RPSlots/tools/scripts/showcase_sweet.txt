@@ -1,0 +1,38 @@
+# A tour of SWEET: the menu, the paytable, a sugar rush. (The README's GIF is gameplay.txt.)
+#   chgame run tools/scripts/showcase_sweet.txt out/showcase_sweet
+say R 2026
+say J M
+wait 20
+tap DOWN
+wait 12
+snap machines
+say J Y
+wait 20
+snap sweet
+tap B
+rec start 2
+wait 150
+tap A
+wait 60
+tap A
+wait 60
+rec stop pays
+snap payssweet
+tap START
+wait 5
+rec start 3
+tap A
+idle 20
+say F 0 0 2
+tap A
+idle 30
+say F 11 10 1
+tap A
+idle 30
+say F 7 4 22
+tap A
+idle 30
+say F 17 8 8
+tap A
+idle 40
+rec stop sweet

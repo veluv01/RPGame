@@ -1,0 +1,34 @@
+# The deck screen, and backs on the table.
+say J D
+wait 20
+snap deck
+gif deckgags 128 8
+tap RIGHT
+tap RIGHT
+tap DOWN
+wait 5
+snap picked
+say G 9
+waitstate 1 5
+snap back6
+say O 5 2
+wait 2
+snap back2
+say O 5 4
+wait 2
+snap back4
+say O 5 5
+wait 2
+snap back5
+say O 5 8
+wait 2
+snap back8
+say O 5 10
+wait 2
+snap back10
+say O 5 11
+wait 2
+snap back11
+say O 5 1
+wait 2
+snap back1

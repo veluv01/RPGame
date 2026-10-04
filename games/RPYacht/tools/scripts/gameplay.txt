@@ -1,0 +1,82 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of a
+# solo turn, a yacht, the dealer's turn and the end of a game. Each clip is
+# its own recording, named in the order it is shown;
+# ../../../../../../../../../tools/readme_gif.py runs this script and joins them:
+#   chgame gif
+say R 2026
+say J T
+wait 150
+rec start 3
+wait 150
+rec stop 01_title
+# A solo turn: three fives, hold them, roll the other two again, score.
+tap A
+wait 50
+say F 5 5 2 3 5
+rec start 3
+hold A
+wait 45
+release
+idle 0
+wait 45
+tap A
+tap RIGHT
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap A
+wait 12
+tap DOWN
+say F 1 1 2 2 1
+hold A
+wait 35
+release
+idle 0
+wait 40
+tap UP
+wait 30
+tap A
+idle 0
+wait 30
+rec stop 02_turn
+# Five sixes: a yacht, and it pays the ante again.
+say F 6 6 6 6 6
+rec start 3
+hold A
+wait 40
+release
+idle 0
+wait 40
+tap UP
+wait 25
+tap A
+wait 20
+idle 0
+wait 70
+rec stop 03_yacht
+# Against the dealer: he shakes, throws and holds for himself.
+say R 777
+say J C
+wait 30
+hold A
+wait 30
+release
+idle 10
+say G 12
+wait 60
+rec start 3
+wait 330
+rec stop 04_dealer
+# The end of a solo game the house's player played out: the result.
+say A 0
+say J P
+say A 1
+wait 600
+idle 0
+idle 0
+idle 0
+rec start 3
+wait 130
+rec stop 05_result
+say A 0

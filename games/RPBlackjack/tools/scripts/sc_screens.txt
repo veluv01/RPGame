@@ -1,0 +1,50 @@
+# Options, stats, pause, win and lose screens, demo mode.
+wait 5
+tap A
+wait 60
+snap a_title
+tap DOWN
+snap b_title_opt
+tap A
+wait 30
+snap c_options
+tap RIGHT
+tap DOWN
+tap DOWN
+tap DOWN
+tap DOWN
+tap RIGHT
+wait 4
+snap d_options_blue
+tap LEFT
+tap B
+wait 30
+tap DOWN
+tap DOWN
+tap A
+wait 30
+snap e_stats
+tap B
+wait 30
+say J P
+wait 120
+tap START
+wait 4
+snap f_pause
+tap START
+wait 10
+say J W
+wait 60
+snap g_win
+wait 40
+snap h_win2
+say J L
+wait 30
+snap i_lose
+wait 90
+snap j_lose2
+say J T
+wait 700
+snap k_demo
+wait 120
+snap l_demo2

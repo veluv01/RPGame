@@ -1,0 +1,25 @@
+# The last roll: the heartbeat, a bounce, and home.
+say G 1 3 0 0 0 9
+wait 100
+say M 0 97
+wait 60
+snap need
+say D 5 0
+tap A
+wait 60
+snap bounce
+wait 30
+snap bounced
+waitturn 4
+say D 2 0
+tap A
+wait 70
+snap home
+wait 20
+snap win1
+wait 30
+snap win2
+wait 60
+snap win3
+wait 120
+snap result

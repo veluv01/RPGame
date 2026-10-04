@@ -1,0 +1,32 @@
+# One pair, frame by frame.
+say G 0 12345
+wait 150
+say O
+goto 90 4
+tap A
+wait 8
+snap m00_picked
+goto 112 4
+snap m01_twin
+hold A
+wait 3
+release
+snap m02
+wait 3
+snap m03
+wait 3
+snap m04
+wait 3
+snap m05
+wait 3
+snap m06
+wait 2
+snap m07
+wait 2
+snap m08
+wait 2
+snap m09
+wait 4
+snap m10
+wait 8
+snap m11

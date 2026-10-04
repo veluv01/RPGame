@@ -1,0 +1,20 @@
+# Save + quit in the middle of a game, continue from the title.
+say G 0 0 0 9 1
+wait 60
+auto 3
+waitturn 10
+snap s0_before
+board
+tap START
+wait 6
+tap DOWN
+tap DOWN
+tap DOWN
+wait 4
+tap A
+wait 160
+snap s1_title
+tap A
+wait 60
+snap s2_continued
+board

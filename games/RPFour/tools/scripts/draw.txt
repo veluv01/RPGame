@@ -1,0 +1,21 @@
+# A board filled with no four: against the dealer, then between two players.
+say M 0 0 0 7735362133556432115761645656142771722244
+wait 20
+waitturn 5
+snap nearly_full
+col 4
+waitturn 0
+wait 150
+snap draw_banner
+waitover 10
+snap draw_result
+tap B
+wait 30
+say M 1 0 0 7735362133556432115761645656142771722244
+wait 20
+waitturn 5
+col 4
+waitturn 5
+col 3
+waitover 10
+snap draw_2p

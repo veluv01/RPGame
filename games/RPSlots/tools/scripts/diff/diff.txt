@@ -1,0 +1,53 @@
+# For chgame redraw: both machines through every kind of show.
+say R 9
+say J C
+wait 20
+label classic pull
+hold A
+wait 12
+release
+wait 150
+tap UP
+wait 10
+tap A
+wait 150
+label wheel
+say G 5
+tap A
+wait 520
+label fortune
+say J F
+wait 20
+tap A
+wait 150
+label five cats
+say G 4
+tap A
+wait 300
+label dragon
+say G 3
+tap A
+wait 300
+label hold and spin
+say G 2
+tap A
+wait 900
+label free games
+say G 1
+tap A
+wait 1500
+label sweet
+say J Y
+wait 20
+tap A
+wait 150
+tap A
+wait 150
+tap A
+wait 150
+tap UP
+wait 5
+tap A
+wait 150
+tap A
+wait 200

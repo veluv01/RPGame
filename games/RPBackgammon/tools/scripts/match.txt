@@ -1,0 +1,14 @@
+# A match to 3 against the expert, played through by the A command (the
+# EXPERT's choices for you, and its cube), to the match's end: between-game
+# panels and the last one.
+say U 1
+say G 0 1 21 3
+wait 30
+snap match_start
+auto 400
+wait 200
+snap match_banner
+tap A
+wait 90
+snap match_result
+board

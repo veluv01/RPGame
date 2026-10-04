@@ -1,0 +1,60 @@
+# TABLE: BEGINNER - the line, odds, field and place 6 and 8 on a roomier
+# layout. Spots: 0-5 the numbers (6 and 8 take bets: 2, 3), 6 FIELD,
+# 7 DON'T PASS, 8 LAY, 9 PASS LINE, 10 ODDS, 11-14 the chips, 15 ROLL.
+#   chgame run tools/scripts/beginner.txt out/beginner
+say J B
+wait 40
+rec start 3
+wait 20
+tap A
+wait 12
+tap A
+wait 20
+goto 6 12
+tap A
+wait 20
+goto 15 12
+say F 3 5
+hold A
+wait 45
+release
+idle 40
+# Place the 6 for $12: two $5s and two $1s from the rack.
+goto 2 12
+tap A
+wait 12
+tap A
+wait 16
+goto 11 12
+tap A
+wait 12
+goto 2 12
+tap A
+wait 12
+tap A
+wait 20
+# Odds: $20 behind the line.
+tap SELECT
+wait 10
+goto 10 12
+tap A
+wait 10
+tap A
+wait 10
+tap A
+wait 10
+tap A
+wait 20
+goto 15 12
+say F 3 3
+hold A
+wait 45
+release
+idle 40
+say F 6 2
+hold A
+wait 45
+release
+idle 90
+say H
+rec stop beginner

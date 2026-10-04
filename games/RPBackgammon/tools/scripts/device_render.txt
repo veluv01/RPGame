@@ -1,0 +1,45 @@
+# For the board (chgame run --device tools/scripts/device_render.txt out/dev_render):
+# what a frame costs to draw, scene by scene. Y prints microseconds per
+# section (board + targets, checkers, dice + glove, HUD + plate, particles +
+# banner); perf prints the average and worst whole frame since the last perf.
+say U 1
+say G 0 0 3
+wait 40
+say Y
+perf idle
+tap A
+waitturn 4
+say Y
+perf opening roll
+say V 0 1 w 24:2 13:5 8:3 6:5 r 24:2 13:4 8:3 6:5 20:1
+say D 31
+wait 30
+waitturn 0
+perf
+tap A
+wait 30
+say Y
+waitturn 4
+perf roll close up
+goto 8
+tap A
+wait 10
+say Y
+perf targets lit
+goto 5
+tap A
+wait 24
+say Y
+waitturn 4
+perf hit close up
+say X 0 w 6:5 5:5 4:5 r 6:5 5:5 4:5
+say D 66
+wait 30
+waitturn 0
+perf
+tap A
+waitturn 4
+perf double close up
+say J T
+wait 60
+perf title

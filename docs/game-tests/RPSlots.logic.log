@@ -1,0 +1,7 @@
+== test_slots
+classic: return 94.88%, a win on 32.8% of pulls, the wheel 1 in 48 (42875 stops)
+fortune: return 95.26% over 6300000 games (pots at zero)
+  lines 52.50%  scatter 4.60%  free-game lines 15.02%  hold and spin 23.13%
+  a win on 45.9% of games; free games 1 in 64; hold and spin 1 in 87; MAJOR 500, GRAND 76
+sweet: return 95.66% over 3986176 games, a win on 23.3%, the x5 on 1.28% of spins
+99902658 checks, 0 failed

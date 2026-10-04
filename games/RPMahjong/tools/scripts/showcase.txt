@@ -1,0 +1,65 @@
+# The game's set pieces, each as its own picture: the title, the deal, pairs,
+# a shuffle, MAHJONG!, the layouts and the close-up (the README's one GIF is
+# gameplay.txt):
+#   chgame run tools/scripts/showcase.txt out/showcase
+wait 30
+gif title 80 2
+say G 0 2026
+gif deal 60 2
+wait 40
+rec start 2
+solve 5 8
+wait 30
+rec stop pairs
+snap turtle
+# No moves: the banner, the panel, a shuffle.
+say G 0 4
+wait 150
+auto 72
+rec start 2
+wait 120
+tap A
+wait 110
+rec stop shuffle
+# The last pairs of a table: MAHJONG!, and the sparrow's visit.
+say G 3 777
+wait 150
+solve 69 2
+rec start 3
+solve 3 8
+wait 600
+rec stop mahjong
+say G 1 31
+wait 150
+snap arena
+say G 2 31
+wait 150
+snap bridge
+say G 3 31
+wait 150
+snap twins
+# The close-up: hold B.
+say G 0 2026
+wait 150
+rec start 2
+wait 20
+hold B
+wait 30
+tap LEFT
+wait 8
+tap LEFT
+wait 8
+tap UP
+wait 8
+tap UP
+wait 8
+tap A
+wait 8
+tap UP
+wait 8
+tap UP
+wait 12
+wait 20
+release
+wait 30
+rec stop zoom

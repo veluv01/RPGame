@@ -1,0 +1,6 @@
+Sketch uses 111608 bytes (2%) of program storage space. Maximum is 4186112 bytes.
+Global variables use 44524 bytes (8%) of dynamic memory, leaving 479764 bytes for local variables. Maximum is 524288 bytes.
+/workspace/scratch/2db830fcf25a/RPGame/games/RPRoulette/Roulette.cpp: In member function 'const char* Roulette::lineText(uint8_t, uint8_t, char*) const':
+/workspace/scratch/2db830fcf25a/RPGame/games/RPRoulette/Roulette.cpp:393:37: warning: arithmetic between different enumeration types 'Line' and 'wheel::Colour' is deprecated [-Wdeprecated-enum-enum-conversion]
+  393 |         line = (uint8_t)(LINE_COUNT + wheel::colour(n));
+      |                          ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~

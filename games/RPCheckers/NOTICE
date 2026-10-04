@@ -1,0 +1,16 @@
+CHCheckers
+Copyright 2026 bateske
+
+From CHChess (https://github.com/bateske/CHChess) and CHBlackjack
+(https://github.com/bateske/CHBlackjack), both Apache-2.0: the input and
+frame pacing (the CHGame library's chgame/Input.*, Frame.*), palette,
+drawing, outlined lettering, effects, sound sequencer, flash saving, debug
+protocol, the isometric board, camera and views, the pointing glove, the
+play screen's flow and the PC simulator and tools, adapted here.
+CHBlackjack is a derivative of "Blackjack" for the Arduboy by Press Play
+On Tape (Apache-2.0); the 3x5 pixel font in the CHGame library
+(platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Draw.cpp) is Press Play On Tape's.
+
+Everything else - the checkers rules and their house variants, the CPU
+(Engine.*), the chips, the trays, combos and crownings, the title's tune
+and the presentation - is new, under the Apache License 2.0 (LICENSE).

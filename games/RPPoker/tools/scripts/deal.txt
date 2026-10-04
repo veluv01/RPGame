@@ -1,0 +1,26 @@
+# The start of a hand, frame by frame: riffle, deal, flips.
+say G 0 0 200 21
+wait 18
+snap d00
+wait 5
+snap d05
+wait 5
+snap d10
+wait 5
+snap d15
+wait 5
+snap d20
+wait 5
+snap d25
+wait 5
+snap d30
+wait 5
+snap d35
+wait 5
+snap d40
+wait 5
+snap d45
+wait 5
+snap d50
+wait 10
+snap d60

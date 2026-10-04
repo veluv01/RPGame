@@ -1,0 +1,37 @@
+# Every screen and panel.
+wait 40
+snap title
+tap A
+wait 20
+snap setup
+tap RIGHT
+wait 4
+snap setup_arena
+tap UP
+wait 4
+snap setup_choice
+tap LEFT
+wait 4
+tap B
+wait 30
+tap DOWN
+wait 4
+tap A
+wait 20
+snap options
+tap DOWN
+tap RIGHT
+wait 4
+snap options_blue
+tap LEFT
+tap B
+wait 30
+say G 0 12345
+wait 150
+tap START
+wait 4
+snap pause
+tap START
+wait 4
+solve 1 6
+snap after

@@ -1,0 +1,40 @@
+# The extras, forced: the bonus wheel, the paytables, the dragon rising, dimmed lines.
+say R 9
+say J C
+wait 20
+tap B
+wait 30
+snap pays_classic
+tap START
+wait 5
+say G 5
+tap A
+wait 150
+snap wheel_banner
+wait 60
+snap wheel_spin
+wait 100
+snap wheel_slow
+wait 90
+snap wheel_stop
+idle 10
+snap wheel_after
+say J F
+wait 20
+tap B
+wait 30
+snap pays_fortune
+tap START
+wait 5
+say G 3
+tap A
+wait 86
+snap dragon_rise
+wait 40
+snap dragon_pay
+idle 70
+snap line_dim
+say G 1
+tap A
+wait 260
+snap free_frame

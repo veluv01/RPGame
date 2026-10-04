@@ -1,0 +1,2 @@
+SD package: 1 extents, 122880 bytes, FAT lookup/validation/install/verify: PASS
+SD package: 7 extents, 122880 bytes, FAT lookup/validation/install/verify: PASS

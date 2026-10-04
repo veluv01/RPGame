@@ -1,0 +1,15 @@
+# A man: a casino chip seen from the table's edge, in the art's own tones
+# (tools/art/sides.txt dresses it as each side). The gold crown on its face
+# only shows on the chip that tops a king; on a man it takes the face's
+# colour. Base centre (the anchor): column 6, row 6.
+# k ink, w face, s edge, u inserts, y crown.
+...kkkkkkk...
+..kwwuuuwwk..
+.kwwywywywwk.
+kuuwyyyyywuuk
+kswwwwwwwwwsk
+ksswwuuuwwssk
+kssusssssussk
+.ksusssssusk.
+..kusssssuk..
+...kkkkkkk...

@@ -1,0 +1,46 @@
+# The look of every screen: title, the floor, both machines at rest and paying.
+say R 7
+wait 200
+snap title
+say J M
+wait 20
+snap floor
+tap RIGHT
+wait 12
+snap floor2
+say J C
+wait 20
+snap classic
+say F 2 5 3
+hold A
+wait 12
+snap classic_pull
+release
+wait 20
+snap classic_spin
+idle 10
+snap classic_win
+say J F
+wait 20
+snap fortune
+say G 4
+tap A
+wait 20
+snap fortune_spin
+wait 70
+snap fortune_big
+idle 60
+snap fortune_lines
+say G 3
+tap A
+wait 110
+snap fortune_wild
+idle 5
+say G 2
+tap A
+wait 190
+snap fortune_hold
+wait 150
+snap fortune_hold2
+idle 5
+snap fortune_after

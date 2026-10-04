@@ -1,0 +1,105 @@
+# The game's moments, one recording each, kept as a test (the README's GIF is
+# gameplay.txt): chgame run tools/scripts/showcase.txt out/showcase
+say U 1
+
+# The title.
+wait 8
+gif title 110 2
+
+# An opening: the roll, 13/7 8/7 with a 6-1, the dice picked up.
+say G 0 1 5
+say D 6143
+wait 30
+rec start 2
+tap A
+waitturn 12
+move 13 7
+waitturn 4
+move 8 7
+waitturn 10
+tap A
+wait 26
+rec stop opening
+
+# The CPU's reply.
+rec start 2
+waitturn 6
+rec stop cpu
+
+# A hit, close up.
+say V 0 1 w 24:2 13:5 8:3 6:5 r 24:2 13:4 8:3 6:5 20:1
+say D 31
+wait 30
+waitturn 0
+tap A
+waitturn 6
+rec start 2
+move 8 5
+waitturn 4
+move 6 5
+waitturn 16
+rec stop hit
+
+# A double.
+say X 0 w 24:2 13:5 8:3 6:5 r 24:2 13:5 8:3 6:5
+say D 66
+wait 30
+waitturn 0
+rec start 2
+tap A
+waitturn 8
+move 24 18
+waitturn 2
+move 24 18
+waitturn 2
+move 13 7
+waitturn 2
+move 13 7
+waitturn 12
+rec stop double
+
+# The cube, in a match to 5: you double, the CPU takes.
+say V 0 1 w 8:3 7:3 6:3 5:3 4:3 r 6:4 5:4 4:4 3:3
+say C 5 2 2 0 2 0
+say D 3121
+wait 30
+waitturn 4
+rec start 2
+tap LEFT
+wait 12
+tap A
+waitturn 16
+rec stop cube
+
+# A hint (SELECT), then a weaker play.
+say X 0 w 24:2 13:5 8:3 6:5 r 24:2 13:5 8:3 6:5
+say D 31
+wait 30
+waitturn 0
+tap A
+waitturn 6
+rec start 2
+tap SELECT
+wait 50
+move 24 21
+waitturn 4
+move 24 23
+waitturn 60
+rec stop coach
+
+# The last two checkers off: a gammon that takes a match to 3.
+say V 0 1 w 2:1 1:1 r 6:5 5:5 4:5
+say C 3 1 0 0 2 0
+say D 21
+wait 30
+waitturn 0
+tap A
+waitturn 6
+rec start 2
+move 2 0
+waitturn 4
+move 1 0
+wait 170
+tap A
+wait 90
+rec stop win

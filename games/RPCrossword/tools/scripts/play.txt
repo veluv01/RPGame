@@ -1,0 +1,35 @@
+# A puzzle from its first word to the results: locks, a wrong word put
+# right, the end of the puzzle, the record kept.
+say G 0
+wait 20
+expect scr=P locked=0 score=0 solved=0
+solve 2
+expect locked=2 streak=2
+snap two
+# A wrong word: charged once, the streak gone, the letters left in.
+mark
+wrong
+wait 6
+snap wrong
+delta score=-20 locked=0
+expect streak=0 board=0
+wait 40
+solve 1
+snap fixed
+expect streak=1
+solve 12
+snap midway
+say Z 2
+wait 4
+snap nearly
+solve
+wait 30
+snap solved
+expect solved=1
+wait 240
+snap result
+expect ov=2
+tap A
+wait 20
+snap list
+expect scr=S

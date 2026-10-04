@@ -1,0 +1,129 @@
+19962 checks, 0 failures
+USB sector, abort/restart, range, read-only, failure cleanup, media and SCSI checks passed
+input: snapshots, injection, repeat, lockstep, timer wrap and resync: PASS
+storage: format/CRC/bounds, 28 interrupted installs, 100 saves, CRC fallback: PASS
+OFFSET.STL     1152 triangles     57684 bytes
+TINY.STL       1152 triangles     57684 bytes
+HUGE.STL       1152 triangles     57684 bytes
+TINYFAR.STL    1152 triangles     57684 bytes
+NEG.STL        1152 triangles     57684 bytes
+NANS.STL       1152 triangles     57684 bytes
+FLAT.STL          2 triangles       184 bytes
+Checking BOWL.STL
+/workspace/scratch/2db830fcf25a/RPGame/apps/RPStlView/sample/BOWL.STL: tris 512 bad 0 closed 0  radius 30
+  yaw  30 pitch   25 zoom  1.00 persp  verts   1536  err max 0.099 px  mean 0.054 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts   1536  err max 0.100 px  mean 0.052 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts   1536  err max 0.097 px  mean 0.053 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts   1536  err max 0.437 px  mean 0.197 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts   1536  err max 0.088 px  mean 0.049 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts   1536  err max 0.091 px  mean 0.054 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts   1536  err max 0.153 px  mean 0.059 px  ok
+Checking CUBE.STL
+/workspace/scratch/2db830fcf25a/RPGame/apps/RPStlView/sample/CUBE.STL: tris 12 bad 0 closed 1  radius 17.3205
+  yaw  30 pitch   25 zoom  1.00 persp  verts     36  err max 0.085 px  mean 0.060 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts     36  err max 0.071 px  mean 0.045 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts     36  err max 0.089 px  mean 0.064 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts     36  err max 0.361 px  mean 0.211 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts     36  err max 0.079 px  mean 0.045 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts     36  err max 0.082 px  mean 0.056 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts     36  err max 0.123 px  mean 0.071 px  ok
+Checking GEAR.STL
+/workspace/scratch/2db830fcf25a/RPGame/apps/RPStlView/sample/GEAR.STL: tris 384 bad 0 closed 1  radius 27.5498
+  yaw  30 pitch   25 zoom  1.00 persp  verts   1152  err max 0.093 px  mean 0.054 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts   1152  err max 0.095 px  mean 0.052 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts   1152  err max 0.095 px  mean 0.052 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts   1152  err max 0.407 px  mean 0.178 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts   1152  err max 0.083 px  mean 0.049 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts   1152  err max 0.089 px  mean 0.050 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts   1152  err max 0.137 px  mean 0.061 px  ok
+Checking ICOSPH.STL
+/workspace/scratch/2db830fcf25a/RPGame/apps/RPStlView/sample/ICOSPH.STL: tris 320 bad 0 closed 1  radius 34.641
+  yaw  30 pitch   25 zoom  1.00 persp  verts    960  err max 0.097 px  mean 0.050 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts    960  err max 0.092 px  mean 0.051 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts    960  err max 0.094 px  mean 0.050 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts    960  err max 0.348 px  mean 0.161 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts    960  err max 0.083 px  mean 0.049 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts    960  err max 0.090 px  mean 0.056 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts    960  err max 0.109 px  mean 0.061 px  ok
+Checking KNOT.STL
+/workspace/scratch/2db830fcf25a/RPGame/apps/RPStlView/sample/KNOT.STL: tris 12800 bad 0 closed 1  radius 34.6793
+  yaw  30 pitch   25 zoom  1.00 persp  verts  38400  err max 0.101 px  mean 0.052 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts  38400  err max 0.099 px  mean 0.052 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts  38400  err max 0.103 px  mean 0.053 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts  38400  err max 0.357 px  mean 0.150 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts  38400  err max 0.089 px  mean 0.049 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts  38400  err max 0.094 px  mean 0.050 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts  38400  err max 0.130 px  mean 0.059 px  ok
+Checking TORUS.STL
+/workspace/scratch/2db830fcf25a/RPGame/apps/RPStlView/sample/TORUS.STL: tris 1152 bad 0 closed 1  radius 36.0416
+  yaw  30 pitch   25 zoom  1.00 persp  verts   3456  err max 0.096 px  mean 0.052 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts   3456  err max 0.099 px  mean 0.052 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts   3456  err max 0.101 px  mean 0.053 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts   3456  err max 0.346 px  mean 0.157 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts   3456  err max 0.090 px  mean 0.049 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts   3456  err max 0.090 px  mean 0.050 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts   3456  err max 0.122 px  mean 0.061 px  ok
+Checking FLAT.STL
+/tmp/rpgame-tests-q3g_vz8_/edgecases/FLAT.STL: tris 2 bad 0 closed 0  radius 7.07107
+  yaw  30 pitch   25 zoom  1.00 persp  verts      6  err max 0.076 px  mean 0.056 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts      6  err max 0.098 px  mean 0.071 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts      6  err max 0.084 px  mean 0.063 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts      6  err max 0.463 px  mean 0.269 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts      6  err max 0.065 px  mean 0.046 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts      6  err max 0.063 px  mean 0.052 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts      6  err max 0.139 px  mean 0.097 px  ok
+Checking HUGE.STL
+/tmp/rpgame-tests-q3g_vz8_/edgecases/HUGE.STL: tris 1152 bad 0 closed 1  radius 3.60416e+06
+  yaw  30 pitch   25 zoom  1.00 persp  verts   3456  err max 0.104 px  mean 0.053 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts   3456  err max 0.099 px  mean 0.052 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts   3456  err max 0.101 px  mean 0.053 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts   3456  err max 0.420 px  mean 0.174 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts   3456  err max 0.090 px  mean 0.049 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts   3456  err max 0.090 px  mean 0.051 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts   3456  err max 0.145 px  mean 0.063 px  ok
+Checking NANS.STL
+/tmp/rpgame-tests-q3g_vz8_/edgecases/NANS.STL: tris 1152 bad 2 closed 0  radius 36.0416
+  yaw  30 pitch   25 zoom  1.00 persp  verts   3450  err max 0.096 px  mean 0.052 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts   3450  err max 0.099 px  mean 0.052 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts   3450  err max 0.101 px  mean 0.053 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts   3450  err max 0.346 px  mean 0.157 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts   3450  err max 0.090 px  mean 0.049 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts   3450  err max 0.090 px  mean 0.050 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts   3450  err max 0.122 px  mean 0.060 px  ok
+Checking NEG.STL
+/tmp/rpgame-tests-q3g_vz8_/edgecases/NEG.STL: tris 1152 bad 0 closed 1  radius 36.0416
+  yaw  30 pitch   25 zoom  1.00 persp  verts   3456  err max 0.098 px  mean 0.053 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts   3456  err max 0.097 px  mean 0.053 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts   3456  err max 0.101 px  mean 0.055 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts   3456  err max 0.324 px  mean 0.156 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts   3456  err max 0.089 px  mean 0.049 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts   3456  err max 0.090 px  mean 0.051 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts   3456  err max 0.113 px  mean 0.051 px  ok
+Checking OFFSET.STL
+/tmp/rpgame-tests-q3g_vz8_/edgecases/OFFSET.STL: tris 1152 bad 0 closed 1  radius 36.0416
+  yaw  30 pitch   25 zoom  1.00 persp  verts   3456  err max 0.096 px  mean 0.054 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts   3456  err max 0.097 px  mean 0.051 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts   3456  err max 0.098 px  mean 0.053 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts   3456  err max 0.344 px  mean 0.159 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts   3456  err max 0.090 px  mean 0.049 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts   3456  err max 0.090 px  mean 0.051 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts   3456  err max 0.119 px  mean 0.061 px  ok
+Checking TINY.STL
+/tmp/rpgame-tests-q3g_vz8_/edgecases/TINY.STL: tris 1152 bad 0 closed 1  radius 0.000360416
+  yaw  30 pitch   25 zoom  1.00 persp  verts   3456  err max 0.098 px  mean 0.052 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts   3456  err max 0.097 px  mean 0.052 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts   3456  err max 0.101 px  mean 0.053 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts   3456  err max 0.420 px  mean 0.173 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts   3456  err max 0.090 px  mean 0.049 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts   3456  err max 0.090 px  mean 0.050 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts   3456  err max 0.145 px  mean 0.063 px  ok
+Checking TINYFAR.STL
+/tmp/rpgame-tests-q3g_vz8_/edgecases/TINYFAR.STL: tris 1152 bad 0 closed 1  radius 0.360416
+  yaw  30 pitch   25 zoom  1.00 persp  verts   3456  err max 0.099 px  mean 0.052 px  ok
+  yaw 200 pitch  -60 zoom  1.00 persp  verts   3456  err max 0.101 px  mean 0.052 px  ok
+  yaw  91 pitch   89 zoom  1.00 persp  verts   3456  err max 0.097 px  mean 0.053 px  ok
+  yaw  30 pitch   25 zoom 16.00 persp  verts   3456  err max 0.430 px  mean 0.181 px  ok
+  yaw  30 pitch   25 zoom  0.25 persp  verts   3456  err max 0.091 px  mean 0.049 px  ok
+  yaw  45 pitch   30 zoom  1.00 ortho  verts   3456  err max 0.094 px  mean 0.050 px  ok
+  yaw 300 pitch  170 zoom  4.00 ortho  verts   3456  err max 0.147 px  mean 0.063 px  ok
+All host checks passed. Hardware SPI/USB behavior requires a board.

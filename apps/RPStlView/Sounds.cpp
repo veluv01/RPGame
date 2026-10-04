@@ -1,0 +1,19 @@
+// The effects (rpgame/Audio.h: start Hz, end Hz (0: hold), ms).
+#include "Sounds.h"
+
+AUDIO_STEPS(S_MOVE)  = { AUDIO_STEP(2400, 0, 6) };
+AUDIO_STEPS(S_OPEN)  = { AUDIO_STEP(1800, 0, 30), AUDIO_REST(10), AUDIO_STEP(2700, 0, 50) };
+AUDIO_STEPS(S_BACK)  = { AUDIO_STEP(2700, 0, 30), AUDIO_REST(10), AUDIO_STEP(1800, 0, 40) };
+AUDIO_STEPS(S_MODE)  = { AUDIO_STEP(2000, 0, 20), AUDIO_REST(10), AUDIO_STEP(2400, 0, 20), AUDIO_REST(10),
+                         AUDIO_STEP(3000, 0, 40) };
+AUDIO_STEPS(S_READY) = { AUDIO_STEP(1600, 3200, 90), AUDIO_REST(30), AUDIO_STEP(3200, 0, 30),
+                         AUDIO_REST(20), AUDIO_STEP(3200, 0, 30) };
+AUDIO_STEPS(S_DENY)  = { AUDIO_STEP(320, 0, 110), AUDIO_REST(40), AUDIO_STEP(240, 0, 180) };
+AUDIO_STEPS(S_SPIN)  = { AUDIO_STEP(1500, 2500, 40) };
+
+static const audio::Effect SOUNDS[] = {
+    AUDIO_EFFECT(S_MOVE, 0 | audio::SOFT), AUDIO_EFFECT(S_OPEN, 2), AUDIO_EFFECT(S_BACK, 2),
+    AUDIO_EFFECT(S_MODE, 2), AUDIO_EFFECT(S_READY, 3), AUDIO_EFFECT(S_DENY, 4), AUDIO_EFFECT(S_SPIN, 1),
+};
+
+void soundsBegin() { audio::begin(SOUNDS, (uint8_t)Sfx::COUNT); }

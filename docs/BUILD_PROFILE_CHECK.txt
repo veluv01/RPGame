@@ -1,0 +1,1 @@
+PASS: all 58 actual sketch compilation commands select the RPGame PiZero macro, native Waveshare variant and RISC-V toolchain.

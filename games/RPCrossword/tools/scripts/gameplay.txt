@@ -1,0 +1,44 @@
+# The README's one picture (docs/gameplay.gif): the title, then a whole
+# puzzle played, recorded only at its highlights. Each clip is its own
+# recording, named in the order it is shown; ../../../../../../../../../tools/readme_gif.py runs
+# this script and joins them:
+#   chgame gif
+rec start 3
+wait 130
+rec stop 01_title
+tap A
+wait 24
+tap A
+# The deal, and the first words typed in the close-up.
+rec start 3
+wait 80
+solve 2
+wait 16
+rec stop 02_words
+solve 3
+# A wrong word, put right.
+rec start 3
+wrong
+wait 50
+solve 1
+wait 16
+rec stop 03_wrong
+solve 3
+# The combo climbing.
+rec start 3
+solve 2
+wait 16
+rec stop 04_combo
+solve 2
+solveto
+# The jackpot word.
+rec start 3
+solve 1
+wait 50
+rec stop 05_jackpot
+solvemost
+# The last words, the show, the stars.
+rec start 4
+solve
+wait 360
+rec stop 06_solved

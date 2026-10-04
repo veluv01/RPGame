@@ -1,0 +1,5 @@
+perfect play, 9 cards vs 20: won 813 of 2400 rounds (33.9%), return 97.9%, "IT'S A BINGO!" 81 of 813 wins
+jackpot (a bingo within 10 calls), 1 card: 1 round in 1250
+jackpot (a bingo within 10 calls), 9 cards: 1 round in 135
+1240574 checks, 0 failures
+reference cross-check: 120 lines match (ref_bingo.dump_lines)

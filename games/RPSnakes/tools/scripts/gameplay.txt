@@ -1,0 +1,58 @@
+# The README's one picture (docs/gameplay.gif): the title, then a ladder
+# chosen in ARCADE, a snake's meal, a rival bumped and the roll home. Each
+# clip is its own recording, named in the order it is shown;
+# ../../../../../../../../../tools/readme_gif.py runs this script and joins them:
+#   chgame gif
+wait 30
+rec start 5
+wait 150
+rec stop 01_title
+# ARCADE against a CPU. You: 2 or 5 from square 1. The 2 is the ladder at 3.
+say G 1 3 0 0 1 11
+waitturn 20
+say D 2 5
+rec start 5
+tap A
+waitturn 40
+tap RIGHT
+wait 30
+tap LEFT
+wait 30
+tap A
+wait 125
+rec stop 02_ladder
+# CLASSIC: a 5 from 91 is the big snake at 96.
+say G 1 3 0 0 0 5
+wait 60
+say M 0 91
+wait 50
+say D 5 0
+rec start 5
+tap A
+wait 275
+rec stop 03_snake
+# ARCADE: the 6 from 18 lands on the CPU at 24 and bumps it down a row.
+say G 1 3 0 0 1 5
+wait 80
+say M 0 18
+say M 1 24
+wait 40
+say D 3 6
+rec start 5
+tap A
+waitturn 15
+tap RIGHT
+wait 30
+tap A
+wait 90
+rec stop 04_bump
+# CLASSIC: the exact roll home from 97.
+say G 1 3 0 0 0 9
+wait 90
+say M 0 97
+wait 60
+say D 3 0
+rec start 5
+tap A
+wait 180
+rec stop 05_home

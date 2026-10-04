@@ -1,0 +1,26 @@
+# SAVE & QUIT, then CONTINUE: the purse, the layout and the tote come back.
+#   chgame run tools/scripts/save_continue.txt out/save_continue
+say R 4
+say J P
+wait 100
+say W 83 5
+say W 155 10
+say W 151 5
+say F 32
+say G 165
+wait 10
+tap A
+wait 900
+snap 1_after_spin
+tap START
+wait 10
+tap DOWN
+tap DOWN
+wait 5
+snap 2_pause
+tap A
+wait 60
+snap 3_title
+tap A
+wait 150
+snap 4_continued

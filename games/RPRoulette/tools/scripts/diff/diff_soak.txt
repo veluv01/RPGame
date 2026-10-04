@@ -1,0 +1,328 @@
+# Differential soak: 14 spins with random layouts and numbers (both
+# wheels are covered by diff_quick_us.txt); the glove wanders between them.
+say R 21
+say J P
+label welcome
+wait 90
+label bets0
+say W 81 1
+say W 106 25
+say W 41 1
+say W 18 1
+tap LEFT
+wait 2
+tap DOWN
+wait 10
+tap LEFT
+wait 6
+tap DOWN
+wait 3
+tap LEFT
+wait 5
+label spin0_1
+say F 1
+say G 165
+wait 6
+tap A
+wait 1100
+label bets1
+say W 73 5
+say W 44 10
+say W 78 10
+say W 23 10
+say W 104 5
+tap DOWN
+wait 9
+tap LEFT
+wait 3
+tap LEFT
+wait 2
+label spin1_36
+say F 36
+say G 165
+wait 6
+tap A
+wait 1100
+label bets2
+say W 136 5
+say W 110 25
+say W 77 25
+say W 121 5
+say W 62 10
+tap UP
+wait 3
+tap UP
+wait 9
+tap LEFT
+wait 10
+tap RIGHT
+wait 7
+tap A
+wait 8
+label spin2_12
+say F 12
+say G 165
+wait 6
+tap A
+wait 1100
+label bets3
+say W 110 5
+say W 117 10
+tap LEFT
+wait 8
+tap LEFT
+wait 12
+tap DOWN
+wait 7
+tap A
+wait 8
+label spin3_3
+say F 3
+say G 165
+wait 6
+tap A
+wait 1100
+label bets4
+say W 75 5
+say W 33 10
+say W 47 10
+say W 123 1
+tap LEFT
+wait 3
+tap LEFT
+wait 12
+label spin4_1
+say F 1
+say G 165
+wait 6
+tap A
+wait 1100
+label bets5
+say W 77 10
+say W 41 25
+say W 20 10
+say W 52 25
+say W 78 5
+say W 67 25
+tap DOWN
+wait 7
+tap UP
+wait 7
+tap UP
+wait 9
+tap DOWN
+wait 7
+tap LEFT
+wait 6
+tap UP
+wait 9
+label spin5_27
+say F 27
+say G 165
+wait 6
+tap A
+wait 1100
+label bets6
+say W 31 1
+say W 16 1
+say W 45 5
+say W 11 25
+tap DOWN
+wait 7
+tap UP
+wait 3
+tap LEFT
+wait 8
+tap DOWN
+wait 9
+tap DOWN
+wait 5
+tap RIGHT
+wait 8
+tap A
+wait 8
+label spin6_14
+say F 14
+say G 165
+wait 6
+tap A
+wait 1100
+label bets7
+say W 118 5
+say W 114 5
+say W 133 5
+say W 9 1
+say W 68 10
+say W 65 5
+say W 62 25
+tap LEFT
+wait 4
+tap LEFT
+wait 2
+tap LEFT
+wait 11
+tap UP
+wait 11
+tap RIGHT
+wait 12
+tap UP
+wait 9
+tap RIGHT
+wait 3
+tap RIGHT
+wait 5
+label spin7_36
+say F 36
+say G 165
+wait 6
+tap A
+wait 1100
+label bets8
+say W 90 10
+say W 126 10
+say W 112 5
+tap LEFT
+wait 7
+tap RIGHT
+wait 9
+tap UP
+wait 6
+tap DOWN
+wait 2
+tap RIGHT
+wait 11
+tap DOWN
+wait 6
+tap UP
+wait 4
+label spin8_29
+say F 29
+say G 165
+wait 6
+tap A
+wait 1100
+label bets9
+say W 108 25
+say W 58 1
+say W 57 5
+say W 4 10
+say W 31 25
+say W 102 5
+say W 148 1
+say W 54 5
+tap LEFT
+wait 10
+tap RIGHT
+wait 10
+tap RIGHT
+wait 2
+tap UP
+wait 2
+tap UP
+wait 9
+tap LEFT
+wait 11
+tap DOWN
+wait 2
+tap A
+wait 8
+label spin9_33
+say F 33
+say G 165
+wait 6
+tap A
+wait 1100
+label bets10
+say W 80 10
+tap UP
+wait 3
+tap RIGHT
+wait 8
+tap DOWN
+wait 6
+tap RIGHT
+wait 5
+tap RIGHT
+wait 8
+tap UP
+wait 3
+tap UP
+wait 11
+tap LEFT
+wait 10
+label spin10_26
+say F 26
+say G 165
+wait 6
+tap A
+wait 1100
+label bets11
+say W 18 5
+say W 81 25
+say W 113 1
+say W 150 5
+say W 100 5
+say W 47 5
+say W 87 25
+say W 90 10
+tap UP
+wait 4
+tap UP
+wait 12
+tap LEFT
+wait 3
+tap UP
+wait 9
+tap RIGHT
+wait 10
+tap UP
+wait 10
+tap A
+wait 8
+label spin11_18
+say F 18
+say G 165
+wait 6
+tap A
+wait 1100
+label bets12
+say W 61 5
+say W 1 1
+say W 84 25
+say W 153 10
+say W 135 25
+say W 118 25
+tap LEFT
+wait 11
+tap LEFT
+wait 12
+tap LEFT
+wait 4
+tap A
+wait 8
+label spin12_9
+say F 9
+say G 165
+wait 6
+tap A
+wait 1100
+label bets13
+say W 77 10
+say W 53 10
+say W 25 1
+tap DOWN
+wait 7
+tap LEFT
+wait 7
+tap DOWN
+wait 6
+tap UP
+wait 11
+tap UP
+wait 10
+label spin13_5
+say F 5
+say G 165
+wait 6
+tap A
+wait 1100

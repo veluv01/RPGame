@@ -1,0 +1,26 @@
+# Dealer ace up with blackjack; take insurance.
+say J P
+wait 100
+say D 38,0,46,24
+tap A
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap A
+wait 80
+snap a_offer
+tap LEFT
+tap UP
+snap b_insure_sel
+tap A
+wait 20
+snap c_peek
+wait 40
+snap d_reveal
+wait 30
+snap e_banner
+wait 60
+snap f_settle
+wait 90
+snap g_end

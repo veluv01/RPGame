@@ -1,0 +1,22 @@
+# Card back: the dice.
+ddddddddddddddd
+ddddddddddddddd
+dwwwwwwwddddddd
+dwkwwwkwddddddd
+dwwwwwwwddddddd
+dwwwkwwwddddddd
+dwwwwwwwddddddd
+dwkwwwkwddddddd
+dwwwwwwwsdddddd
+ddsssssssdddddd
+ddddddddddddddd
+ddddddwwwwwwwdd
+ddddddwkwwwwwdd
+ddddddwwwwwwwdd
+ddddddwwwkwwwdd
+ddddddwwwwwwwdd
+ddddddwwwwwkwdd
+ddddddwwwwwwwsd
+dddddddsssssssd
+ddddddddddddddd
+ddddddddddddddd

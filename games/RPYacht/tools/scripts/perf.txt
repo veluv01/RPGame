@@ -1,0 +1,25 @@
+# Estimated device render cost (simulator, calibrated): title, idle table,
+# a five-dice throw, the tray, a score.
+cal
+wait 120
+perf title
+say J P
+wait 60
+perf
+wait 120
+perf table idle (waiting to roll)
+say F 3 3 4 5 6
+hold A
+wait 40
+perf whip + shake
+release
+wait 80
+perf tumble
+wait 70
+perf result
+idle 0
+wait 60
+perf tray + cursor
+say G 9
+wait 30
+perf score flash

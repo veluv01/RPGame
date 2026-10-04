@@ -1,0 +1,8 @@
+== test_craps
+dice: chi-square 49.4 (35 dof)
+3167061 checks, 0 failed
+== test_dice
+dice: slowest throw 145 ticks (2.4 s), average 1.4 s; rest z 44..121 (avg 90), |x| <= 44
+370000 checks, 0 failed
+== test_zones
+8274 checks, 0 failed

@@ -1,0 +1,64 @@
+# Your deeds: build on a set, sell a house back, put a deed up for auction.
+# Then the map and the pause menu.
+say G 1 3 4 0 30 9
+waitturn 4
+say E 6 0 0
+say E 8 0 0
+say E 9 0 0
+say E 5 0 0
+say E 16 1 0
+say E 18 1 2
+say E 19 1 2
+say E 16 1 2
+wait 4
+snap turn
+tap RIGHT
+tap A
+wait 12
+snap manage
+tap RIGHT
+wait 12
+snap manage2
+tap UP
+wait 30
+snap built1
+tap RIGHT
+wait 10
+tap UP
+wait 30
+tap RIGHT
+wait 10
+tap UP
+wait 30
+tap UP
+wait 30
+snap built4
+tap DOWN
+wait 30
+snap sold1
+tap LEFT
+wait 10
+tap LEFT
+wait 10
+tap LEFT
+wait 10
+snap railroad
+tap A
+wait 6
+snap confirm
+tap B
+wait 6
+tap B
+wait 10
+snap back
+tap SELECT
+wait 6
+snap map
+tap SELECT
+wait 6
+tap START
+wait 6
+snap pause
+tap START
+wait 6
+snap resumed

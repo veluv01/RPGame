@@ -1,0 +1,82 @@
+[
+  {
+    "game": "RPBackgammon",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPBingo",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPBlackjack",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPCheckers",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPChess",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPCraps",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPCrossword",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPDominoes",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPFour",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPMahjong",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPPoker",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPRoulette",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPSlots",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPSnakes",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPSolitaire",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPWordWheel",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPWords",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPYacht",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPBoardwalk",
+    "smoke": "pass"
+  },
+  {
+    "game": "RPTicTacToe",
+    "smoke": "pass"
+  }
+]

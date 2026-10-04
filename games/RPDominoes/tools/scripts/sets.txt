@@ -1,0 +1,41 @@
+# The TILES option: each set on the options screen, then a game played in red.
+say J O
+wait 12
+tap DOWN
+tap DOWN
+tap DOWN
+wait 4
+snap white
+tap RIGHT
+wait 4
+snap black
+tap RIGHT
+wait 4
+snap ivory
+tap RIGHT
+wait 4
+snap red
+tap RIGHT
+wait 4
+snap blue
+tap RIGHT
+wait 4
+snap jade
+tap RIGHT
+wait 4
+snap purple
+tap RIGHT
+wait 4
+snap pink
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap RIGHT
+say G 0 2 5 1 100
+waitturn 10
+auto 5
+waitturn 10
+snap game_red
+say W 0
+wait 75
+snap revealed

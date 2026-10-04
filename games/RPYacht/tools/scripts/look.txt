@@ -1,0 +1,70 @@
+# A look at every screen and one turn of a solo game.
+say R 4242
+say J T
+wait 40
+snap title
+wait 200
+snap title_yacht
+say J P
+wait 30
+snap play_start
+hold A
+wait 40
+snap cam_shake
+release
+wait 14
+snap cam_fly1
+wait 14
+snap cam_fly2
+wait 30
+snap cam_tumble
+idle 0
+wait 5
+snap tray_land
+wait 40
+snap tray
+tap A
+tap RIGHT
+tap RIGHT
+tap A
+wait 10
+snap tray_held
+tap DOWN
+wait 5
+hold A
+wait 30
+snap cam_shake2
+release
+wait 120
+snap cam_result2
+idle 30
+snap tray2
+tap UP
+wait 5
+snap card_cursor
+tap A
+wait 12
+snap score_flash
+idle 10
+snap next_turn
+say F 4 4 4 4 4
+hold A
+wait 30
+release
+wait 150
+snap cam_yacht
+idle 20
+say G 11
+wait 30
+snap yacht_scored
+idle 10
+tap START
+wait 5
+snap paused
+tap START
+say J O
+wait 20
+snap options
+say J S
+wait 20
+snap stats

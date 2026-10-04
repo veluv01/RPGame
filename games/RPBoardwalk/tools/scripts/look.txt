@@ -1,0 +1,61 @@
+# Look-dev: the board with a made-up mid-game on it, for the picks the plan
+# leaves to the eye. tools/lookdev.py runs this and labels the shots.
+#   X <light> <dark> <solid>: tile tones (palette indices), solid pink/orange
+#   V <tile> <zoom>: look at a tile
+say G 1 1 1 1 30 1
+wait 120
+say F 0
+say X 1 5 0
+# The resting zoom: the same corner at each cell size.
+say V 0 5
+wait 2
+snap zoom5
+say V 0 6
+wait 2
+snap zoom6
+say V 0 8
+wait 2
+snap zoom8
+say V 0 10
+wait 2
+snap zoom10
+# Tile tones and the pink/orange bands, at rest and close up.
+say V 15 5
+wait 2
+snap white_dither
+say X 12 1 0
+wait 2
+snap cream_dither
+say X 1 5 1
+wait 2
+snap white_solid
+say X 12 1 1
+wait 2
+snap cream_solid
+say X 1 5 0
+say V 16 10
+wait 2
+snap white_dither_close
+say X 12 1 0
+wait 2
+snap cream_dither_close
+say X 1 5 1
+wait 2
+snap white_solid_close
+say X 12 1 1
+wait 2
+snap cream_solid_close
+# Round the board at rest.
+say X 1 5 0
+say V 10 5
+wait 2
+snap jail
+say V 20 5
+wait 2
+snap parking
+say V 30 5
+wait 2
+snap gotojail
+say V 35 5
+wait 2
+snap right

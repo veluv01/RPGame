@@ -1,0 +1,68 @@
+# Beavers and raccoons, auto play, and the D-pad (LEFT/RIGHT along a half
+# of the board, UP/DOWN across it).
+say U 2
+# Two players, a match to 5: White doubles, Red beavers, White raccoons.
+say X 0 w 6:4 5:3 4:3 8:3 13:2 r 24:2 13:4 11:3 10:3 9:3
+say C 5 0 0 0 2 0
+say D 3165
+waitturn 10
+snap to_roll
+tap LEFT
+wait 10
+snap at_cube
+rec start 2
+tap A
+waitturn 60
+snap doubled
+tap DOWN
+wait 4
+tap DOWN
+wait 4
+snap beaver_choice
+tap A
+waitturn 60
+snap beavered
+tap DOWN
+wait 4
+snap raccoon_choice
+tap A
+waitturn 30
+rec stop beaver
+snap raccooned
+board
+# White owns the cube at 8 and may redouble, so the dice wait for A.
+tap A
+waitturn 10
+snap rolled
+# A single game: no cube, so the dice throw themselves, and a bear-off
+# with only one play is played for you.
+say X 0 w 1:2 r 13:2 12:3
+say D 2121
+rec start 2
+wait 400
+rec stop auto
+snap auto_done
+board
+# The D-pad: from the 6 point RIGHT is the 5 point (not past the stack),
+# LEFT back to 6, UP across to the top half.
+say X 0 w 6:3 5:1 4:3 3:2 13:3 8:3 r 24:2 13:5 8:3 6:5
+say C 3 0 0 0 2 0
+say D 51
+waitturn 10
+tap A
+waitturn 10
+goto 6
+wait 8
+snap nav_6
+tap RIGHT
+wait 8
+snap nav_right
+tap RIGHT
+wait 8
+snap nav_right2
+tap LEFT
+wait 8
+snap nav_left
+tap UP
+wait 8
+snap nav_up

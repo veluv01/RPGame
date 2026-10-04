@@ -1,0 +1,25 @@
+CHFour
+Copyright 2026 bateske
+
+From CHBlackjack (https://github.com/bateske/CHBlackjack, Apache-2.0), by way
+of CHChess, CHRoulette and CHBackgammon: the input and frame pacing
+(now the CHGame library's chgame/Input.*), palette, drawing, outlined lettering, effects, sound
+sequencer, flash saving, debug protocol and the PC simulator and tools; the
+table's wall and rail, and the dealer with his expressions and his speech
+bubble (tools/art/common/dealer.png, faces.png), adapted here. The pointing glove
+(tools/art/common/hand.png) is CHChess's; the display font (tools/art/common/font.txt) and
+the camera are CHBackgammon's.
+
+CHBlackjack is a derivative of "Blackjack" for the Arduboy by Press Play On
+Tape - Simon Holmes (filmote), code, and Stephane C (vampirics), art
+(https://github.com/Press-Play-On-Tape/Blackjack, Apache-2.0). The dealer is
+Press Play On Tape's, as recoloured for CHBlackjack; the 3x5 pixel font in
+the CHGame library (platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Draw.cpp) is Press Play On Tape's.
+
+The way the board is held in two 64-bit sets, and the test for the cells
+that complete a four, follow Pascal Pons's published Connect 4 solver
+(http://blog.gamesolver.org); the code here is this project's own.
+
+Everything else - the rules, the CPU's search, the game flow, the dealer's
+lines and when he says them, the board, the discs, the endings and the
+presentation - is new, under the Apache License 2.0 (LICENSE).

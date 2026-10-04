@@ -1,0 +1,530 @@
+[
+  {
+    "name": "HardwareCheck",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 100716,
+    "flags": "",
+    "sha256": "14bb6cbd9da261588626c837f5fd13f491f524ff10b21fe62a1eec058e9e9fa0",
+    "memory": [
+      "Sketch uses 80124 bytes (1%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 35948 bytes (6%) of dynamic memory, leaving 488340 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPMultiSprite",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 114324,
+    "flags": "",
+    "sha256": "38e8f39852bacf8ade7fa62ec99753122729266718673ba3428027a1f4147939",
+    "memory": [
+      "Sketch uses 92912 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 38948 bytes (7%) of dynamic memory, leaving 485340 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPStlView",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 118252,
+    "flags": "",
+    "sha256": "b3428d298b698501b9129df2e14f3aa0110d6891fdeff0e2baf6028a36d15504",
+    "memory": [
+      "Sketch uses 94080 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 41284 bytes (7%) of dynamic memory, leaving 483004 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPSDtoUSB",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 120076,
+    "flags": "",
+    "sha256": "9a4c1927f9018da6b5c6d6523a37071363997a20d8651a88d8ddc8d193b77b02",
+    "memory": [
+      "Sketch uses 98780 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 40612 bytes (7%) of dynamic memory, leaving 483676 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "SDLauncher",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 99460,
+    "flags": "",
+    "sha256": "555b442883e6ae1ffcfec34d6be1b5b9841503f9bf34278330ea8e755768b028",
+    "memory": [
+      "Sketch uses 78492 bytes (1%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 53204 bytes (10%) of dynamic memory, leaving 471084 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "GameHello",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 91172,
+    "flags": "",
+    "sha256": "da7e5a7ed8a1c56caa2687f48f30c8fe75b12f86262c262d3d6f1ac5f2bc132f",
+    "memory": [
+      "Sketch uses 70344 bytes (1%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 39396 bytes (7%) of dynamic memory, leaving 484892 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "HelloGraphics",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 86428,
+    "flags": "",
+    "sha256": "231505a4a2e6ac9a40d167e784ff9fe842e5507102d07e5c6bec68db065e6495",
+    "memory": [
+      "Sketch uses 66012 bytes (1%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 34292 bytes (6%) of dynamic memory, leaving 489996 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "GameKit",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 94628,
+    "flags": "",
+    "sha256": "8de0cfd3254ff48903aba37f2ca20199cdc61ed502dbc478dbeeaca7998b5a4b",
+    "memory": [
+      "Sketch uses 72404 bytes (1%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 36412 bytes (6%) of dynamic memory, leaving 487876 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "Fonts",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 93668,
+    "flags": "",
+    "sha256": "f23b9eb3e36a2514a515e7574ebdd40f3c117928006fe89a73c3019d16a81e1f",
+    "memory": [
+      "Sketch uses 73380 bytes (1%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 34204 bytes (6%) of dynamic memory, leaving 490084 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "PartialUpdate",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 85340,
+    "flags": "",
+    "sha256": "b5edf5c0f03da4adb5a172501304cdbbea64f2ef173f892efe05c6833346a54b",
+    "memory": [
+      "Sketch uses 65040 bytes (1%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 34312 bytes (6%) of dynamic memory, leaving 489976 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "Benchmark",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 103292,
+    "flags": "",
+    "sha256": "4ef47009dd9bbd1c37dda2e546f8c8bd73a8fe32a7d30f8f4aa0d280b45e0da6",
+    "memory": [
+      "Sketch uses 80128 bytes (1%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 37312 bytes (7%) of dynamic memory, leaving 486976 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "Demoscene",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 92644,
+    "flags": "",
+    "sha256": "b597a7f8d64aecbd5af71ff64dd207cea171985c05f3bd4eef258af5f467ab28",
+    "memory": [
+      "Sketch uses 70824 bytes (1%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 37488 bytes (7%) of dynamic memory, leaving 486800 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPBackgammon",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 134228,
+    "flags": "",
+    "sha256": "c465ed0b0437f58e926d3c8e8f831a326e191e51489bc0f164735147ca47ddaa",
+    "memory": [
+      "Sketch uses 109844 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 44652 bytes (8%) of dynamic memory, leaving 479636 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPBingo",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 120836,
+    "flags": "",
+    "sha256": "e5658d80f4eb0ac0c37b0e936603f2c1539a469353fcc2e920d88ca1ece7a3b1",
+    "memory": [
+      "Sketch uses 97508 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 43372 bytes (8%) of dynamic memory, leaving 480916 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPBlackjack",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 131460,
+    "flags": "",
+    "sha256": "5d60bf4950f180541321d8b551f0a099d4fa761aa189171310ac2d63ef3abd86",
+    "memory": [
+      "Sketch uses 108096 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 44004 bytes (8%) of dynamic memory, leaving 480284 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPBoardwalk",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 134932,
+    "flags": "",
+    "sha256": "d0af46aee9f00d2bd291337855433b406d4df7a2a916224b001759bbd93c6ffe",
+    "memory": [
+      "Sketch uses 111912 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 43388 bytes (8%) of dynamic memory, leaving 480900 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPCheckers",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 126636,
+    "flags": "",
+    "sha256": "baa255fa51228e9f897f7e692c99bb83143d87d17332306934d216d73a448bda",
+    "memory": [
+      "Sketch uses 102956 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 45532 bytes (8%) of dynamic memory, leaving 478756 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPChess",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 133436,
+    "flags": "",
+    "sha256": "7f5a5c4c91a3ce9fb0a5dae04b77315741b38b62aa456d29c36849fc9cd91c33",
+    "memory": [
+      "Sketch uses 109756 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 45876 bytes (8%) of dynamic memory, leaving 478412 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPCraps",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 135084,
+    "flags": "",
+    "sha256": "1086f262f2f0d9f32afc29e4807063d5f5bc36e576241424a90a2e2072d31bf3",
+    "memory": [
+      "Sketch uses 111736 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 43868 bytes (8%) of dynamic memory, leaving 480420 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPCrossword",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 139748,
+    "flags": "",
+    "sha256": "e9f67377695f16e649ba44115bcd9f6f4540573de352e80f9bca45dd9eb8500b",
+    "memory": [
+      "Sketch uses 116588 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 47164 bytes (8%) of dynamic memory, leaving 477124 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPDominoes",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 127212,
+    "flags": "",
+    "sha256": "d7205889a3048973485c2e1485c658c3fc36898561b8fadee67015dc6859454a",
+    "memory": [
+      "Sketch uses 103152 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 45500 bytes (8%) of dynamic memory, leaving 478788 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPFour",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 120028,
+    "flags": "",
+    "sha256": "00af4d963a1ecfe2f0e8a12ccc1f8ce224f8e7060a872c45c4cdf7f831f3f6d2",
+    "memory": [
+      "Sketch uses 95156 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 44524 bytes (8%) of dynamic memory, leaving 479764 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPMahjong",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 132540,
+    "flags": "",
+    "sha256": "9dfc7c7e7f19ea31df34ee119308362209321dd6b139b264561366dd89bf2547",
+    "memory": [
+      "Sketch uses 108168 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 45852 bytes (8%) of dynamic memory, leaving 478436 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPPoker",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 133164,
+    "flags": "",
+    "sha256": "a17d5d2c00a183cf27be1b8e6c3ca85b63ade65b326ea4155c7db063a7ec26cd",
+    "memory": [
+      "Sketch uses 110344 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 43932 bytes (8%) of dynamic memory, leaving 480356 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPRoulette",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 135516,
+    "flags": "",
+    "sha256": "ffd992630453d56107344ab07ac4c04d5d7b30e986cb2278e78656aedcec13b7",
+    "memory": [
+      "Sketch uses 111608 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 44524 bytes (8%) of dynamic memory, leaving 479764 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPSlots",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 132092,
+    "flags": "",
+    "sha256": "3419f6483a88431000c8fff3d1daf33ecd5e1d7762bc44922c668575ebf70495",
+    "memory": [
+      "Sketch uses 108740 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 43308 bytes (8%) of dynamic memory, leaving 480980 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPSnakes",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 121636,
+    "flags": "",
+    "sha256": "2f38474bece217bba682910d13e0814a91e96e5d6d2ab7cd1000c3659848905e",
+    "memory": [
+      "Sketch uses 97980 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 43828 bytes (8%) of dynamic memory, leaving 480460 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPSolitaire",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 113596,
+    "flags": "",
+    "sha256": "873fecbb9061f544e127999756172792f3ba84ab01ae23a08c4367e461f04247",
+    "memory": [
+      "Sketch uses 91612 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 44052 bytes (8%) of dynamic memory, leaving 480236 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPTicTacToe",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 134892,
+    "flags": "",
+    "sha256": "78299c610dde007603dd5e183238b803aca5fd8b8f81f457447dc05cdbdb96d5",
+    "memory": [
+      "Sketch uses 111568 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 42980 bytes (8%) of dynamic memory, leaving 481308 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPWordWheel",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 141788,
+    "flags": "",
+    "sha256": "651bb18aaa3b4a0032c09a101ca79eb2fc5662a7b111f74137cfd71da15cca3a",
+    "memory": [
+      "Sketch uses 118624 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 44476 bytes (8%) of dynamic memory, leaving 479812 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPWords",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 139420,
+    "flags": "",
+    "sha256": "98c7f4b422f440a7a6e7693cb6c872cdb52633de89878b574a75b4a289f5d9a4",
+    "memory": [
+      "Sketch uses 116008 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 45628 bytes (8%) of dynamic memory, leaving 478660 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPYacht",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 129084,
+    "flags": "",
+    "sha256": "6ed0b653f8b92bb579afac6c7b19fc03ee949a48cd216014eafff3022c4ac169",
+    "memory": [
+      "Sketch uses 105732 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 43340 bytes (8%) of dynamic memory, leaving 480948 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  },
+  {
+    "name": "RPFileBrowser",
+    "target": "rp2350-riscv",
+    "uf2_family": "0xe48bff5a",
+    "board": "pizero",
+    "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+    "profile": "standalone",
+    "flash_origin": "0x10000000",
+    "image_bytes": 105572,
+    "flags": "",
+    "sha256": "6d9052a4d1bc8eb8cccbcac8ff19ac4eb2aa43dce2dfaafead39995a314787d5",
+    "memory": [
+      "Sketch uses 84864 bytes (2%) of program storage space. Maximum is 4186112 bytes.",
+      "Global variables use 40396 bytes (7%) of dynamic memory, leaving 483892 bytes for local variables. Maximum is 524288 bytes."
+    ]
+  }
+]

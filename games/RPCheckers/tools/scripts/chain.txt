@@ -1,0 +1,33 @@
+# A multiple jump with a choice on the way: the piece stays in hand, B will
+# not put it down, undo takes the half-made jump back.
+say X w........w...b.......bb.b......b w 1
+wait 40
+snap c0_must
+tap A
+wait 6
+tap A
+wait 40
+snap c1_choice
+tap B
+wait 6
+snap c2_keep_jumping
+wait 30
+tap START
+wait 6
+tap DOWN
+wait 4
+tap A
+wait 40
+snap c3_undone
+board
+tap A
+wait 6
+tap A
+wait 40
+tap RIGHT
+wait 6
+snap c4_other_way
+tap A
+wait 120
+snap c5_double
+board

@@ -1,0 +1,50 @@
+# Animated captures of every showpiece scene, as a test (the README's GIF
+# is gameplay.txt's). Each hand starts from a
+# fresh table (J P) with a stacked deck (D), so the clips don't depend on
+# what came before.
+wait 5
+tap A
+wait 20
+gif title 45 2
+# A blackjack: A-heart and K-club to the player.
+say D 26,8,25,46
+tap A
+wait 110
+tap A
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap A
+gif blackjack 75 2
+# 8s against a 10: split, double the first hand into 21, stand the second.
+say J P
+wait 100
+say D 7,35,20,45,28,12,25
+tap A
+tap A
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap A
+wait 200
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap A
+gif split 50 2
+tap RIGHT
+tap RIGHT
+tap A
+wait 40
+tap DOWN
+gif payout 90 2
+say J W
+wait 20
+gif win 45 2
+say J L
+wait 2
+gif broke 60 2
+say J C
+wait 20
+gif credits 85 4

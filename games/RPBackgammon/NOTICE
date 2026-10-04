@@ -1,0 +1,17 @@
+CHBackgammon
+Copyright 2026 bateske
+
+From CHBlackjack (https://github.com/bateske/CHBlackjack, Apache-2.0), by way
+of CHChess: the input and frame pacing (the CHGame library's chgame/Input.*),
+palette, drawing, outlined lettering, effects, sound sequencer, flash saving,
+debug protocol and the PC simulator and tools, adapted here; and CHChess's
+pointing glove (tools/art/common/hand.png). CHBlackjack is a derivative of
+"Blackjack" for the Arduboy by Press Play On Tape (Apache-2.0); the 3x5 pixel
+font in the CHGame library (platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Draw.cpp) is
+Press Play On Tape's.
+
+Everything else - the rules, the neural network, its trainer and the weights
+it learned (src/ai/NetData.cpp, tools/train/net.bin), the match equity table
+and the model it is worked out from (tools/train/met.py), the display font
+(tools/art/common/font.txt), the board, the game flow and the presentation - is
+new, under the Apache License 2.0 (LICENSE).

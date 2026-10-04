@@ -1,0 +1,98 @@
+# The screens and the ways of laying tiles out, a shot of each.
+wait 30
+snap title
+tap A
+wait 30
+snap setup
+tap RIGHT
+wait 4
+snap setup2
+tap B
+wait 30
+tap DOWN
+tap DOWN
+tap A
+wait 30
+snap options
+say G 0 1 9
+wait 20
+say R QUI?TEN
+wait 2
+snap start
+# QUIT across the centre, the blank as the T: A opens the rack, A lays a tile.
+tap LEFT
+tap LEFT
+tap A
+wait 3
+snap rack
+tap A
+wait 3
+tap A
+wait 3
+tap A
+wait 3
+tap A
+wait 3
+snap picker
+tap DOWN
+tap DOWN
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap RIGHT
+tap RIGHT
+wait 3
+snap picker_t
+tap A
+wait 3
+snap laid
+tap START
+wait 4
+snap pause
+tap A
+wait 30
+snap paid
+waitturn
+snap cpu
+# Off on their own: two tiles that touch nothing.
+say R XQZJVKW
+say W 0 0 H XQ
+tap START
+wait 4
+tap A
+wait 6
+snap nowhere
+wait 60
+# Not a word.
+say W 6 5 H XQ
+tap START
+wait 4
+tap A
+wait 10
+snap notword
+wait 150
+# A hint, then swapping tiles.
+say R RETAINS
+tap SELECT
+wait 80
+snap hint
+tap B
+tap B
+tap B
+tap B
+tap B
+tap B
+tap B
+tap START
+wait 4
+tap A
+wait 4
+tap A
+tap RIGHT
+tap RIGHT
+tap A
+wait 3
+snap swap
+tap START
+wait 30
+snap swapped

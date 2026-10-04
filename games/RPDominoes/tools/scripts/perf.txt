@@ -1,0 +1,28 @@
+# Render cost, estimated: the simulator's host time for each frame's drawing,
+# scaled by the primitives the CHGfx benchmark measured on the board (cal).
+# An estimate only (it models neither flash wait states nor SRAM code): the
+# real numbers come from the device (perf on a device run).
+cal
+say J T
+wait 30
+perf title
+wait 240
+perf title, tiles falling
+say G 0 2 5 1 100
+wait 60
+perf the deal
+waitturn 0
+perf first turn
+auto 3
+waitturn 0
+perf three tiles each
+auto 3
+waitturn 0
+perf six tiles each
+say W 0
+wait 70
+perf the call
+wait 150
+perf the fuse
+wait 150
+perf tally and result

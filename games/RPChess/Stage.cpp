@@ -1,0 +1,879 @@
+// The play screen's presentation (Stage.h): the camera and the gloves, the
+// match's events turned into motion, and drawing the scene and the HUD.
+#pragma GCC optimize("Os")   // cold code: size over speed (hot pixel loops live in the RPGame library and Iso)
+#include <string.h>
+#include <RPGame.h>
+#include <Arduino.h>
+#include "config.h"
+#include "Stage.h"
+#include "Match.h"
+#include "Engine.h"
+#include "Iso.h"
+#include "Fx.h"
+#include "Sounds.h"
+#include "src/assets/Assets.h"
+
+namespace stage {
+
+using namespace iso;
+
+// ---------------------------------------------------------------------------
+// Colour remaps for the art (its neutral tones -> a side, and effects)
+// ---------------------------------------------------------------------------
+// Each side's colours come from tools/art/sides.txt (SIDE_REMAP). Effects:
+static const uint8_t RM_ID[16] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+static const uint8_t RM_CPU[16] = {0, 1, 2, 3, 4, 5, 6, 7, RED, WINE, 10, 11, 12, 13, 14, 15};   // the CPU's red glove
+static const uint8_t RM_HIT[16] = {INK, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE,
+                                   WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE};   // struck: a white flash
+static const uint8_t RM_PREY[16] = {INK, RED, RED, RED, RED, RED, RED, RED,
+                                    RED, RED, RED, RED, RED, RED, RED, RED};         // about to be: a red one
+static const uint8_t RM_ALERT[16] = {0, RED, 2, 3, 4, WINE, 6, 7, RED, WINE, 10, 11, 12, 13, 14, 15};   // your glove, denied
+
+static const uint8_t *remapFor(uint8_t p) { return SIDE_REMAP[(p & eng::BLACK) ? 1 : 0]; }
+static const PieceArt &art(uint8_t p) { return PIECE_ART[(p & eng::TYPE) - 1]; }
+
+// ---------------------------------------------------------------------------
+// State
+// ---------------------------------------------------------------------------
+static uint8_t shown[64];            // pieces standing still
+static uint8_t cur = 12, curW = 12, curB = 52;
+static uint8_t sel = 0xFF, nTgt, tgt[32], tgtCap[32];
+static uint8_t intent = 0xFF;        // the CPU's chosen destination, shown while it moves
+static uint8_t viewMode;
+static bool fast;
+static bool humanTurn, thinking;
+
+struct Mover { uint8_t piece, from, to, t, T, arc, delay, on, sound; };   // sound: Sfx + 1 as it lifts
+static Mover mv[2];
+
+// A captured piece, knocked off its square away from the attacker, up and
+// over, spinning: t counts ticks, `slow` times slower in a slowed capture.
+struct Flyer { uint8_t piece, sq, on, slow; int8_t dir; uint16_t t; };
+static Flyer fly;
+
+// Toppling king at mate.
+static uint8_t topSq = 0xFF, topT;
+static int8_t topDir;
+
+// The CPU's pointing finger and the player's; one shows at a time.
+static int32_t fx16, fy16;           // finger tip, world, Q4
+static uint8_t fingerSq = 0xFF;
+static uint8_t pickT, pickTo, tapT;
+static bool picking;
+
+static uint8_t holdT;                // frames the stage keeps the game waiting
+static bool waitPress;               // CHECK! against you, or CHECKMATE!, stays up until a button
+// 2P hand-over: the camera whips to the board's centre, the view turns
+// round behind a quick dip to dark, then it swoops onto the new side.
+static uint8_t handT;
+static bool handBlack;
+static uint8_t dipT;                 // palette dip (view changes)
+static bool turnBlack;               // whose turn the HUD shows
+static uint8_t overT;
+static bool over, overDone;
+const char *opponentName = "CPU";
+
+// Camera: eased (world, Q4) towards its aim.
+static int32_t cx16, cy16;
+static int16_t aimX, aimY;
+static uint8_t aimShift = 2;
+// Inspection (B held on the iso board): zoomed right in, the D-pad pushing
+// the view to the board's edge or corner that way.
+static bool inspecting;
+static int8_t insDX, insDY;
+
+// The whip zoom: iso::tileH steps towards zoomTo, one step each frame drawn
+// (a slow frame never bunches two), and after a landing the camera holds
+// (outWait) until its dust has cleared, then pulls back.
+static uint8_t zoomTo = 5;
+static bool outWait, zoomDrawn = true;
+// A capture plays out CAPTURE_SLOW times slower (slowF), to sell it.
+static const uint8_t CAPTURE_SLOW = 2;
+static uint8_t slowF = 1;
+static bool blocked;                 // the piece under the glove has no move
+static uint8_t denyT;                // ... and A was pressed on it: NO MOVES and the glove flash red
+
+// The last move in words where the hover plate goes, popping up word by
+// word: "KNIGHT TO F3", "ROOK TAKES QUEEN ON A4".
+static const char *annW[7];            // at most: PAWN TAKES ROOK ON B8 = QUEEN
+static uint8_t annC[7], annN, annT;
+static char annSq[3];
+
+// ---------------------------------------------------------------------------
+// Geometry and the camera
+// ---------------------------------------------------------------------------
+static int depthOf(uint8_t sq) {
+    int u, v;
+    toView(sq, cam.flip, u, v);
+    return flat ? v : u + v;
+}
+
+// Frame a world point: halfway between it and the board's centre (less so
+// zoomed in: right on it at the closest), then as little further as keeps it
+// well on screen, then never past the board's edges (no empty carpet for
+// nothing). The view is 128 x 118 below the HUD.
+static void aimAt(int fx, int fy, uint8_t shift) {
+    int cx = 0, cy = 8 * hh(), lean = 10 - tileH;
+    int x = fx + (cx - fx) * lean / 10, y = fy + (cy - fy) * lean / 10;
+    int mx = 44, my = 30;
+    if (x < fx - mx) x = fx - mx;
+    if (x > fx + mx) x = fx + mx;
+    if (y < fy - my) y = fy - my;
+    if (y > fy + my) y = fy + my;
+    // Content bounds: the board and its slab, and the tallest piece on the
+    // far squares.
+    int x0 = -8 * hw() - 6, x1 = 8 * hw() + 6;
+    int y0 = -zoomed(24), y1 = 16 * hh() + slab() + 10;
+    if (x1 - x0 <= 128) x = (x0 + x1) / 2;
+    else { if (x < x0 + 64) x = x0 + 64; if (x > x1 - 64) x = x1 - 64; }
+    if (y1 - y0 <= 118) y = (y0 + y1) / 2;
+    else { if (y < y0 + 59) y = y0 + 59; if (y > y1 - 59) y = y1 - 59; }
+    aimX = (int16_t)x; aimY = (int16_t)y; aimShift = shift;
+}
+
+static void aimSq(uint8_t sq, uint8_t shift) {
+    int x, y;
+    worldOf(sq, x, y);
+    aimAt(x, y - zoomed(6), shift);
+}
+
+// A glove is out: yours, or the CPU's while it thinks and plays.
+static bool gloveOn() { return humanTurn || thinking || picking; }
+
+static void snapCamera() {
+    cx16 = aimX << 4; cy16 = aimY << 4;
+}
+
+static void stepCamera() {
+    int32_t dx = (aimX << 4) - cx16, dy = (aimY << 4) - cy16;
+    cx16 += dx >> aimShift; cy16 += dy >> aimShift;
+    if (dx > -16 && dx < 16) cx16 = aimX << 4;
+    if (dy > -16 && dy < 16) cy16 = aimY << 4;
+    cam.x = (int)(cx16 >> 4);
+    cam.y = (int)(cy16 >> 4);
+}
+
+// Height of the piece on a square (finger tip rests just above it).
+static int topOf(uint8_t sq) {
+    uint8_t p = shown[sq];
+    return zoomed(p ? art(p).ay + 1 : 2);
+}
+
+static void fingerTo(uint8_t sq) {
+    int x, y;
+    worldOf(sq, x, y);
+    fx16 = (int32_t)x << 4;
+    fy16 = (int32_t)(y - topOf(sq)) << 4;
+}
+
+// ---------------------------------------------------------------------------
+// Public controls
+// ---------------------------------------------------------------------------
+uint8_t cursor() { return cur; }
+bool flipped() { return cam.flip; }
+uint8_t view() { return viewMode; }
+
+// Everything held in world space keeps its place on the board.
+void setZoom(uint8_t h) {
+    uint8_t o = tileH;
+    if (h == o) return;
+    tileH = h;
+    cx16 = cx16 * h / o; cy16 = cy16 * h / o;
+    aimX = (int16_t)(aimX * h / o); aimY = (int16_t)(aimY * h / o);
+    fx16 = fx16 * h / o; fy16 = fy16 * h / o;
+}
+void setFast(bool on) { fast = on; }
+uint8_t selected() { return humanTurn ? sel : 0xFF; }     // the player's
+void setBlocked(bool b) { blocked = b; }
+void deny() {
+    denyT = 24;
+    audio::sfx(Sfx::Deny);
+}
+
+void setView(uint8_t v) {
+    viewMode = v;
+    iso::setView(v == MAP);
+    setZoom(zoomTo = 5);
+    outWait = false;
+    inspecting = false;
+    aimSq(cur, 2);
+    snapCamera();
+    cam.x = aimX; cam.y = aimY;
+    if (fingerSq != 0xFF) fingerTo(fingerSq);
+    dipT = 6;
+}
+
+void inspect(bool on, int dx, int dy) {
+    on = on && !flat;
+    if (on) zoomTo = 10;
+    else if (inspecting && !mv[0].on && !outWait && !over) zoomTo = 5;
+    inspecting = on;
+    insDX = (int8_t)dx; insDY = (int8_t)dy;
+}
+
+void thinkPick() {
+    eng::Move r = eng::rootMove();
+    if (thinking && r != eng::NO_MOVE) fingerSq = eng::from(r);
+}
+
+void setCursor(uint8_t sq) {
+    cur = sq;
+    aimSq(sq, 2);
+}
+
+void select(uint8_t sq, const uint8_t *to, const uint8_t *cap, uint8_t n) {
+    sel = sq;
+    nTgt = n;
+    memcpy(tgt, to, n);
+    memcpy(tgtCap, cap, n);
+    audio::sfx(Sfx::Select);
+}
+
+void deselect() {
+    sel = 0xFF;
+    nTgt = 0;
+}
+
+bool busy() {
+    return mv[0].on || mv[1].on || fly.on || holdT || picking || topT || handT || outWait || waitPress || fx::particles() ||
+           (tileH != zoomTo && !flat);
+}
+bool overShown() { return overDone; }
+
+// ---------------------------------------------------------------------------
+// Events
+// ---------------------------------------------------------------------------
+static void resetFromBoard() {
+    memcpy(shown, match::board, 64);
+    holdT = 0; picking = false; thinking = false; tapT = 0; waitPress = false;
+    fx::clear();
+    mv[0].on = mv[1].on = 0;
+    fly.on = 0;
+    topT = 0; topSq = 0xFF;
+    over = overDone = false;
+    overT = 0;
+    intent = 0xFF;
+    deselect();
+}
+
+static void onStart() {
+    resetFromBoard();
+    setZoom(zoomTo = 5);
+    outWait = false;
+    annT = 0;
+    handT = 0;
+    turnBlack = match::blackToMove();
+    bool black = match::setup.mode == match::VS_CPU ? match::setup.humanBlack : match::blackToMove();
+    cam.flip = black;
+    curW = 12; curB = 52;                     // e2 / e7
+    cur = black ? curB : curW;
+    aimSq(cur, 2);
+    snapCamera();
+    fingerTo(cur);
+}
+
+static void onTurn(bool black, bool human) {
+    humanTurn = human;
+    turnBlack = black;
+    intent = 0xFF;
+    if (!human) {
+        // The CPU's glove goes over to its king, the camera after it, before
+        // it starts thinking (the game waits for holdT).
+        thinking = true;
+        holdT = 24;
+        uint8_t k = (uint8_t)(eng::KING | (black ? eng::BLACK : 0));
+        for (uint8_t s = 0; s < 64; s++) if (shown[s] == k) fingerSq = s;
+        return;
+    }
+    if (match::setup.mode == match::TWO_PLAYER) {
+        // Hand the board to the other player.
+        if (cam.flip) curB = cur; else curW = cur;
+        cur = black ? curB : curW;
+        if (cam.flip != black) {
+            handT = 1;
+            handBlack = black;
+            humanTurn = false;               // no finger until the camera arrives
+            aimAt(0, 8 * hh(), 1);           // the board's centre, fast
+            audio::sfx(Sfx::Whoosh);
+        }
+    } else {
+        audio::sfx(Sfx::Turn);
+    }
+    fingerSq = cur;
+}
+
+
+static void onPick(uint8_t from, uint8_t to) {
+    thinking = false;
+    picking = true;
+    pickT = 0;
+    tapT = 0;
+    fingerSq = from;
+    pickTo = to;
+}
+
+static void launch(Mover &m, uint8_t piece, uint8_t from, uint8_t to, uint8_t arc, uint8_t delay, uint8_t sound) {
+    int df = (from & 7) - (to & 7), dr = (from >> 3) - (to >> 3);
+    if (df < 0) df = -df;
+    if (dr < 0) dr = -dr;
+    int d = df > dr ? df : dr;
+    m.piece = piece; m.from = from; m.to = to; m.t = 0;
+    m.T = (uint8_t)((fast ? 10 + d * 2 : 14 + d * 3) * slowF);
+    m.arc = arc; m.delay = delay; m.on = 1; m.sound = sound;
+    if (!delay && sound) audio::sfx((Sfx)(sound - 1));
+}
+
+static match::Event pending;          // the move being shown (captures resolve on landing)
+
+static void onMove(const match::Event &e) {
+    pending = e;
+    if (humanTurn) cur = e.b;            // your cursor goes with the piece
+    humanTurn = false;
+    thinking = false;
+    deselect();
+    // The whip (not on the map, nor at QUICK pace): the camera dives in as
+    // the piece lifts.
+    bool whip = !flat && !fast;
+    slowF = whip && e.captured ? CAPTURE_SLOW : 1;
+    if (whip) { zoomTo = 10; audio::sfx(Sfx::Whoosh); }
+    shown[e.a] = 0;
+    bool knight = (e.piece & eng::TYPE) == eng::KNIGHT;
+    launch(mv[0], e.piece, e.a, e.b, knight ? 12 : 3, 0, knight ? (uint8_t)Sfx::Hop + 1 : 0);
+    if (e.rookFrom != 0xFF) {
+        uint8_t rook = shown[e.rookFrom];
+        shown[e.rookFrom] = 0;
+        launch(mv[1], rook, e.rookFrom, e.rookTo, 10, 10, (uint8_t)Sfx::Castle + 1);
+    }
+}
+
+const char *const NAMES[7] = {"", "PAWN", "KNIGHT", "BISHOP", "ROOK", "QUEEN", "KING"};
+
+static void addWord(const char *w, uint8_t c) { if (annN < 7) { annW[annN] = w; annC[annN++] = c; } }
+
+static void announce(const match::Event &e) {
+    annN = 0;
+    annT = 1;
+    annSq[0] = (char)('A' + (e.b & 7)); annSq[1] = (char)('1' + (e.b >> 3)); annSq[2] = 0;
+    if (e.rookFrom != 0xFF) {
+        addWord("CASTLES", WHITE);
+        addWord((e.b & 7) > 4 ? " KINGSIDE" : " QUEENSIDE", GOLD);
+        return;
+    }
+    addWord(NAMES[e.piece & eng::TYPE], WHITE);
+    if (e.captured) {
+        addWord(" TAKES ", RED);
+        addWord(NAMES[e.captured & eng::TYPE], WHITE);
+        addWord(e.capSq != e.b ? " EN PASSANT" : " ON ", SILVER);
+        if (e.capSq != e.b) return;
+    } else {
+        addWord(" TO ", SILVER);
+    }
+    addWord(annSq, GOLD);
+    if (e.promo) { addWord(" = ", SILVER); addWord(NAMES[e.promo], FX_B); }
+}
+
+static const uint8_t ANN_FRAMES = 120;
+
+// A puff off the square a piece lands on: its own surface kicked up, in
+// its own colour (it blends in by design).
+static void dust(uint8_t sq, int x, int y, uint8_t n, int speed) {
+    fx::burst(fx::DUST, x, y, n, zoomed(speed), ((sq >> 3) + sq) & 1 ? lightSq : darkSq);
+}
+
+static void land(Mover &m, bool main) {
+    m.on = 0;
+    int x, y;
+    screenOf(m.to, x, y);
+    if (!main) { shown[m.to] = m.piece; dust(m.to, x, y, 12, 24); return; }
+    const match::Event &e = pending;
+    uint8_t piece = e.promo ? (uint8_t)(e.promo | (e.piece & eng::BLACK)) : e.piece;
+    int up = zoomed(14);
+    if (e.captured) {
+        // Knock the victim off: it flies on in the attacker's direction.
+        shown[e.capSq] = 0;
+        int ax, ay, bx, by;
+        worldOf(e.a, ax, ay); worldOf(e.capSq, bx, by);
+        fly.piece = e.captured;
+        fly.sq = e.capSq;
+        fly.dir = (int8_t)(bx > ax ? 1 : bx < ax ? -1 : (fx::rnd() & 1 ? 1 : -1));
+        fly.slow = slowF;
+        fly.t = 0; fly.on = 1;
+        fx::burst(fx::SPARK, x, y - up / 2, 12, 36, GOLD);
+        fx::burst(fx::STAR, x, y - up / 2, 4, 24, WHITE);
+        fx::shake(10, 2);
+        audio::sfx(Sfx::Capture);
+    } else {
+        fx::shake(4, 1);
+        audio::sfx(Sfx::Land);
+    }
+    dust(m.to, x, y, 16, 30);
+    shown[m.to] = piece;
+    if (e.promo) {
+        fx::burst(fx::STAR, x, y - up, 12, 36, GOLD);
+        audio::sfx(Sfx::Promote);
+        holdT = 30;
+    }
+    intent = 0xFF;
+    holdT = (uint8_t)(holdT > 12 ? holdT : 12);
+    announce(e);
+    // Take in the landing, then pull back - unless it was mate: stay on it.
+    match::Event nx;
+    bool mate = match::peekEvent(nx) && nx.type == match::EV_OVER && nx.b == match::BY_MATE;
+    outWait = zoomTo > 5 && !mate;
+}
+
+// Put in check yourself, the banner stays up until you press a button: the
+// one thing that stops play.
+static void onCheck(uint8_t king) {
+    fx::banner("CHECK!", fx::B_RED, 36, 70);
+    audio::sfx(Sfx::Check);
+    audio::led(audio::LED_TRIPLE);
+    holdT = 40;
+    waitPress = match::setup.mode == match::TWO_PLAYER ||
+                ((shown[king] & eng::BLACK) != 0) == (match::setup.humanBlack != 0);
+    fx::holdBanner(waitPress);
+}
+
+bool waiting() { return waitPress; }
+void acknowledge() {
+    waitPress = false;
+    fx::holdBanner(false);
+}
+
+static void onOver(uint8_t result, uint8_t reason) {
+    over = true;
+    overT = 0;
+    humanTurn = thinking = false;
+    bool humanWon = match::setup.mode == match::TWO_PLAYER ||
+                    (result == match::WHITE_WINS) == (match::setup.humanBlack == 0);
+    bool decisive = result == match::WHITE_WINS || result == match::BLACK_WINS;
+    if (decisive && reason == match::BY_MATE) {
+        topSq = match::checkSq;
+        topT = 1;
+        if (!flat) zoomTo = 10;
+        topDir = (int8_t)(fx::rnd() & 1 ? 1 : -1);
+        fx::banner("CHECKMATE!", fx::B_RAINBOW, 34, 170);
+        fx::holdBanner(waitPress = true);
+        holdT = 80;                                  // PRESS A once the king is down
+    } else if (decisive) {
+        fx::banner(result == match::WHITE_WINS ? "BLACK RESIGNS" : "WHITE RESIGNS", fx::B_WHITE, 36, 150);
+    } else {
+        fx::banner(result == match::STALEMATE ? "STALEMATE" : "DRAW", fx::B_CYAN, 36, 150);
+    }
+    if (decisive && humanWon) {
+        audio::sfx(reason == match::BY_MATE ? Sfx::Mate : Sfx::Win);
+        audio::led(audio::LED_PARTY);
+        fx::fountain(40, 90, 20);
+        fx::fountain(88, 90, 20);
+    } else {
+        audio::sfx(decisive ? Sfx::Lose : Sfx::Draw);
+    }
+}
+
+void begin() {}
+
+// ---------------------------------------------------------------------------
+// Per tick
+// ---------------------------------------------------------------------------
+// The knocked-off piece on screen at its tick t, and its spin: thrown at
+// zoomed(16) (Q4 px a tick) across and a third of that down the screen,
+// zoomed(44) up, falling back at zoomed(4) a tick.
+static void flyAt(int &sx, int &sy, uint8_t &ang) {
+    int x, y;
+    worldOf(fly.sq, x, y);
+    int t4 = fly.t * 16 / fly.slow, v = fly.dir * zoomed(16);      // ticks, Q4
+    int z = (zoomed(44) * t4 / 16 - zoomed(4) * t4 * (t4 - 16) / 512) / 16;
+    sx = toScreenX(x + v * t4 / 256);
+    sy = toScreenY(y + v * t4 / 768) - z;
+    ang = (uint8_t)(fly.dir * 11 * t4 / 16);
+}
+
+static void moverPos(const Mover &m, int &x, int &y, int &z) {
+    int ax, ay, bx, by;
+    worldOf(m.from, ax, ay);
+    worldOf(m.to, bx, by);
+    int e = m.delay ? 0 : fx::ease(fx::IN_OUT, m.t, m.T);
+    x = ax + (((bx - ax) * e) >> 8);
+    y = ay + (((by - ay) * e) >> 8);
+    // Lift, glide, drop: a sine arc for hops, a flat top for sliding pieces.
+    int arc = zoomed(m.arc);
+    if (m.arc > 5) z = (arc * fx::isin((m.t * 128) / m.T)) >> 8;
+    else z = m.t < 4 ? m.t * arc / 4 : (m.T - m.t < 4 ? (m.T - m.t) * arc / 4 : arc);
+}
+
+void update() {
+    match::Event e;
+    // A new position (new game, undo, a restored game) cuts in on anything
+    // still showing; everything else waits its turn.
+    while (match::peekEvent(e) && (!busy() || e.type == match::EV_START)) {
+        match::popEvent(e);
+        switch (e.type) {
+            case match::EV_START: onStart(); break;
+            case match::EV_TURN:  onTurn(e.a != 0, e.b != 0); break;
+            case match::EV_PICK:  onPick(e.a, e.b); break;
+            case match::EV_MOVE:  onMove(e); break;
+            case match::EV_CHECK: onCheck(e.a); break;
+            case match::EV_OVER:  onOver(e.a, e.b); break;
+        }
+    }
+
+    if (holdT) holdT--;
+    if (denyT) denyT--;
+    if (outWait && !fx::particles()) { outWait = false; zoomTo = inspecting ? 10 : 5; }
+    // Going out, the camera jumps with each step to the move's new framing
+    // rather than drifting between them: clean steps, no wobble.
+    bool stepOut = false;
+    if (tileH != zoomTo && !flat && zoomDrawn) {
+        stepOut = tileH > zoomTo;
+        setZoom((uint8_t)(tileH < zoomTo ? tileH + 1 : tileH - 1));
+        zoomDrawn = false;
+    }
+    // The glove's piece: its outline fades black/white (HOVER); holding one,
+    // the squares shimmer (TARGETS).
+    pal::setMode(sel != 0xFF ? pal::TARGETS : gloveOn() ? pal::HOVER : pal::CASINO);
+    if (annT && (!waitPress || annT < 40) && ++annT > ANN_FRAMES) annT = 0;
+    for (int k = 0; k < 2; k++) {
+        Mover &m = mv[k];
+        if (!m.on) continue;
+        if (m.delay) { if (!--m.delay && m.sound) audio::sfx((Sfx)(m.sound - 1)); }
+        else if (++m.t >= m.T) land(m, k == 0);
+    }
+
+    if (fly.on) {
+        int sx, sy;
+        uint8_t a;
+        fly.t++;
+        flyAt(sx, sy, a);
+        if (fly.t > 90 * fly.slow || sx < -30 || sx > 158 || sy > 190) fly.on = 0;
+    }
+
+    if (topT && topT < 60) topT++;
+    if (topT >= 60) topT = 0;                   // down: drawn lying from topSq while over
+
+    // What the camera frames: the move in flight, the CPU's finger, the
+    // toppling king, or your cursor.
+    if (mv[0].on) {
+        int x, y, z;
+        moverPos(mv[0], x, y, z);
+        aimAt(x, y - zoomed(6), 2);
+    } else if (inspecting) {
+        // On the glove; pushed that way, to the board's corner (a straight
+        // push) or the middle of its edge (a diagonal one).
+        int x, y;
+        worldOf(cur, x, y);
+        if (insDX || insDY) {
+            x = insDX * (insDY ? 4 : 8) * hw();
+            y = 8 * hh() + insDY * (insDX ? 4 : 8) * hh();
+        }
+        aimAt(x, y, 3);
+    } else if (topSq != 0xFF && over) {
+        int x, y;
+        worldOf(topSq, x, y);
+        aimAt(x, y + zoomed(8), 3);          // the fallen king above the result panel
+    } else if (tileH > zoomTo && !flat) {
+        aimSq(pending.b, 2);                 // pulling back from the move
+    } else if (thinking || picking) {
+        aimSq(fingerSq, 3);
+    } else if (humanTurn) {
+        aimSq(cur, 2);
+    }
+    if (picking) {
+        // As a player would: the glove rests on the piece and taps it (up it
+        // comes, its square lit), goes to the square, rests there, and taps
+        // again - the move.
+        uint8_t rest = fast ? 8 : 24, stay = fast ? 16 : 60;
+        pickT++;
+        if (pickT == rest || pickT == rest + 12 + stay) { tapT = 1; audio::sfx(Sfx::Select); }
+        if (pickT == rest + 12) {
+            sel = fingerSq;
+            nTgt = 1;
+            tgtCap[0] = shown[pickTo] != 0;
+            tgt[0] = intent = fingerSq = pickTo;
+        }
+        if (pickT == rest + 24 + stay) picking = false;
+    }
+    if (tapT && ++tapT > 12) tapT = 0;
+    if (handT) {
+        handT++;
+        if (handT < 12) aimAt(0, 8 * hh(), 1);
+        if (handT == 12) {
+            // Over the centre (the same world point from either side, and the
+            // squares keep their colours): turn round behind the dip.
+            cam.flip = handBlack;
+            dipT = 8;
+            fx::banner(handBlack ? "BLACK TO MOVE" : "WHITE TO MOVE", fx::B_GOLD, 40, 60);
+        }
+        if (handT > 12) aimSq(cur, 3);
+        if (handT > 40) { handT = 0; humanTurn = true; fingerTo(cur); }
+    }
+    if (dipT) {
+        dipT--;
+        pal::setFade((uint8_t)(dipT > 4 ? 16 - (8 - dipT) * 3 : 16 - dipT * 3));
+    }
+    if (humanTurn) fingerSq = cur;
+    if (stepOut) snapCamera();
+    stepCamera();
+
+    // The finger glides to its square.
+    if (fingerSq != 0xFF) {
+        int x, y;
+        worldOf(fingerSq, x, y);
+        y -= topOf(fingerSq);
+        fx16 += ((x << 4) - fx16) >> 1;
+        fy16 += ((y << 4) - fy16) >> 1;
+    }
+
+    if (over && overT < 255) overT++;
+    if (overT > 150 && !waitPress) overDone = true;
+}
+
+// ---------------------------------------------------------------------------
+// Drawing
+// ---------------------------------------------------------------------------
+static bool isTarget(uint8_t sq, bool &cap) {
+    for (uint8_t i = 0; i < nTgt; i++) if (tgt[i] == sq) { cap = tgtCap[i]; return true; }
+    return false;
+}
+
+static void drawOverlays(uint32_t frame) {
+    uint8_t ph = (uint8_t)(frame >> 3);
+    uint8_t in = (uint8_t)((tileH + 2) / 5);        // borders sit this far in
+    // The other side's last move, while it is your turn to answer it.
+    if (match::lastFrom != 0xFF && humanTurn) {
+        tileTint(match::lastFrom, in, GOLD);
+        tileBorder(match::lastTo, in, GOLD, GOLD, 0);
+    }
+    if (match::checkSq != 0xFF && !mv[0].on) {
+        tileTint(match::checkSq, 0, RED);
+        tileBorder(match::checkSq, 0, RED, WHITE, ph);
+    }
+    if (intent != 0xFF) {
+        tileTint(intent, in, shown[intent] ? RED : CYAN);
+        tileBorder(intent, 0, shown[intent] ? RED : CYAN, WHITE, ph);
+    }
+    if (sel != 0xFF) {
+        for (uint8_t i = 0; i < nTgt; i++) {
+            if (tgtCap[i]) { tileTint(tgt[i], in, RED); tileBorder(tgt[i], 0, FX_B, RED, ph); }
+            else           { tileTint(tgt[i], in, CYAN); tileBorder(tgt[i], 0, FX_A, CYAN, ph); }
+        }
+    }
+    // Holding a piece, the square the glove is on blinks between dithered and
+    // solid: cyan to move there, red to take.
+    bool cap = false;
+    if (humanTurn && sel != 0xFF && isTarget(cur, cap)) tileTint(cur, in, cap ? RED : CYAN, (frame >> 4) & 1);
+    if (humanTurn) {
+        if (sel != 0xFF) tileBorder(sel, 0, WHITE, WHITE, 0);
+        tileBorder(cur, 0, sel != 0xFF ? WHITE : FX_B, GOLD, ph);
+    }
+}
+
+static void drawPiece(uint8_t p, int x, int y, const uint8_t *remap, int scale) {
+    const PieceArt &a = art(p);
+    sprite4(a.data, x - ((a.ax * scale) >> 8), y - ((a.ay * scale) >> 8), remap ? remap : remapFor(p), scale);
+}
+
+static void drawMover(const Mover &m) {
+    int x, y, z;
+    moverPos(m, x, y, z);
+    int sx = toScreenX(x), sy = toScreenY(y);
+    gfx_fillEllipse(sx, sy, zoomed(3), (tileH + 2) / 5, INK);    // its shadow stays on the board
+    drawPiece(m.piece, sx, sy - z, nullptr, zscale());
+}
+
+static void drawPieces(uint32_t frame) {
+    // Movers go in at their current depth, between the rows.
+    int md[2] = {99, 99};
+    for (int k = 0; k < 2; k++) {
+        if (!mv[k].on) continue;
+        int da = depthOf(mv[k].from), db = depthOf(mv[k].to);
+        int e = mv[k].delay ? 0 : fx::ease(fx::IN_OUT, mv[k].t, mv[k].T);
+        md[k] = da + (((db - da) * e + (db > da ? 255 : 0)) >> 8);
+    }
+    int last = flat ? 7 : 14;
+    for (int d = 0; d <= last; d++) {
+        for (int u = 0; u < 8; u++) {
+            int v = flat ? d : d - u;
+            if (v < 0 || v > 7) continue;
+            uint8_t sq = fromView(u, v, cam.flip);
+            uint8_t p = shown[sq];
+            if (!p) continue;
+            int x, y;
+            screenOf(sq, x, y);
+            if (x < -20 || x > 148 || y < -8 || y > 190) continue;
+            const PieceArt &a = art(p);
+            if (sq == topSq && over) {
+                // Checkmated: the king topples, bouncing as it lands, and stays down.
+                int e = topT ? fx::ease(fx::OUT_BOUNCE, topT, 30) : 256;
+                spriteRot(a.data, a.ax, a.ay, x, y, (uint8_t)((topDir * 60 * e) >> 8), zscale(), remapFor(p));
+                continue;
+            }
+            // Outlines: picked up, the rainbow; under the glove, fading black to
+            // white (FX_A in the palette's HOVER mode). Pieces that can be
+            // taken flash white - the one the glove would take, red.
+            // A king in check beats red (lub-dub), under the glove too - as its
+            // outline fades up to white - until it is picked up.
+            const uint8_t *rm = nullptr;
+            uint8_t hl[16], edge = 0xFF;
+            bool cap = false, prey = sel != 0xFF && isTarget(sq, cap) && cap;
+            bool beat = sq == match::checkSq && sq != sel && !(((frame >> 3) + 5) & 5);
+            if (sq == sel) edge = fx::RAIN[(frame >> 3) % 5];
+            else if (sq == fingerSq && gloveOn() && !prey) edge = FX_A;
+            if (edge != 0xFF) {
+                memcpy(hl, beat ? RM_PREY : remapFor(p), 16);
+                hl[INK] = edge;
+                rm = hl;
+            } else if (prey && (frame & 8)) {
+                rm = sq == fingerSq ? RM_PREY : RM_HIT;
+            } else if (beat) {
+                rm = RM_PREY;
+            }
+            if (sq == sel) {
+                gfx_fillEllipse(x, y, zoomed(3), (tileH + 2) / 5, INK);
+                y -= zoomed(3) + (zoomed(fx::isin((int)(frame >> 3) * 48)) >> 8);
+            }
+            drawPiece(p, x, y, rm, zscale());
+        }
+        for (int k = 0; k < 2; k++) if (mv[k].on && md[k] == d) drawMover(mv[k]);
+    }
+    if (fly.on) {
+        int sx, sy;
+        uint8_t ang;
+        flyAt(sx, sy, ang);
+        const PieceArt &a = art(fly.piece);
+        spriteRot(a.data, a.data[0] / 2, a.data[1] / 2, sx, sy - zoomed(a.ay) / 2, ang, zscale(),
+                  fly.t < 4 * fly.slow ? RM_HIT : remapFor(fly.piece));
+    }
+}
+
+static void drawFinger(uint32_t frame) {
+    if (fingerSq == 0xFF || !gloveOn()) return;
+    int x = toScreenX((int)(fx16 >> 4)), y = toScreenY((int)(fy16 >> 4));
+    int bob = (fx::isin((int)(frame >> 3) * 40) * 2) >> 8;
+    if (tapT) bob = (tapT < 6 ? tapT : 12 - tapT) / 2;
+    bob = zoomed(bob);
+    sprite4(HAND, x - zoomed(HAND_TIP), y - zoomed(HAND[1]) + bob - 1,
+            !humanTurn ? RM_CPU : denyT & 4 ? RM_ALERT : RM_ID, zscale());
+}
+
+// ---------------------------------------------------------------------------
+// HUD: whose turn; and a plate at the foot of the screen naming what the
+// finger is on, or the last move.
+// ---------------------------------------------------------------------------
+
+// Words in their colours on a rounded plate centred at y: grow (Q8) is the
+// plate's width so far, and word k shows from frame 6 + 3k, dropping in.
+static void plate(const char *const *w, const uint8_t *c, uint8_t n, int y, int grow, int t) {
+    int tw = 0;
+    for (uint8_t i = 0; i < n; i++) tw += text35Width(w[i]);
+    int pw = ((tw + 8) * grow) >> 8;
+    if (pw < 6) return;
+    fillRound(64 - pw / 2, y, pw, 11, 2, NAVY);
+    roundRect(64 - pw / 2, y, pw, 11, 2, GOLD);
+    int x = 64 - tw / 2;
+    for (uint8_t i = 0; i < n; i++) {
+        int d = t - 6 - 3 * i;
+        if (d >= 0) text35(x, y + 3 - (d < 3 ? 3 - d : 0), w[i], c[i]);
+        x += text35Width(w[i]);
+    }
+}
+
+static void drawHud(uint32_t frame) {
+    bool black = turnBlack;
+    gfx_fillRect(0, 0, 128, 9, INK);
+    gfx_hline(0, 9, 128, GOLD);
+    char who[16];
+    if (over) fmtStr(who, "GAME OVER");
+    else if (match::setup.mode == match::TWO_PLAYER) fmtStr(who, black ? "BLACK" : "WHITE");
+    else if (black == (match::setup.humanBlack != 0)) fmtStr(who, "YOUR MOVE");
+    else {
+        // The CPU by name, with dots while it thinks.
+        char *p = fmtStr(who, opponentName);
+        if (thinking) for (uint32_t k = 0; k < ((frame >> 4) & 3); k++) *p++ = '.', *p = 0;
+    }
+    text35(3, 2, who, thinking ? FX_B : WHITE);
+    int py = 116;
+    if (annT) {
+        // The last move: the plate springs open, then the words drop in.
+        int t = annT, grow = t < 8 ? fx::ease(fx::OUT_BACK, t, 8) : t > ANN_FRAMES - 8 ? (ANN_FRAMES - t) * 32 : 256;
+        plate(annW, annC, annN, py, grow, t);
+    } else if (humanTurn && (shown[cur] || sel != 0xFF)) {
+        // What the finger is on: a piece, or where the picked-up one would go.
+        char sq[3] = {(char)('A' + (cur & 7)), (char)('1' + (cur >> 3)), 0};
+        const char *w[4] = {NAMES[shown[sel != 0xFF ? sel : cur] & eng::TYPE], " ", sq, blocked ? " NO MOVES" : ""};
+        uint8_t c[4] = {WHITE, WHITE, GOLD, (uint8_t)(denyT & 4 ? RED : SILVER)};
+        if (sel != 0xFF && shown[cur]) { w[1] = " TAKES "; c[1] = RED; w[2] = NAMES[shown[cur] & eng::TYPE]; c[2] = WHITE; }
+        else if (sel != 0xFF) { w[1] = " TO "; c[1] = SILVER; }
+        plate(w, c, 4, py, 256, 99);
+    }
+    if (waitPress && holdT < 20 && (frame & 32)) {           // blinking
+        static const char *const PRESS[1] = {"PRESS A"};
+        static const uint8_t WHITE1[1] = {WHITE};
+        plate(PRESS, WHITE1, 1, 100, 256, 99);
+    }
+}
+
+void renderScene(uint32_t frame) {
+    drawTable();
+    drawBoard();
+    drawPieces(frame);
+}
+
+// Drawn doubled (the promotion reel), whatever the view.
+void drawPieceAt(uint8_t piece, int x, int y) { drawPiece(piece, x, y, nullptr, 512); }
+
+// A still scene is not redrawn: the frame is flushed again, so palette
+// effects keep moving at 60 Hz, and the bob and the marching borders step at
+// 7.5 Hz, so an idle board costs an eighth of the frames.
+static uint32_t lastSig;
+
+static uint32_t signature(uint32_t frame, uint32_t ui) {
+    int lo, hi;
+    if (fx::activeRows(lo, hi) || mv[0].on || mv[1].on || fly.on || (topT && topT < 60)) return frame;
+    if (cx16 != (int32_t)aimX << 4 || cy16 != (int32_t)aimY << 4) return frame;
+    uint32_t h = 2166136261u;
+    uint32_t v[] = {
+        (uint32_t)cam.x, (uint32_t)cam.y, cam.flip, cur, sel, viewMode, tileH, intent, humanTurn, thinking,
+        picking, fingerSq, (uint32_t)(fx16 >> 4), (uint32_t)(fy16 >> 4), frame >> 3, match::lastTo,
+        match::checkSq, nTgt, over, tapT, annT, ui, waitPress, denyT,
+    };
+    for (uint32_t x : v) h = (h ^ x) * 16777619u;
+    return h;
+}
+
+void invalidate() { lastSig = 0; }
+
+bool render(uint32_t frame, uint32_t ui) {
+    zoomDrawn = true;                            // the zoom may take its next step
+    uint32_t sig = signature(frame, ui);
+    if (sig == lastSig) return false;
+    lastSig = sig;
+    drawTable();
+    drawBoard();
+    drawOverlays(frame);
+    drawPieces(frame);
+    drawFinger(frame);
+    drawHud(frame);
+    fx::drawParticles((uint8_t)((2 * tileH + 2) / 5));
+    fx::drawBanner();
+    fx::applyShake(10, 127);
+    return true;
+}
+
+#if CHGAME_DEBUG
+// Device render profile (debug Y command): microseconds per section,
+// averaged over 8 draws of the current scene.
+static void profTable(uint32_t) { drawTable(); }
+static void profBoard(uint32_t) { drawBoard(); }
+static void profFx(uint32_t) { fx::drawParticles(2); fx::drawBanner(); }
+void profile(uint32_t *us) {
+    static void (*const PART[6])(uint32_t) = {profTable, profBoard, drawOverlays, drawPieces, drawHud, profFx};
+    for (int k = 0; k < 6; k++) {
+        uint32_t t = micros();
+        for (int i = 0; i < 8; i++) PART[k](0);
+        us[k] = (micros() - t) / 8;
+    }
+    invalidate();
+}
+#endif
+
+}  // namespace stage

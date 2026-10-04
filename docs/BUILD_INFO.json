@@ -1,0 +1,44 @@
+{
+  "release": "0.3.1",
+  "upstream_commit": "e876774c3a079b0362e1f0fc8494ade491bdbe29",
+  "arduino_cli": "1.5.1",
+  "arduino_pico": "6.2.0",
+  "toolchain_packages": {
+    "pqt-gcc-riscv": "5.0.0-9576866"
+  },
+  "targets": {
+    "rp2350-riscv": {
+      "cpu_hz": 150000000,
+      "flash_bytes": 4194304,
+      "architecture": "Hazard3 RISC-V",
+      "internal_fs": false,
+      "usb_stack": "Pico SDK"
+    }
+  },
+  "hardware_tested": false,
+  "boards": {
+    "pico2": {
+      "package": "RP2350A",
+      "physical_flash_bytes": 4194304,
+      "usable_flash_bytes": 4194304,
+      "sd": "external SPI0 module",
+      "prebuilt": false,
+      "hardware_tested": false
+    },
+    "waveshare_rp2350_pizero": {
+      "package": "RP2350B",
+      "physical_flash_bytes": 16777216,
+      "usable_flash_bytes": 4194304,
+      "sd": "onboard SPI1 slot",
+      "sd_pins": {"sck": 30, "mosi": 31, "miso": 40, "cs": 43},
+      "lcd_spi": 0,
+      "fqbn": "rp2040:rp2040:rpgame2350_pizero:arch=riscv,freq=150",
+      "psram": false,
+      "prebuilt": true,
+      "standalone_images": 33,
+      "menu_images": 25,
+      "sd_packages": 25,
+      "hardware_tested": false
+    }
+  }
+}

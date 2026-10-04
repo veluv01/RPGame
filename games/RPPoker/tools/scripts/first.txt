@@ -1,0 +1,28 @@
+# First look: title, lobby, a Hold'em hand played through.
+wait 60
+snap title
+tap A
+wait 30
+snap lobby
+say G 0 0 200 7
+wait 240
+snap mine
+tap RIGHT
+snap raise
+tap UP
+tap UP
+snap raise2
+tap A
+wait 60
+snap after
+wait 400
+snap flop
+tap A
+wait 400
+snap turn
+tap A
+wait 400
+snap river
+tap A
+wait 600
+snap end

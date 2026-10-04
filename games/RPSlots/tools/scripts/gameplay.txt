@@ -1,0 +1,58 @@
+# The README's one picture (docs/gameplay.gif): the title, then a clip from
+# each machine. Each clip is its own recording, named in the order it is
+# shown; ../../../../../../../../../tools/readme_gif.py runs this script and joins them:
+#   chgame gif
+say R 2026
+say J T
+rec start 3
+wait 150
+rec stop 01_title
+# LUCKY 7: pull the arm, three sevens. (At $1: at $5 the 250x would reach
+# the $1000 goal and end the session. M puts the purse back between clips.)
+say J C
+wait 20
+say E 0
+say F 4 2 8
+rec start 4
+hold A
+wait 14
+release
+wait 195
+rec stop 02_lucky7
+idle
+# LUCKY 7: two lucky charms spin the bonus wheel.
+say M 500
+say E 1
+say G 5
+rec start 5
+hold A
+wait 14
+release
+wait 410
+rec stop 03_wheel
+idle
+# DRAGON FORTUNE: the dragon rises and fills its reel.
+say J F
+wait 20
+say M 500
+say G 3
+rec start 4
+tap A
+idle 20
+rec stop 04_dragon
+# SWEET: wins in a row climb the sugar rush ladder (a first win, not
+# recorded, has it at x2).
+say J Y
+wait 20
+say M 500
+say F 0 0 2
+tap A
+idle 10
+say F 11 10 1
+rec start 5
+tap A
+idle 10
+say F 7 4 22
+tap A
+idle 10
+rec stop 05_sweet

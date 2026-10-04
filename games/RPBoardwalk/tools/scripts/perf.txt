@@ -1,0 +1,21 @@
+# Estimated device render cost (simulator host time, calibrated against the
+# CHGfx benchmark's primitives): the title, a CPU game, an auction.
+cal
+wait 120
+perf title
+say G 3 4 2 3 30 3
+wait 30
+perf deal
+wait 1500
+perf cpu game
+say G 1 3 4 0 30 5
+waitturn 4
+say T 0 36 0
+say D 1 2
+tap A
+waitturn 10
+perf landing
+tap RIGHT
+tap A
+wait 300
+perf auction

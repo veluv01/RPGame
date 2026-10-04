@@ -1,0 +1,35 @@
+# With the full list on the card (CHSD_CARD: chgame check sets it for this
+# script): a word the flash list has not got is played; then the card is
+# pulled out and the next one is refused by the flash list.
+wait 30
+snap title
+say M
+say D ZYZZYVA
+say D ZZZ
+say D WORD
+say G 1 0 3
+wait 20
+say R QUOKKAS
+say W 7 3 H QUOKKAS
+wait 2
+snap laid
+tap START
+wait 6
+tap A
+wait 40
+snap played
+waitturn
+say R ZYZZYVA
+say W 8 9 V ZYZZYVA
+say X 0
+tap START
+wait 6
+tap A
+wait 20
+snap lost
+tap START
+wait 6
+tap A
+wait 20
+snap refused
+say M

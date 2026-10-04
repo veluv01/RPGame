@@ -1,0 +1,36 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of a
+# game against THE BOSS and both endings. Each clip is its own recording,
+# named in the order it is shown; ../../../../../../../../../tools/readme_gif.py runs this
+# script and joins them:
+#   chgame gif
+rec start 3
+wait 150
+rec stop 01_title
+# The opening against THE BOSS: he talks the game through.
+say G 0 2 0 3
+wait 30
+waitturn 10
+rec start 3
+col 4
+waitturn 25
+col 3
+waitturn 25
+col 5
+waitturn 40
+rec stop 02_opening
+# You make four: the close-up, and his congratulations.
+say M 0 2 0 112233
+wait 20
+waitturn 10
+rec start 3
+col 4
+wait 420
+rec stop 03_youwin
+# He makes four.
+say M 0 2 0 717263
+wait 20
+waitturn 10
+rec start 3
+col 7
+wait 520
+rec stop 04_hewins

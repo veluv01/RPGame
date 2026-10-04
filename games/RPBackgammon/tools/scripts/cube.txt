@@ -1,0 +1,52 @@
+# Match play and the cube: you double, the CPU takes; the CPU doubles, you
+# take; then you pass a double and the game goes to the CPU; the match score.
+# A race at 2-2 in a match to 5: you double, and the CPU (well ahead) takes.
+say U 1
+say V 0 1 w 8:3 7:3 6:3 5:3 4:3 r 6:4 5:4 4:4 3:3
+say C 5 2 2 0 2 0
+say D 3121
+wait 30
+waitturn 4
+snap to_roll
+tap LEFT
+wait 6
+snap on_cube
+rec start 2
+tap A
+waitturn 10
+rec stop double
+snap taken
+tap A
+waitturn 6
+snap rolled
+board
+
+# The CPU, well ahead, doubles: you take.
+say V 1 1 w 24:2 13:5 8:3 6:5 r 6:4 5:4 4:4 3:3
+say C 5 1 3 0 2 0
+say D 4231
+wait 30
+rec start 2
+waitturn 10
+rec stop cpu_double
+snap answer
+tap A
+waitturn 10
+snap after_take
+board
+
+# Doubled again later: pass.
+say V 1 1 w 24:2 13:5 8:3 6:5 r 6:4 5:4 4:4 3:3
+say C 7 1 3 1 1 0
+wait 30
+waitturn 10
+snap answer2
+tap DOWN
+wait 4
+tap A
+wait 160
+snap passed
+tap A
+wait 80
+snap result
+board

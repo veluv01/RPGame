@@ -1,0 +1,21 @@
+# A hit, close up, and the CPU coming in from the bar.
+say U 1
+say V 0 1 w 24:2 13:5 8:3 6:5 r 24:2 13:4 8:3 6:5 20:1
+say D 316455
+wait 30
+waitturn 4
+rec start 2
+tap A
+waitturn 6
+snap rolled
+move 8 5
+waitturn 6
+snap hit
+move 6 5
+waitturn 6
+snap done
+tap A
+waitturn 10
+rec stop hit
+snap after
+board

@@ -1,0 +1,10 @@
+# An all-CPU game of ten rounds, to its result: the net-worth graph.
+say G 2 3 4 0 10 21
+wait 20000
+snap story1
+wait 20000
+snap story2
+wait 20000
+snap story3
+wait 20000
+snap story4

@@ -1,0 +1,12 @@
+# A checker, seen from above: a casino chip, 8 x 8. Drawn in neutral tones
+# that the game remaps for each side (tools/art/sides.txt): w body,
+# p highlight, s shade, k the outline (which the game also recolours: the
+# glove's checker, the one picked up).
+..kkkk..
+.kwwwwk.
+kwpwwwwk
+kwwwwwwk
+kwwwwwsk
+kwwwwssk
+.kwsssk.
+..kkkk..

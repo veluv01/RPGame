@@ -1,0 +1,33 @@
+# The close-up: B held whips in round the glove; the D-pad and A still play.
+say G 0 12345
+wait 150
+snap full
+hold B
+wait 11
+snap whip1
+wait 1
+snap whip2
+wait 1
+snap whip3
+wait 10
+snap close
+# A pair, taken close up (the deal's own: 90 and 112).
+goto 90 6
+tap A
+wait 10
+snap close_picked
+goto 112 6
+wait 4
+snap close_twin
+tap A
+wait 10
+snap close_fly
+wait 6
+snap close_hit
+wait 30
+snap close_after
+release
+wait 4
+snap whip_out
+wait 10
+snap back_out

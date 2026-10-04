@@ -1,0 +1,38 @@
+# Two players: the game changes hands behind a curtain; then save and
+# quit, and continue from the title.
+say G 1 0 4
+wait 20
+say R PLAYERS
+say W 7 1 H PLAYERS
+tap START
+wait 4
+tap A
+wait 45
+snap bingo
+wait 120
+snap curtain
+tap A
+wait 10
+snap player2
+tap START
+wait 4
+tap DOWN
+tap DOWN
+tap A
+wait 30
+snap passed
+wait 90
+tap A
+wait 10
+tap START
+wait 4
+tap DOWN
+tap DOWN
+tap DOWN
+tap A
+wait 40
+snap title
+tap A
+wait 40
+snap continued
+board

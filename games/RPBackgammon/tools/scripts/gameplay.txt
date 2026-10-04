@@ -1,0 +1,71 @@
+# The README's one picture (docs/gameplay.gif): the title, then clips of
+# play against the EXPERT, played with the D-pad and glove as a player
+# would; the dice are stacked, the CPU plays its own moves. Each clip is
+# its own recording, named in the order it is shown;
+# ../../../../../../../../../tools/readme_gif.py runs this script and joins them:
+#   chgame gif
+say U 1
+wait 8
+rec start 3
+wait 150
+rec stop 01_title
+# An opening: the roll, 13/7 8/7 with a 6-1, the dice picked up, his reply.
+say G 0 1 5
+say D 6143
+wait 30
+rec start 3
+tap A
+waitturn 12
+move 13 7
+waitturn 4
+move 8 7
+waitturn 10
+tap A
+waitturn 6
+rec stop 02_opening
+# A hit, close up.
+say V 0 1 w 24:2 13:5 8:3 6:5 r 24:2 13:4 8:3 6:5 20:1
+say D 31
+wait 30
+waitturn 0
+tap A
+waitturn 6
+rec start 3
+move 8 5
+waitturn 4
+move 6 5
+waitturn 16
+rec stop 03_hit
+# A double: four sixes.
+say X 0 w 24:2 13:5 8:3 6:5 r 24:2 13:5 8:3 6:5
+say D 66
+wait 30
+waitturn 0
+rec start 3
+tap A
+waitturn 8
+move 24 18
+waitturn 2
+move 24 18
+waitturn 2
+move 13 7
+waitturn 2
+move 13 7
+waitturn 12
+rec stop 04_double
+# The last two checkers off: a gammon that takes a match to 3.
+say V 0 1 w 2:1 1:1 r 6:5 5:5 4:5
+say C 3 1 0 0 2 0
+say D 21
+wait 30
+waitturn 0
+tap A
+waitturn 6
+rec start 3
+move 2 0
+waitturn 4
+move 1 0
+wait 170
+tap A
+wait 90
+rec stop 05_win

@@ -1,0 +1,21 @@
+# DRAGON FORTUNE's features, forced: five of a kind, the dragon, free games, hold and spin.
+say R 21
+say J F
+wait 20
+say G 4
+rec start 3
+tap A
+idle 40
+rec stop big
+say G 1
+rec start 4
+tap A
+idle 30
+rec stop free
+snap after_free
+say G 2
+rec start 4
+tap A
+idle 30
+rec stop hold
+snap after_hold

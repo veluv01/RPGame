@@ -1,0 +1,22 @@
+CHSlots
+Copyright 2026 bateske
+
+Slot machines for the CHGame handheld, licensed under the Apache License,
+Version 2.0 (see LICENSE).
+
+It contains a font from "Blackjack" for the Arduboy by Press Play On Tape -
+Simon Holmes (filmote), code, and Stephane C (vampirics), art:
+
+    https://github.com/Press-Play-On-Tape/Blackjack   (commit 72a6b1b, 2022)
+
+licensed under the Apache License, Version 2.0, by way of CHBlackjack
+(https://github.com/bateske/CHBlackjack, the same author's colour port):
+
+  * The 3x5 font (the CHGame library,
+    platform/board/arduino/CHGame/libraries/CHGame/src/chgame/Draw.cpp, FONT35), extended with a
+    few symbols.
+
+New for this game: the rules of both machines, the reel symbols and the
+"SLOTS" title lettering (tools/assets.py, tools/art/), the sound effects and
+the presentation. The input, palette, effects, saving, sound and debug code
+comes from CHBlackjack, CHChess and CHCraps by the same author.

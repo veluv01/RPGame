@@ -1,0 +1,25 @@
+# Where the camera rests at the start of a turn, round the board.
+say G 1 1 0 0 30 4
+waitturn 4
+snap at_go
+say T 0 6 0
+wait 30
+snap near_left
+say T 0 10 0
+wait 30
+snap jail_corner
+say T 0 14 0
+wait 30
+snap far_left
+say T 0 20 0
+wait 30
+snap far_corner
+say T 0 25 0
+wait 30
+snap far_right
+say T 0 30 0
+wait 30
+snap right_corner
+say T 0 36 0
+wait 30
+snap near_right

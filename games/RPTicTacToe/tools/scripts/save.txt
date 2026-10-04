@@ -1,0 +1,38 @@
+# Saving: a run's purse, table and stake come back after "a power cycle"
+# (the title's CONTINUE), and the stats count the games.
+#   chgame run tools/scripts/save.txt out/save
+say R 5
+say J T
+wait 30
+tap A
+wait 40
+tap RIGHT
+tap RIGHT
+tap UP
+wait 20
+snap 01_tables
+tap A
+wait 60
+say H 1
+say C 4
+wait 110
+say H 2
+say C 0
+wait 110
+say C 8
+wait 160
+snap 02_won
+tap B
+wait 40
+snap 03_back_at_tables
+tap B
+wait 40
+snap 04_title_continue
+say J S
+wait 30
+snap 05_stats
+say J T
+wait 30
+tap A
+wait 40
+snap 06_continued

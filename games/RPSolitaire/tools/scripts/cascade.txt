@@ -1,0 +1,32 @@
+# The win: the last cards play themselves out, then the pack bounces away.
+say O 2 0
+say G 11
+waitstate 1 5
+say W 9
+wait 5
+tap A
+tap A
+waitstate 3
+expect up=52 live=0 won=1
+rec start 4
+wait 900
+rec stop cascade
+snap trail
+waitstate 4 30
+snap won
+expect score=90
+tap A
+waitstate 1 5
+expect up=0 stock=24 live=1
+snap dealagain
+# Vegas: $52 a game, $5 a card.
+say O 1 1
+say G 5
+waitstate 1 5
+expect score=-52
+snap vegas
+say W 2
+tap A
+tap A
+waitstate 4 30
+snap vegaswon
